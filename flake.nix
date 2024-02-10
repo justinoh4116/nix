@@ -28,13 +28,6 @@
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
           /etc/nixos/configuration.nix
-
-	  home-manager.nixosModules.home-manager {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-
-	    home-manager.users.justin = import ./home.nix;
-	  }
         ];
       };
     };
@@ -47,7 +40,7 @@
             # Before you ask why this is the only module--
             # when there are clearly others in the file tree--
             # please see the rest of the example files.
-            ./home.nix
+            ./users/justin/profile.nix
           ];
           # Just like `specialArgs` above...
           extraSpecialArgs = {
