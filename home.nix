@@ -114,6 +114,13 @@
     };
   };
 
+  programs.fish = {
+    enable = true;
+    plugins = [
+      { name = "tide"; src = pkgs.fishPlugins.tide.src; }
+    ];
+  };
+
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
