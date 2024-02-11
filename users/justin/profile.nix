@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, args, lib, ... }:
 
 {
   # TODO please change the username & home direcotry to your own
   home.username = "justin";
   home.homeDirectory = "/home/justin";
+
+  imports = [
+    ./programs
+  ];
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -91,6 +95,7 @@
     usbutils # lsusb
   ];
 
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -112,15 +117,6 @@
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
     };
-  };
-
-  programs.fish = {
-    enable = true;
-    plugins = [
-      { name = "tide"; src = pkgs.fishPlugins.tide.src; }
-      { name = "z"; src = pkgs.fishPlugins.z.src; }
-      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
-    ];
   };
 
 
