@@ -7,6 +7,8 @@
 
   imports = [
     ./programs
+    ./wayland
+    ./hyprland
   ];
 
   # link the configuration file in current directory to the specified location in home directory
@@ -93,6 +95,8 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    bat
   ];
 
 

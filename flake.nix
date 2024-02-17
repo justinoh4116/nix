@@ -1,27 +1,10 @@
 {
   description = "flakey";
-  inputs = {
-    # There are many ways to reference flake inputs.
-    # The most widely used is `github:owner/name/reference`,
-    # which represents the GitHub repository URL + branch/commit-id/tag.
-
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    # home-manager, used for managing user configuration
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    systems.url = "github:nix-systems/default";
-  };
 
   outputs = { systems, self, nixpkgs, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
+        specialArgs = { inherit inputs; };
         "nixos" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -29,7 +12,7 @@
             # Import the configuration.nix here, so that the
             # old configuration file can still take effect.
             # Note: configuration.nix itself is also a Nixpkgs Module,
-            /etc/nixos/configuration.nix
+            ./configuration.nix
           ];
         };
       };
@@ -53,4 +36,34 @@
         # ...
       };
     };
-  }
+  inputs = {
+    # stable?!? hardly even
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # home manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      # The `follows` keyword in inputs is used for inheritance.
+      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
+      # the `inputs.nixpkgs` of the current flake,
+      # to avoid problems caused by different versions of nixpkgs.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
+    systems.url = "github:nix-systems/default";
+
+    schizofox.url = "github:schizofox/schizofox";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+
+    # anyrun launcher
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+}
