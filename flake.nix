@@ -25,7 +25,7 @@
               # Before you ask why this is the only module--
               # when there are clearly others in the file tree--
               # please see the rest of the example files.
-              ./users/justin/profile.nix
+              ./homes/justin/profile.nix
             ];
             # Just like `specialArgs` above...
             extraSpecialArgs = {
