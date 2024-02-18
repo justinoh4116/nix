@@ -4,8 +4,8 @@
   outputs = { systems, self, nixpkgs, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
-        specialArgs = { inherit inputs; };
         "nixos" = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           system = "x86_64-linux";
           modules = [
   
@@ -13,6 +13,7 @@
             # old configuration file can still take effect.
             # Note: configuration.nix itself is also a Nixpkgs Module,
             ./configuration.nix
+	    ./hosts/nix-test
           ];
         };
       };
