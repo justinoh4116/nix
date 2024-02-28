@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   imports = [
     ./dunst.nix
+    ./anyrun.nix
   ];
 
   home.packages = [

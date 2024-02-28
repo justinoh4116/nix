@@ -10,6 +10,10 @@
     settings = {
       "$MOD" = "SUPER";
 
+      monitor = [
+        "eDP-1, preferred, 0x0, 1.6"
+      ];
+
       gestures = {
         workspace_swipe = true;
       };
@@ -38,9 +42,11 @@
 
 	# window controls
 	"$MOD, Q, killactive,"
-
-        "CONTROL, M, exit,"
       ];
+
+      misc = {
+        force_default_wallpaper = 0;
+      };
 
     };
 

@@ -1,9 +1,24 @@
 {
   description = "flakey";
 
-  outputs = { systems, self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { systems, self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
     {
       nixosConfigurations = {
+	"framework" = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = [
+  
+            # Import the configuration.nix here, so that the
+            # old configuration file can still take effect.
+            # Note: configuration.nix itself is also a Nixpkgs Module,
+            # /etc/nixos/configuration.nix
+	    # /etc/nixos/hardware-configuration.nix
+	    nixos-hardware.nixosModules.framework-13-7040-amd
+	    ./hosts/framework
+          ];
+        };
+
         "nixos" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
@@ -40,6 +55,8 @@
   inputs = {
     # stable?!? hardly even
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # home manager
     home-manager = {
