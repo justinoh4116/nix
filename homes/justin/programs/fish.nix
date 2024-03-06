@@ -11,6 +11,10 @@ args@{ pkgs, ...}: {
       { name = "puffer"; src = pkgs.fishPlugins.puffer.src; }
       { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
     ];
+    shellInit = ''
+      set -gx $EDITOR "nvim"
+      set fzf_directors_opts --bind "ctrl-0:execute($EDITOR {} &> /dev/tty)"
+    '';
     
   };
 }

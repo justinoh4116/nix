@@ -7,9 +7,11 @@
 }:
 {
   imports = [
+    ./audio.nix
     ./system.nix
     ./configuration.nix
     ./hardware-configuration.nix
     ./fonts.nix
+    ./misc.nix
   ];
 }

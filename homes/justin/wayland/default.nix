@@ -4,10 +4,29 @@
     ./anyrun.nix
   ];
 
-  home.packages = [
-    # Wallpaper
-    # pkgs.swaybg
-  ];
+  home = {
+    packages = [
+      # Wallpaper
+      # pkgs.swaybg
+      pkgs.blueman
+      pkgs.grim
+      pkgs.slurp
+    ];
+
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.apple-cursor;
+      name = "macOS-Monterey-White";
+      size = 24;
+        };
+
+  };
+
+  gtk = {
+    enable = true;
+    theme.name = "Adwaita-dark";
+  };
 
   # make some environment tweaks for wayland
   home.sessionVariables = {

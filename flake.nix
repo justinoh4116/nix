@@ -1,34 +1,43 @@
 {
   description = "flakey";
 
-  outputs = { systems, self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
-    {
-      nixosConfigurations = {
-	"framework" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
-          modules = [
-  
+  outputs = inputs@{ 
+  systems, 
+  self,
+  nixpkgs,
+  home-manager,
+  nixos-hardware,
+  ...
+  }:
+  let 
+    overlays = [
+      inputs.neovim-nightly-overlay.overlay
+    ];
+  in {
+    nixosConfigurations = {
+      "framework" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
             # Import the configuration.nix here, so that the
             # old configuration file can still take effect.
             # Note: configuration.nix itself is also a Nixpkgs Module,
             # /etc/nixos/configuration.nix
-	    # /etc/nixos/hardware-configuration.nix
-	    nixos-hardware.nixosModules.framework-13-7040-amd
-	    ./hosts/framework
-          ];
-        };
+            # /etc/nixos/hardware-configuration.nix
+            nixos-hardware.nixosModules.framework-13-7040-amd
+            ./hosts/framework
+        ];
+      };
 
-        "nixos" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
+      "nixos" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
           modules = [
-  
             # Import the configuration.nix here, so that the
             # old configuration file can still take effect.
             # Note: configuration.nix itself is also a Nixpkgs Module,
             ./configuration.nix
-	    ./hosts/nix-test
+            ./hosts/nix-test
           ];
         };
       };
@@ -38,9 +47,6 @@
             # for reasons (similar to `system` above) that are out-of-scope of this example.
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
             modules = [
-              # Before you ask why this is the only module--
-              # when there are clearly others in the file tree--
-              # please see the rest of the example files.
               ./homes/justin/profile.nix
             ];
             # Just like `specialArgs` above...
@@ -83,5 +89,9 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    gestures.url = "github:riley-martin/gestures";
   };
 }

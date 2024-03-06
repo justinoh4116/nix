@@ -14,5 +14,5 @@
     fira-code-symbols
 
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ]
+  ];
 }
