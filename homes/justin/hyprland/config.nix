@@ -20,7 +20,7 @@
       "$MOD" = "SUPER";
 
       monitor = [
-        "eDP-1, preferred, 0x0, 1.333333"
+        "eDP-1, preferred, 0x0, 1.3333333333"
       ];
 
       gestures = {
