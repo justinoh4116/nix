@@ -1,6 +1,10 @@
-{ config, pkgs, args, lib, ... }:
-
 {
+  config,
+  pkgs,
+  args,
+  lib,
+  ...
+}: {
   # TODO please change the username & home direcotry to your own
   home.username = "justin";
   home.homeDirectory = "/home/justin";
@@ -52,12 +56,12 @@
     # networking tools
     mtr # A network diagnostic tool
     iperf3
-    dnsutils  # `dig` + `nslookup`
+    dnsutils # `dig` + `nslookup`
     ldns # replacement of `dig`, it provide the command `drill`
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
-    ipcalc  # it is a calculator for the IPv4/v6 addresses
+    ipcalc # it is a calculator for the IPv4/v6 addresses
 
     # misc
     cowsay
@@ -80,7 +84,7 @@
     hugo # static site generator
     glow # markdown previewer in terminal
 
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
 
@@ -99,14 +103,12 @@
     bat
   ];
 
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "Justin Oh";
     userEmail = "justinoh4116@gmail.com";
   };
-
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
@@ -122,7 +124,6 @@
       selection.save_to_clipboard = true;
     };
   };
-
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

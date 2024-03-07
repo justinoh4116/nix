@@ -4,8 +4,7 @@
   pkgs,
   libg,
   ...
-}:
-{
+}: {
   wayland.windowManager.hyprland = {
     settings = {
       "$MOD" = "SUPER";
@@ -24,19 +23,18 @@
         kb_layout = "us";
         follow_mouse = 2;
         sensitivity = 0.3;
-    
-    	touchpad = {
+
+        touchpad = {
           disable_while_typing = true;
           natural_scroll = true;
-    	  tap-to-click = true;
-    	  clickfinger_behavior = true;
-    	  scroll_factor = 0.4;
-    	};
+          tap-to-click = true;
+          clickfinger_behavior = true;
+          scroll_factor = 0.4;
+        };
       };
 
       general = {
         no_cursor_warps = "true";
-        
       };
 
       bind = [
@@ -45,8 +43,9 @@
         "$MOD, B, exec, firefox"
         "$MOD, SPACE, exec, anyrun"
 
-	    # window controls
-	    "$MOD, Q, killactive,"
+        # window controls
+        "$MOD, Q, killactive,"
+        "$MOD, F, fullscreen"
 
         "$MOD, H, movefocus, l"
         "$MOD, J, movefocus, d"
@@ -84,7 +83,6 @@
         "SHIFT$MOD, 9, movetoworkspace, 9"
         "SHIFT$MOD, 0, movetoworkspace, 10"
 
-
         "$MOD, Tab, workspace, e+1"
         "SHIFT$MOD, Tab, workspace, e-1"
 
@@ -93,8 +91,6 @@
         ", XF86MONBrightnessUp, exec, brightnessctl s +10"
 
         ", Print, exec, ~/.config/hypr/scripts/screenshot"
-
-
       ];
 
       bindm = [

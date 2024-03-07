@@ -1,5 +1,11 @@
-{ inputs, pkgs, self, config, lib, ... }:
 {
+  inputs,
+  pkgs,
+  self,
+  config,
+  lib,
+  ...
+}: {
   home.packages = [
     inputs.gestures.packages.${pkgs.system}.gestures
     pkgs.ydotool

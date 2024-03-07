@@ -1,5 +1,10 @@
-{ inputs, self, config, pkgs, ... }:
 {
+  inputs,
+  self,
+  config,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     pavucontrol
     pamixer

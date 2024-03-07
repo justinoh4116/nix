@@ -4,10 +4,8 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
-    
   ];
 
   home.file."${config.xdg.configHome}/nvim" = {

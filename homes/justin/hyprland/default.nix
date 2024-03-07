@@ -1,4 +1,11 @@
-{ self, config, lib, pkgs, inputs, ... }: {
+{
+  self,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./config.nix
     ./gestures.nix

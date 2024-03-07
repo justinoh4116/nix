@@ -4,15 +4,14 @@
   pkgs,
   self,
   ...
-}:
-{
+}: {
   environment.systemPackages = with pkgs; [
     just
   ];
 
   nix.settings = {
     substituters = [
-      "https://hyprland.cachix.org" 
+      "https://hyprland.cachix.org"
       "https://anyrun.cachix.org"
     ];
     trusted-public-keys = [
@@ -22,7 +21,7 @@
   };
   nixpkgs.config = {
     allowUnfree = true;
-    allowUnfreePredicate = (_: true);
+    allowUnfreePredicate = _: true;
   };
   nixpkgs.overlays = [
     inputs.neovim-nightly-overlay.overlay

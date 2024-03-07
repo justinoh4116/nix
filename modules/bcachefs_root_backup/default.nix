@@ -1,11 +1,13 @@
-{ config, pkgs, lib, self, ... }:
-
-let
+{
+  config,
+  pkgs,
+  lib,
+  self,
+  ...
+}: let
   cfg = config.services.bcachefsRootBackup;
 in {
-
   imports = [
-
   ];
 
   options = {
@@ -19,45 +21,42 @@ in {
       };
       frequent = mkOption {
         type = types.bool;
-	default = false;
-	description = ''
-	  Will enable snapshots every 15 minutes
-	'';
+        default = false;
+        description = ''
+          Will enable snapshots every 15 minutes
+        '';
       };
       hourly = mkOption {
         type = types.bool;
-	default = false;
-	description = ''
-	  Will enable hourly snapshots
-	'';
+        default = false;
+        description = ''
+          Will enable hourly snapshots
+        '';
       };
       daily = mkOption {
         type = types.bool;
-	default = true;
-	description = ''
-	  Will enable daily snapshots
-	'';
+        default = true;
+        description = ''
+          Will enable daily snapshots
+        '';
       };
       weekly = mkOption {
         type = types.bool;
-	default = true;
-	description = ''
-	  Will enable weekly snapshots
-	'';
+        default = true;
+        description = ''
+          Will enable weekly snapshots
+        '';
       };
       monthly = mkOption {
         type = types.bool;
-	default = true;
-	description = ''
-	  Will enable monthly snapshots
-	'';
+        default = true;
+        description = ''
+          Will enable monthly snapshots
+        '';
       };
     };
-
   };
 
   config = {
-
   };
-
 }

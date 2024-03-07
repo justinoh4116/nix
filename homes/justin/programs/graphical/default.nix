@@ -4,8 +4,7 @@
   self,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     ./discord.nix
     ./nextcloud.nix

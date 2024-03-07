@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./dunst.nix
     ./anyrun.nix
@@ -19,8 +24,7 @@
       package = pkgs.apple-cursor;
       name = "macOS-Monterey-White";
       size = 24;
-        };
-
+    };
   };
 
   gtk = {

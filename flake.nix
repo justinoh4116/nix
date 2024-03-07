@@ -1,63 +1,63 @@
 {
   description = "flakey";
 
-  outputs = inputs@{ 
-  systems, 
-  self,
-  nixpkgs,
-  home-manager,
-  nixos-hardware,
-  ...
-  }:
-  let 
+  outputs = inputs @ {
+    systems,
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    ...
+  }: let
     overlays = [
       inputs.neovim-nightly-overlay.overlay
     ];
   in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
-            # Import the configuration.nix here, so that the
-            # old configuration file can still take effect.
-            # Note: configuration.nix itself is also a Nixpkgs Module,
-            # /etc/nixos/configuration.nix
-            # /etc/nixos/hardware-configuration.nix
-            nixos-hardware.nixosModules.framework-13-7040-amd
-            ./hosts/framework
+          # Import the configuration.nix here, so that the
+          # old configuration file can still take effect.
+          # Note: configuration.nix itself is also a Nixpkgs Module,
+          # /etc/nixos/configuration.nix
+          # /etc/nixos/hardware-configuration.nix
+          nixos-hardware.nixosModules.framework-13-7040-amd
+          ./hosts/framework
         ];
       };
 
       "nixos" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-          modules = [
-            # Import the configuration.nix here, so that the
-            # old configuration file can still take effect.
-            # Note: configuration.nix itself is also a Nixpkgs Module,
-            ./configuration.nix
-            ./hosts/nix-test
-          ];
-        };
-      };
-      homeConfigurations = {
-          justin = home-manager.lib.homeManagerConfiguration {
-            # This is also not the recommended way of passing `nixpkgs`,
-            # for reasons (similar to `system` above) that are out-of-scope of this example.
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            modules = [
-              ./homes/justin/profile.nix
-            ];
-            # Just like `specialArgs` above...
-            extraSpecialArgs = {
-              inherit inputs;
-              # ...
-            };
-          };
-        # ...
+        modules = [
+          # Import the configuration.nix here, so that the
+          # old configuration file can still take effect.
+          # Note: configuration.nix itself is also a Nixpkgs Module,
+          ./configuration.nix
+          ./hosts/nix-test
+        ];
       };
     };
+    homeConfigurations = {
+      justin = home-manager.lib.homeManagerConfiguration {
+        # This is also not the recommended way of passing `nixpkgs`,
+        # for reasons (similar to `system` above) that are out-of-scope of this example.
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./homes/justin/profile.nix
+        ];
+        # Just like `specialArgs` above...
+        extraSpecialArgs = {
+          inherit inputs;
+          # ...
+        };
+      };
+      # ...
+    };
+  };
   inputs = {
     # stable?!? hardly even
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -73,7 +73,6 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
 
     systems.url = "github:nix-systems/default";
 
