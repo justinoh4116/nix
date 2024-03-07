@@ -1,4 +1,4 @@
-set shell := ["bash", "-cu"]
+set shell := ["bash", "-cu"] 
 
 alias b := build
 alias h := buildhome
