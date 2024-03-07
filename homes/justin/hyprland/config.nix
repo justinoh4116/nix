@@ -44,6 +44,7 @@
       };
 
       general = {
+        layout = "hy3";
         no_cursor_warps = "true";
       };
 
@@ -57,15 +58,15 @@
         "$MOD, Q, killactive,"
         "$MOD, F, fullscreen"
 
-        "$MOD, H, movefocus, l"
-        "$MOD, J, movefocus, d"
-        "$MOD, K, movefocus, u"
-        "$MOD, L, movefocus, r"
+        "$MOD, H, hy3:movefocus, l"
+        "$MOD, J, hy3:movefocus, d"
+        "$MOD, K, hy3:movefocus, u"
+        "$MOD, L, hy3:movefocus, r"
 
-        "SHIFT$MOD, H, movewindow, l"
-        "SHIFT$MOD, J, movewindow, d"
-        "SHIFT$MOD, K, movewindow, u"
-        "SHIFT$MOD, L, movewindow, r"
+        "SHIFT$MOD, H, hy3:movewindow, l"
+        "SHIFT$MOD, J, hy3:movewindow, d"
+        "SHIFT$MOD, K, hy3:movewindow, u"
+        "SHIFT$MOD, L, hy3:movewindow, r"
 
         "SHIFT$MOD, SPACE, togglefloating"
 
@@ -132,7 +133,7 @@
 
     extraConfig = ''
       exec-once = hyprctl setcursor macOS-Monterey-White 24
-      # source = ./extraConf/plugins.conf
+      source = ./extraConf/plugins.conf
     '';
   };
 }
