@@ -1,3 +1,5 @@
+set positional-arguments
+
 set shell := ["bash", "-cu"]
 
 alias b := build
@@ -7,9 +9,9 @@ up:
   nix flake update
 
 # update specific input
-# ie: just upp i=home-manager
+# ie: just upp home-manager
 upp:
-  nix flake lock --update-input $(i)
+  nix flake lock --update-input $1
 
 build:
   nix fmt ./
