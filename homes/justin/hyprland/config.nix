@@ -12,8 +12,8 @@
 
   wayland.windowManager.hyprland = {
     plugins = [
-      # inputs.hy3.packages.${pkgs.system}.hy3
-      inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+      inputs.hy3.packages.${pkgs.system}.hy3
+      #inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
@@ -132,7 +132,7 @@
 
     extraConfig = ''
       exec-once = hyprctl setcursor macOS-Monterey-White 24
-      source = ./extraConf/plugins.conf
+      # source = ./extraConf/plugins.conf
     '';
   };
 }

@@ -28,4 +28,9 @@
     grim
     slurp
   ];
+
+  programs.git = {
+    userEmail = "justinoh4116@gmail.com";
+    userName = "Justin Oh";
+  };
 }
