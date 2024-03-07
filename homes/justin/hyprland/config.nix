@@ -63,10 +63,20 @@
         "$MOD, K, hy3:movefocus, u"
         "$MOD, L, hy3:movefocus, r"
 
-        "SHIFT$MOD, H, hy3:movewindow, l"
-        "SHIFT$MOD, J, hy3:movewindow, d"
-        "SHIFT$MOD, K, hy3:movewindow, u"
-        "SHIFT$MOD, L, hy3:movewindow, r"
+        "CONTROL$MOD, H, hy3:movefocus, l, visible"
+        "CONTROL$MOD, J, hy3:movefocus, d, visible"
+        "CONTROL$MOD, K, hy3:movefocus, u, visible"
+        "CONTROL$MOD, L, hy3:movefocus, r, visible"
+
+        "SHIFT$MOD, H, hy3:movewindow, l, once"
+        "SHIFT$MOD, J, hy3:movewindow, d, once"
+        "SHIFT$MOD, K, hy3:movewindow, u, once"
+        "SHIFT$MOD, L, hy3:movewindow, r, once"
+
+        "CONTROLSHIFT$MOD, H, hy3:movewindow, l, once, visible"
+        "CONTROLSHIFT$MOD, J, hy3:movewindow, d, once, visible"
+        "CONTROLSHIFT$MOD, K, hy3:movewindow, u, once, visible"
+        "CONTROLSHIFT$MOD, L, hy3:movewindow, r, once, visible"
 
         "SHIFT$MOD, SPACE, togglefloating"
 
