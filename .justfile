@@ -1,4 +1,4 @@
-set shell := ["bash", "-cu"] 
+set shell := ["bash", "-cu"]
 
 alias b := build
 alias h := buildhome
@@ -23,7 +23,7 @@ buildhome:
   nix fmt ./homes
   @echo "Rebuilding home..."
   home-manager switch --flake ".#justin"
-  git add ./homes/*
+  git add -u ./homes/*
   git commit -m "`home-manager generations | sed -n '1p'`"
   @notify-send -e "Home rebuild OK!" --icon=software-update-available
 

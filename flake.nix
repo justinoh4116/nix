@@ -83,6 +83,11 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # anyrun launcher
     anyrun = {
       url = "github:Kirottu/anyrun";

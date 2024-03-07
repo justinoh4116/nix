@@ -6,6 +6,10 @@
   ...
 }: {
   wayland.windowManager.hyprland = {
+    plugins = [
+      hy3.packages.x86_64-linux.hy3
+    ];
+
     settings = {
       "$MOD" = "SUPER";
 
