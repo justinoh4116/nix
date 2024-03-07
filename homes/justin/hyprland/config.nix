@@ -80,8 +80,8 @@
 
         "SHIFT$MOD, SPACE, togglefloating"
 
-        "$MOD, w, hy3:makegroup, h"
-        "$MOD, e, hy3:makegroup, v"
+        "$MOD, e, hy3:makegroup, h"
+        "$MOD, w, hy3:makegroup, v"
         "$MOD, z, hy3:makegroup, tab"
         "$MOD, r, hy3:changegroup, opposite"
         "$MOD, t, hy3:changegroup, toggletab"
