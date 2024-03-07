@@ -8,7 +8,7 @@ return {
     config = {
         options = {
             icons_enabled = true,
-            theme = 'catppuccin',
+            theme = 'tokyonight',
             component_separators = { left = '', right = ''},
             section_separators = { left = '', right = ''},
             disabled_filetypes = {
