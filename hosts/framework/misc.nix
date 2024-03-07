@@ -9,6 +9,12 @@
     just
   ];
 
+  services = {
+    printing = {
+      enable = true;
+    };
+  };
+
   nix.settings = {
     substituters = [
       "https://hyprland.cachix.org"
