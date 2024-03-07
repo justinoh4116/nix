@@ -3,8 +3,13 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: {
+  home.file."${config.xdg.configHome}/hypr/extraConf" = {
+    source = ./dots;
+  };
+
   wayland.windowManager.hyprland = {
     plugins = [
       # inputs.hy3.packages.${pkgs.system}.hy3
@@ -127,6 +132,7 @@
 
     extraConfig = ''
       exec-once = hyprctl setcursor macOS-Monterey-White 24
+      source = ./extraConf/plugins.conf
     '';
   };
 }
