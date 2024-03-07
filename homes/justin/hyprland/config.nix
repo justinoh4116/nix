@@ -2,7 +2,8 @@
   self,
   inputs,
   pkgs,
-  libg,
+  lib,
+  hy3,
   ...
 }: {
   wayland.windowManager.hyprland = {
