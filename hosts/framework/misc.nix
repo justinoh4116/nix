@@ -13,6 +13,11 @@
     printing = {
       enable = true;
     };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
   };
 
   nix.settings = {

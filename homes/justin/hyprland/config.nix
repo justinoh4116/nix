@@ -32,7 +32,7 @@
         accel_profile = "flat";
         kb_layout = "us";
         follow_mouse = 2;
-        sensitivity = 0.3;
+        sensitivity = 0.5;
 
         touchpad = {
           disable_while_typing = true;
