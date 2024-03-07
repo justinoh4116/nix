@@ -7,6 +7,8 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    hyprland,
+    hy3,
     ...
   }: let
     overlays = [
