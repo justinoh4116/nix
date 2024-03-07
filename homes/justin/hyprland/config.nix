@@ -70,6 +70,10 @@
 
         "SHIFT$MOD, SPACE, togglefloating"
 
+        "$MOD, d, hy3:makegroup, h"
+        "$MOD, s, hy3:makegroup, v"
+        "$MOD, z, hy3:makegroup, tab"
+
         # workspace controls
 
         "$MOD, 1, workspace, 1"
