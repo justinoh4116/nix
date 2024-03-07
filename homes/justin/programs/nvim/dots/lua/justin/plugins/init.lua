@@ -6,10 +6,10 @@ return {
     --         vim.g.gitblame_delay = 750
     --     end
     -- },
-    -- {
-    --     'chrisgrieser/nvim-spider',
-    --     lazy = true,
-    -- },
+    {
+        'chrisgrieser/nvim-spider',
+        lazy = true,
+    },
     {
         'tzachar/highlight-undo.nvim',
         event = { 'BufReadPre', 'BufNewFile' },
@@ -34,13 +34,13 @@ return {
     --     config = true,
     --     ft = {'tex'},
     -- },
-    -- {
-    --     'rafamadriz/friendly-snippets',
-    --     event = { 'BufReadPre', 'BufNewFile' },
-    --     config = function ()
-    --         require("luasnip.loaders.from_vscode").lazy_load()
-    --     end
-    -- },
+    {
+        'rafamadriz/friendly-snippets',
+        event = { 'BufReadPre', 'BufNewFile' },
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
+    },
     {
         'lervag/vimtex',
         event = { 'BufReadPre', 'BufNewFile' },
@@ -69,15 +69,15 @@ return {
         config = true,
     },
 
-    {
-        'altermo/ultimate-autopair.nvim',
-        event={'InsertEnter','CmdlineEnter'},
-        config=function ()
-            require('ultimate-autopair').setup({
-                --Config goes here
-            })
-        end,
-    },
+    -- {
+    --     'altermo/ultimate-autopair.nvim',
+    --     event={'InsertEnter','CmdlineEnter'},
+    --     config=function ()
+    --         require('ultimate-autopair').setup({
+    --             --Config goes here
+    --         })
+    --     end,
+    -- },
 
     {
         "folke/trouble.nvim",
