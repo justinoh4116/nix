@@ -90,6 +90,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # anyrun launcher
     anyrun = {
       url = "github:Kirottu/anyrun";
