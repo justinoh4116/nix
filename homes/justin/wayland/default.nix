@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./dunst.nix
-    ./anyrun.nix
+    ./anyrun
   ];
 
   home = {
