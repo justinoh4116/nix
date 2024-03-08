@@ -22,8 +22,9 @@
     xwayland.enable = true;
   };
 
-  # home.file."${config.xdg.configHome}/hypr/scripts/screenshot" = {
-  #   executable = true;
-  #   source = "./scripts/screenshot";
-  # };
+  home.file."${config.xdg.configHome}/hypr/scripts/" = {
+    executable = true;
+    recursive = true;
+    source = ./scripts;
+  };
 }

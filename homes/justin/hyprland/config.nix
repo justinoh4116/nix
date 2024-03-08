@@ -117,7 +117,7 @@
         ", XF86MONBrightnessDown, exec, brightnessctl s 10-"
         ", XF86MONBrightnessUp, exec, brightnessctl s +10"
 
-        ", Print, exec, ~/.config/hypr/scripts/screenshot"
+        ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
       ];
 
       bindm = [
