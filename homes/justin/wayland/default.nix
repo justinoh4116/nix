@@ -7,6 +7,7 @@
   imports = [
     ./dunst.nix
     ./anyrun
+    ./ags
   ];
 
   home = {
