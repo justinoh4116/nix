@@ -30,5 +30,11 @@ args @ {pkgs, ...}: {
           nix-your-shell fish | source
       end
     '';
+
+    functions = {
+      fish_user_key_bindings = {
+        body = "fish_vi_keybindings";
+      };
+    };
   };
 }
