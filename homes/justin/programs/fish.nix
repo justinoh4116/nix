@@ -25,6 +25,10 @@ args @ {pkgs, ...}: {
     shellInit = ''
       set -gx $EDITOR "nvim"
       set fzf_directors_opts --bind "ctrl-0:execute($EDITOR {} &> /dev/tty)"
+
+      if command -q nix-your-shell
+          nix-your-shell fish | source
+      end
     '';
   };
 }
