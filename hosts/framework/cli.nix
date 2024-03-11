@@ -10,5 +10,7 @@
     gcc
     cmake
     rustup
+
+    nix-your-shell
   ];
 }
