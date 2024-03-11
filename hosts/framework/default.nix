@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./suspend-then-hibernate.nix
     ./audio.nix
     ./system.nix
     ./configuration.nix
