@@ -12,5 +12,6 @@
     ./hardware-configuration.nix
     ./fonts.nix
     ./misc.nix
+    ./cli.nix
   ];
 }
