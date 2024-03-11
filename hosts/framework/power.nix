@@ -43,4 +43,11 @@ in {
     '';
     serviceConfig.Type = "simple";
   };
+
+  services.logind = {
+    extraConfig = ''
+      HandlePowerKey=suspend
+      HandleLidSwitch=suspend
+    '';
+  };
 }

@@ -95,6 +95,9 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # aylur's gtk shell
+    ags.url = "github:Aylur/ags";
+
     # anyrun launcher
     anyrun = {
       url = "github:Kirottu/anyrun";
