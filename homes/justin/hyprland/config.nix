@@ -154,6 +154,7 @@
 
       windowrulev2 = [
         "float, class:^(anyrun)$"
+        "float, class:^(firefox)$, title:^(Sign in - Google Accounts)"
       ];
 
       misc = {
@@ -183,6 +184,7 @@
 
     extraConfig = ''
       exec-once = hyprctl setcursor macOS-Monterey-White 24
+      exec-once = ags -c ~/.config/ags/bar/config.js
       source = ./extraConf/plugins.conf
     '';
   };
