@@ -175,9 +175,9 @@
       decoration = {
         rounding = 4;
 
-        dim_inactive = true;
-        dim_strength = .2;
-        dim_special = 0;
+        # dim_inactive = true;
+        # dim_strength = .2;
+        # dim_special = 0;
       };
     };
 
