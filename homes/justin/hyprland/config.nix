@@ -171,6 +171,14 @@
           "workspaces, 1, 3, bezier, slide"
         ];
       };
+
+      decoration = {
+        roundng = 4;
+
+        dim_inactive = true;
+        dim_strength = .2;
+        dim_special = 0;
+      };
     };
 
     extraConfig = ''
