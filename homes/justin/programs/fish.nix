@@ -2,7 +2,7 @@ args @ {pkgs, ...}: {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set fish_greeting pfetch # disable greeting
+      set fish_greeting # disable greeting
     '';
     plugins = [
       {
@@ -30,6 +30,8 @@ args @ {pkgs, ...}: {
       if command -q nix-your-shell
           nix-your-shell fish | source
       end
+
+      pfetch
     '';
 
     functions = {
