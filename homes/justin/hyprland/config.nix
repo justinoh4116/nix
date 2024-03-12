@@ -13,7 +13,7 @@
   wayland.windowManager.hyprland = {
     plugins = [
       inputs.hy3.packages.${pkgs.system}.hy3
-      inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+      # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
