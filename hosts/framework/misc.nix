@@ -7,10 +7,14 @@
 }: {
   environment.systemPackages = with pkgs; [
     just
-    blueman
   ];
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
   services = {
     printing = {
@@ -38,6 +42,10 @@
       enable = true;
       tod.enable = true;
       tod.driver = pkgs.libfprint-2-tod1-goodix;
+    };
+
+    blueman = {
+      enable = true;
     };
   };
 
