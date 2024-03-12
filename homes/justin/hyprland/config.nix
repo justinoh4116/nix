@@ -173,7 +173,7 @@
       };
 
       decoration = {
-        roundng = 4;
+        rounding = 4;
 
         dim_inactive = true;
         dim_strength = .2;
