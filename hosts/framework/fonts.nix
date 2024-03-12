@@ -6,12 +6,14 @@
   config,
   ...
 }: {
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-emoji
-    fira-code
-    fira-code-symbols
+  fonts.packages = [
+    pkgs.noto-fonts
+    pkgs.noto-fonts-emoji
+    pkgs.fira-code
+    pkgs.fira-code-symbols
 
-    (nerdfonts.override {fonts = ["FiraCode"];})
+    (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
+
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
   ];
 }

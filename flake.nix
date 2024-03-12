@@ -107,5 +107,8 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     gestures.url = "github:riley-martin/gestures";
+
+    # apple fonts
+    apple-fonts.url = "github:LYndeno/apple-fonts.nix";
   };
 }
