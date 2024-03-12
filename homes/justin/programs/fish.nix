@@ -30,13 +30,15 @@ args @ {pkgs, ...}: {
       if command -q nix-your-shell
           nix-your-shell fish | source
       end
-
-      pfetch
     '';
 
     functions = {
       fish_user_key_bindings = {
         body = "fish_vi_key_bindings";
+      };
+
+      fish_greeting = {
+        body = "pfetch";
       };
     };
   };
