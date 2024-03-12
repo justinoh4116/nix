@@ -25,7 +25,7 @@ args @ {pkgs, ...}: {
     shellInit = ''
       set -gx $EDITOR "nvim"
       set fzf_directors_opts --bind "ctrl-0:execute($EDITOR {} &> /dev/tty)"
-      set -gx PF_INFO "title os host kernel pkgs uptime memory wm palette"
+      set -gx PF_INFO "title os host kernel uptime memory wm palette"
 
       if command -q nix-your-shell
           nix-your-shell fish | source
@@ -37,9 +37,9 @@ args @ {pkgs, ...}: {
         body = "fish_vi_key_bindings";
       };
 
-      # fish_greeting = {
-      #   body = "pfetch";
-      # };
+      fish_greeting = {
+        body = "pfetch";
+      };
     };
   };
 }
