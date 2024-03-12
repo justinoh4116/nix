@@ -24,7 +24,7 @@ args @ {pkgs, ...}: {
     ];
     shellInit = ''
       set -gx $EDITOR "nvim"
-      set fzf_directors_opts --bind "ctrl-0:execute($EDITOR {} &> /dev/tty)"
+      set -gx fzf_directors_opts --bind "ctrl-0:execute($EDITOR {} &> /dev/tty)"
       set -gx PF_INFO "ascii title os host kernel uptime memory wm palette"
 
       if command -q nix-your-shell
