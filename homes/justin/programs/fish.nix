@@ -38,7 +38,7 @@ args @ {pkgs, ...}: {
       };
 
       fish_greeting = {
-        body = "pfetch";
+        body = "cd ~ && pfetch";
       };
     };
   };
