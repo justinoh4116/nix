@@ -7,6 +7,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     just
+    blueman
   ];
 
   hardware.bluetooth.enable = true;
