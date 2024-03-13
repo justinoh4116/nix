@@ -51,7 +51,7 @@
       general = {
         layout = "hy3";
         no_cursor_warps = "true";
-        gaps_out = 8;
+        gaps_out = 5;
       };
 
       bind = [
@@ -195,7 +195,7 @@
       plugin = {
         hy3 = {
           tabs = {
-            height = 3;
+            height = 5;
             padding = 5;
             render_text = false;
           };
