@@ -192,7 +192,7 @@
         # dim_special = 0;
 
         blur = {
-          enabled = false;
+          enabled = true;
           size = 64;
           passes = 5;
         };
