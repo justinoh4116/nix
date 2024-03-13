@@ -51,7 +51,7 @@
       general = {
         layout = "hy3";
         no_cursor_warps = "true";
-        gaps_out = 14;
+        gaps_out = 0;
       };
 
       bind = [
