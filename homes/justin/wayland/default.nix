@@ -17,6 +17,7 @@
       pkgs.blueman
       pkgs.grim
       pkgs.slurp
+      pkgs.gradience
     ];
 
     pointerCursor = {
