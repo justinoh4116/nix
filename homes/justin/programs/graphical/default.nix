@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    xournalpp
     zathura
     obs-studio
     obsidian
