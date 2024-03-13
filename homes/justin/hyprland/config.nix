@@ -33,7 +33,7 @@
 
       exec-once = [
         "hyprctl setcursor macOS-Monterey-White 24"
-        "ags -c ~/.config/ags/bar/config.js"
+        # "ags -c ~/.config/ags/bar/config.js"
       ];
 
       monitor = [
