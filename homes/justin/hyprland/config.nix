@@ -156,7 +156,7 @@
       windowrulev2 = [
         "float, class:^(anyrun)$"
         "float, class:^(firefox)$, title:^(Sign in - Google Accounts)"
-        "opacity 0.5, class:^(bar)$"
+        "forcergbx, class:^(bar)$"
       ];
 
       misc = {
