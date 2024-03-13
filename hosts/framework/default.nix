@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./keyboard.nix
     ./power.nix
     ./audio.nix
     ./system.nix

@@ -110,5 +110,8 @@
 
     # apple fonts
     apple-fonts.url = "github:LYndeno/apple-fonts.nix";
+
+    # keyboard remapping tool
+    kmonad.url = "github:kmonad/kmonad?dir=nix";
   };
 }
