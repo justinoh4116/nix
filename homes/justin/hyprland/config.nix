@@ -144,6 +144,7 @@
         ", XF86MONBrightnessUp, exec, brightnessctl s +10"
 
         ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
+        "ALT, Print, exec, hyprpicker -a"
       ];
 
       bindm = [

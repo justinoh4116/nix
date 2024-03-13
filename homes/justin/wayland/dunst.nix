@@ -7,7 +7,7 @@
   home.packages = [pkgs.libnotify];
 
   services.dunst = {
-    enable = true;
+    enable = false;
 
     waylandDisplay = "wayland-0";
 
