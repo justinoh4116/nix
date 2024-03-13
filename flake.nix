@@ -91,7 +91,7 @@
     };
 
     hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
+      url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
 

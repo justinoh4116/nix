@@ -6,8 +6,20 @@
   config,
   ...
 }: {
+  imports = [
+    inputs.hyprpaper.homeManagerModules.default
+  ];
+
   home.file."${config.xdg.configHome}/hypr/extraConf" = {
     source = ./dots;
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    ipc = false;
+    wallpaper = [
+      "eDP-1, ~/Pictures/macOS-Big-Sur-Vector-Wave-Dark-Wallpaper.jpg"
+    ];
   };
 
   wayland.windowManager.hyprland = {
