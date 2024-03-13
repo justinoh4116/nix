@@ -194,9 +194,11 @@
 
       plugin = {
         hy3 = {
-          height = 5;
-          padding = 8;
-          render_text = false;
+          tabs = {
+            height = 5;
+            padding = 8;
+            render_text = false;
+          };
         };
       };
     };
