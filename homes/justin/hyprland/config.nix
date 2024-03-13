@@ -19,6 +19,11 @@
     settings = {
       "$MOD" = "SUPER";
 
+      exec-once = [
+        "hyprctl setcursor macOS-Monterey-White 24"
+        "ags -c ~/.config/ags/bar/config.js"
+      ];
+
       monitor = [
         "eDP-1, preferred, 0x0, 1.175"
       ];
@@ -156,7 +161,10 @@
       windowrulev2 = [
         "float, class:^(anyrun)$"
         "float, class:^(firefox)$, title:^(Sign in - Google Accounts)"
-        "forcergbx, title:^(bar)"
+      ];
+
+      layerrule = [
+        "blur, ^(bar)"
       ];
 
       misc = {
@@ -185,8 +193,6 @@
     };
 
     extraConfig = ''
-      exec-once = hyprctl setcursor macOS-Monterey-White 24
-      exec-once = ags -c ~/.config/ags/bar/config.js
       source = ./extraConf/plugins.conf
     '';
   };
