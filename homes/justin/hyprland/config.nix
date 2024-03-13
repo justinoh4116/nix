@@ -190,6 +190,12 @@
         # dim_inactive = true;
         # dim_strength = .2;
         # dim_special = 0;
+
+        blur = {
+          enabled = false;
+          size = 64;
+          passes = 5;
+        };
       };
 
       plugin = {
