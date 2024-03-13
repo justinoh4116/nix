@@ -13,7 +13,7 @@
   lwrspc (tap-hold-next-release 200 spc (layer-toggle lower))
 
   ;; rebind caps lock to esc or upper layer
-  mcp (tap-hold-next-release 200 caps (layer-toggle raise))
+  mcp (tap-hold-next-release 200 esc (layer-toggle raise))
 
 )
 
