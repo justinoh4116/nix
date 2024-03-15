@@ -56,7 +56,7 @@
           natural_scroll = true;
           tap-to-click = true;
           clickfinger_behavior = true;
-          scroll_factor = 0.3;
+          scroll_factor = 0.2;
         };
       };
 
