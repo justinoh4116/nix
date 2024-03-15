@@ -63,7 +63,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "uinput"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       htop
       tree
