@@ -32,8 +32,13 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- shift D does not cut
+vim.keymap.set("n", "D", "\"_d")
+vim.keymap.set("v", "D", "\"_d")
+
+
 -- ctrl + backspace
-vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {  })
+vim.keymap.set("i", "<C-BS>", "<Esc>cvb", { silent = true })
 
 -- yanking does not move the cursor to the start of the selection
 vim.keymap.set("v", "y", "mxy`x")
