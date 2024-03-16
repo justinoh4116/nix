@@ -37,9 +37,9 @@ args @ {pkgs, ...}: {
         body = "fish_vi_key_bindings";
       };
 
-      fish_greeting = {
-        body = "cd ~ && pfetch";
-      };
+      # fish_greeting = {
+      #   body = "cd ~ && pfetch";
+      # };
     };
   };
 }
