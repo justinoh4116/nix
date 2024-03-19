@@ -15,6 +15,7 @@
     xournalpp
     zathura
     obs-studio
+    spotify
     obsidian
   ];
 
