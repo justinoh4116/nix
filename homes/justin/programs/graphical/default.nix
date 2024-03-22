@@ -17,6 +17,7 @@
     obs-studio
     spotify
     obsidian
+    zotero
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
