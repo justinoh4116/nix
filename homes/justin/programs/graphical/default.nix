@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    prusa-slicer
     xournalpp
     zathura
     obs-studio
