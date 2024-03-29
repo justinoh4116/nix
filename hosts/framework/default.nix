@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./steam.nix
     ./keyboard.nix
     ./power.nix
     ./audio.nix

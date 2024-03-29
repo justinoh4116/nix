@@ -9,7 +9,6 @@
     ./discord.nix
     ./nextcloud.nix
     ./schizofox.nix
-    ./steam.nix
   ];
 
   home.packages = with pkgs; [

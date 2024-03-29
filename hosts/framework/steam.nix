@@ -3,9 +3,9 @@
   self,
   pkgs,
   config,
+  lib,
   ...
-}: let
-in {
+}: {
   nixpkgs.config.allowUnfreePredicate = _: true;
   programs.steam = {
     enable = true;
