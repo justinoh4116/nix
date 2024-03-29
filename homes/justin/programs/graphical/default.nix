@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    tetrio-desktop
     prusa-slicer
     xournalpp
     zathura
