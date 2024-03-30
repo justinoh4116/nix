@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    printrun
     tetrio-desktop
     prusa-slicer
     xournalpp
