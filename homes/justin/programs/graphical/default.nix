@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    zoom-us
     printrun
     tetrio-desktop
     prusa-slicer
