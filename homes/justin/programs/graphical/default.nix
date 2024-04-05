@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    kicad
     zoom-us
     printrun
     tetrio-desktop
