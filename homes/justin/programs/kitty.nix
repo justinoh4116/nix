@@ -10,7 +10,7 @@
 
     font = {
       name = "FiraCode Nerd Font";
-      size = 13;
+      size = 14;
     };
 
     theme = "Tokyo Night";
