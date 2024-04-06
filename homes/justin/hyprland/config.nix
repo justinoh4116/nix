@@ -37,7 +37,7 @@
       ];
 
       monitor = [
-        "eDP-1, preferred, 0x0, 1.175"
+        "eDP-1, preferred, 0x0, 1"
       ];
 
       gestures = {
