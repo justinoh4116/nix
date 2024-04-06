@@ -185,6 +185,11 @@
         force_default_wallpaper = 0;
       };
 
+      env = [
+        "XCURSOR_THEME, macOS-Monterey-White"
+        "XCURSOR_SIZE, 24"
+      ];
+
       animations = {
         enabled = true;
         bezier = [
