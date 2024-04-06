@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    arduino-cli
     pfetch-rs
     acpi
     cmake

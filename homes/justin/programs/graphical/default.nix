@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    arduino
     kicad
     zoom-us
     printrun
