@@ -173,7 +173,8 @@
 
       windowrulev2 = [
         "float, class:^(anyrun)$"
-        "float, class:^(firefox)$, title:^(Sign in - Google Accounts)"
+        "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
+        "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
       ];
 
       layerrule = [
