@@ -32,6 +32,11 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
+
+    iconTheme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
   };
 
   # make some environment tweaks for wayland
