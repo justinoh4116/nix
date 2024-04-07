@@ -17,5 +17,6 @@
   home.packages = with pkgs; [
     luajitPackages.lua-lsp
     arduino-language-server
+    nil
   ];
 }
