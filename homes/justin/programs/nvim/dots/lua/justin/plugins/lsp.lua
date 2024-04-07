@@ -47,6 +47,7 @@ return
             -- PUT THE LSPs HERE
             require('lspconfig').arduino_language_server.setup{}
             require('lspconfig').nil_ls.setup{}
+            require('lspconfig').texlab.setup{}
 
             -- (Optional) Configure lua language server for neovim
             local lua_opts = lsp_zero.nvim_lua_ls()
