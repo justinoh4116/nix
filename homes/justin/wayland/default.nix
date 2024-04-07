@@ -31,7 +31,7 @@
 
   gtk = {
     enable = true;
-    theme.name = "Adwaita-dark";
+    theme.name = "Adwaita";
 
     iconTheme = {
       name = "Adwaita-dark";
