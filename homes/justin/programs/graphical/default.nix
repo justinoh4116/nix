@@ -12,7 +12,7 @@
   ];
 
   home.packages = with pkgs; [
-    krusader
+    pcmanfm
     arduino
     kicad
     zoom-us
