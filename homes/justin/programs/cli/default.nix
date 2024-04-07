@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    llvm
     arduino-cli
     pfetch-rs
     acpi

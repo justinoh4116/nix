@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -12,4 +13,9 @@
     source = ./dots;
     recursive = true;
   };
+
+  home.packages = with pkgs; [
+    luajitPackages.lua-lsp
+    arduino-language-server
+  ];
 }
