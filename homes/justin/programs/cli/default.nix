@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    screen
     llvm
     arduino-cli
     pfetch-rs
