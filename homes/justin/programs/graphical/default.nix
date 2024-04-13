@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    libsForQt5.okular
     pcmanfm
     arduino
     kicad
