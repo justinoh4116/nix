@@ -15,6 +15,7 @@
   };
 
   home.packages = with pkgs; [
+    libclang
     texlab
     lua-language-server
     arduino-language-server
