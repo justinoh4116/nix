@@ -2,7 +2,9 @@ return {
     "folke/flash.nvim",
         event = { 'BufReadPre', 'BufNewFile' },
         ---@type Flash.Config
-            opts = {},
+            opts = {
+                modes = { search = { enabled = false } }
+            },
         keys = {
             {
                 "s",
