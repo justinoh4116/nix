@@ -25,7 +25,7 @@
   wayland.windowManager.hyprland = {
     plugins = [
       inputs.hy3.packages.${pkgs.system}.hy3
-      # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+      inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
@@ -247,6 +247,11 @@
             padding = 5;
             render_text = false;
           };
+        };
+        hyprfocus = {
+          enabled = true;
+          focus_animation = "flash";
+          animate_workspacechange = true;
         };
       };
     };
