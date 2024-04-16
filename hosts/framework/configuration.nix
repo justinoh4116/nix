@@ -57,6 +57,11 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
 
+  services.xserver = {
+    xkbOptions = "compose:ralt";
+    layout = "us";
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -66,6 +71,7 @@
     extraGroups = [
       "wheel"
       "uinput"
+      "input"
       "tty"
       "dialout"
     ]; # Enable ‘sudo’ for the user.
