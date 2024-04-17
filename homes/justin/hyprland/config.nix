@@ -199,6 +199,7 @@
         "float, class:^(anyrun)$"
         "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
         "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
+        "float, class:^(Zotero)$, title .*(Citation)$"
       ];
 
       layerrule = [
