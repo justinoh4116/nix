@@ -18,6 +18,8 @@
   };
 
   services = {
+    hardware.bolt.enable = true;
+
     printing = {
       enable = true;
     };
