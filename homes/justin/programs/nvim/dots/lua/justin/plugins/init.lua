@@ -6,6 +6,7 @@ return {
     --         vim.g.gitblame_delay = 750
     --     end
     -- },
+    { 'Bekaboo/deadcolumn.nvim' },
     {
         'chrisgrieser/nvim-spider',
         lazy = true,
