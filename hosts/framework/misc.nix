@@ -18,6 +18,8 @@
   };
 
   services = {
+    upower.enable = true;
+
     hardware.bolt.enable = true;
 
     printing = {
