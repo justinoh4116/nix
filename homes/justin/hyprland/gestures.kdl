@@ -1,1 +1,1 @@
-swipe direction="any" fingers=3 update="ydotool mousemove_relative -- $delta_x $delta_y" start="ydotool click -- 0x40" end="ydotool click -- 0x80"
+swipe direction="any" fingers=3 update="ydotool mousemove -- $delta_x $delta_y" start="ydotool click -- 0x40" end="ydotool click -- 0x80"
