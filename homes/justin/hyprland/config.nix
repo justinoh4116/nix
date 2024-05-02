@@ -37,7 +37,7 @@
       ];
 
       monitor = [
-        "eDP-1, preferred, 0x0, 1"
+        "eDP-1, preferred, 0x0, 1.25"
       ];
 
       gestures = {
@@ -257,8 +257,10 @@
       };
     };
 
-    # extraConfig = ''
-    #   source = ./extraConf/plugins.conf
-    # '';
+    extraConfig = ''
+      xwayland {
+        force_zero_scaling = true
+      }
+    '';
   };
 }
