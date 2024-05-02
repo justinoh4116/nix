@@ -26,6 +26,7 @@
     spotify
     obsidian
     zotero
+    ungoogled-chromium
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
