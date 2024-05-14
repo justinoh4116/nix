@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    mpv
     libsForQt5.okular
     pcmanfm
     arduino
