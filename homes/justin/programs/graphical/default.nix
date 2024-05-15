@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    inkscape
     mpv
     libsForQt5.okular
     pcmanfm
