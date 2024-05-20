@@ -47,7 +47,7 @@ return
             -- PUT THE LSPs HERE
             require('lspconfig').arduino_language_server.setup{}
             require('lspconfig').nil_ls.setup{}
-            require('lspconfig').texlab.setup{}
+            -- require('lspconfig').texlab.setup{}
             require('lspconfig').clangd.setup{}
             require('lspconfig').pyright.setup{}
 
