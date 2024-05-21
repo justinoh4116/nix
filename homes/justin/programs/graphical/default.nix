@@ -15,6 +15,7 @@
     inkscape
     mpv
     libsForQt5.okular
+    libsForQt5.dolphin
     pcmanfm
     arduino
     kicad
