@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    ranger
     screen
     llvm
     arduino-cli
