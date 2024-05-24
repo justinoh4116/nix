@@ -61,8 +61,8 @@
       };
 
       general = {
-        layout = "hy3";
         no_cursor_warps = "true";
+        layout = "hy3";
         gaps_out = 5;
       };
 
