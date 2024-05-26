@@ -80,13 +80,32 @@
 
     schizofox.url = "github:schizofox/schizofox";
 
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.38.0";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.40.0";
+    };
+    # hyprlock = {
+    # url = "github:hyprwm/hyprlock";
+    # inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprcursor = {
+    #   url = "github:hyprwm/hyprcursor";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # xdg-portal-hyprland = {
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprpicker = {
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprpaper = {
+    #   url = "github:hyprwm/hyprpaper";
+    #   inputs.hyprland.follows = "hyprland";
+    #   };
 
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.38.0";
+      url = "github:outfoxxed/hy3?ref=hl0.40.0";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -100,7 +119,7 @@
 
     # anyrun launcher
     anyrun = {
-      url = "github:Kirottu/anyrun";
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
