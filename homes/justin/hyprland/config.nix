@@ -69,7 +69,7 @@
       bind = [
         # applications
         "$MOD, RETURN, exec, kitty"
-        "$MOD, B, exec, firefox"
+        "$MOD, B, exec, chromium"
         "$MOD, SPACE, exec, anyrun"
 
         # window controls
@@ -184,6 +184,10 @@
         # other binds
         ", XF86MONBrightnessDown, exec, brightnessctl s 10-"
         ", XF86MONBrightnessUp, exec, brightnessctl s +10"
+
+        ", XF86AudioLowerVolume, exec, pamixer -d 10"
+        ", XF86AudioRaiseVolume, exec, pamixer -i 10"
+        ", XF86AudioMute, exec, pamixe -t"
 
         ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
         "ALT, Print, exec, hyprpicker -a"
