@@ -14,6 +14,7 @@
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
         inputs.anyrun.packages.${pkgs.system}.rink
+        inputs.anyrun.packages.${pkgs.system}.symbols
         #inputs.anyrun.packages.${pkgs.system}.randr
       ];
       width = {fraction = 0.3;};
