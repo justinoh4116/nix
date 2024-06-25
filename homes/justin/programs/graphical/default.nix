@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    qbittorrent
     imv
     inkscape
     mpv
