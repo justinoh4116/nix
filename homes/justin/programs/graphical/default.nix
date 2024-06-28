@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    networkmanagerapplet
     vlc
     qbittorrent
     imv
