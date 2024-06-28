@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    openssl
     ranger
     screen
     llvm
