@@ -12,7 +12,7 @@
     ...
   }: let
     overlays = [
-      inputs.neovim-nightly-overlay.overlay
+      # inputs.neovim-nightly-overlay.overlay.default
     ];
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -81,7 +81,7 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.40.0";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
     };
     # hyprlock = {
     # url = "github:hyprwm/hyprlock";
@@ -105,7 +105,7 @@
     #   };
 
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.40.0";
+      url = "github:outfoxxed/hy3?ref=hl0.41.2";
       inputs.hyprland.follows = "hyprland";
     };
 

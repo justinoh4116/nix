@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -88,7 +89,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    neovim-nightly
+    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
   ];
 
   programs.fish.enable = true;

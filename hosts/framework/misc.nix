@@ -68,7 +68,7 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
-  nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
-  ];
+  # nixpkgs.overlays = [
+  #   # inputs.neovim-nightly-overlay.overlay.default
+  # ];
 }
