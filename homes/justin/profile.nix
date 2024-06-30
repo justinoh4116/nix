@@ -12,7 +12,7 @@
   imports = [
     ./programs
     ./wayland
-    ./hyprland
+    ./hypr
   ];
 
   # link the configuration file in current directory to the specified location in home directory

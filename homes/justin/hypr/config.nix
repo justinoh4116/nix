@@ -61,9 +61,12 @@
       };
 
       general = {
-        no_cursor_warps = "true";
         layout = "hy3";
         gaps_out = 5;
+      };
+
+      cursor = {
+        no_warps = true;
       };
 
       bind = [
