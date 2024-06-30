@@ -30,7 +30,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.
-  time.timeZone = "US/Pacific";
+  time.timeZone = "US/Eastern";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
