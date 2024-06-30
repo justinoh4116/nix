@@ -9,6 +9,7 @@
   imports = [
     ./config.nix
     ./gestures.nix
+    ./hyprlock.nix
   ];
 
   home.packages = [
