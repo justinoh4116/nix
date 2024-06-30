@@ -18,8 +18,8 @@
     imv
     inkscape
     mpv
-    libsForQt5.okular
-    libsForQt5.dolphin
+    kdePackages.okular
+    kdePackages.dolphin
     pcmanfm
     arduino
     kicad
