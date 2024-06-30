@@ -14,13 +14,13 @@
     source = ./dots;
   };
 
-  # services.hyprpaper = {
-  #   enable = true;
-  #   ipc = false;
-  #   wallpaper = [
-  #     "eDP-1, ~/Pictures/macOS-Big-Sur-Vector-Wave-Dark-Wallpaper.jpg"
-  #   ];
-  # };
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = "~/Pictures/wallpapers/11-0-Color-Day.jpg";
+      wallpaper = ",~/Pictures/wallpapers/11-0-Color-Day.jpg";
+    };
+  };
 
   wayland.windowManager.hyprland = {
     plugins = [
