@@ -20,6 +20,6 @@
     lua-language-server
     arduino-language-server
     nil
-    nodePackages.pyright
+    pyright
   ];
 }
