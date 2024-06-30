@@ -17,8 +17,11 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = "~/Pictures/wallpapers/11-0-Color-Day.jpg";
-      wallpaper = ",~/Pictures/wallpapers/11-0-Color-Day.jpg";
+      preload = [
+        "~/Pictures/wallpapers/11-0-Color-Day.jpg"
+        "~/Pictures/wallpapers/11-0-Big-Sur-Color-Night.jpg"
+      ];
+      wallpaper = ",~/Pictures/wallpapers/11-0-Big-Sur-Color-Night";
     };
   };
 
