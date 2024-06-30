@@ -83,10 +83,10 @@
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
     };
-    # hyprlock = {
-    # url = "github:hyprwm/hyprlock";
-    # inputs.hyprland.follows = "hyprland";
-    # };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.hyprland.follows = "hyprland";
+    };
     # hyprcursor = {
     #   url = "github:hyprwm/hyprcursor";
     #   inputs.hyprland.follows = "hyprland";

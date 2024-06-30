@@ -18,6 +18,8 @@
   };
 
   services = {
+    automatic-timezoned.enable = true;
+
     upower.enable = true;
 
     hardware.bolt.enable = true;
