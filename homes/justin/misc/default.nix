@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./gammastep.nix
     ./dconf.nix
   ];
 
