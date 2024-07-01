@@ -13,6 +13,7 @@
     ./programs
     ./wayland
     ./hypr
+    ./misc
   ];
 
   # link the configuration file in current directory to the specified location in home directory
