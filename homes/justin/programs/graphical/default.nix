@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    freecad
     networkmanagerapplet
     vlc
     qbittorrent
