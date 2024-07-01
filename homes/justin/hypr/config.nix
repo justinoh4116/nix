@@ -257,6 +257,7 @@
             height = 5;
             padding = 5;
             render_text = false;
+            col.active = "0xffffff";
           };
         };
         hyprfocus = {
