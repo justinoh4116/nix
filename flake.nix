@@ -99,10 +99,10 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    # hyprpaper = {
-    #   url = "github:hyprwm/hyprpaper";
-    #   inputs.hyprland.follows = "hyprland";
-    #   };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     hy3 = {
       url = "github:outfoxxed/hy3?ref=hl0.41.2";

@@ -18,6 +18,8 @@
   };
 
   services = {
+    geoclue2.enable = true;
+
     automatic-timezoned.enable = true;
 
     upower.enable = true;
