@@ -17,6 +17,8 @@
     };
   };
 
+  security.pam.services.hyprlock = {};
+
   services = {
     geoclue2.enable = true;
 
