@@ -21,7 +21,7 @@
     enable = false;
   };
 
-  home.file."${config.xdg.configHome}hypr/hypridle.conf" = {
+  home.file."${config.xdg.configHome}/hypr/hypridle.conf" = {
     source = ./hypridle.conf;
   };
 }
