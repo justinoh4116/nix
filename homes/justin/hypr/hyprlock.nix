@@ -20,7 +20,8 @@
   services.hypridle = {
     enable = false;
   };
-  # home.file."${config.xdg.configHome}/hypr/hypridle.conf" = {
-  #   source = ./hypridle.conf;
-  # };
+
+  home.file."${config.xdg.configHome}hypr/hypridle.conf" = {
+    source = ./hypridle.conf;
+  };
 }
