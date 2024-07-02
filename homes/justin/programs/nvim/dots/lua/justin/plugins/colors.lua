@@ -1,8 +1,8 @@
 -- Sets colors to line numbers Above, Current and Below  in this order
 function LineNumberColors()
-  vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#51B3EC', bold=true })
-  vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
-  vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#FB508F', bold=true })
+  vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#6C6F85' })
+  vim.api.nvim_set_hl(0, 'LineNr', { fg='#6C6F85', bold=true })
+  vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#6C6F85' })
 end
 
 return {
@@ -11,7 +11,7 @@ return {
     priority = 1000,
     opts = {},
     config = function()
-        vim.cmd[[colorscheme tokyonight-night]]
+        vim.cmd[[colorscheme tokyonight]]
         LineNumberColors()
     end,
 }
