@@ -85,7 +85,6 @@
     };
     hyprlock = {
       url = "github:hyprwm/hyprlock";
-      inputs.hyprland.follows = "hyprland";
     };
     # hyprcursor = {
     #   url = "github:hyprwm/hyprcursor";
@@ -101,7 +100,6 @@
     # };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
-      inputs.hyprland.follows = "hyprland";
     };
 
     hy3 = {

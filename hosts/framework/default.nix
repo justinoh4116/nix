@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./virtmanager.nix
     ./steam.nix
     ./keyboard.nix
     ./power.nix
