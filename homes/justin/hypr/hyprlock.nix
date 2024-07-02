@@ -19,6 +19,7 @@
 
   services.hypridle = {
     enable = false;
+    package = inputs.hypridle.packages.${pkgs.system}.hypridle;
   };
 
   home.file."${config.xdg.configHome}/hypr/hypridle.conf" = {
