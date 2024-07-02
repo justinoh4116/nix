@@ -27,6 +27,7 @@
 
   wayland.windowManager.hyprland = {
     plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hy3.packages.${pkgs.system}.hy3
       inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
@@ -36,6 +37,8 @@
 
       exec-once = [
         "hyprctl setcursor macOS-Monterey-White 24"
+        "hypridle"
+        "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
         # "ags -c ~/.config/ags/bar/config.js"
       ];
 
@@ -264,6 +267,17 @@
           enabled = true;
           focus_animation = "flash";
           animate_workspacechange = true;
+        };
+        hyprexpo = {
+          columns = 5;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "center current";
+
+          enable_gesture = true;
+          gesture_fingers = 4;
+          gesture_distance = 300;
+          gesture_negative = true;
         };
       };
     };
