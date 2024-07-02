@@ -75,6 +75,8 @@
       "input"
       "tty"
       "dialout"
+      "networkmanager"
+      "libvirtd"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       htop
