@@ -83,14 +83,12 @@ return {
             },
             tabline = {},
             winbar = {
-                sections = {
                   lualine_c = {
                     {
                       navic_comp,
                       cond = function() return navic.is_available() end,
                     }
                   }
-                }
             },
             inactive_winbar = {},
             extensions = {}
