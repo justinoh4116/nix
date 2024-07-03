@@ -1,6 +1,6 @@
 return {
     { 'tpope/vim-fugitive',
-        cmd = { ':Git', ':G' },
+        cmd = { 'Git', 'G' },
     },
     -- {
     --     'f-person/git-blame.nvim',
