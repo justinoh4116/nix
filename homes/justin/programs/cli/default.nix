@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    dmenu
     openssl
     ranger
     screen

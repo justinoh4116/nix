@@ -14,6 +14,7 @@
     packages = [
       # Wallpaper
       # pkgs.swaybg
+      pkgs.cliphist
       pkgs.blueman
       pkgs.grim
       pkgs.slurp

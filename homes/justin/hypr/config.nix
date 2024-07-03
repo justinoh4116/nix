@@ -36,6 +36,7 @@
       "$MOD" = "SUPER";
 
       exec-once = [
+        "wl-paste --watch cliphist store"
         "hyprctl setcursor macOS-Monterey-White 24"
         "hypridle"
         "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
@@ -200,6 +201,9 @@
 
         ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
         "ALT, Print, exec, hyprpicker -a"
+
+        # cliphist
+        "$SUPER, V, exec, cliphist list | dmenu | cliphist decode | wl-copy"
       ];
 
       bindm = [
