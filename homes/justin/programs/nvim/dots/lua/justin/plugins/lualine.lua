@@ -5,8 +5,10 @@ return {
         { "abeldekat/harpoonline", version = "*" },
         { 'nvim-tree/nvim-web-devicons', lazy = true },
         { 'folke/noice.nvim' },
+        { 'SmiteshP/nvim-navic' },
     },
         config = function ()
+          local navic = require("nvim-navic")
 
           local Harpoonline = require("harpoonline")
           Harpoonline.setup({
@@ -21,7 +23,20 @@ return {
                 section_separators = { left = '', right = ''},
                 disabled_filetypes = {
                     statusline = {},
-                    winbar = {},
+                    winbar = {
+                        "help",
+                        "startify",
+                        "dashboard",
+                        "packer",
+                        "neogitstatus",
+                        "NvimTree",
+                        "Trouble",
+                        "alpha",
+                        "lir",
+                        "Outline",
+                        "spectre_panel",
+                        "toggleterm",
+                    },
                 },
                 ignore_focus = {},
                 always_divide_middle = true,
@@ -63,7 +78,18 @@ return {
                 lualine_z = {}
             },
             tabline = {},
-            winbar = {},
+            winbar = {
+                sections = {
+                  lualine_c = {
+                    function()
+                      return navic.get_location()
+                    end,
+                    cond = function()
+                      return navic.is_available()
+                    end
+                  }
+                }
+            },
             inactive_winbar = {},
             extensions = {}
 
