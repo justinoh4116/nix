@@ -15,6 +15,8 @@
       enable = true;
       powerOnBoot = true;
     };
+
+    opengl.enable = true;
   };
 
   security.pam.services.hyprlock = {};
@@ -22,11 +24,11 @@
   services = {
     geoclue2.enable = true;
 
+    hardware.bolt.enable = true;
+
     automatic-timezoned.enable = true;
 
     upower.enable = true;
-
-    hardware.bolt.enable = true;
 
     printing = {
       enable = true;
