@@ -22,8 +22,11 @@
   security.pam.services.hyprlock = {};
 
   services = {
-    geoclue2.enable = true;
-
+    geoclue2 = {
+      enable = true;
+      enableWifi = false;
+      enable3G = false;
+    };
     hardware.bolt.enable = true;
 
     automatic-timezoned.enable = true;
