@@ -7,6 +7,9 @@ return
           {
             {
               "SmiteshP/nvim-navbuddy",
+              keys = {
+                {"<leader>nn", "<cmd>Navbuddy<CR>"}
+              },
               dependencies = {
                 {
                   'SmiteshP/nvim-navic',
