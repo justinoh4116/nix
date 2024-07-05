@@ -1,5 +1,44 @@
 return {
     {
+      "kylechui/nvim-surround",
+      version = "*", -- Use for stability; omit to use `main` branch for the latest features
+      event = "VeryLazy",
+      dependencies =  {
+        'nvim-treesitter/nvim-treesittern',
+        'nvim-treesitter/nvim-treesittern-textobjects',
+      },
+      config = function()
+        require("nvim-surround").setup({
+          -- Configuration here, or leave empty to use defaults
+        })
+      end
+    },
+    {
+      "utilyre/barbecue.nvim",
+      name = "barbecue",
+      version = "*",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons", -- optional dependency
+      },
+      opts = {
+        -- configurations go here
+        keymaps = {
+          insert = "<C-g>s",
+          insert_line = "<C-g>S",
+          normal = "ye",
+          normal_cur = "yee",
+          normal_line = "yE",
+          normal_cur_line = "yEE",
+          visual = "ye",
+          visual_line = "gE",
+          delete = "de",
+          change = "ce",
+          change_line = "cE",
+        },
+      },
+    },
+    {
       'altermo/ultimate-autopair.nvim',
       event={'InsertEnter','CmdlineEnter'},
       branch='v0.6', --recommended as each new version will have breaking changes
