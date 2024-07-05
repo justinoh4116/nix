@@ -7,7 +7,7 @@ end
 
 return {
     -- "folke/tokyonight.nvim",
-    -- lazy = false,
+    --  = false,
     -- priority = 1000,
     -- opts = {},
     -- config = function()
@@ -27,7 +27,7 @@ return {
     -- },
     {
       'catppuccin/nvim',
-      lazy = true,
+      priority = 1000,
       name = 'catppuccin',
       config = {
         flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -80,7 +80,7 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       },
-      init = function() 
+      init = function()
         vim.cmd[[ colorscheme catppuccin ]]
         LineNumberColors()
       end
