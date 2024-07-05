@@ -4,16 +4,25 @@ return
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
+          {
             {
-                'SmiteshP/nvim-navic',
-                dependencies = {
-                    
-                },
-                opts = {
+              "SmiteshP/nvim-navbuddy",
+              dependencies = {
+                {
+                  'SmiteshP/nvim-navic',
+                  dependencies = {
+
+                  },
+                  opts = {
                     lsp = {
-                        auto_attach = true,
+                      auto_attach = true,
                     },
+                  },
                 },
+                "MunifTanjim/nui.nvim"
+              },
+              opts = { lsp = { auto_attach = true } }
+            },
             },
             'simrat39/rust-tools.nvim',
             {
