@@ -4,8 +4,8 @@ return {
       version = "*", -- Use for stability; omit to use `main` branch for the latest features
       event = "VeryLazy",
       dependencies =  {
-        'nvim-treesitter/nvim-treesittern',
-        'nvim-treesitter/nvim-treesittern-textobjects',
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter-textobjects',
       },
       config = function()
         require("nvim-surround").setup({
