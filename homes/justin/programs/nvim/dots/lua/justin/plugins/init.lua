@@ -10,6 +10,19 @@ return {
       config = function()
         require("nvim-surround").setup({
           -- Configuration here, or leave empty to use defaults
+          keymaps = {
+            insert = "<C-g>s",
+            insert_line = "<C-g>S",
+            normal = "ye",
+            normal_cur = "yee",
+            normal_line = "yE",
+            normal_cur_line = "yEE",
+            visual = "ye",
+            visual_line = "gE",
+            delete = "de",
+            change = "ce",
+            change_line = "cE",
+          }
         })
       end
     },
@@ -23,18 +36,6 @@ return {
       },
       opts = {
         -- configurations go here
-        keymaps = {
-          insert = "<C-g>s",
-          insert_line = "<C-g>S",
-          normal = "ye",
-          normal_cur = "yee",
-          normal_line = "yE",
-          normal_cur_line = "yEE",
-          visual = "ye",
-          visual_line = "gE",
-          delete = "de",
-          change = "ce",
-          change_line = "cE",
         },
       },
     },
@@ -182,16 +183,6 @@ return {
 
     },
 
-    {
-        "kylechui/nvim-surround",
-        event = { 'BufReadPre', 'BufNewFile' },
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
-    },
 
     {
         'norcalli/nvim-colorizer.lua',
