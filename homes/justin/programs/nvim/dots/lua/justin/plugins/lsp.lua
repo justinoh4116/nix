@@ -65,6 +65,12 @@ return
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lsp_zero.default_keymaps({buffer = bufnr})
+                vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr })
+                vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { buffer = bufnr })
+                vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { buffer = bufnr })
+                vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
+                vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, { buffer = bufnr })
+                vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr })
             end)
 
             -- PUT THE LSPs HERE
