@@ -14,6 +14,7 @@ return {
         },
         'saadparwaiz1/cmp_luasnip',
         'neovim/nvim-lspconfig',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
     },
     opts = function()
         local cmp = require('cmp')
@@ -70,6 +71,7 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
             }),
             sources = cmp.config.sources({
+                { name = 'nvim_lsp_signature_help' },
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'buffer' },
