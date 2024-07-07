@@ -21,5 +21,11 @@
     arduino-language-server
     nil
     pyright
+
+    isort
+    black
+    prettierd
+    alejandra
+    stylua
   ];
 }
