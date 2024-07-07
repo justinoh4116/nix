@@ -11,9 +11,11 @@ return {
 		},
 	},
 	keys = {
-		"<F3>",
-		function()
-			require("conform").format()
-		end,
+    {
+      "<F3>",
+      function()
+        require("conform").format()
+      end,
+    },
 	},
 }
