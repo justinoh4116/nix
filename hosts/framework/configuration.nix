@@ -77,6 +77,8 @@
       "dialout"
       "networkmanager"
       "libvirtd"
+      "kvm"
+      "qemu-libvirtd"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       htop
