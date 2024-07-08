@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    parsec-bin
     freecad
     networkmanagerapplet
     vlc
