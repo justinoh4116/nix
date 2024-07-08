@@ -13,6 +13,7 @@
     spice-protocol
     win-virtio
     win-spice
+    swtpm
   ];
   virtualisation = {
     libvirtd = {
