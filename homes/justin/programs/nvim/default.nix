@@ -24,6 +24,7 @@
 
     isort
     black
+    ruff
     prettierd
     alejandra
     stylua
