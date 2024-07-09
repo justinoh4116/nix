@@ -14,8 +14,8 @@
 
     # All options from the config.json can be used here.
     config = {
-      placeholder = "Example";
-      fullscreen = true;
+      placeholder = "Search";
+      fullscreen = false;
       list = {
         height = 200;
       };

@@ -81,7 +81,7 @@
         "$MOD, RETURN, exec, kitty"
         "$MOD, B, exec, chromium"
         "$MOD, SPACE, exec, walker"
-        "SHIFT$MOD, SPACE, exec, anyrun"
+        # "SHIFT$MOD, SPACE, exec, anyrun"
 
         # window controls
         "$MOD, Q, killactive,"
@@ -214,8 +214,8 @@
       ];
 
       windowrulev2 = [
-        "float, class:^(anyrun)$"
-        "float, class:^(walker)$"
+        "float, title:^(anyrun)"
+        "float, class:^(walker)"
         "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
         "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
         "float, class:^(Zotero)$"
