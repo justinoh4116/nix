@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    anydesk
     netflix
     parsec-bin
     freecad
