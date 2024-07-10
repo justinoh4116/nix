@@ -55,11 +55,11 @@
     };
 
     # If this is not set the default styling is used.
-    style = ''
-            * {
-      color: #dcd7ba;
-      font-family: "SFProText Nerd Font";
-            }
-    '';
+    # style = ''
+    #         * {
+    #   color: #2C2F50;
+    #   font-family: "SFProText Nerd Font";
+    #         }
+    # '';
   };
 }
