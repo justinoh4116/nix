@@ -12,6 +12,7 @@
   ];
 
   home.packages = with pkgs; [
+    netflix
     parsec-bin
     freecad
     networkmanagerapplet
