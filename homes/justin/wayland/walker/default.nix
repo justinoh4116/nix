@@ -21,6 +21,29 @@
       };
       modules = [
         {
+          name = "applications";
+          prefix = "";
+        }
+        {
+          name = "runner";
+          prefix = "";
+        }
+        {
+          name = "ssh";
+          prefix = "";
+          switcher_exclusive = true;
+        }
+        {
+          name = "finder";
+          prefix = "";
+          switcher_exclusive = true;
+        }
+        {
+          name = "commands";
+          prefix = "";
+          switcher_exclusive = true;
+        }
+        {
           name = "websearch";
           prefix = "?";
         }
@@ -35,6 +58,7 @@
     style = ''
             * {
       color: #dcd7ba;
+      font-family: "SFProText Nerd Font";
             }
     '';
   };
