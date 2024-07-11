@@ -47,7 +47,7 @@ in {
   services.logind = {
     extraConfig = ''
       HandlePowerKey=hibernate
-      HandleLidSwitch=hybrid-sleep
+      HandleLidSwitch=suspend
     '';
   };
 }
