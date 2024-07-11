@@ -80,7 +80,7 @@
         # applications
         "$MOD, RETURN, exec, kitty"
         "$MOD, B, exec, chromium"
-        "$MOD, SPACE, exec, walker"
+        "$MOD, SPACE, exec, anyrun"
         # "SHIFT$MOD, SPACE, exec, anyrun"
 
         # window controls
