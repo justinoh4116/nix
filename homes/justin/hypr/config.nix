@@ -200,6 +200,10 @@
         ", XF86AudioRaiseVolume, exec, pamixer -i 10"
         ", XF86AudioMute, exec, pamixe -t"
 
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl prev"
+
         ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
         "ALT, Print, exec, hyprpicker -a"
 

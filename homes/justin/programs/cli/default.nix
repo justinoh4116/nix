@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    playerctl
     dmenu
     openssl
     ranger
