@@ -13,6 +13,7 @@
   config = {
     services = {
       mpris-proxy.enable = true;
+      playerctld.enable = true;
     };
     # xdg.mimeApps = {
     #   enable = true;
