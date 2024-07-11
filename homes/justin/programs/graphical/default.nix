@@ -26,7 +26,7 @@
     libsForQt5.dolphin
     pcmanfm
     arduino
-    kicad
+    #kicad
     zoom-us
     printrun
     tetrio-desktop
