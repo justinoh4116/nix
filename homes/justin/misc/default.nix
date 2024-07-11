@@ -11,6 +11,9 @@
   ];
 
   config = {
+    services = {
+      mpris-proxy.enable = true;
+    };
     # xdg.mimeApps = {
     #   enable = true;
 
