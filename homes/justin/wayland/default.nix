@@ -48,7 +48,7 @@
     # that force electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # make qt apps expect wayland
-    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORM = "xcb";
     # set backend for sdl
     SDL_VIDEODRIVER = "wayland";
     # fix modals from being attached on tiling wms
