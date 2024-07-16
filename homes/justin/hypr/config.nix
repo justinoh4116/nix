@@ -282,7 +282,7 @@
           columns = 3;
           gap_size = 5;
           bg_col = "rgb(111111)";
-          workspace_method = "center current";
+          workspace_method = "first 1";
 
           enable_gesture = true;
           gesture_fingers = 4;
