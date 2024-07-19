@@ -8,7 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
-    poetry
+    # poetry
     playerctl
     dmenu
     openssl
