@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    poetry
     playerctl
     dmenu
     openssl
@@ -26,8 +27,8 @@
     fd
     fastfetch
     rustup
-    gcc
     brightnessctl
+    gcc
     texliveFull
 
     # wayland stuff
