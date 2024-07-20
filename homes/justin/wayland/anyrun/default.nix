@@ -74,13 +74,14 @@
       }
 
     '';
-    # extraConfigFiles."cliphist.ron".text = ''
-    #   Config(
-    #     prefix: ":ch",
-    #     // for any other plugin
-    #     // this file will be put in ~/.config/anyrun/some-plugin.ron
-    #     // refer to docs of xdg.configFile for available options
-    #   )
-    # '';
+    extraConfigFiles."cliphist.ron".text = ''
+      Config(
+        prefix: "",
+        cliphist_path = "cliphist",
+        // for any other plugin
+        // this file will be put in ~/.config/anyrun/some-plugin.ron
+        // refer to docs of xdg.configFile for available options
+      )
+    '';
   };
 }
