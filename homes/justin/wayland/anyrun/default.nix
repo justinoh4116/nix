@@ -8,12 +8,15 @@
 }: {
   imports = [inputs.anyrun.homeManagerModules.default];
 
+  home.packages = [
+    inputs.anyrun-cliphist.packages.${pkgs.system}.default
+  ];
+
   programs.anyrun = {
     enable = true;
     config = {
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
-        inputs.anyrun-cliphist.packages.${pkgs.system}.default
         inputs.anyrun.packages.${pkgs.system}.rink
         inputs.anyrun.packages.${pkgs.system}.symbols
         #inputs.anyrun.packages.${pkgs.system}.randr
@@ -71,13 +74,13 @@
       }
 
     '';
-    extraConfigFiles."cliphist.ron".text = ''
-      Config(
-        prefix: ":ch",
-        // for any other plugin
-        // this file will be put in ~/.config/anyrun/some-plugin.ron
-        // refer to docs of xdg.configFile for available options
-      )
-    '';
+    # extraConfigFiles."cliphist.ron".text = ''
+    #   Config(
+    #     prefix: ":ch",
+    #     // for any other plugin
+    #     // this file will be put in ~/.config/anyrun/some-plugin.ron
+    #     // refer to docs of xdg.configFile for available options
+    #   )
+    # '';
   };
 }

@@ -208,7 +208,7 @@
         "ALT, Print, exec, hyprpicker -a"
 
         # cliphist
-        "$SUPER, V, exec, anyrun --plugins libanyrun_cliphist.so --show-results-immediately true | cliphist decode | wl-copy"
+        "$SUPER, V, exec, anyrun --plugins ${inputs.anyrun-cliphist.packages.${pkgs.system}.default}/lib/libanyrun_cliphist.so --show-results-immediately true | cliphist decode | wl-copy"
       ];
 
       bindm = [
