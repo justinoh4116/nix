@@ -13,6 +13,7 @@
     config = {
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
+        inputs.anyrun-cliphist.packages.${pkgs.system}.default
         inputs.anyrun.packages.${pkgs.system}.rink
         inputs.anyrun.packages.${pkgs.system}.symbols
         #inputs.anyrun.packages.${pkgs.system}.randr
