@@ -71,7 +71,7 @@
       }
 
     '';
-    extraConfigFiles."cliphist".text = ''
+    extraConfigFiles."cliphist.ron".text = ''
       Config(
         prefix: ":ch",
         // for any other plugin
