@@ -14,6 +14,7 @@
 
   home.packages = with pkgs;
     [
+      graphviz
       anydesk
       netflix
       parsec-bin
