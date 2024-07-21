@@ -271,9 +271,9 @@
           "layersOut, 1, 1.6, menu_accel"
           "fadeLayersIn, 1, 2, menu_decel"
           "fadeLayersOut, 1, 4.5, menu_accel"
-          "animation = workspaces, 1, 7, menu_decel, slide"
+          # "animation = workspaces, 1, 7, menu_decel, slide"
           # animation = workspaces, 1, 2.5, softAcDecel, slide
-          # animation = workspaces, 1, 7, menu_decel, slidefade 15%
+          "workspaces, 1, 7, menu_decel, slidefade 15%"
           # animation = specialWorkspace, 1, 3, md3_decel, slidefadevert 15%
           "specialWorkspace, 1, 3, md3_decel, slidevert"
           # "windows, 1, 2.5, bezier, slide"
