@@ -276,9 +276,9 @@
           # animation = workspaces, 1, 7, menu_decel, slidefade 15%
           # animation = specialWorkspace, 1, 3, md3_decel, slidefadevert 15%
           "specialWorkspace, 1, 3, md3_decel, slidevert"
-          "windows, 1, 2.5, bezier, slide"
-          "fade, 1, 1, default"
-          "workspaces, 1, 3, bezier, slide"
+          # "windows, 1, 2.5, bezier, slide"
+          # "fade, 1, 1, default"
+          # "workspaces, 1, 3, bezier, slide"
         ];
       };
 
