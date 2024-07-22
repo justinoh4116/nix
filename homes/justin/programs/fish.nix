@@ -22,6 +22,10 @@ args @ {pkgs, ...}: {
         src = pkgs.fishPlugins.fzf-fish.src;
       }
     ];
+    shellAliases = {
+      "ll" = "exa --long --git --header --icons";
+      "lla" = "exa --long --git --header --icons -a";
+    };
     shellInit = ''
       set -gx EDITOR nvim
       set -gx fzf_directors_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"

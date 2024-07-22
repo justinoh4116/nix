@@ -14,6 +14,7 @@
 
   home.packages = with pkgs;
     [
+      webcord
       graphviz
       anydesk
       netflix
