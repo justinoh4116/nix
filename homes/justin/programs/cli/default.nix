@@ -9,6 +9,7 @@
   ];
   home.packages = with pkgs; [
     # poetry
+    eza
     playerctl
     dmenu
     openssl
