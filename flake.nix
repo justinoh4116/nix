@@ -9,17 +9,28 @@
     nixos-hardware,
     hyprland,
     hy3,
+    nixpkgs-freecad,
     ...
   }: let
     overlays = [
       # inputs.neovim-nightly-overlay.overlay.default
     ];
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    pkgs-freecad-fix = import nixpkgs-freecad {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
+        # system = "x86_64-linux";
+
         specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
         modules = [
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
@@ -45,16 +56,18 @@
     };
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
         # This is also not the recommended way of passing `nixpkgs`,
         # for reasons (similar to `system` above) that are out-of-scope of this example.
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        # home-manager.useGlobalPkgs = true;
+        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./homes/justin/profile.nix
         ];
         # Just like `specialArgs` above...
         extraSpecialArgs = {
           inherit inputs;
-          # ...
+          inherit pkgs-freecad-fix;
         };
       };
       # ...
@@ -63,6 +76,9 @@
   inputs = {
     # stable?!? hardly even
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # pin fixed freecad
+    nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -126,6 +142,7 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    anyrun-cliphist.url = "github:benoitlouy/anyrun-cliphist";
 
     walker.url = "github:abenz1267/walker";
 

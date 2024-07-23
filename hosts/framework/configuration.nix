@@ -59,8 +59,10 @@
   # hardware.pulseaudio.enable = true;
 
   services.xserver = {
-    xkbOptions = "compose:ralt";
-    layout = "us";
+    xkb = {
+      options = "compose:ralt";
+      layout = "us";
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

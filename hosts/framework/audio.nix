@@ -20,6 +20,7 @@
     jack.enable = true;
     alsa.support32Bit = true;
     wireplumber = {
+      enable = true;
       #   extraConfig = {
       #   "monitor.bluez.properties" = {
       #     "bluez5.enable-sbc-xq" = true;
