@@ -14,6 +14,7 @@
 
   home.packages = with pkgs;
     [
+      p3x-onenote
       webcord
       graphviz
       anydesk
