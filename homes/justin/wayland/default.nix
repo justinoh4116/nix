@@ -8,7 +8,7 @@
     ./dunst.nix
     ./anyrun
     ./ags
-    ./walker
+    # ./walker
   ];
 
   home = {

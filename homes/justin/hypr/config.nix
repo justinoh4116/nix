@@ -225,6 +225,7 @@
 
       windowrulev2 = [
         "float, title:^(anyrun)"
+        "float, title:^(Bitwarden)"
         "float, class:^(walker)"
         "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
         "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
