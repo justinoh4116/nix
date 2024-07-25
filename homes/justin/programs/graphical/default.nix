@@ -26,8 +26,6 @@
       imv
       inkscape
       mpv
-      libsForQt5.okular
-      libsForQt5.dolphin
       pcmanfm
       arduino
       #kicad
@@ -43,6 +41,26 @@
       zotero
       ungoogled-chromium
       # freecad
+
+      bitwarden-desktop
+
+      kdePackages.dolphin
+      kdePackages.dolphin-plugins
+      kdePackages.ark
+      kdePackages.kio
+      kdePackages.kio-extras
+      kdePackages.kimageformats
+      kdePackages.kdegraphics-thumbnailers
+
+      # Okular needs ghostscript to import PostScript files as PDFs
+      # so we add ghostscript_headless as a dependency
+      (symlinkJoin {
+        name = "Okular";
+        paths = with pkgs; [
+          kdePackages.okular
+          ghostscript_headless
+        ];
+      })
     ]
     ++ [
       pkgs-freecad-fix.freecad
