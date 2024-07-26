@@ -14,6 +14,7 @@
 
   home.packages = with pkgs;
     [
+      thunderbird
       p3x-onenote
       webcord
       graphviz
