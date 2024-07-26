@@ -243,6 +243,7 @@
       env = [
         "XCURSOR_THEME, macOS-Monterey-White"
         "XCURSOR_SIZE, 24"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
 
       animations = {

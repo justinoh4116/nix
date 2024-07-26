@@ -8,6 +8,7 @@
     ./dunst.nix
     ./anyrun
     ./ags
+    ./xdg-portals.nix
     # ./walker
   ];
 
@@ -48,7 +49,7 @@
     # that force electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # make qt apps expect wayland
-    QT_QPA_PLATFORM = "xcb";
+    QT_QPA_PLATFORM = "wayland";
     # set backend for sdl
     SDL_VIDEODRIVER = "wayland";
     # fix modals from being attached on tiling wms
