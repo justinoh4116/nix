@@ -21,6 +21,7 @@
     arduino-language-server
     nil
     pyright
+    typescript
 
     isort
     black
