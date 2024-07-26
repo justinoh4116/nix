@@ -22,6 +22,7 @@
     nil
     pyright
     typescript
+    typescript-language-server
 
     isort
     black
