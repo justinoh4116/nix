@@ -14,6 +14,7 @@
 
   home.packages = with pkgs;
     [
+      tailscale
       thunderbird
       p3x-onenote
       webcord
