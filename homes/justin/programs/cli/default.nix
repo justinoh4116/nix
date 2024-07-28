@@ -8,6 +8,7 @@
   imports = [
   ];
   home.packages = with pkgs; [
+    yazi
     # poetry
     eza
     playerctl
