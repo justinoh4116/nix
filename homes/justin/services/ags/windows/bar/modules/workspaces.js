@@ -12,57 +12,47 @@ import {
 
 globalThis.hyprland = Hyprland;
 
-const makeWorkspaces = () =>
-  [...Array(10)].map((_, i) => {
-    const id = i + 1;
-
-    return Widget.Button({
-      onPrimaryClick: () => changeWorkspace(id),
-
-      visible: getLastWorkspaceId() >= id,
-
-      setup: (self) => {
-        const ws = Hyprland.getWorkspace(id);
-        self.id = id;
-        self.active = workspaceActive(id);
-        self.monitor = DEFAULT_MONITOR;
-
-        if (self.active) {
-          self.monitor = {
-            name: ws?.monitor ?? DEFAULT_MONITOR.name,
-            id: ws?.monitorID ?? DEFAULT_MONITOR.id,
-          };
-          self.toggleClassName(`monitor${self.monitor.id}`, true);
-        }
-      },
-    });
-  });
+const activeId = Hyprland.active.workspace.bind("id")
+const workspaces = Hyprland.bind("workspaces")
+    .as(ws => (ws.map(({ id }) => Widget.Button({
+        on_clicked: () => Hyprland.messageAsync(`dispatch workspace ${id}`),
+        child: Widget.Label(`${id}`),
+        class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
+        attribute: id,
+    }))).sort((a, b) => (a.attribute > b.attribute ? 1 : -1)))
+    
 
 export default () =>
-  Widget.EventBox({
-    onScrollUp: () => changeWorkspace("+1"),
-    onScrollDown: () => changeWorkspace("-1"),
+    Widget.Box({
+        class_name: "workspaces",
+        children: workspaces,
+    })
 
-    child: Widget.Box({
-      className: "workspaces module",
-
-      // The Hyprland service is ready later than ags is done parsing the config,
-      // so only build the widget when we receive a signal from it.
-      setup: (self) => {
-        const connID = Hyprland.connect("notify::workspaces", () => {
-          Hyprland.disconnect(connID);
-
-          self.children = makeWorkspaces();
-          self.lastFocused = Hyprland.active.workspace.id;
-          self.biggestId = getLastWorkspaceId();
-          self
-            .hook(Hyprland.active.workspace, focusedSwitch)
-            .hook(Hyprland, added, "workspace-added")
-            .hook(Hyprland, removed, "workspace-removed")
-            .hook(Hyprland, (self, name, data) => {
-              if (name === "moveworkspace") moveWorkspace(self, data);
-            }, "event");
-        });
-      },
-    }),
-  });
+// export default () =>
+//   Widget.EventBox({
+//     onScrollUp: () => changeWorkspace("+1"),
+//     onScrollDown: () => changeWorkspace("-1"),
+//
+//     child: Widget.Box({
+//       className: "workspaces module",
+//
+//       // The Hyprland service is ready later than ags is done parsing the config,
+//       // so only build the widget when we receive a signal from it.
+//       setup: (self) => {
+//         const connID = Hyprland.connect("notify::workspaces", () => {
+//           Hyprland.disconnect(connID);
+//
+//           self.children = makeWorkspaces();
+//           self.lastFocused = Hyprland.active.workspace.id;
+//           self.biggestId = getLastWorkspaceId();
+//           self
+//             .hook(Hyprland.active.workspace, focusedSwitch)
+//             .hook(Hyprland, added, "workspace-added")
+//             .hook(Hyprland, removed, "workspace-removed")
+//             .hook(Hyprland, (self, name, data) => {
+//               if (name === "moveworkspace") moveWorkspace(self, data);
+//             }, "event");
+//         });
+//       },
+//     }),
+//   });

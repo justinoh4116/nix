@@ -223,21 +223,16 @@
         "SHIFT$MOD, mouse:272, resizewindow"
       ];
 
-      windowrulev2 = [
-        "float, title:^(anyrun)"
-        "float, title:^(Bitwarden)"
-        "float, class:^(walker)"
-        "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
-        "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
-        "float, class:^(Zotero)$"
-      ];
+      # windowrulev2 = [
+      # ];
 
-      layerrule = [
-        "blur, ^(bar)"
-      ];
+      # layerrule = [
+      #   "blur, ^(bar)"
+      # ];
 
       misc = {
         force_default_wallpaper = 0;
+        vrr = 1;
       };
 
       env = [
@@ -297,10 +292,25 @@
         # dim_strength = .2;
         # dim_special = 0;
 
+        # blur = {
+        #   enabled = true;
+        #   size = 16;
+        #   passes = 5;
+        # };
         blur = {
           enabled = true;
-          size = 16;
-          passes = 5;
+          brightness = 1.0;
+          contrast = 1.0;
+          noise = 0.01;
+
+          vibrancy = 0.2;
+          vibrancy_darkness = 0.5;
+
+          passes = 4;
+          size = 7;
+
+          popups = true;
+          popups_ignorealpha = 0.2;
         };
       };
 

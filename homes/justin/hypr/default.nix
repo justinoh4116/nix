@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./config.nix
+    ./rules.nix
     ./gestures.nix
     ./hyprlock.nix
   ];

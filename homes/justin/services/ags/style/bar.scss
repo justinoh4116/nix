@@ -12,15 +12,22 @@
   margin: 0.2rem 0.5rem;
 
   button {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
-    margin: 0.7rem 0.2rem;
-    min-width: 1rem;
-    transition: 100ms linear;
+    background-color: transparent;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+    padding-left: 0pt;
+    padding-right: 0pt;
+    margin: 3pt 5pt;
+    font-size: 13pt;
+
+    // border-radius: 2rem;
+    // margin: 0.7rem 0.2rem;
+    // min-width: 1rem;
+    // transition: 100ms linear;
   }
 
   .focused {
-    min-width: 2rem;
+    font-weight: bold;
   }
 
   .monitor0 {
