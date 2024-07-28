@@ -5,7 +5,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  wallpaper = "~/Pictures/wallpapers/11-0-Big-Sur-Color-Night.jpg";
+in {
   imports = [
     # inputs.hyprpaper.homeManagerModules.default
   ];
@@ -16,12 +18,11 @@
 
   services.hyprpaper = {
     enable = true;
+    package = inputs.hyprpaper.packages.${pkgs.system}.default;
+
     settings = {
-      preload = [
-        "~/Pictures/wallpapers/11-0-Color-Day.jpg"
-        "~/Pictures/wallpapers/11-0-Big-Sur-Color-Night.jpg"
-      ];
-      wallpaper = ",~/Pictures/wallpapers/11-0-Big-Sur-Color-Night";
+      preload = ["${wallpaper}"];
+      wallpaper = [", ${wallpaper}"];
     };
   };
 
@@ -39,7 +40,7 @@
         "wl-paste --watch cliphist store"
         "hyprctl setcursor macOS-Monterey-White 24"
         "hypridle"
-        "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
+        # "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
         # "ags -c ~/.config/ags/bar/config.js"
       ];
 
