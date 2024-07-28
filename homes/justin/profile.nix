@@ -10,6 +10,7 @@
   home.homeDirectory = "/home/justin";
 
   imports = [
+    ./services
     ./programs
     ./wayland
     ./hypr

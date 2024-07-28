@@ -13,6 +13,7 @@
       ];
 
       config = {
+        hyprland.default = ["gtk" "hyprland"];
         common = let
           portal = "hyprland";
         in {
