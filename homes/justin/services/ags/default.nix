@@ -15,6 +15,7 @@
     procps
     ripgrep
     util-linux
+    gvfs
   ];
 
   guiDeps = with pkgs; [
