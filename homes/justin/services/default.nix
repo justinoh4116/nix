@@ -1,6 +1,6 @@
 {
   imports = [
     ./ags
-    ./spotifyd.nix
+    # ./spotifyd.nix
   ];
 }
