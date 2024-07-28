@@ -6,7 +6,7 @@
   config,
   ...
 }: let
-  wallpaper = "~/Pictures/wallpapers/clouds_and_moon.jpeg";
+  wallpaper = "~/Pictures/wallpapers/11-0-Big-Sur-Color-Night.jpg";
 in {
   imports = [
     # inputs.hyprpaper.homeManagerModules.default
