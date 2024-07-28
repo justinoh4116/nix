@@ -100,7 +100,7 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
     };
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
+      url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
       inputs.hyprland.follows = "hyprland";
     };
     hyprlock = {
@@ -111,16 +111,17 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
     # xdg-portal-hyprland = {
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    xdg-portal-hyprland = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.hyprland.follows = "hyprland";
+    };
     # hyprpicker = {
     hyprpicker.url = "github:hyprwm/hyprpicker";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-    };
+    # hyprpaper = {
+    #   url = "github:hyprwm/hyprpaper";
+    # };
 
     hypridle.url = "github:hyprwm/hypridle";
 
@@ -143,8 +144,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     anyrun-cliphist.url = "github:benoitlouy/anyrun-cliphist";
-
-    walker.url = "github:abenz1267/walker";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 

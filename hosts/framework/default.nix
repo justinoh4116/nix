@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./services
     ./virtmanager.nix
     ./steam.nix
     ./keyboard.nix
