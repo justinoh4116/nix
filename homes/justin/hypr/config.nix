@@ -28,6 +28,7 @@ in {
 
   wayland.windowManager.hyprland = {
     plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hy3.packages.${pkgs.system}.hy3
       inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
@@ -88,6 +89,8 @@ in {
       general = {
         layout = "hy3";
         gaps_out = 5;
+        "col.active_border" = "rgba(88888888)";
+        "col.inactive_border" = "rgba(00000088)";
       };
 
       cursor = {
@@ -327,7 +330,20 @@ in {
       };
 
       plugin = {
+        hyprbars = {
+          bar_height = 20;
+          bar_precedence_over_border = true;
+
+          # order is right-to-left
+          hyprbars-button = [
+            # close
+            "rgb(ff0000), 15, , hyprctl dispatch killactive"
+            # maximize
+            "rgb(ffff00), 15, , hyprctl dispatch fullscreen 1"
+          ];
+        };
         hy3 = {
+          no_gaps_when_only = 1;
           tabs = {
             height = 5;
             padding = 5;
