@@ -96,12 +96,17 @@ in {
         no_warps = true;
       };
 
-      bind = [
+      bind = let
+        monocle = "plugin:hy3:no_gaps_when_only";
+      in [
         # applications
         "$MOD, RETURN, exec, kitty"
         "$MOD, B, exec, chromium"
         "$MOD, SPACE, exec, anyrun"
         # "SHIFT$MOD, SPACE, exec, anyrun"
+
+        # toggle monocle
+        "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
         # window controls
         "$MOD, Q, killactive,"
