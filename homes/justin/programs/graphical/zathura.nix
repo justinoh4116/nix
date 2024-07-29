@@ -2,7 +2,7 @@
   programs.zathura = {
     enable = true;
     options = {
-      recolor-lightcolor = "rgba(0,0,0,0)";
+      recolor-lightcolor = "rgba(0,0,0,0.7)";
       default-bg = "rgba(0,0,0,0.7)";
 
       font = "SFPro Text Nerd Font 12";
