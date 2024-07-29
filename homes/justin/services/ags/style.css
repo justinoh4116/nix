@@ -172,11 +172,11 @@ menu menuitem:only-child {
   margin: 0 0.3rem;
 }
 .bar .system-info .type {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 300;
 }
 .bar .system-info .value {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .system-menu-toggler box {
