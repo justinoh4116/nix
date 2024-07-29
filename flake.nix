@@ -119,9 +119,9 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    # hyprpaper = {
-    #   url = "github:hyprwm/hyprpaper";
-    # };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+    };
 
     hypridle.url = "github:hyprwm/hypridle";
 
@@ -143,7 +143,6 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    anyrun-cliphist.url = "github:benoitlouy/anyrun-cliphist";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
