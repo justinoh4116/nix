@@ -106,7 +106,7 @@ in {
         # "SHIFT$MOD, SPACE, exec, anyrun"
 
         # toggle monocle
-        "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+        "$MOD, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
         # window controls
         "$MOD, Q, killactive,"
