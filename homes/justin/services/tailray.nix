@@ -2,5 +2,5 @@
   imports = [
     inputs.tailray.homeManagerModules.default
   ];
-  services.tailray.enable = true;
+  # services.tailray.enable = true;
 }
