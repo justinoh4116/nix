@@ -73,6 +73,6 @@
     #   }
 
     # '';
-    extraConfigFiles."style.css".source = dots/style.css;
+    # extraConfigFiles."style.css".source = dots/style.css;
   };
 }
