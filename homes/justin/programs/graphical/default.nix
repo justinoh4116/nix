@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ./zathura.nix
     ./discord.nix
     ./nextcloud.nix
     ./schizofox.nix
@@ -36,7 +37,6 @@
       tetrio-desktop
       prusa-slicer
       xournalpp
-      zathura
       obs-studio
       spotify
       obsidian
