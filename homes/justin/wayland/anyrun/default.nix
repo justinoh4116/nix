@@ -9,13 +9,14 @@
   imports = [inputs.anyrun.homeManagerModules.default];
 
   home.packages = [
-    inputs.anyrun-cliphist.packages.${pkgs.system}.default
+    # inputs.anyrun-cliphist.packages.${pkgs.system}.default
   ];
 
   programs.anyrun = {
     enable = true;
     config = {
       plugins = [
+        inputs.anyrun.packages.${pkgs.system}.stdin
         inputs.anyrun.packages.${pkgs.system}.applications
         inputs.anyrun.packages.${pkgs.system}.rink
         inputs.anyrun.packages.${pkgs.system}.symbols
