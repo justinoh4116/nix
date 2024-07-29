@@ -9,6 +9,12 @@
     rev = "06e5fe1c7a2a4009c483b28b298700590e7b6784";
     hash = "sha256-jg8+GDsHOSIh8QPYxCvMde1c1D9M78El0PljSerkLQc";
   };
+  flavors-repo = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
+    rev = "2d7dd2afe253c30943e9cd05158b1560a285eeab";
+    sha256 = "sha256-566RFL1Wng7yr5OS3UtKEy+ZLrgwfCdX9FAtwRQK2oM";
+  };
 in {
   programs.yazi = {
     enable = true;
@@ -23,6 +29,16 @@ in {
         max_width = 1000;
         max_height = 1000;
       };
+    };
+
+    theme = {
+      flavor = {
+        use = "cattpuccin-frappe";
+      };
+    };
+
+    flavors = {
+      catppuccin-frappe = "${flavors-repo}/catppuccin-frappe.yazi";
     };
 
     plugins = {
