@@ -34,13 +34,26 @@
 
   gtk = {
     enable = true;
-    theme.name = "Adwaita";
+
+    font = {
+      name = "SFPro Text Nerd Font";
+      size = 9;
+    };
+
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
     iconTheme = {
-      name = "Adwaita-dark";
-      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
     };
   };
+
+  xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
 
   # make some environment tweaks for wayland
   home.sessionVariables = {
