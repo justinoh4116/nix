@@ -15,6 +15,7 @@
 
   home.packages = with pkgs;
     [
+      freerdp
       vscode
       tailscale
       thunderbird
