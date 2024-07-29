@@ -1,5 +1,6 @@
 {
   imports = [
+    ./power-monitor.nix
     ./kdeconnect.nix
     ./ags
     # ./spotifyd.nix
