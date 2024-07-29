@@ -33,7 +33,7 @@ in {
 
     theme = {
       flavor = {
-        use = "cattpuccin-frappe";
+        use = "catppuccin-frappe";
       };
     };
 
