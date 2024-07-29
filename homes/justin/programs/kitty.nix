@@ -20,6 +20,7 @@
 
     extraConfig = ''
       background_opacity 0.9
+      window_padding_width 4
     '';
     #   font_family "FiraCode Nerd Font";
     #   bold_font "FiraCode Bold Nerd Font Complete";
