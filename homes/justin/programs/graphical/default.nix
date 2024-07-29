@@ -15,6 +15,7 @@
 
   home.packages = with pkgs;
     [
+      vscode
       tailscale
       thunderbird
       p3x-onenote
