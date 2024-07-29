@@ -25,6 +25,8 @@
       layer = "overlay";
     };
 
+    extraCss = builtins.readFile (./. + "/style-dark.css");
+
     # extraCss = ''
     #   $fontSize: 1.3rem;
     #   /* $fontFamily: Lexend; */
