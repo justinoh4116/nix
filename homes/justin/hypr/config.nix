@@ -59,6 +59,17 @@ in {
         workspace_swipe_create_new = true;
       };
 
+      group = {
+        groupbar = {
+          font_size = 10;
+          gradients = false;
+          text_color = "rgb(255, 255, 255)";
+        };
+
+        # "col.border_active" = "rgba(${c.primary_container}88);";
+        # "col.border_inactive" = "rgba(${c.on_primary_container}88)";
+      };
+
       input = {
         accel_profile = "flat";
         kb_layout = "us";
