@@ -1,5 +1,6 @@
 {
   imports = [
+    ./tailray.nix
     ./power-monitor.nix
     ./kdeconnect.nix
     ./ags
