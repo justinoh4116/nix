@@ -37,7 +37,7 @@
 
     font = {
       name = "SFPro Text Nerd Font";
-      size = 9;
+      # size = 9;
     };
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
