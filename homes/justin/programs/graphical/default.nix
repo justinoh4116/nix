@@ -15,7 +15,7 @@
 
   home.packages = with pkgs;
     [
-      freerdp
+      remmina
       vscode
       tailscale
       thunderbird
