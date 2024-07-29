@@ -18,8 +18,9 @@
     settings = {
     };
 
-    # extraConfig = ''
-
+    extraConfig = ''
+      background_opacity = 0.9
+    '';
     #   font_family "FiraCode Nerd Font";
     #   bold_font "FiraCode Bold Nerd Font Complete";
     #   #italic_font "Firatalic Italic";
@@ -29,6 +30,5 @@
     #   #font_features "FiraCodeNerdFontComplete-Bold +cv05 +cv09 +cv14 +ss04 +cv16 +cv31 +cv25 +cv26 +cv32 +cv28 +onum";
     #   #font_features "Firatalic-Italic +cv05 +cv09 +cv14 +ss04 +cv16 +cv31 +cv25 +cv26 +cv32 +cv28 +onum";
     #   #font_features "Firatalic-BoldItalic +cv05 +cv09 +cv14 +ss04 +cv16 +cv31 +cv25 +cv26 +cv32 +cv28 +onum";
-    # '';
   };
 }
