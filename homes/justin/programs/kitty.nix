@@ -19,7 +19,7 @@
     };
 
     extraConfig = ''
-      background_opacity = 0.9
+      background_opacity 0.9
     '';
     #   font_family "FiraCode Nerd Font";
     #   bold_font "FiraCode Bold Nerd Font Complete";
