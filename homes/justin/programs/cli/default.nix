@@ -6,9 +6,9 @@
   ...
 }: {
   imports = [
+    ./yazi.nix
   ];
   home.packages = with pkgs; [
-    yazi
     # poetry
     eza
     playerctl
