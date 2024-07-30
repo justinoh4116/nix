@@ -144,6 +144,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tailray = {
+      url = "github:NotAShelf/tailray";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     gestures.url = "github:riley-martin/gestures";
