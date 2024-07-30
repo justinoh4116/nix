@@ -43,9 +43,9 @@
     while true; do
       currentStatus=$(cat "$BAT_STATUS")
       currentCap=$(cat "BAT_CAP")
-      if [ "$currentStatus" != "$prevStatus" ] || [ $prevCap -gt 94 ]; then
+      if [ "$currentStatus" != "$prevStatus" ] || [ $prevCap -gt 96 ]; then
       	# read the current state
-      	if [ "$currentStatus" = "Discharging" ] && [ $currentCap -lt 95 ]; then
+      	if [ "$currentStatus" = "Discharging" ] && [ $currentCap -lt 98 ]; then
         	profile="$BAT_PROFILE"
           hyprctl -i 0 --batch 'keyword decoration:blur:enabled false; keyword animations:enabled false'
       	else
