@@ -9,6 +9,7 @@
     ./yazi.nix
   ];
   home.packages = with pkgs; [
+    maestral
     # poetry
     eza
     playerctl
