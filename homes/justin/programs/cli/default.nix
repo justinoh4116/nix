@@ -10,6 +10,7 @@
   ];
   home.packages = with pkgs; [
     maestral
+    maestral-gui
     # poetry
     eza
     playerctl
