@@ -34,7 +34,7 @@
     # window rules
     windowrulev2 = [
       # "blur, title:^(Spotify).+"
-      "opacity .6, initialTitle:^(Spotify).+"
+      "opacity .8, initialTitle:^(Spotify).+"
 
       "float, title:^(anyrun)"
       "float, title:^(Bitwarden)"
