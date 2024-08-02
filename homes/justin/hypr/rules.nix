@@ -28,6 +28,7 @@
       "xray 1, ${toRegex ["bar"]}"
       "ignorealpha 0.5, ${toRegex (highopacity ++ ["music"])}"
       "ignorealpha 0.2, ${toRegex lowopacity}"
+      "noanim, ^(selection)$"
     ];
 
     # window rules
