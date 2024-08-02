@@ -149,6 +149,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pyprland.url = "github:hyprland-community/pyprland";
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     gestures.url = "github:riley-martin/gestures";

@@ -11,6 +11,8 @@
     pkgs.noto-fonts-emoji
     pkgs.fira-code
     pkgs.fira-code-symbols
+    pkgs.open-sans
+    pkgs.lmodern
 
     (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
 
