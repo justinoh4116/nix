@@ -17,6 +17,7 @@
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.pyprland.packages.${pkgs.system}.pyprland
+    pkgs.libnotify
   ];
 
   wayland.windowManager.hyprland = {
