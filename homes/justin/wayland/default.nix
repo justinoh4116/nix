@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ./dunst.nix
+    # ./dunst.nix
     ./anyrun
     ./ags
     ./xdg-portals.nix
