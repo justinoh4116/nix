@@ -40,6 +40,7 @@ in {
         "wl-paste --watch cliphist store"
         "hyprctl setcursor macOS-Monterey-White 24"
         "hypridle"
+        "${inputs.pyprland.packages.${pkgs.system}.pyprland}/bin/pypr "
         # "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
         # "ags -c ~/.config/ags/bar/config.js"
       ];
@@ -136,9 +137,9 @@ in {
 
         "$MOD, e, hy3:makegroup, h"
         "$MOD, w, hy3:makegroup, v"
-        "$MOD, z, hy3:makegroup, tab"
+        # "$MOD, z, hy3:makegroup, tab"
         "$MOD, r, hy3:changegroup, opposite"
-        "$MOD, t, hy3:changegroup, toggletab"
+        # "$MOD, t, hy3:changegroup, toggletab"
 
         # workspace controls
 
