@@ -7,6 +7,7 @@
   ...
 }: {
   fonts.packages = [
+    pkgs.dejavu_fonts
     pkgs.noto-fonts
     pkgs.noto-fonts-emoji
     pkgs.fira-code
