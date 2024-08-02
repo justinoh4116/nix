@@ -55,9 +55,7 @@ in {
 
       publicShare = null;
 
-      music = "${config.home.homeDirectory}/Media/Music";
       pictures = "${config.home.homeDirectory}/Media/Pictures";
-      videos = "${config.home.homeDirectory}/Media/Videos";
 
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
