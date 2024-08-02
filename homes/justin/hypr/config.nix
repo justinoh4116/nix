@@ -229,7 +229,7 @@ in {
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl prev"
 
-        ", Print, exec, ~/.config/hypr/scripts/screenshot.fish"
+        ", Print, exec, grimblast --notify copysave area"
         "ALT, Print, exec, hyprpicker -a"
 
         # cliphist

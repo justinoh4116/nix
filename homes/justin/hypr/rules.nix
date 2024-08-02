@@ -49,6 +49,9 @@
       "float, class:^(org.gnome.Calculator)$"
       "size 360 490, class:^(org.gnome.Calculator)$"
 
+      # animation breaks screenshots
+      "noanim, title:^(grimblast).+"
+
       # allow tearing in games
       "immediate, class:^(osu\!|cs2)$"
 
