@@ -110,6 +110,9 @@ in {
         # toggle monocle
         "$MOD, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
+        # cycle wallpaper
+        "SHIFT$MOD, W, exec, pypr wall next"
+
         # window controls
         "$MOD, Q, killactive,"
         "$MOD, F, fullscreen"
