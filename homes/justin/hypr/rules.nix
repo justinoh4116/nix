@@ -33,6 +33,9 @@
 
     # window rules
     windowrulev2 = [
+      "blur, title:^(Spotify).+"
+      "ignorealpha .6, title:^(Spotify).+"
+
       "float, title:^(anyrun)"
       "float, title:^(Bitwarden)"
       "float, class:^(walker)"
