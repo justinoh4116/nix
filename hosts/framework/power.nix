@@ -13,7 +13,7 @@ in {
     wantedBy = ["hibernate.target"];
     before = ["systemd-hibernate.service"];
     script = ''
-      modprobe -r mt7921e
+      ${pkgs.kmod}/bin/modprobe -r mt7921e
     '';
     serviceConfig.Type = "simple";
   };
@@ -23,7 +23,7 @@ in {
     wantedBy = ["hibernate.target"];
     after = ["systemd-hibernate.service"];
     script = ''
-      modprobe mt7921e
+      ${pkgs.kmod}/bin/modprobe mt7921e
     '';
     serviceConfig.Type = "simple";
   };
