@@ -36,6 +36,12 @@
       # "blur, title:^(Spotify).+"
       "opacity .8, initialTitle:^(Spotify).+"
 
+      "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
+      "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
+      "idleinhibit focus, title:^(netflix.com).+"
+      "idleinhibit fullscreen, class:^(firefox)$"
+      "idleinhibit fullscreen, class:^(Google-chrome)$"
+
       "float, title:^(anyrun)"
       "float, title:^(Bitwarden)"
       "float, class:^(walker)"
