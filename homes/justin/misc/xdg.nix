@@ -6,7 +6,7 @@
 }: let
   browser = ["chromium.desktop"];
   mailer = ["thunderbird.desktop"];
-  zathura = ["zathura.desktop"];
+  zathura = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];
 
   associations = {
