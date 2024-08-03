@@ -104,6 +104,7 @@ in {
         # applications
         "$MOD, RETURN, exec, kitty"
         "$MOD, B, exec, chromium"
+        "$MOD, N, exec, kitty yazi"
         "$MOD, SPACE, exec, anyrun"
         # "SHIFT$MOD, SPACE, exec, anyrun"
 
