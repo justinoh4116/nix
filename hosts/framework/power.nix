@@ -8,6 +8,26 @@
     HIBERNATE_LOCK = "/var/run/autohibernate.lock";
   };
 in {
+  systemd.services."unload-mediatek-before-hibernate" = {
+    description = "Unloads mediatek driver before hibernate (fuck you amd)";
+    wantedBy = ["hibernate.target"];
+    before = ["systemd-hibernate.service"];
+    script = ''
+      modprobe -r mt7921e
+    '';
+    serviceConfig.Type = "simple";
+  };
+
+  systemd.services."reload-mediatek-after-hibernate" = {
+    description = "Reloads mediatek driver after hibernate (fuck you amd)";
+    wantedBy = ["hibernate.target"];
+    after = ["systemd-hibernate.service"];
+    script = ''
+      modprobe mt7921e
+    '';
+    serviceConfig.Type = "simple";
+  };
+
   # systemd.services."awake-after-suspend-for-a-time" = {
   #   description = "Sets up the suspend so that it'll wake for hibernation only if not on AC power";
   #   wantedBy = ["suspend.target"];
