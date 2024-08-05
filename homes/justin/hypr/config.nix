@@ -229,11 +229,11 @@ in {
 
         ", XF86AudioLowerVolume, exec, pamixer -d 10"
         ", XF86AudioRaiseVolume, exec, pamixer -i 10"
-        ", XF86AudioMute, exec, pamixe -t"
+        ", XF86AudioMute, exec, pamixer -t"
 
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPrev, exec, playerctl prev"
+        ", XF86AudioPrev, exec, playerctl previous"
 
         ", Print, exec, grimblast --notify copysave area"
         "ALT, Print, exec, hyprpicker -a"
