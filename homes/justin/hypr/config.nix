@@ -47,6 +47,7 @@ in {
 
       monitor = [
         "eDP-1, preferred, 0x0, 1.175, bitdepth, 10"
+        ",preferred,auto,1"
       ];
 
       gestures = {
