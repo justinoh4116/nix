@@ -15,6 +15,7 @@
 
   home.packages = with pkgs;
     [
+      blender
       remmina
       vscode
       tailscale
