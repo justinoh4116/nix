@@ -34,7 +34,7 @@
     # window rules
     windowrulev2 = [
       # "blur, title:^(Spotify).+"
-      "opacity .8, initialTitle:^(Spotify).+"
+      # "opacity .8, initialTitle:^(Spotify).+"
 
       "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
