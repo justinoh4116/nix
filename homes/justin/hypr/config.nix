@@ -47,8 +47,8 @@ in {
 
       monitor = [
         "eDP-1, preferred, 0x0, 1.175, bitdepth, 10"
-        "DP-10, preferred, auto, 1"
-        "DP-9, preferred, auto, 1"
+        "DP-10, preferred, 2256x0, 1"
+        "DP-9, preferred, 35096, .5"
         ",preferred,auto,1"
       ];
 
