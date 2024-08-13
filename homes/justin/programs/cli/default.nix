@@ -47,10 +47,10 @@
       userName = "Justin Oh";
     };
 
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      nix-direnv.enable = true;
-    };
+    # direnv = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    #   nix-direnv.enable = true;
+    # };
   };
 }
