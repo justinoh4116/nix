@@ -41,8 +41,16 @@
     slurp
   ];
 
-  programs.git = {
-    userEmail = "justinoh4116@gmail.com";
-    userName = "Justin Oh";
+  programs = {
+    git = {
+      userEmail = "justinoh4116@gmail.com";
+      userName = "Justin Oh";
+    };
+
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 }
