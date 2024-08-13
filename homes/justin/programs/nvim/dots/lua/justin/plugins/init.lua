@@ -8,6 +8,9 @@ return {
 				end,
 			})
 		end,
+    dependencies = {
+      'kevinhwang91/promise-async',
+    }
 	},
 	{
 		"isakbm/gitgraph.nvim",
