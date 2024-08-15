@@ -17,12 +17,11 @@
 
     # start the monitor loop
     currentStatus=$(cat "$BAT_STATUS")
-    currentCap=$(cat "$BAT_CAP")
     prevProfile=$AC_PROFILE
     prevStatus=Charging
 
     # initial run
-    if [ "$currentStatus" = "Discharging" ] && [ $currentCap -lt 95 ]; then
+    if [ "$currentStatus" = "Discharging" ]; then
      	profile="$BAT_PROFILE"
        hyprctl -i 0 --batch 'keyword decoration:blur:enabled false; keyword animations:enabled false'
     else
@@ -42,10 +41,9 @@
     # event loop
     while true; do
       currentStatus=$(cat "$BAT_STATUS")
-      currentCap=$(cat "BAT_CAP")
-      if [ "$currentStatus" != "$prevStatus" ] || [ $prevCap -gt 96 ]; then
+      if [ "$currentStatus" != "$prevStatus" ]; then
       	# read the current state
-      	if [ "$currentStatus" = "Discharging" ] && [ $currentCap -lt 98 ]; then
+      	if [ "$currentStatus" = "Discharging" ]; then
         	profile="$BAT_PROFILE"
           hyprctl -i 0 --batch 'keyword decoration:blur:enabled false; keyword animations:enabled false'
       	else
@@ -61,7 +59,6 @@
 
       	prevProfile="$profile"
         prevStatus="$currentStatus"
-        prevCap=$currentCap
       fi
 
     	# wait for the next power change event
