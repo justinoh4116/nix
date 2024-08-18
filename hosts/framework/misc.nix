@@ -4,7 +4,9 @@
   pkgs,
   self,
   ...
-}: {
+}: let
+  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   environment.systemPackages = with pkgs; [
     ydotool
     just
@@ -21,7 +23,14 @@
       };
     };
 
-    graphics.enable = true;
+    # graphics = {
+    #   enable = true;
+    #   package = pkgs-hyprland.mesa.drivers;
+    #
+    #   # 32 bit support
+    #   driSupport32Bit = true;
+    #   package32 = pkgs.hyprland.pkgsi686Linux.mesa.drivers;
+    # };
   };
 
   security.pam.services.hyprlock = {};
