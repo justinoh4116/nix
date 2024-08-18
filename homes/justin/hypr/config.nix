@@ -34,6 +34,7 @@ in {
     ];
 
     settings = {
+      debug.disable_logs = false;
       "$MOD" = "SUPER";
 
       exec-once = [
