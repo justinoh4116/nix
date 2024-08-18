@@ -91,7 +91,7 @@ in {
       };
 
       general = {
-        # layout = "hy3";
+        layout = "hy3";
         gaps_out = 10;
         gaps_in = 10;
         "col.active_border" = "rgba(88888888)";
