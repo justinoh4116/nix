@@ -98,14 +98,14 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
-      # inputs.aquamarine.follows = "aquamarine";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
+      inputs.aquamarine.follows = "aquamarine";
       inputs.nixpkgs.follows = "nixpkgs-2405";
     };
-    # aquamarine = {
-    #   url = "github:Hyprwm/aquamarine";
-    #   inputs.nixpkgs.follows = "nixpkgs-2405";
-    #   };
+    aquamarine = {
+      url = "github:Hyprwm/aquamarine";
+      inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
     hyprland-plugins = {
       url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
       inputs.hyprland.follows = "hyprland";
@@ -133,7 +133,7 @@
     hypridle.url = "github:hyprwm/hypridle";
 
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.41.2";
+      url = "github:outfoxxed/hy3?ref=hl0.42.0";
       inputs.hyprland.follows = "hyprland";
     };
 
