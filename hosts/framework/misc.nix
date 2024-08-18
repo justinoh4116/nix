@@ -23,6 +23,7 @@ in {
       };
     };
 
+    opengl.enable = true;
     # graphics = {
     #   enable = true;
     #   package = pkgs-hyprland.mesa.drivers;
