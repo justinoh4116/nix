@@ -102,6 +102,7 @@
       type = "git";
       url = "https://github.com/hyprwm/hyprland";
       submodules = true;
+      rev = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";
       # inputs.aquamarine.follows = "aquamarine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
