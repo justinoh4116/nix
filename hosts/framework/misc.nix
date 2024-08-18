@@ -21,7 +21,7 @@
       };
     };
 
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   security.pam.services.hyprlock = {};
