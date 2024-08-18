@@ -15,7 +15,7 @@
 
   home.packages = with pkgs;
     [
-      kiwitalk
+      # kiwitalk
       blender
       remmina
       vscode
