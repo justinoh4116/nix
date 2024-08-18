@@ -37,12 +37,14 @@ in {
   programs.auto-cpufreq.settings = {
     charger = {
       governor = "performance";
+      energy_performance_preference = "performance";
       turbo = "auto";
     };
 
     battery = {
       governor = "powersave";
-      turbo = "auto";
+      energy_performance_preference = "power";
+      turbo = "never";
     };
   };
 
