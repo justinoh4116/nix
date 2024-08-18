@@ -632,25 +632,25 @@
         "hyprutils": "hyprutils_2",
         "hyprwayland-scanner": "hyprwayland-scanner",
         "nixpkgs": [
-          "nixpkgs-2405"
+          "nixpkgs"
         ],
         "systems": "systems_7",
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1723969407,
-        "narHash": "sha256-COChiv/1EsfN0aVQcDBPXqNR/T5sUXtalsuO1RGvwcY=",
+        "lastModified": 1724005153,
+        "narHash": "sha256-DxvcCVsQd5wjypD4MXG33GMQuMftafzXta4mYDOJPqs=",
         "ref": "refs/heads/main",
-        "rev": "1006663b6eaa55149e9a21aa8a34e41c85eb08ca",
-        "revCount": 5103,
+        "rev": "50348a3ddbb6bc3367300c9bba2ff682e4a356e3",
+        "revCount": 5105,
         "submodules": true,
         "type": "git",
-        "url": "https://github.com/hyprwm/Hyprland"
+        "url": "https://github.com/hyprwm/hyprland"
       },
       "original": {
         "submodules": true,
         "type": "git",
-        "url": "https://github.com/hyprwm/Hyprland"
+        "url": "https://github.com/hyprwm/hyprland"
       }
     },
     "hyprland-contrib": {

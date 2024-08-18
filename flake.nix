@@ -98,9 +98,12 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; #&ref=refs/tags/v0.42.0";
+      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; #&ref=refs/tags/v0.42.0";
+      type = "git";
+      url = "https://github.com/hyprwm/hyprland";
+      submodules = true;
       # inputs.aquamarine.follows = "aquamarine";
-      inputs.nixpkgs.follows = "nixpkgs-2405";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # aquamarine = {
     #   url = "github:Hyprwm/aquamarine";
