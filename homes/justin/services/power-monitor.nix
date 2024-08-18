@@ -32,7 +32,7 @@
     # set the new profile
     if [ $prevProfile != "$profile" ]; then
     	echo setting power profile to "$profile"
-    	powerprofilesctl set "$profile"
+    	# powerprofilesctl set "$profile"
     fi
 
     prevProfile="$profile"
@@ -54,7 +54,7 @@
       	# set the new profile
       	if [ $prevProfile != "$profile" ]; then
       		echo setting power profile to "$profile"
-      		powerprofilesctl set "$profile"
+      		# powerprofilesctl set "$profile"
       	fi
 
       	prevProfile="$profile"
@@ -69,7 +69,7 @@
   dependencies = with pkgs; [
     coreutils
     config.wayland.windowManager.hyprland.package
-    power-profiles-daemon
+    # power-profiles-daemon
     inotify-tools
     jaq
   ];
