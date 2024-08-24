@@ -15,6 +15,7 @@ in {
   hardware = {
     bluetooth = {
       enable = true;
+      input.General.ClassicBondedOnly = false;
       powerOnBoot = true;
       settings = {
         General = {
