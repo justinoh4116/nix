@@ -102,6 +102,10 @@ in {
         no_warps = true;
       };
 
+      submap = [
+        "passthru"
+        "reset"
+      ];
       bind = let
         monocle = "plugin:hy3:no_gaps_when_only";
       in [
@@ -111,6 +115,10 @@ in {
         "$MOD, N, exec, kitty yazi ~"
         "$MOD, SPACE, exec, anyrun"
         # "SHIFT$MOD, SPACE, exec, anyrun"
+
+        # toggle passthrough to vm
+        "SHIFT$MOD,P,submap,passthru"
+        "SUPER,Escape,submap,reset"
 
         # toggle monocle
         "$MOD, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
