@@ -399,9 +399,10 @@ in {
       }
       bind = $MOD, S, submap, scratchpads
       submap = scratchpads
-      bind = , escape, submap, reset
       bind = , V, exec, pypr toggle volume
       bind = , B, exec, pypr toggle bluetooth
+      bind = , escape, submap, reset
+      submap = reset
     '';
   };
 }
