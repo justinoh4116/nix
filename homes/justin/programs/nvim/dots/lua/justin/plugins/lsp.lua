@@ -1,3 +1,5 @@
+capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -56,7 +58,10 @@ return {
 		config = function()
 			-- This is where all the LSP shenanigans will live
 			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_lspconfig()
+			lsp_zero.extend_lspconfig({
+				sign_text = true,
+				capabilities = capabilities,
+			})
 
 			lsp_zero.on_attach(function(client, bufnr)
 				-- see :help lsp-zero-keybindings
@@ -73,7 +78,7 @@ return {
 			-- PUT THE LSPs HERE
 			require("lspconfig").arduino_language_server.setup({})
 			require("lspconfig").nil_ls.setup({})
-      require("lspconfig").tsserver.setup({})
+			require("lspconfig").tsserver.setup({})
 			-- require('lspconfig').texlab.setup{}
 			require("lspconfig").clangd.setup({})
 			require("lspconfig").pyright.setup({})
