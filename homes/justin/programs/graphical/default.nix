@@ -3,7 +3,7 @@
   pkgs,
   self,
   lib,
-  pkgs-freecad-fix,
+  # pkgs-freecad-fix,
   ...
 }: {
   imports = [
@@ -47,7 +47,7 @@
       obsidian
       zotero
       ungoogled-chromium
-      # freecad
+      freecad
 
       bitwarden-desktop
 
@@ -72,7 +72,7 @@
       })
     ]
     ++ [
-      pkgs-freecad-fix.freecad
+      # pkgs-freecad-fix.freecad
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

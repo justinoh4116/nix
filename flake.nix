@@ -7,7 +7,7 @@
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # pin fixed freecad
-    nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
+    # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -118,7 +118,7 @@
     nixos-hardware,
     hyprland,
     hy3,
-    nixpkgs-freecad,
+    # nixpkgs-freecad,
     ...
   }: let
     overlays = [
@@ -129,10 +129,10 @@
       inherit system;
       config.allowUnfree = true;
     };
-    pkgs-freecad-fix = import nixpkgs-freecad {
-      inherit system;
-      config.allowUnfree = true;
-    };
+    # pkgs-freecad-fix = import nixpkgs-freecad {
+    #   inherit system;
+    #   config.allowUnfree = true;
+    # };
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
@@ -176,7 +176,7 @@
         # Just like `specialArgs` above...
         extraSpecialArgs = {
           inherit inputs;
-          inherit pkgs-freecad-fix;
+          # inherit pkgs-freecad-fix;
         };
       };
       # ...

@@ -1349,22 +1349,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-freecad": {
-      "locked": {
-        "lastModified": 1720801237,
-        "narHash": "sha256-+Nk/R/1RyCJAnrSE2KXnEGL2NiC2Y6RSGPDy120QW08=",
-        "owner": "squalus",
-        "repo": "nixpkgs",
-        "rev": "bfb000ff685cbbefb5433eace6e2d3652118d0c7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "squalus",
-        "ref": "freecad",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -1671,7 +1655,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_11",
         "nixpkgs-2405": "nixpkgs-2405",
-        "nixpkgs-freecad": "nixpkgs-freecad",
         "pyprland": "pyprland",
         "schizofox": "schizofox",
         "systems": "systems_15",
