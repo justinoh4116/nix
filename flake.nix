@@ -30,14 +30,14 @@
       type = "git";
       url = "https://github.com/hyprwm/hyprland";
       submodules = true;
-      rev = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";
-      # inputs.aquamarine.follows = "aquamarine";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # rev = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";
+      inputs.aquamarine.follows = "aquamarine";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
-    # aquamarine = {
-    #   url = "github:Hyprwm/aquamarine";
-    #   inputs.nixpkgs.follows = "nixpkgs-2405";
-    # };
+    aquamarine = {
+      url = "github:Hyprwm/aquamarine";
+      # inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
     hyprland-plugins = {
       url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
       inputs.hyprland.follows = "hyprland";
