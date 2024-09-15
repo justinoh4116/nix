@@ -18,6 +18,7 @@
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.pyprland.packages.${pkgs.system}.pyprland
     pkgs.libnotify
+    pkgs.apple-cursor
   ];
 
   wayland.windowManager.hyprland = {
