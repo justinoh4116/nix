@@ -269,9 +269,9 @@ in {
       };
 
       env = [
-        "XCURSOR_THEME, macOS-Monterey-White"
+        "XCURSOR_THEME, macOS-White"
         "XCURSOR_SIZE, 24"
-        "HYPRCURSOR_THEME, macOS-Monterey-White"
+        "HYPRCURSOR_THEME, macOS-White"
         "HYPRCURSOR_SIZE, 24"
 
         "QT_QPA_PLATFORMTHEME,qt5ct"
