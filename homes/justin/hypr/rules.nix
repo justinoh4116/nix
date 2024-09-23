@@ -48,6 +48,7 @@
       "float, class:^(firefox)$, title:^(Sign in - Google Accounts).*"
       "float, class:^(KiCad)$, title: .*(Symbol Editor)$"
       "float, class:^(kicad)$, title: .*(3D Viewer)$"
+      "float, class:^(kicad)$"
       "float, class:^(Zotero)$"
 
       # telegram media viewer
