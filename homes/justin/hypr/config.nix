@@ -39,7 +39,7 @@ in {
 
       exec-once = [
         "wl-paste --watch cliphist store"
-        "hyprctl setcursor macOS-Monterey-White 24"
+        "hyprctl setcursor macOS-White 24"
         "hypridle"
         "${inputs.pyprland.packages.${pkgs.system}.pyprland}/bin/pypr "
         # "hyprctl hyprpaper wallpaper \",~/Pictures/wallpapers/11090Big-Sur-Color-Night.jpg\""
