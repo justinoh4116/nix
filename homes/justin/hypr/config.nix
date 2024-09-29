@@ -126,10 +126,15 @@ in {
         "$MOD, Q, killactive,"
         "$MOD, F, fullscreen"
 
-        "$MOD, H, hy3:movefocus, l"
-        "$MOD, J, hy3:movefocus, d"
-        "$MOD, K, hy3:movefocus, u"
-        "$MOD, L, hy3:movefocus, r"
+        # "$MOD, H, hy3:movefocus, l"
+        # "$MOD, J, hy3:movefocus, d"
+        # "$MOD, K, hy3:movefocus, u"
+        # "$MOD, L, hy3:movefocus, r"
+
+        "$MOD, H, exec, pypr layout_center prev"
+        "$MOD, J, exec, pypr layout_center next2"
+        "$MOD, K, exec, pypr layout_center prev2"
+        "$MOD, L, exec, pypr layout_center next"
 
         "CONTROL$MOD, H, hy3:movefocus, l, visible"
         "CONTROL$MOD, J, hy3:movefocus, d, visible"
