@@ -131,6 +131,8 @@ in {
         # "$MOD, K, hy3:movefocus, u"
         # "$MOD, L, hy3:movefocus, r"
 
+        "SHIFT$MOD, D, exec, pypr layout_center toggle"
+
         "$MOD, H, exec, pypr layout_center prev"
         "$MOD, J, exec, pypr layout_center next2"
         "$MOD, K, exec, pypr layout_center prev2"
