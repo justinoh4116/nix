@@ -84,5 +84,6 @@
 in {
   home.packages = [
     texlive
+    config.nur.repos.clefru.minionpro
   ];
 }
