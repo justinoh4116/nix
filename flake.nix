@@ -6,6 +6,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    # nix user repositories
+    nur.url = "github:nix-community/NUR";
+
     # pin fixed freecad
     # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 
@@ -118,6 +121,7 @@
     nixos-hardware,
     hyprland,
     hy3,
+    nur,
     # nixpkgs-freecad,
     ...
   }: let
@@ -146,6 +150,7 @@
           # Note: configuration.nix itself is also a Nixpkgs Module,
           # /etc/nixos/configuration.nix
           # /etc/nixos/hardware-configuration.nix
+          nur.nixosModules.nur
           nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/framework
         ];
@@ -172,6 +177,7 @@
         #pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./homes/justin/profile.nix
+          nur.nixosModules.nur
         ];
         # Just like `specialArgs` above...
         extraSpecialArgs = {

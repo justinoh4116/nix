@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./latex.nix
     ./yazi.nix
   ];
   home.packages = with pkgs; [
@@ -33,7 +34,6 @@
     rustup
     brightnessctl
     gcc
-    texliveFull
 
     # wayland stuff
     wl-clipboard
