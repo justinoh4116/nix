@@ -138,19 +138,19 @@ return {
 			-- require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
-	-- {
-	--     'lervag/vimtex',
-	--     event = { 'BufReadPre', 'BufNewFile' },
-	--     init = function()
-	--         vim.g.tex_flavor='latex'
-	--         vim.g.vimtex_view_method='zathura'
-	--         vim.g.vimtex_quickfix_mode=0
-	--         vim.opt.conceallevel=0
-	--         vim.g.vimtex_fold_enabled=0
-	--         -- vim.g.tex_conceal='abdmg'
-	--     end
+	{
+	    'lervag/vimtex',
+	    event = { 'BufReadPre', 'BufNewFile' },
+	    init = function()
+	        vim.g.tex_flavor='latex'
+	        vim.g.vimtex_view_method='zathura'
+	        vim.g.vimtex_quickfix_mode=0
+	        vim.opt.conceallevel=0
+	        vim.g.vimtex_fold_enabled=0
+	        -- vim.g.tex_conceal='abdmg'
+	    end
 
-	-- },
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
