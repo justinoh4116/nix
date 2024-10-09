@@ -122,7 +122,7 @@ return {
 	--     config = true,
 	--     event = { 'BufReadPre', 'BufNewFile' },
 	-- },
-	{
+	-- {
 	-- 	"iurimateus/luasnip-latex-snippets.nvim",
 	-- 	config = function()
 	-- 		--require'luasnip-latex-snippets'.setup()
