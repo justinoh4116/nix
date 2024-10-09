@@ -55,6 +55,7 @@
         fontspec
         fontaxes
         xetex
+        latexmk
         ;
       inherit minionpro;
     }) (oldAttrs: {
