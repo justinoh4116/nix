@@ -12,6 +12,9 @@ in {
   imports = [
     inputs.auto-cpufreq.nixosModules.default
   ];
+
+  services.power-profiles-daemon.enable = false;
+
   systemd.services."unload-mediatek-before-hibernate" = {
     description = "Unloads mediatek driver before hibernate (fuck you amd)";
     wantedBy = ["hibernate.target"];
