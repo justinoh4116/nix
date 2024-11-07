@@ -81,6 +81,7 @@
       "libvirtd"
       "kvm"
       "qemu-libvirtd"
+      "ydotool"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       htop

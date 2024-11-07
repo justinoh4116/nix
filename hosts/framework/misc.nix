@@ -8,7 +8,7 @@
   pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   environment.systemPackages = with pkgs; [
-    ydotool
+    # ydotool
     just
   ];
 
@@ -47,7 +47,7 @@ in {
     };
     hardware.bolt.enable = true;
 
-    automatic-timezoned.enable = true;
+    # automatic-timezoned.enable = true;
 
     upower.enable = true;
 

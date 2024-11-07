@@ -48,7 +48,7 @@ progressbar progress {
   padding: 0.4rem;
 }
 .button:hover {
-  background: #7d4861;
+  background: rgb(124.7137096774, 72.2862903226, 96.9112903226);
 }
 
 .button.disabled {
