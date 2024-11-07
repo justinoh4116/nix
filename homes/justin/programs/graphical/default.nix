@@ -3,7 +3,7 @@
   pkgs,
   self,
   lib,
-  # pkgs-freecad-fix,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -15,10 +15,9 @@
 
   home.packages = with pkgs;
     [
-      audacity
       gamescope
       # kiwitalk
-      blender
+      # blender
       remmina
       vscode
       tailscale
@@ -44,7 +43,7 @@
       prusa-slicer
       xournalpp
       obs-studio
-      spotifywm
+      # spotify
       obsidian
       zotero
       ungoogled-chromium
@@ -73,7 +72,7 @@
       })
     ]
     ++ [
-      # pkgs-freecad-fix.freecad
+      # pkgs-stable.spotify
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

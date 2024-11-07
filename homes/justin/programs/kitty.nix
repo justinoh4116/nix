@@ -13,7 +13,7 @@
       size = 13;
     };
 
-    theme = "Tokyo Night";
+    themeFile = "tokyo_night_night";
 
     settings = {
     };

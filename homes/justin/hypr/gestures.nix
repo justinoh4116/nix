@@ -14,21 +14,23 @@
     source = ./gestures.kdl;
   };
 
-  systemd.user.services = {
-    ydotoold = {
-      Unit = {
-        Description = "An wayland auto-input utility";
-        Documentation = ["man:ydotool(1)" "man:ydotoold(8)"];
-      };
+  # programs.ydotool.enable = true;
 
-      Service = {
-        ExecStart = "/run/current-system/sw/bin/ydotoold --socket-path 
-                      $HOME/.ydotool_socket --socket-own=\"1000:100\"";
-      };
-
-      Install = {
-        WantedBy = ["default.target"];
-      };
-    };
-  };
+  # systemd.user.services = {
+  #   ydotoold = {
+  #     Unit = {
+  #       Description = "An wayland auto-input utility";
+  #       Documentation = ["man:ydotool(1)" "man:ydotoold(8)"];
+  #     };
+  #
+  #     Service = {
+  #       ExecStart = "/run/current-system/sw/bin/ydotoold --socket-path
+  #                     $HOME/.ydotool_socket --socket-own=\"1000:100\"";
+  #     };
+  #
+  #     Install = {
+  #       WantedBy = ["default.target"];
+  #     };
+  #   };
+  # };
 }

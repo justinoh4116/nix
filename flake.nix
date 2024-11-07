@@ -122,7 +122,7 @@
     hyprland,
     hy3,
     nur,
-    # nixpkgs-freecad,
+    nixpkgs-2405,
     ...
   }: let
     overlays = [
@@ -133,10 +133,10 @@
       inherit system;
       config.allowUnfree = true;
     };
-    # pkgs-freecad-fix = import nixpkgs-freecad {
-    #   inherit system;
-    #   config.allowUnfree = true;
-    # };
+    pkgs-stable = import nixpkgs-2405 {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
@@ -182,7 +182,7 @@
         # Just like `specialArgs` above...
         extraSpecialArgs = {
           inherit inputs;
-          # inherit pkgs-freecad-fix;
+          inherit pkgs-stable;
         };
       };
       # ...
