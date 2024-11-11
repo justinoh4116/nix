@@ -43,7 +43,7 @@
       prusa-slicer
       xournalpp
       obs-studio
-      # spotify
+      spotify
       obsidian
       zotero
       ungoogled-chromium
