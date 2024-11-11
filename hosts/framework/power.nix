@@ -13,7 +13,7 @@ in {
     inputs.auto-cpufreq.nixosModules.default
   ];
 
-  services.power-profiles-daemon.enable = false;
+  # services.power-profiles-daemon.enable = false;
 
   systemd.services."unload-mediatek-before-hibernate" = {
     description = "Unloads mediatek driver before hibernate (fuck you amd)";
@@ -35,21 +35,21 @@ in {
     serviceConfig.Type = "simple";
   };
 
-  programs.auto-cpufreq.enable = true;
-  # optionally, you can configure your auto-cpufreq settings, if you have any
-  programs.auto-cpufreq.settings = {
-    charger = {
-      governor = "performance";
-      energy_performance_preference = "performance";
-      turbo = "auto";
-    };
-
-    battery = {
-      governor = "powersave";
-      energy_performance_preference = "power";
-      turbo = "never";
-    };
-  };
+  # programs.auto-cpufreq.enable = true;
+  # # optionally, you can configure your auto-cpufreq settings, if you have any
+  # programs.auto-cpufreq.settings = {
+  #   charger = {
+  #     governor = "performance";
+  #     energy_performance_preference = "performance";
+  #     turbo = "auto";
+  #   };
+  #
+  #   battery = {
+  #     governor = "powersave";
+  #     energy_performance_preference = "power";
+  #     turbo = "never";
+  #   };
+  # };
 
   services.logind = {
     extraConfig = ''
