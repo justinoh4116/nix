@@ -14,6 +14,7 @@
         dinbrief
         german
         standalone
+        preview
         mnsymbol
         crimson
         xkeyval
