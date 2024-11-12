@@ -13,6 +13,7 @@
         scheme-basic
         dinbrief
         german
+        standalone
         mnsymbol
         crimson
         xkeyval
