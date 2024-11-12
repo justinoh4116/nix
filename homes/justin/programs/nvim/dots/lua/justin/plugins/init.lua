@@ -122,15 +122,15 @@ return {
 	--     config = true,
 	--     event = { 'BufReadPre', 'BufNewFile' },
 	-- },
-	-- {
-	-- 	"iurimateus/luasnip-latex-snippets.nvim",
-	-- 	config = function()
-	-- 		--require'luasnip-latex-snippets'.setup()
-	-- 		require("luasnip-latex-snippets").setup({ use_treesitter = true })
-	-- 		require("luasnip").config.setup({ enable_autosnippets = true })
-	-- 	end,
-	-- 	ft = { "tex" },
-	-- },
+	{
+		"iurimateus/luasnip-latex-snippets.nvim",
+		config = function()
+			--require'luasnip-latex-snippets'.setup()
+			require("luasnip-latex-snippets").setup({ }) --use_treesitter = true })
+			require("luasnip").config.setup({ enable_autosnippets = true })
+		end,
+		ft = { "tex" },
+	},
 	{
 		"rafamadriz/friendly-snippets",
 		event = { "BufReadPre", "BufNewFile" },
