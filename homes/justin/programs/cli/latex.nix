@@ -10,7 +10,7 @@
     pkgs.lib.overrideDerivation (pkgs.texlive.combine {
       inherit
         (pkgs.texlive)
-        scheme-basic
+        scheme-medium
         dinbrief
         german
         standalone
