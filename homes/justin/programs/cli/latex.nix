@@ -11,6 +11,7 @@
       inherit
         (pkgs.texlive)
         scheme-medium
+        cancel
         dinbrief
         german
         standalone
