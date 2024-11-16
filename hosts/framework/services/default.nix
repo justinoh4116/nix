@@ -1,6 +1,6 @@
 {
   imports = [
-    ./syncthing.nix
+    # ./syncthing.nix
     ./gnome-services.nix
   ];
 }
