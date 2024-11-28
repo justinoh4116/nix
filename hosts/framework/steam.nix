@@ -10,6 +10,7 @@
     steam = pkgs.steam.override {
       extraPkgs = pkgs:
         with pkgs; [
+          love
           zlib
           dbus
           freetype
