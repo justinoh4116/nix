@@ -14,6 +14,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -123,6 +128,7 @@
     hy3,
     nur,
     nixpkgs-2405,
+    lanzaboote,
     ...
   }: let
     overlays = [
@@ -153,6 +159,7 @@
           # Note: configuration.nix itself is also a Nixpkgs Module,
           # /etc/nixos/configuration.nix
           # /etc/nixos/hardware-configuration.nix
+          lanzaboote.nixosModules.lanzaboote
           nur.nixosModules.nur
           nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/framework

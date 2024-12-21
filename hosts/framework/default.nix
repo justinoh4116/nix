@@ -18,5 +18,6 @@
     ./fonts.nix
     ./misc.nix
     ./cli.nix
+    ./secureboot.nix
   ];
 }
