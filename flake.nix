@@ -38,7 +38,7 @@
       type = "git";
       url = "https://github.com/hyprwm/hyprland";
       submodules = true;
-      # rev = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";
+      rev = "04ac46c54357278fc68f0a95d26347ea0db99496";
       inputs.aquamarine.follows = "aquamarine";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -73,7 +73,7 @@
     hypridle.url = "github:hyprwm/hypridle";
 
     hy3 = {
-      url = "github:outfoxxed/hy3"; #"?ref=hl0.42.0";
+      url = "github:outfoxxed/hy3?ref=hl0.47.0";
       inputs.hyprland.follows = "hyprland";
     };
 
