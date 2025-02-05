@@ -28,9 +28,9 @@ in {
 
   wayland.windowManager.hyprland = {
     plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hy3.packages.${pkgs.system}.hy3
-      inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+      # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
@@ -379,23 +379,23 @@ in {
             col.active = "0xffffff";
           };
         };
-        hyprfocus = {
-          enabled = true;
-          focus_animation = "flash";
-          animate_workspacechange = true;
-        };
-        # hyprexpo = {
-        #   columns = 3;
-        #   gap_size = 5;
-        #   bg_col = "rgb(000000)";
-        #   workspace_method = "first 1";
-        #
-        #   enable_gesture = true;
-        #   gesture_fingers = 4;
-        #   gesture_distance = 300;
-        #   gesture_positive = false;
-        #   gesture_negative = true;
+        # hyprfocus = {
+        #   enabled = true;
+        #   focus_animation = "flash";
+        #   animate_workspacechange = true;
         # };
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(000000)";
+          workspace_method = "first 1";
+
+          enable_gesture = true;
+          gesture_fingers = 4;
+          gesture_distance = 300;
+          gesture_positive = false;
+          gesture_negative = true;
+        };
       };
     };
 

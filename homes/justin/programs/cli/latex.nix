@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  minionpro.pkgs = [config.nur.repos.clefru.minionpro];
+  #minionpro.pkgs = [pkgs.nur.repos.clefru.minionpro];
   texlive =
     pkgs.lib.overrideDerivation (pkgs.texlive.combine {
       inherit
@@ -24,7 +24,7 @@
         totpages
         booktabs
         lm
-        ms
+        #ms
         setspace
         tabu
         xcolor
@@ -60,23 +60,23 @@
         xetex
         latexmk
         ;
-      inherit minionpro;
+      #inherit minionpro;
     }) (oldAttrs: {
-      postBuild =
-        # ''
-        #   # Save the udpmap.cfg because texlive.combine removes it.
-        #   cat $out/share/texmf/web2c/updmap.cfg > $out/share/texmf/web2c/updmap.cfg.1
-        # ''
-        # + oldAttrs.postBuild
-        oldAttrs.postBuild
-        + ''
-          updmap --sys --enable Map=MinionPro.map
-          updmap --sys
-        '';
+      # postBuild =
+      # ''
+      #   # Save the udpmap.cfg because texlive.combine removes it.
+      #   cat $out/share/texmf/web2c/updmap.cfg > $out/share/texmf/web2c/updmap.cfg.1
+      # ''
+      # + oldAttrs.postBuild
+      # oldAttrs.postBuild
+      # + ''
+      #   updmap --sys --enable Map=MinionPro.map
+      #   updmap --sys
+      # '';
     });
 in {
   home.packages = [
     texlive
-    config.nur.repos.clefru.minionpro
+    #pkgs.nur.repos.clefru.minionpro
   ];
 }

@@ -47,7 +47,8 @@
       # inputs.nixpkgs.follows = "nixpkgs-2405";
     };
     hyprland-plugins = {
-      url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
+      # url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
+      url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     hyprlock = {
@@ -160,7 +161,8 @@
           # /etc/nixos/configuration.nix
           # /etc/nixos/hardware-configuration.nix
           lanzaboote.nixosModules.lanzaboote
-          nur.nixosModules.nur
+          nur.modules.nixos.default
+          nur.legacyPackages."${system}".repos.clefru.minionpro
           nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/framework
         ];
@@ -187,7 +189,7 @@
         #pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./homes/justin/profile.nix
-          nur.nixosModules.nur
+          #nur.modules.nixos.default
         ];
         # Just like `specialArgs` above...
         extraSpecialArgs = {
