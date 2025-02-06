@@ -15,7 +15,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -34,11 +34,11 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; #&ref=refs/tags/v0.42.0";
-      type = "git";
-      url = "https://github.com/hyprwm/hyprland";
-      submodules = true;
-      rev = "04ac46c54357278fc68f0a95d26347ea0db99496";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.47.0";
+      # type = "git";
+      # url = "https://github.com/hyprwm/hyprland";
+      # submodules = true;
+      # rev = "04ac46c54357278fc68f0a95d26347ea0db99496";
       inputs.aquamarine.follows = "aquamarine";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -161,8 +161,8 @@
           # /etc/nixos/configuration.nix
           # /etc/nixos/hardware-configuration.nix
           lanzaboote.nixosModules.lanzaboote
-          nur.modules.nixos.default
-          nur.legacyPackages."${system}".repos.clefru.minionpro
+          # nur.modules.nixos.default
+          # nur.legacyPackages."${system}".repos.clefru.minionpro
           nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/framework
         ];

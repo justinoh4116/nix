@@ -15,7 +15,8 @@
     pkgs.open-sans
     pkgs.lmodern
 
-    (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
+    # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
+    pkgs.nerd-fonts.fira-code
 
     inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
   ];
