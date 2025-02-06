@@ -83,7 +83,7 @@
     };
 
     # aylur's gtk shell
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags/v1";
 
     # anyrun launcher
     anyrun = {
