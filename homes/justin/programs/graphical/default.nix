@@ -15,6 +15,7 @@
 
   home.packages = with pkgs;
     [
+      spacedrive
       gamescope
       # kiwitalk
       # blender
