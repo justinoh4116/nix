@@ -4,6 +4,7 @@ set shell := ["bash", "-cu"]
 
 alias b := build
 alias h := buildhome
+alias i := iceberg
 
 up:
   nix flake update
@@ -29,6 +30,11 @@ buildhome:
   git add -u flake.nix flake.lock
   git commit -m "`home-manager generations | sed -n '1p'`"
   @notify-send -e "Home rebuild OK!" --icon=software-update-available
+
+iceberg:
+  nix fmt ./
+  @echo "Rebuilding iceberg..."
+  sudo nixos-rebuild switch --flake .#iceberg --target-host iceberg --build-host iceberg switch --use-remote-sudo
 
 test:
   echo "`nixos-rebuild list-generations | grep current`"
