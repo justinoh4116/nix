@@ -168,6 +168,19 @@
         ];
       };
 
+      "iceberg" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+	specialArgs = {
+	  inherit inputs;
+	  inherit pkgs-stable;
+	};
+
+	modules = [
+	  ./hosts/iceberg
+	];
+      };
+
       "nixos" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
