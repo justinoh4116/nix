@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./vaultwarden.nix
     ./caddy.nix
     ./network.nix
     ./configuration.nix

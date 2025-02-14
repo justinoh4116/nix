@@ -9,6 +9,10 @@
     virtualHosts."photos.spicanet.duckdns.org".extraConfig = ''
       reverse_proxy http://192.168.100.6:2283
     '';
+
+    virtualHosts."vault.spicanet.duckdns.org".extraConfig = ''
+      reverse_proxy http://192.168.100.8:8066
+    '';
   };
 
   services.duckdns = {
