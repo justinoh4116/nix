@@ -28,15 +28,19 @@
 
         services.vaultwarden = {
           enable = true;
-          backupDir = "/zfs/nyanbox/backup/vaultwarden";
-          environmentFile = "/var/lib/bitwarden_rs/vaultwarden.env";
+          #backupDir = "/zfs/nyanbox/backup/vaultwarden";
+          #environmentFile = "/var/lib/bitwarden_rs/vaultwarden.env";
           config = {
+            DATA_FOLDER = "/data";
             SIGNUPS_ALLOWED = true;
-            ROCKET_PORT = 8066;
-            DOMAIN = "https://vault.spicanet.duckdns.org";
+            ROCKET_PORT = 8222;
+            DOMAIN = "vault.spicanet.duckdns.org";
             WEBSOCKET_ENABLED = true;
           };
         };
+
+        networking.firewall.allowedTCPPorts = [8222];
+        networking.firewall.allowedUDPPorts = [8222];
       };
   };
 }
