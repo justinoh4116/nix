@@ -5,6 +5,7 @@ set shell := ["bash", "-cu"]
 alias b := build
 alias h := buildhome
 alias i := iceberg
+alias ir := iceberg-remote
 
 up:
   nix flake update
@@ -35,6 +36,14 @@ iceberg:
   nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@192.168.0.13  switch
+  #current := $(nixos-rebuild list-generations | grep current)
+  git commit -am "`nixos-rebuild list-generations | grep current`"
+  @notify-send -e "iceberg build OK!" --icon=software-update-available
+
+iceberg-remote:
+  nix fmt ./
+  @echo "Rebuilding iceberg..."
+  nixos-rebuild --flake .#iceberg --target-host root@192.168.0.13 --build-host root@192.168.0.13  switch
   #current := $(nixos-rebuild list-generations | grep current)
   git commit -am "`nixos-rebuild list-generations | grep current`"
   @notify-send -e "iceberg build OK!" --icon=software-update-available

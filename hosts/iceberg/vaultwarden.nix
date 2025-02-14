@@ -9,9 +9,9 @@
     backupDir = "/persist/vaultwarden_backup";
     #environmentFile = "/var/lib/bitwarden_rs/vaultwarden.env";
     config = {
-      SIGNUPS_ALLOWED = true;
+      SIGNUPS_ALLOWED = false;
       ROCKET_PORT = 8222;
-      DOMAIN = "vault.spicanet.duckdns.org";
+      DOMAIN = "https://vault.spicanet.duckdns.org";
       WEBSOCKET_ENABLED = true;
     };
   };
