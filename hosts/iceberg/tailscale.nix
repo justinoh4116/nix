@@ -15,5 +15,5 @@
     # ];
   };
 
-  age.secrets.vpn-preauth.file = ../secrets/tailscale-auth.age;
+  age.secrets.vpn-preauth.file = ../../secrets/tailscale-auth.age;
 }
