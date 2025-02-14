@@ -11,7 +11,7 @@
     '';
 
     virtualHosts."vault.spicanet.duckdns.org".extraConfig = ''
-      reverse_proxy http://192.168.100.8:8222
+      reverse_proxy http://localhost:8222
     '';
   };
 
