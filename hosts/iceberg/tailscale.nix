@@ -1,10 +1,10 @@
 {
-self,
-inputs, 
+  self,
+  inputs,
   lib,
   pkgs,
   ...
-  }: {
+}: {
   services.tailscale = {
     enable = true;
     openFirewall = true;
@@ -16,4 +16,4 @@ inputs,
   };
 
   age.secrets.vpn-preauth.file = ../secrets/tailscale-auth.age;
-  }
+}

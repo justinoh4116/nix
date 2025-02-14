@@ -6,6 +6,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${system}".default
     python3
     gcc
     cmake

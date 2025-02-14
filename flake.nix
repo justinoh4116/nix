@@ -168,6 +168,7 @@
           # nur.legacyPackages."${system}".repos.clefru.minionpro
           nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/framework
+          agenix.nixosModules.default
         ];
       };
 
