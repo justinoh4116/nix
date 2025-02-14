@@ -10,4 +10,9 @@
       reverse_proxy 192.168.0.6:2283
     '';
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }
