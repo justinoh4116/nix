@@ -11,6 +11,14 @@
     '';
   };
 
+  services.duckdns = {
+    enable = true;
+    domains = ["spicanet"];
+    tokenFile = config.age.secrets.duckdns.path;
+  };
+
+  age.secrets.duckdns.file = ../../secrets/tailscale-auth.age;
+
   networking.firewall.allowedTCPPorts = [
     80
     443
