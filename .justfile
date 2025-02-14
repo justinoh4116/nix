@@ -34,7 +34,10 @@ buildhome:
 iceberg:
   nix fmt ./
   @echo "Rebuilding iceberg..."
-  sudo nixos-rebuild --flake .#iceberg --target-host iceberg --build-host iceberg switch --use-remote-sudo
+  nixos-rebuild --flake .#iceberg --target-host root@192.168.0.13  switch
+  #current := $(nixos-rebuild list-generations | grep current)
+  git commit -am "`nixos-rebuild list-generations | grep current`"
+  @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 test:
   echo "`nixos-rebuild list-generations | grep current`"

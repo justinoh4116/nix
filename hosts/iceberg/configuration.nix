@@ -101,6 +101,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  users.users.root.openssh.authorizedKeys.keys = [
+    # TODO Replace with your own SSH public key.
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgdHCdGZodbvK9TY80cidEaV5dQAsKTrovljnH1RE8y"
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

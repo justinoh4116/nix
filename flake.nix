@@ -11,6 +11,8 @@
 
     agenix.url = "github:ryantm/agenix";
 
+    microvm.url = "github:astro/microvm.nix";
+
     # pin fixed freecad
     # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 

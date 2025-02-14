@@ -3,8 +3,11 @@
   inputs,
   lib,
   pkgs,
+  config,
   ...
 }: {
+  age.secrets.tailscale-auth.file = ../../secrets/tailscale-auth.age;
+
   services.tailscale = {
     enable = true;
     openFirewall = true;
@@ -14,6 +17,4 @@
     #   "--accept-dns=false" # if its' a server you prolly dont need magicdns
     # ];
   };
-
-  age.secrets.vpn-preauth.file = ../../secrets/tailscale-auth.age;
 }
