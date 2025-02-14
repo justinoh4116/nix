@@ -9,6 +9,8 @@
     # nix user repositories
     nur.url = "github:nix-community/NUR";
 
+    agenix.url = "github:ryantm/agenix";
+
     # pin fixed freecad
     # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 
@@ -130,6 +132,7 @@
     nur,
     nixpkgs-2405,
     lanzaboote,
+    agenix,
     ...
   }: let
     overlays = [
@@ -178,6 +181,7 @@
 
         modules = [
           ./hosts/iceberg
+          agenix.nixosModules.default
         ];
       };
 
