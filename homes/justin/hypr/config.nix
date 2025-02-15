@@ -49,7 +49,7 @@ in {
       monitor = [
         "eDP-1, preferred, 0x0, 1.175, bitdepth, 10"
         # "DP-10, preferred, 1928x0, 1"
-        "LG Electronics LG Ultra HD 0x00041E81, preferred, , 2"
+        "LG Electronics LG Ultra HD 0x00041E81, preferred, auto, 2"
         # "DP-9, preferred, 3848x0, 2"
         ",preferred,auto,1"
       ];
