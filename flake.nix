@@ -195,8 +195,6 @@
           agenix.nixosModules.default
         ];
       };
-
-
     };
 
     packages.${system} = with pkgs; {

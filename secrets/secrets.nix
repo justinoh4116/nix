@@ -10,5 +10,6 @@ in {
   "tailscale-auth.age".publicKeys = users ++ systems;
   "duckdns.age".publicKeys = users ++ systems;
   "cachix-agent-token.age".publicKeys = users ++ systems;
+  "gh-nix-ci-token.age".publicKeys = users ++ systems;
   #"secret2.age".publicKeys = users ++ systems;
 }

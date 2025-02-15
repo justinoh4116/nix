@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./github-runner.nix
     ./vaultwarden.nix
     ./caddy.nix
     ./network.nix
