@@ -12,6 +12,7 @@
     cmake
     rustup
     tldr
+    cachix
 
     nix-your-shell
   ];
