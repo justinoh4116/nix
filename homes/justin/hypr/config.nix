@@ -51,7 +51,7 @@ in {
         # "DP-10, preferred, 1928x0, 1"
         "LG Electronics LG Ultra HD 0x00041E81, preferred, auto, 2"
         # "DP-9, preferred, 3848x0, 2"
-        ",preferred,auto,1"
+        ",preferred,auto,auto"
       ];
 
       gestures = {
