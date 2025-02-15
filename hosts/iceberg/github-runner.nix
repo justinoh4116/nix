@@ -9,8 +9,9 @@
   containers.nix-gh-runner = {
     autoStart = true;
     privateNetwork = true;
-    hostAddress = "192.168.100.9";
-    localAddress = "192.168.100.10";
+    #hostAddress = "192.168.100.9";
+    hostBridge = "br0";
+    localAddress = "192.168.100.10/24";
     bindMounts = {
       "${config.age.secrets.gh-nix-ci-token.path}".isReadOnly = true;
     };
@@ -31,6 +32,11 @@
           tokenFile = "/run/agenix/gh-nix-ci-token";
           ephemeral = true;
         };
+        networking.firewall.enable = false;
+        # networking.firewall.allowedTCPPorts = [
+        #   80
+        #   443
+        # ];
       };
   };
 }
