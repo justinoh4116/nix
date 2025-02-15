@@ -33,6 +33,14 @@
           tokenFile = "/run/agenix/gh-nix-ci-token";
           ephemeral = true;
         };
+
+	networking = {
+	  defaultGateway = "192.168.100.1";
+	  nameservers = [
+	    "192.168.100.1"
+	    "8.8.8.8"
+	    ];
+	};
         networking.firewall.enable = false;
         # networking.firewall.allowedTCPPorts = [
         #   80
