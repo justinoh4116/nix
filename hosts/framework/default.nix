@@ -19,5 +19,6 @@
     ./misc.nix
     ./cli.nix
     ./secureboot.nix
+    ./cachix.nix
   ];
 }
