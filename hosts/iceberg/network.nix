@@ -8,7 +8,7 @@
   networking = {
     nat = {
       enable = true;
-      internalInterfaces = ["ve-+"];
+      internalInterfaces = ["ve-+" "vb-+"];
       externalInterface = "enp7s0";
       # Lazy IPv6 connectivity for the container
       enableIPv6 = true;
