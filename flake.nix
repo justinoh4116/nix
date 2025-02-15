@@ -62,10 +62,8 @@
     #   url = "github:hyprwm/hyprcursor";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    # xdg-portal-hyprland = {
     xdg-portal-hyprland = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.hyprland.follows = "hyprland";
     };
 
     hyprpicker.url = "github:hyprwm/hyprpicker";
@@ -160,11 +158,17 @@
           inherit pkgs-stable;
         };
         modules = [
-          # Import the configuration.nix here, so that the
-          # old configuration file can still take effect.
-          # Note: configuration.nix itself is also a Nixpkgs Module,
-          # /etc/nixos/configuration.nix
-          # /etc/nixos/hardware-configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.justin = import ./homes/justin/profile.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit pkgs-stable;
+            };
+          }
+
           lanzaboote.nixosModules.lanzaboote
           # nur.modules.nixos.default
           # nur.legacyPackages."${system}".repos.clefru.minionpro
@@ -200,24 +204,24 @@
         ];
       };
     };
-    homeConfigurations = {
-      justin = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        # This is also not the recommended way of passing `nixpkgs`,
-        # for reasons (similar to `system` above) that are out-of-scope of this example.
-        # home-manager.useGlobalPkgs = true;
-        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./homes/justin/profile.nix
-          #nur.modules.nixos.default
-        ];
-        # Just like `specialArgs` above...
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit pkgs-stable;
-        };
-      };
-      # ...
-    };
+    # homeConfigurations = {
+    #   justin = home-manager.lib.homeManagerConfiguration {
+    #     inherit pkgs;
+    #     # This is also not the recommended way of passing `nixpkgs`,
+    #     # for reasons (similar to `system` above) that are out-of-scope of this example.
+    #     # home-manager.useGlobalPkgs = true;
+    #     #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    #     modules = [
+    #       ./homes/justin/profile.nix
+    #       #nur.modules.nixos.default
+    #     ];
+    #     # Just like `specialArgs` above...
+    #     extraSpecialArgs = {
+    #       inherit inputs;
+    #       inherit pkgs-stable;
+    #     };
+    #   };
+    #   # ...
+    # };
   };
 }
