@@ -23,7 +23,8 @@
         pkgs,
         ...
       }: {
-        networking.useHostResolvConf = false;
+        networking.useHostResolvConf = lib.mkForce false;
+        services.resolved.enable = true;
         system.stateVersion = "24.11";
 
         services.github-runners.nix-ci = {

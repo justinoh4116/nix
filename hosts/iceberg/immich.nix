@@ -23,7 +23,7 @@
         pkgs,
         ...
       }: {
-        networking.useHostResolvConf = false;
+        networking.useHostResolvConf = lib.mkForce false;
         system.stateVersion = "24.11";
 
         services.immich = {
