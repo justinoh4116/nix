@@ -6,6 +6,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    cachix-deploy-flake.url = "github:cachix/cachix-deploy-flake";
+
     # nix user repositories
     nur.url = "github:nix-community/NUR";
 
@@ -133,6 +135,7 @@
     nixpkgs-2405,
     lanzaboote,
     agenix,
+    cachix-deploy-flake,
     ...
   }: let
     overlays = [
@@ -147,6 +150,7 @@
       inherit system;
       config.allowUnfree = true;
     };
+    cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
@@ -192,18 +196,17 @@
         ];
       };
 
-      "nixos" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = [
-          # Import the configuration.nix here, so that the
-          # old configuration file can still take effect.
-          # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./configuration.nix
-          ./hosts/nix-test
-        ];
+
+    };
+
+    packages.${system} = with pkgs; {
+      cachix-deploy-spec = cachix-deploy-lib.spec {
+        agents = {
+          framework = self.nixosConfigurations.framework.config.system.build.toplevel;
+        };
       };
     };
+
     # homeConfigurations = {
     #   justin = home-manager.lib.homeManagerConfiguration {
     #     inherit pkgs;

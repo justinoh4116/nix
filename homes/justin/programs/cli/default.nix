@@ -10,6 +10,7 @@
     ./yazi.nix
   ];
   home.packages = with pkgs; [
+    sl
     maestral
     maestral-gui
     # poetry
