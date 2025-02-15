@@ -27,8 +27,8 @@
         prefixLength = 24;
       }
     ];
-    defaultGateway = "192.168.100.1";
-    nameservers = ["1.1.1.1" "8.8.8.8"];
+    defaultGateway = "192.168.0.1";
+    nameservers = ["192.168.100.1" "1.1.1.1"];
   };
   networking.networkmanager.unmanaged = ["interface-name:ve-*"];
 }
