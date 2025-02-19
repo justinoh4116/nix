@@ -16,10 +16,10 @@
     bridges = {
       br0 = {
         # interfaces = ["enp7s0"];
-	interfaces = [];
+        interfaces = [];
       };
     };
-    useDHCP = false;
+    #useDHCP = false;
     #interfaces."br0".useDHCP = true;
 
     # interfaces."br0".ipv4.addresses = [

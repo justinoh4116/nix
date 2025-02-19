@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./factorio-server.nix
     ./github-runner.nix
     ./vaultwarden.nix
     ./caddy.nix

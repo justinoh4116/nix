@@ -9,9 +9,9 @@
   containers.nix-gh-runner = {
     autoStart = true;
     privateNetwork = true;
-    #hostAddress = "192.168.100.9";
-    hostBridge = "br0";
-    localAddress = "192.168.100.10/24";
+    hostAddress = "192.168.100.9";
+    #hostBridge = "br0";
+    localAddress = "192.168.100.10";
     bindMounts = {
       "${config.age.secrets.gh-nix-ci-token.path}".isReadOnly = true;
     };
@@ -23,8 +23,9 @@
         pkgs,
         ...
       }: {
-        #networking.useHostResolvConf = lib.mkForce false;
-        #services.resolved.enable = true;
+        networking.useHostResolvConf = lib.mkForce false;
+        networking.enableIPv6 = false;
+        services.resolved.enable = true;
         system.stateVersion = "24.11";
 
         services.github-runners.nix-ci = {
@@ -34,13 +35,13 @@
           ephemeral = true;
         };
 
-	networking = {
-	  defaultGateway = "192.168.100.1";
-	  nameservers = [
-	    "192.168.100.1"
-	    "8.8.8.8"
-	    ];
-	};
+        # networking = {
+        #   defaultGateway = "192.168.100.1";
+        #   nameservers = [
+        #     "192.168.100.1"
+        #     "8.8.8.8"
+        #     ];
+        # };
         networking.firewall.enable = false;
         # networking.firewall.allowedTCPPorts = [
         #   80
