@@ -28,9 +28,9 @@
         services.paperless = {
           enable = true;
           # consumptionDirIsPublic = true;
-          address = "paperless.spicanet.duckdns.org";
           passwordFile = "/run/agenix/paperless-admin-password";
           settings = {
+            PAPERLESS_URL = "https://paperless.spicanet.duckdns.org";
             PAPERLESS_CONSUMER_IGNORE_PATTERN = [
               ".DS_STORE/*"
               "desktop.ini"

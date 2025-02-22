@@ -15,15 +15,17 @@
     '';
 
     virtualHosts."paperless.spicanet.duckdns.org".extraConfig = ''
-      reverse_proxy http://192.168.100.14:28981
+      reverse_proxy http://192.168.100.14:28981 {
+        header_down Referrer-Policy "strict-origin-when-cross-origin"
+    }
     '';
   };
 
-  services.duckdns = {
-    enable = true;
-    domains = ["spicanet"];
-    tokenFile = config.age.secrets.duckdns.path;
-  };
+  # services.duckdns = {
+  #   enable = true;
+  #   domains = ["spicanet"];
+  #   tokenFile = config.age.secrets.duckdns.path;
+  # };
 
   age.secrets.duckdns.file = ../../secrets/tailscale-auth.age;
 
