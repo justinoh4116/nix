@@ -13,6 +13,10 @@
     virtualHosts."vault.spicanet.duckdns.org".extraConfig = ''
       reverse_proxy http://localhost:8222
     '';
+
+    virtualHosts."paperless.spicanet.duckdns.org".extraConfig = ''
+      reverse_proxy http://192.168.100.12:28981
+    '';
   };
 
   services.duckdns = {

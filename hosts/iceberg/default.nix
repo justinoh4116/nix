@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./paperless.nix
     ./cachix.nix
     ./misc.nix
     ./factorio-server.nix
