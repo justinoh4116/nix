@@ -4,15 +4,16 @@
   pkgs,
   ...
 }: {
-  age.secrets.paperless-admin-password.file = ../../secrets/paperless-admin-password.age;
-
   containers.changedetection-io = {
     autoStart = true;
     privateNetwork = true;
     hostAddress = "192.168.100.11";
     localAddress = "192.168.100.12";
     bindMounts = {
-      "${config.age.secrets.paperless-admin-password.path}".isReadOnly = true;
+      "/var/lib/changedetection-io" = {
+        hostPath = "/persist/changedetection-io";
+        isReadOnly = false;
+      };
     };
     config = let
       hostConfig = config;
@@ -23,6 +24,7 @@
         ...
       }: {
         networking.useHostResolvConf = lib.mkForce false;
+        services.resolved.enable = true;
         system.stateVersion = "24.11";
 
         services.changedetection-io = {
@@ -31,7 +33,7 @@
         };
 
         networking.firewall.allowedTCPPorts = [
-         5000
+         # 5000
         ];
       };
   };
