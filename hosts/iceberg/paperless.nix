@@ -6,11 +6,11 @@
 }: {
   age.secrets.paperless-admin-password.file = ../../secrets/paperless-admin-password.age;
 
-  containers.immich = {
+  containers.paperless = {
     autoStart = true;
     privateNetwork = true;
-    hostAddress = "192.168.100.11";
-    localAddress = "192.168.100.12";
+    hostAddress = "192.168.100.13";
+    localAddress = "192.168.100.14";
     bindMounts = {
       "${config.age.secrets.paperless-admin-password.path}".isReadOnly = true;
     };
@@ -33,7 +33,7 @@
           settings = {
             PAPERLESS_CONSUMER_IGNORE_PATTERN = [
               ".DS_STORE/*"
-                "desktop.ini"
+              "desktop.ini"
             ];
             PAPERLESS_OCR_LANGUAGE = "eng";
             PAPERLESS_OCR_USER_ARGS = {
@@ -44,7 +44,7 @@
         };
 
         networking.firewall.allowedTCPPorts = [
-         28981
+          28981
         ];
       };
   };

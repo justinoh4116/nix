@@ -15,7 +15,7 @@
     '';
 
     virtualHosts."paperless.spicanet.duckdns.org".extraConfig = ''
-      reverse_proxy http://192.168.100.12:28981
+      reverse_proxy http://192.168.100.14:28981
     '';
   };
 
