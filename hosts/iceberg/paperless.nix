@@ -26,6 +26,7 @@
         system.stateVersion = "24.11";
 
         services.paperless = {
+          port = 28981;
           enable = true;
           # consumptionDirIsPublic = true;
           passwordFile = "/run/agenix/paperless-admin-password";
