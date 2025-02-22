@@ -30,7 +30,7 @@
         services.changedetection-io = {
           enable = true;
           behindProxy = true;
-          baseURL = "https://changedetection.spicanet.duckdns.org"
+          baseURL = "https://changedetection.spicanet.duckdns.org";
         };
 
         networking.firewall.allowedTCPPorts = [
