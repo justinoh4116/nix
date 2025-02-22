@@ -10,7 +10,7 @@
       reverse_proxy http://192.168.100.6:2283
     '';
 
-    virtualHosts."changedetect.spicanet.duckdns.org".extraConfig = ''
+    virtualHosts."changedetection.spicanet.duckdns.org".extraConfig = ''
       reverse_proxy http://192.168.100.12:5000
     '';
 
