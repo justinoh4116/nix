@@ -12,8 +12,8 @@
 
   services.cachix-agent = {
     enable = true;
-    credentialsFile = config.age.secrets.cachix-agent-token.path;
+    credentialsFile = config.age.secrets.framework-cachix-agent-token.path;
   };
 
-  age.secrets.cachix-agent-token.file = ../../secrets/cachix-agent-token.age;
+  age.secrets.framework-cachix-agent-token.file = ../../secrets/framework-cachix-agent-token.age;
 }

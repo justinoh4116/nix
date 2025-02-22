@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./cachix.nix
     ./misc.nix
     ./factorio-server.nix
     ./github-runner.nix
