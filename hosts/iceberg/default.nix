@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./misc.nix
     ./factorio-server.nix
     ./github-runner.nix
     ./vaultwarden.nix
