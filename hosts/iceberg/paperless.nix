@@ -26,7 +26,7 @@
         system.stateVersion = "24.11";
 
         services.paperless = {
-          port = 28981;
+          # port = 28981;
           enable = true;
           # consumptionDirIsPublic = true;
           passwordFile = "/run/agenix/paperless-admin-password";
@@ -45,6 +45,10 @@
         };
 
         networking.firewall.allowedTCPPorts = [
+          28981
+          8000
+        ];
+        networking.firewall.allowedUDPPorts = [
           28981
         ];
       };
