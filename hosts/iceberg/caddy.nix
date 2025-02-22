@@ -10,6 +10,10 @@
       reverse_proxy http://192.168.100.6:2283
     '';
 
+    virtualHosts."changedetect.spicanet.duckdns.org".extraConfig = ''
+      reverse_proxy http://192.168.100.12:5000
+    '';
+
     virtualHosts."vault.spicanet.duckdns.org".extraConfig = ''
       reverse_proxy http://localhost:8222
     '';

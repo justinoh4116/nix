@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+  ./changedetection-io.nix
     ./paperless.nix
     ./cachix.nix
     ./misc.nix
