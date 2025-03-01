@@ -19,9 +19,9 @@
     '';
 
     virtualHosts."paperless.spicanet.duckdns.org".extraConfig = ''
-      reverse_proxy http://192.168.100.14:8000 {
-        header_down Referrer-Policy "strict-origin-when-cross-origin"
-    }
+        reverse_proxy http://192.168.100.14:8000 {
+          header_down Referrer-Policy "strict-origin-when-cross-origin"
+      }
     '';
   };
 

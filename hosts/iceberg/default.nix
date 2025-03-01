@@ -6,7 +6,8 @@
   ...
 }: {
   imports = [
-  ./changedetection-io.nix
+    # ./watchtower.nix
+    ./changedetection-io.nix
     ./paperless.nix
     ./cachix.nix
     ./misc.nix
