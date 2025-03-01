@@ -24,7 +24,7 @@
         ...
       }: {
         networking.useHostResolvConf = lib.mkForce false;
-        services.resolved.enable = true;
+        # services.resolved.enable = true;
         system.stateVersion = "24.11";
 
         services.changedetection-io = {
