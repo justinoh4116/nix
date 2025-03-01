@@ -29,12 +29,21 @@
 
         services.changedetection-io = {
           enable = true;
-          # behindProxy = true;
+          behindProxy = true;
           # baseURL = "https://changedetection.spicanet.duckdns.org";
+        };
+
+        services.caddy = {
+          enable = true;
+          virtualHosts."localhost".extraConfig = ''
+            respond "Hello, world!"
+            '';
         };
 
         networking.firewall.allowedTCPPorts = [
           5000
+          80
+          443
         ];
       };
   };
