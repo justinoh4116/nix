@@ -28,6 +28,7 @@
         services.paperless = {
           # port = 28981;
           enable = true;
+          address = "192.168.100.14";
           # consumptionDirIsPublic = true;
           passwordFile = "/run/agenix/paperless-admin-password";
           settings = {
