@@ -89,6 +89,8 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags/v1";
 
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
     # anyrun launcher
     anyrun = {
       url = "github:anyrun-org/anyrun";

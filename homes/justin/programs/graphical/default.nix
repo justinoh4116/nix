@@ -74,6 +74,7 @@
     ]
     ++ [
       # pkgs-stable.spotify
+      inputs.zen-browser.packages."${system}".default
     ];
 
   nixpkgs.config.permittedInsecurePackages = [
