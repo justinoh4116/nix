@@ -43,6 +43,7 @@
         "guest ok" = "no";
         "create mask" = "0644";
         "directory mask" = "0755";
+        "valid users" = "justin";
         "force user" = "samba";
         "force group" = "samba";
       };
