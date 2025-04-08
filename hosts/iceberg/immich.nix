@@ -14,6 +14,11 @@
         hostPath = "/persist/immich";
         isReadOnly = false;
       };
+
+      "/var/lib/smbphotolib" = {
+        hostPath = "/persist/shares/private/photos";
+        isReadOnly = false;
+      };
     };
     config = let
       hostConfig = config;
