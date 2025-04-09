@@ -27,7 +27,7 @@
         "map to guest" = "bad user";
       };
       "public" = {
-        "path" = "/mnt/shares/public";
+        "path" = "/persist/shares/public";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
@@ -37,7 +37,7 @@
         "force group" = "samba";
       };
       "private" = {
-        "path" = "/mnt/shares/private";
+        "path" = "/persist/shares/private";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "no";
