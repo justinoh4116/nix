@@ -7,6 +7,7 @@
 }: {
   imports = [
     # ./watchtower.nix
+    ./zfs.nix
     ./samba.nix
     ./changedetection-io.nix
     ./paperless.nix

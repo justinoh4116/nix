@@ -13,5 +13,7 @@ in {
   "iceberg-cachix-agent-token.age".publicKeys = users ++ systems;
   "gh-nix-ci-token.age".publicKeys = users ++ systems;
   "paperless-admin-password.age".publicKeys = users ++ systems;
+  "zfs-pushover-token.age".publicKeys = users ++ systems;
+  "pushover-user-key.age".publicKeys = users ++ systems;
   #"secret2.age".publicKeys = users ++ systems;
 }
