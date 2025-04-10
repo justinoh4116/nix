@@ -9,6 +9,9 @@ on:  # yamllint disable-line rule:truthy
   pull_request:
     branches:
       - main
+  workflow_run:
+    workflows: ["update-flake-lock"]
+    types: [completed]
 jobs:
   build:
     runs-on: self-hosted
