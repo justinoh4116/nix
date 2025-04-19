@@ -6,7 +6,7 @@
 }: {
   virtualisation.oci-containers.containers = {
     factorio = {
-      image = "factoriotools/factorio:latest";
+      image = "factoriotools/factorio:2.0.44";
       ports = [
         "34197:34197/udp"
         "27015:27015/tcp"
