@@ -28,7 +28,7 @@ in {
 
   wayland.windowManager.hyprland = {
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hy3.packages.${pkgs.system}.hy3
       # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
