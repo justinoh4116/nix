@@ -7,6 +7,7 @@
 }: {
   imports = [
     # ./watchtower.nix
+    ./nextcloud.nix
     ./zfs.nix
     ./samba.nix
     ./changedetection-io.nix

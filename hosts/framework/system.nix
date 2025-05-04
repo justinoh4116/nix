@@ -20,6 +20,13 @@
     enable = true;
     openFirewall = true;
   };
+
+  # automatic garbage collection
+  nix.gc = {
+    randomizedDelaySec = "15min";
+    automatic = true;
+    dates = "weekly";
+  };
   # xdg.portal = {
   #   enable = true;
   #   configPackages = [inputs.hyprland.packages.${pkgs.system}.hyprland];

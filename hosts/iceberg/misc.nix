@@ -21,6 +21,11 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
+  nix.gc = {
+    randomizedDelaySec = "15min";
+    automatic = true;
+    dates = "weekly";
+  };
   # nixpkgs.overlays = [
   #   # inputs.neovim-nightly-overlay.overlay.default
   # ];
