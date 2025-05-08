@@ -7,6 +7,7 @@
 }: {
   imports = [
     # ./watchtower.nix
+    ./oink.nix
     ./nextcloud.nix
     ./zfs.nix
     ./samba.nix
@@ -17,7 +18,7 @@
     ./factorio-server.nix
     ./github-runner.nix
     ./vaultwarden.nix
-    ./caddy.nix
+    ./caddy
     ./network.nix
     ./configuration.nix
     ./cli.nix

@@ -1,41 +1,63 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
+  pkgs-forcaddy,
   ...
 }: {
   services.caddy = {
     enable = true;
-    virtualHosts."photos.spicanet.duckdns.org".extraConfig = ''
+    # package = inputs.caddy-patched.packages.${pkgs.system}.caddy;
+    package = pkgs-forcaddy.caddy.withPlugins {
+      plugins = [ "github.com/caddy-dns/porkbun@v0.2.1" ];
+      # hash = pkgs.lib.fakeHash;
+      hash = "sha256-CAqda21dhvmvw3aAqxYJPA888j19ljUPuEbFRGqeUBw=";
+    };
+    virtualHosts."photos.justinoh.io".extraConfig = ''
       reverse_proxy http://192.168.100.6:2283
     '';
 
-    virtualHosts."files.spicanet.duckdns.org".extraConfig = ''
-      reverse_proxy https://192.168.100.8:80
+    virtualHosts."files.justinoh.io".extraConfig = ''
+      reverse_proxy http://192.168.100.8:80
     '';
 
-    virtualHosts."changedetection.spicanet.duckdns.org".extraConfig = ''
+    virtualHosts."changedetection.justinoh.io".extraConfig = ''
       reverse_proxy http://192.168.100.12:5000
     '';
 
-    virtualHosts."vault.spicanet.duckdns.org".extraConfig = ''
+    virtualHosts."vault.justinoh.io".extraConfig = ''
       reverse_proxy http://localhost:8222
     '';
 
-    virtualHosts."paperless.spicanet.duckdns.org".extraConfig = ''
+    virtualHosts."paperless.justinoh.io".extraConfig = ''
         reverse_proxy http://192.168.100.14:28981 {
           header_down Referrer-Policy "strict-origin-when-cross-origin"
       }
     '';
+    extraConfig = ''
+    {
+      acme_dns porkbun {
+        api_key @porkbun-api-key@
+        api_secret_key @porkbun-secret-key@
+      }
+    }
+    '';
   };
 
-  # services.duckdns = {
-  #   enable = true;
-  #   domains = ["spicanet"];
-  #   tokenFile = config.age.secrets.duckdns.path;
-  # };
+  system.activationScripts."porkbun-secrets" = lib.stringAfter [ "etc" "agenix"  ] ''
+    apiKey=$(cat "${config.age.secrets."porkbun-api-key".path}")
+    secretKey=$(cat "${config.age.secrets."porkbun-secret-key".path}")
+    configDir=/etc/caddy
+    mkdir -p "$configDir"
+    configFile=$configDir/caddy_config
+    ${pkgs.gnused}/bin/sed -i "1,3{H;d}; ''${p;x;s/^\n//}" "$configFile"
+    ${pkgs.gnused}/bin/sed -i "s#@porkbun-api-key@#$apiKey#" "$configFile"
+    ${pkgs.gnused}/bin/sed -i "s#@porkbun-secret-key@#$secretKey#" "$configFile"
+    '';
 
-  age.secrets.duckdns.file = ../../secrets/tailscale-auth.age;
+  age.secrets.porkbun-api-key.file = ../../secrets/porkbun-api-key.age;
+  age.secrets.porkbun-secret-key.file = ../../secrets/porkbun-secret-key.age;
 
   networking.firewall.allowedTCPPorts = [
     80

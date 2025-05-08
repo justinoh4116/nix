@@ -152,6 +152,26 @@
         "type": "github"
       }
     },
+    "caddy-patched": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746345172,
+        "narHash": "sha256-SI/PGS1ZDIOB3TA/RjKHRNRJ36PkIeWGixILe7B9zwg=",
+        "owner": "justinoh4116",
+        "repo": "nixos-caddy-patched",
+        "rev": "214b6a056495567eddaa52f47028ca29387ff174",
+        "type": "github"
+      },
+      "original": {
+        "owner": "justinoh4116",
+        "repo": "nixos-caddy-patched",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1731098351,
@@ -2117,6 +2137,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-forcaddy": {
+      "locked": {
+        "lastModified": 1745008927,
+        "narHash": "sha256-gW0S5PVJxOax5BHz/kdtaI3ox8WeSlhRbJX35cDWZLs=",
+        "owner": "Nixos",
+        "repo": "nixpkgs",
+        "rev": "5647936f9f1d602e50489954c85c67844070e86a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Nixos",
+        "repo": "nixpkgs",
+        "rev": "5647936f9f1d602e50489954c85c67844070e86a",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1735774519,
@@ -2600,6 +2636,7 @@
         "aquamarine": "aquamarine",
         "auto-cpufreq": "auto-cpufreq",
         "cachix-deploy-flake": "cachix-deploy-flake",
+        "caddy-patched": "caddy-patched",
         "gestures": "gestures",
         "home-manager": "home-manager_3",
         "hy3": "hy3",
@@ -2618,6 +2655,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_16",
         "nixpkgs-2405": "nixpkgs-2405",
+        "nixpkgs-forcaddy": "nixpkgs-forcaddy",
         "nur": "nur",
         "pyprland": "pyprland",
         "schizofox": "schizofox",

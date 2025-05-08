@@ -11,7 +11,7 @@
     config = {
       SIGNUPS_ALLOWED = false;
       ROCKET_PORT = 8222;
-      DOMAIN = "https://vault.spicanet.duckdns.org";
+      DOMAIN = "https://vault.justinoh.io";
       WEBSOCKET_ENABLED = true;
     };
   };

@@ -38,7 +38,7 @@
           home = "/var/lib/nextcloud";
           # domain = "files.spicanet.duckdns.org";
           settings = {
-            trusted_domains = ["files.spicanet.duckdns.org"];
+            trusted_domains = ["files.spicanet.duckdns.org" "files.justinoh.io"];
             overwriteprotocol = "https";
           };
           config.adminpassFile = "/run/agenix/nextcloud-admin-password";

@@ -1,0 +1,53 @@
+{
+#	acme_dns porkbun {
+#		api_key @porkbun-api-key@
+#		api_secret_key @porkbun-secret-key@
+#	}
+
+	log {
+		level ERROR
+	}
+}
+
+
+changedetection.justinoh.io {
+	log {
+		output file /var/log/caddy/access-changedetection.justinoh.io.log
+	}
+
+	reverse_proxy http://192.168.100.12:5000
+}
+
+files.spicanet.duckdns.org {
+	log {
+		output file /var/log/caddy/access-files.spicanet.duckdns.org.log
+	}
+
+	reverse_proxy http://192.168.100.8:80
+}
+
+paperless.justinoh.io {
+	log {
+		output file /var/log/caddy/access-paperless.justinoh.io.log
+	}
+
+	reverse_proxy http://192.168.100.14:28981 {
+		header_down Referrer-Policy "strict-origin-when-cross-origin"
+	}
+}
+
+photos.justinoh.io {
+	log {
+		output file /var/log/caddy/access-photos.justinoh.io.log
+	}
+
+	reverse_proxy http://192.168.100.6:2283
+}
+
+vault.justinoh.io {
+	log {
+		output file /var/log/caddy/access-vault.justinoh.io.log
+	}
+
+	reverse_proxy http://localhost:8222
+}

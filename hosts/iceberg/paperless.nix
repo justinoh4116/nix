@@ -32,7 +32,7 @@
           # consumptionDirIsPublic = true;
           passwordFile = "/run/agenix/paperless-admin-password";
           settings = {
-            PAPERLESS_URL = "https://paperless.spicanet.duckdns.org";
+            PAPERLESS_URL = "https://paperless.justinoh.io";
             PAPERLESS_CONSUMER_IGNORE_PATTERN = [
               ".DS_STORE/*"
               "desktop.ini"
