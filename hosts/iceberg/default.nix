@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./crowdsec.nix
     # ./watchtower.nix
     ./oink.nix
     ./nextcloud.nix

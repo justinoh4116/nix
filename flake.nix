@@ -5,7 +5,6 @@
     # stable?!? hardly even
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-forcaddy.url = "github:Nixos/nixpkgs/5647936f9f1d602e50489954c85c67844070e86a";
 
     cachix-deploy-flake.url = "github:cachix/cachix-deploy-flake";
 
@@ -126,11 +125,11 @@
     kmonad.url = "github:kmonad/kmonad?dir=nix";
 
     # caddy with porkbun support
-    caddy-patched = {
-    url = "github:justinoh4116/nixos-caddy-patched";
-    inputs.nixpkgs.follows = "nixpkgs";
 
-      };
+    crowdsec = {
+      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -146,7 +145,6 @@
     lanzaboote,
     agenix,
     cachix-deploy-flake,
-    nixpkgs-forcaddy,
     ...
   }: let
     overlays = [
@@ -161,9 +159,6 @@
       inherit system;
       config.allowUnfree = true;
     };
-    pkgs-forcaddy = import nixpkgs-forcaddy {
-      inherit system;
-      };
     cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -202,7 +197,6 @@
         specialArgs = {
           inherit inputs;
           inherit pkgs-stable;
-          inherit pkgs-forcaddy;
         };
 
         modules = [

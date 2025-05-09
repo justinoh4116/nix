@@ -3,16 +3,15 @@
   config,
   lib,
   pkgs,
-  pkgs-forcaddy,
   ...
 }: {
   services.caddy = {
     enable = true;
     # package = inputs.caddy-patched.packages.${pkgs.system}.caddy;
-    package = pkgs-forcaddy.caddy.withPlugins {
-      plugins = [ "github.com/caddy-dns/porkbun@v0.2.1" ];
+    package = pkgs.caddy.withPlugins {
+      plugins = ["github.com/caddy-dns/porkbun@v0.2.1"];
       # hash = pkgs.lib.fakeHash;
-      hash = "sha256-CAqda21dhvmvw3aAqxYJPA888j19ljUPuEbFRGqeUBw=";
+      hash = "sha256-Ay+/3eWCRa2fVVbOOMGrg1U0ZRoZCcCM4FQYjnGRUW0=";
     };
     configFile = ./Caddyfile;
     # virtualHosts."photos.justinoh.io".extraConfig = ''
@@ -46,7 +45,7 @@
     # '';
   };
 
-  system.activationScripts."porkbun-secrets" = lib.stringAfter [ "etc" "agenix"  ] ''
+  system.activationScripts."porkbun-secrets" = lib.stringAfter ["etc" "agenix"] ''
     apiKey=$(cat "${config.age.secrets."porkbun-api-key".path}")
     secretKey=$(cat "${config.age.secrets."porkbun-secret-key".path}")
     configDir=/etc/caddy
@@ -54,7 +53,7 @@
     configFile=$configDir/caddy_config
     ${pkgs.gnused}/bin/sed -i "s#@porkbun-api-key@#$apiKey#" "$configFile"
     ${pkgs.gnused}/bin/sed -i "s#@porkbun-secret-key@#$secretKey#" "$configFile"
-    '';
+  '';
 
   age.secrets.porkbun-api-key.file = ../../../secrets/porkbun-api-key.age;
   age.secrets.porkbun-secret-key.file = ../../../secrets/porkbun-secret-key.age;
