@@ -9,7 +9,7 @@
   imports = [
     ./config.nix
     ./rules.nix
-    ./gestures.nix
+    # ./gestures.nix
     ./hyprlock.nix
   ];
 

@@ -12,7 +12,7 @@ in {
     just
   ];
 
-  programs.ydotool.enable = true;
+  # programs.ydotool.enable = true;
 
   hardware = {
     bluetooth = {

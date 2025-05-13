@@ -11,6 +11,7 @@
     ./discord.nix
     ./nextcloud.nix
     ./schizofox.nix
+    ./zen.nix
   ];
 
   home.packages = with pkgs;
@@ -74,7 +75,6 @@
     ]
     ++ [
       # pkgs-stable.spotify
-      inputs.zen-browser.packages."${system}".default
     ];
 
   nixpkgs.config.permittedInsecurePackages = [
