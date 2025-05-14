@@ -10,6 +10,7 @@ in {
   "tailscale-auth.age".publicKeys = users ++ systems;
   "crowdsec-enroll-key.age".publicKeys = users ++ systems;
   "crowdsec-firewall-bouncer-key.age".publicKeys = users ++ systems;
+  "crowdsec-caddy-bouncer-key.age".publicKeys = users ++ systems;
   "porkbun-api-key.age".publicKeys = users ++ systems;
   "porkbun-secret-key.age".publicKeys = users ++ systems;
   "duckdns.age".publicKeys = users ++ systems;
