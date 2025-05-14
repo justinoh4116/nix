@@ -63,7 +63,7 @@ progressbar progress {
 
 /* modules & windows */
 .bar {
-  background: rgba(0, 0, 0, 0.31);
+  background: rgba(0, 0, 0, 0.8);
   min-height: 32px;
   font-size: 12pt;
 }
