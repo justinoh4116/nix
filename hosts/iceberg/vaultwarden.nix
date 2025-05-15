@@ -15,4 +15,6 @@
       WEBSOCKET_ENABLED = true;
     };
   };
+
+  networking.firewall.allowedTCPPorts = [8222];
 }

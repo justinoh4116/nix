@@ -12,33 +12,63 @@
     mode = "770";
   };
 
-  age.secrets.crowdsec-firewall-bouncer-key.file = ../../secrets/crowdsec-firewall-bouncer-key.age;
-  age.secrets.crowdsec-caddy-bouncer-key.file = ../../secrets/crowdsec-caddy-bouncer-key.age;
+  age.secrets.crowdsec-firewall-bouncer-key = {
+    file = ../../secrets/crowdsec-firewall-bouncer-key.age;
+    owner = "crowdsec";
+    group = "crowdsec";
+    mode = "770";
+  };
+
+  age.secrets.crowdsec-caddy-bouncer-key = {
+    file = ../../secrets/crowdsec-caddy-bouncer-key.age;
+    owner = "crowdsec";
+    group = "crowdsec";
+    mode = "770";
+  };
 
   imports = [inputs.crowdsec.nixosModules.crowdsec inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer];
 
   nixpkgs.overlays = [inputs.crowdsec.overlays.default];
 
+  networking.firewall.allowedTCPPorts = [8081];
+
   services = {
-    crowdsec = {
-      package = inputs.crowdsec.packages.${pkgs.system}.crowdsec;
+    crowdsec = let
+      yaml = (pkgs.formats.yaml {}).generate;
+      acquisitions_file = yaml "acquisitions.yaml" {
+        source = "journalctl";
+        journalctl_filter = ["_SYSTEMD_UNIT=sshd.service"];
+        labels.type = "syslog";
+      };
+    in {
       enable = true;
-      enrollKeyFile = config.age.secrets.crowdsec-enroll-key.path;
+      allowLocalJournalAccess = true;
       settings = {
+        crowdsec_service.acquisition_path = acquisitions_file;
         api.server = {
           listen_uri = "127.0.0.1:8081";
         };
       };
     };
 
-    # crowdsec-firewall-bouncer = {
-    #   package = inputs.crowdsec.packages.${pkgs.system}.crowdsec-firewall-bouncer;
+    # package = inputs.crowdsec.packages.${pkgs.system}.crowdsec;
     #   enable = true;
+    #   enrollKeyFile = config.age.secrets.crowdsec-enroll-key.path;
     #   settings = {
-    #     api_key = "\${FIREWALL_KEY}";
-    #     api_url = "http://localhost:8081";
+    #     api.server = {
+    #       listen_uri = "127.0.0.1:8081";
+    #     };
     #   };
-    # };
+    # ;
+
+    crowdsec-firewall-bouncer = {
+      package = inputs.crowdsec.packages.${pkgs.system}.crowdsec-firewall-bouncer;
+      enable = true;
+      settings = {
+        api_key = "\${FIREWALL_KEY}";
+        api_url = "http://localhost:8081";
+      };
+    };
   };
   systemd.services.crowdsec.serviceConfig = {
     ExecStartPre = let
@@ -48,16 +78,16 @@
         set -o pipefail
 
         if ! cscli bouncers list | grep -q "iceberg-firewall"; then
-          cscli bouncers add "iceberg-firewall" --key "''${cat ${config.age.secrets.crowdsec-firewall-bouncer-key.file} | ${pkgs.gnused}/bin/sed "s/FIREWALL_KEY=//"}"
+          cscli bouncers add "iceberg-firewall" --key ''$(cat "${config.age.secrets.crowdsec-firewall-bouncer-key.path}" | ${pkgs.gnused}/bin/sed "s/FIREWALL_KEY=//")
         fi
         if ! cscli bouncers list | grep -q "caddy"; then
-          cscli bouncers add "caddy" --key "''${cat ${config.age.secrets.crowdsec-caddy-bouncer-key.file}}"
+          cscli bouncers add "caddy" --key ''$(cat ${config.age.secrets.crowdsec-caddy-bouncer-key.path})
         fi
       '';
     in ["${script}/bin/register-bouncer"];
   };
 
-  # systemd.services.crowdsec-firewall-bouncer.serviceConfig.EnvironmentFile = "${config.age.secrets.crowdsec-firewall-bouncer-key.path}";
+  systemd.services.crowdsec-firewall-bouncer.serviceConfig.EnvironmentFile = "${config.age.secrets.crowdsec-firewall-bouncer-key.path}";
 
   # containers.crowdsec = {
   #   autoStart = true;

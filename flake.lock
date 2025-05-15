@@ -3429,15 +3429,15 @@
         "systems": "systems_20"
       },
       "locked": {
-        "lastModified": 1747077931,
-        "narHash": "sha256-H71WHZyqYFmhN4wEP698nxVuOH9JI7IY3mwy8yua/BI=",
-        "owner": "JustAdumbPrsn",
+        "lastModified": 1747349294,
+        "narHash": "sha256-F0rP48w61meA6MyHiSWVo4CUdNefnufWsfGn+fENWvs=",
+        "owner": "justinoh4116",
         "repo": "Nebula-A-Minimal-Theme-for-Zen-Browser",
-        "rev": "ea0cf7013da6040297ec1ab23e6c90902b2d8f38",
+        "rev": "38df477c1a943123769df1c39ae7506f82a7ebc4",
         "type": "github"
       },
       "original": {
-        "owner": "JustAdumbPrsn",
+        "owner": "justinoh4116",
         "repo": "Nebula-A-Minimal-Theme-for-Zen-Browser",
         "type": "github"
       }

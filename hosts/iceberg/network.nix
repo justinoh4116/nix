@@ -6,6 +6,10 @@
   ...
 }: {
   networking = {
+    nftables.enable = false;
+    firewall = {
+      package = pkgs.iptables-legacy;
+    };
     nat = {
       enable = true;
       internalInterfaces = ["ve-+" "vb-+" "br0"];

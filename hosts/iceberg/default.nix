@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./authelia.nix
     ./crowdsec.nix
     # ./watchtower.nix
     ./oink.nix

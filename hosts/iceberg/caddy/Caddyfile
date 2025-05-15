@@ -13,48 +13,63 @@
 {
   debug
 
-  crowdsec {
-    api_url http://localhost:8081
-    api_key @crowdsec-caddy-bouncer-key@
-    ticker_interval 15s
-    #disable_streaming
-    #enable_hard_fails
-  }
+  # crowdsec {
+  #   api_url http://localhost:8081
+  #   api_key @crowdsec-caddy-bouncer-key@
+  #   ticker_interval 15s
+  #   #disable_streaming
+  #   #enable_hard_fails
+  # }
 }
 
 changedetection.justinoh.io {
-  route {
-    crowdsec
-  }
+	log {
+		output file /var/log/caddy/access.log
+	}
+  # route {
+  #   crowdsec
+  # }
 	reverse_proxy http://192.168.100.12:5000
 }
 
-files.spicanet.duckdns.org {
-  route {
-    crowdsec
-  }
+files.justinoh.io {
+	log {
+		output file /var/log/caddy/access.log
+	}
+  # route {
+  #   crowdsec
+  # }
 	reverse_proxy http://192.168.100.8:80
 }
 
 paperless.justinoh.io {
-  route {
-    crowdsec
-  }
+	log {
+		output file /var/log/caddy/access.log
+	}
+  # route {
+  #   crowdsec
+  # }
 	reverse_proxy http://192.168.100.14:28981 {
 		header_down Referrer-Policy "strict-origin-when-cross-origin"
 	}
 }
 
 photos.justinoh.io {
-  route {
-    crowdsec
-  }
+	log {
+		output file /var/log/caddy/access.log
+	}
+  # route {
+  #   crowdsec
+  # }
 	reverse_proxy http://192.168.100.6:2283
 }
 
 vault.justinoh.io {
-  route {
-    crowdsec
-  }
+	log {
+		output file /var/log/caddy/access.log
+	}
+  # route {
+  #   crowdsec
+  # }
 	reverse_proxy http://localhost:8222
 }
