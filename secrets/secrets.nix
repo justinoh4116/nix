@@ -7,6 +7,9 @@ let
   iceberg = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKaNliWdKb+cCNLeAugK89ED1+O/lFicXvKsXt7xfh7a";
   systems = [framework iceberg];
 in {
+  "authelia-jwt-secret.age".publicKeys = users ++ systems;
+  "authelia-session-secret.age".publicKeys = users ++ systems;
+  "authelia-storage-encryption-key.age".publicKeys = users ++ systems;
   "tailscale-auth.age".publicKeys = users ++ systems;
   "crowdsec-enroll-key.age".publicKeys = users ++ systems;
   "crowdsec-firewall-bouncer-key.age".publicKeys = users ++ systems;
