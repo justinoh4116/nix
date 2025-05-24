@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./ssh.nix
     ./users.nix
     ./zfs.nix
     ./impermanence.nix

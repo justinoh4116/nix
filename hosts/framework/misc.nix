@@ -13,6 +13,8 @@ in {
     just
   ];
 
+  environment.etc."current-nixos".source = ./.;
+
   age.secrets."nix-access-tokens-github".file = ../../secrets/nix-access-tokens-github.age;
 
   # programs.ydotool.enable = true;
