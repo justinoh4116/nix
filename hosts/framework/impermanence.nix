@@ -38,7 +38,7 @@
         ".local/share/nvim"
         "safe"
         ".config/fish"
-        ".config/zotero"
+        ".zotero"
 
         {
           directory = ".gnupg";
