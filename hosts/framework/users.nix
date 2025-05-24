@@ -11,6 +11,7 @@
     users.justin = {
       initialHashedPassword = "$6$.k75B0CMN/S7.SOR$7VR.R7nxwXSIFtjOKFD9tn8QC9HZ0IhlPwd8/zdxGUFwFYBySUG6ehckw23OCHxqvDx.anuS99RAm7tPjo5NI0";
       isNormalUser = true;
+      createHome = true;
       extraGroups = [
         "wheel"
         "uinput"

@@ -8,6 +8,7 @@
 }: {
   boot.initrd.postResumeCommands = lib.mkAfter ''
     zfs rollback -r zpool/local/root@blank
+    zfs rollback -r zpool/safe/home@blank
   '';
 
   environment.persistence."/persist" = {
