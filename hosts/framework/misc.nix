@@ -2,7 +2,6 @@
   inputs,
   lib,
   pkgs,
-  self,
   config,
   ...
 }: let
@@ -13,7 +12,7 @@ in {
     just
   ];
 
-  environment.etc."current-nixos".source = ./.;
+  environment.etc."flake-source".source = inputs.self;
 
   age.secrets."nix-access-tokens-github".file = ../../secrets/nix-access-tokens-github.age;
 
