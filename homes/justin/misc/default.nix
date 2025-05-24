@@ -12,6 +12,8 @@
   ];
 
   config = {
+    home.file.".config/nixpkgs/config.nix".source = ./nixpkgsconfig.nix;
+
     services = {
       mpris-proxy.enable = true;
       playerctld.enable = true;
