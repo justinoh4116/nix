@@ -33,6 +33,7 @@
     device = "zpool/safe/home";
     fsType = "zfs";
     options = ["zfsutil"];
+    neededForBoot = true;
   };
 
   fileSystems."/persist" = {
