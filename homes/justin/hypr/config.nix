@@ -257,7 +257,6 @@ in {
 
         # cliphist
         "$SUPER, V, exec, cliphist list | anyrun --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so --show-results-immediately true | cliphist decode | wl-copy"
-        "SHIFT$SUPER, V, exec, cliphist list | anyrun --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so --show-results-immediately true | cliphist delete"
       ];
 
       bindm = [

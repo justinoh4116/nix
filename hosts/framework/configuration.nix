@@ -7,7 +7,23 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  zfsCompatibleKernelPackages =
+    lib.filterAttrs (
+      name: kernelPackages:
+        (builtins.match "linux_[0-9]+_[0-9]+" name)
+        != null
+        && (builtins.tryEval kernelPackages).success
+        && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+    )
+    pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version
+      b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in {
   imports = [
     # Include the results of the hardware scan.
     # ./hardware-configuration.nix
@@ -19,12 +35,16 @@
 
   # set kernel for bcachefs
   boot.supportedFilesystems = ["bcachefs"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = latestKernelPackage;
+  boot.zfs.extraPools = ["zpool"];
+  boot.zfs.devNodes = "/dev/disk/by-id";
 
   networking.hostName = "framework"; # Define your hostname.
+  networking.hostId = "aa720bf0";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.plugins = [pkgs.networkmanager-openconnect];
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -67,28 +87,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.justin = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "uinput"
-      "input"
-      "tty"
-      "dialout"
-      "networkmanager"
-      "libvirtd"
-      "kvm"
-      "qemu-libvirtd"
-      "ydotool"
-    ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      htop
-      tree
-      cmake
-    ];
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -6,6 +6,9 @@
   ...
 }: {
   imports = [
+    ./users.nix
+    ./zfs.nix
+    ./impermanence.nix
     ./services
     ./virtmanager.nix
     ./steam.nix
@@ -18,7 +21,7 @@
     ./fonts.nix
     ./misc.nix
     ./cli.nix
-    ./secureboot.nix
+    # ./secureboot.nix
     ./cachix.nix
   ];
 }

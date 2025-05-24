@@ -32,4 +32,8 @@
     recursive = true;
     source = ./scripts;
   };
+
+  home.file."${config.xdg.configHome}/hypr/pyprland.toml" = {
+    source = ./pyprland.toml;
+  };
 }

@@ -6,6 +6,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     cachix-deploy-flake.url = "github:cachix/cachix-deploy-flake";
 
     # nix user repositories
@@ -40,7 +42,7 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.48.0";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.49.0";
       # type = "git";
       # url = "https://github.com/hyprwm/hyprland";
       # submodules = true;
@@ -77,7 +79,7 @@
     hypridle.url = "github:hyprwm/hypridle";
 
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.48.0";
+      url = "github:outfoxxed/hy3?ref=hl0.49.0";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -174,6 +176,7 @@
         };
         modules = [
           home-manager.nixosModules.home-manager
+          inputs.impermanence.nixosModules.impermanence
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -184,7 +187,7 @@
             };
           }
 
-          lanzaboote.nixosModules.lanzaboote
+          # lanzaboote.nixosModules.lanzaboote
           # nur.modules.nixos.default
           # nur.legacyPackages."${system}".repos.clefru.minionpro
           nixos-hardware.nixosModules.framework-13-7040-amd

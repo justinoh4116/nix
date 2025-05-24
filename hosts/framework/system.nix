@@ -21,6 +21,8 @@
     openFirewall = true;
   };
 
+  programs.ssh.startAgent = true;
+
   # automatic garbage collection
   nix.gc = {
     randomizedDelaySec = "15min";

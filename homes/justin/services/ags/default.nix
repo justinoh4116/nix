@@ -35,6 +35,11 @@ in {
 
   programs.ags.enable = true;
 
+  home.file."${config.xdg.configHome}/ags" = {
+    source = ./dots;
+    recursive = true;
+  };
+
   systemd.user.services.ags = {
     Unit = {
       Description = "Aylur's Gtk Shell";

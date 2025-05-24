@@ -3,11 +3,12 @@ let
   justini = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqwBsJTddM3gFPxkuuavq96qUqMewIrwrHtZqyJ3aw3";
   users = [justinf justini];
 
-  framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICKN8HCItH6bPag8hX1IqYlwQ3hIk4wcz3b+hWZUV5z5";
+  framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPxpWExHrdaG5QSBFPKqD0DBeyBqFJJ/lZDEwHSVKf60";
   iceberg = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKaNliWdKb+cCNLeAugK89ED1+O/lFicXvKsXt7xfh7a";
   systems = [framework iceberg];
 in {
   "authelia-jwt-secret.age".publicKeys = users ++ systems;
+  "nix-access-tokens-github.age".publicKeys = users ++ systems;
   "authelia-session-secret.age".publicKeys = users ++ systems;
   "authelia-storage-encryption-key.age".publicKeys = users ++ systems;
   "tailscale-auth.age".publicKeys = users ++ systems;
