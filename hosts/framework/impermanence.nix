@@ -6,7 +6,7 @@
   config,
   ...
 }: {
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
+  boot.initrd.postResumeCommands = lib.mkAfter ''
     zfs rollback -r zpool/local/root@blank
   '';
 
