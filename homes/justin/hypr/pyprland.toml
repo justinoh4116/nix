@@ -3,9 +3,9 @@ plugins = ["scratchpads", "wallpapers", "layout_center", "workspaces_follow_focu
 
 [wallpapers]
 unique = true # set a different wallpaper for each screen
-path = "~/Pictures/wallpapers/"
+path = "~/safe/pictures/wallpapers/"
 interval = 30 # change every half hour
-extensions = ["jpg", "jpeg", "png"]
+extensions = ["jpg", "jpeg", "png", "webp"]
 recurse = true
 # hyprpaper
 # command = 'hyprctl hyprpaper wallpaper "[],[file]"'

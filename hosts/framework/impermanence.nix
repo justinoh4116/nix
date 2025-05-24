@@ -29,11 +29,6 @@
     users.justin = {
       directories = [
         "Downloads"
-        "Music"
-        "Pictures"
-        "Documents"
-        "Videos"
-        "VirtualBox VMs"
         ".zen"
         ".vim"
         ".local/share/fish"
@@ -41,8 +36,7 @@
         ".local/state/nvim"
         ".local/state/wireplumber"
         ".local/share/nvim"
-        "persist"
-        "nextcloud"
+        "safe"
         ".config/fish"
 
         {

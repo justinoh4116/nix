@@ -47,18 +47,18 @@ in {
 
     userDirs = {
       enable = pkgs.stdenv.isLinux;
-      createDirectories = true;
+      # createDirectories = true;
 
-      download = "${config.home.homeDirectory}/Downloads";
-      desktop = "${config.home.homeDirectory}/Desktop";
-      documents = "${config.home.homeDirectory}/Documents";
+      download = "${config.home.homeDirectory}/safe/downloads";
+      # desktop = "${config.home.homeDirectory}/Desktop";
+      # documents = "${config.home.homeDirectory}/Documents";
 
       publicShare = null;
 
-      pictures = "${config.home.homeDirectory}/Pictures";
+      # pictures = "${config.home.homeDirectory}/Pictures";
 
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+        # XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
         XDG_MAIL_DIR = "${config.home.homeDirectory}/Mail";
       };
     };

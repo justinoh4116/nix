@@ -1,3 +1,3 @@
 #! /usr/bin/env fish
 
-mkdir -p ~/Pictures/screenshots/$(date +%Y-%m) && set IMG ~/Pictures/screenshots/$(date +%Y-%m)/$(date +%Y-%m-%d_%H-%M-%s).png && grim -g "$(slurp)" $IMG && wl-copy < $IMG
+mkdir -p ~/safe/pictures/screenshots/$(date +%Y-%m) && set IMG ~/safe/pictures/screenshots/$(date +%Y-%m)/$(date +%Y-%m-%d_%H-%M-%s).png && grim -g "$(slurp)" $IMG && wl-copy < $IMG
