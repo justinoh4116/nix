@@ -29,7 +29,6 @@
     ];
     users.justin = {
       directories = [
-        "Downloads"
         ".zen"
         ".vim"
         ".local/share/fish"
@@ -39,6 +38,7 @@
         ".local/share/nvim"
         "safe"
         ".config/fish"
+        ".config/zotero"
 
         {
           directory = ".gnupg";

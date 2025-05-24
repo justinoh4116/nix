@@ -46,7 +46,7 @@
       settings = {
         crowdsec_service.acquisition_path = acquisitions_file;
         api.server = {
-          listen_uri = "127.0.0.1:8081";
+          listen_uri = "localhost:8081";
         };
       };
     };
