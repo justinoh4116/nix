@@ -16,6 +16,8 @@
     key = config.age.secrets.framework-syncthing-key.path;
     cert = config.age.secrets.framework-syncthing-cert.path;
 
+    tray.enable = true;
+
     settings = {
       folders = {
         "/home/justin/safe/obsidian" = {
