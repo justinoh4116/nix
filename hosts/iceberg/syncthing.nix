@@ -27,12 +27,13 @@
     settings = {
       folders = {
         "/persist/syncthing/obsidian" = {
-          devices = ["framework"];
+          devices = ["framework" "iphone"];
           id = "obsidian";
         };
       };
       devices = {
         framework.id = "SHVSOSG-EJD2AA4-IKP2JK6-UXDSRHD-YB6HWPE-TRQJTGT-AE5ZIUZ-PGM34Q6";
+        iphone.id = "2JI3KAG-R6TIXZN-HNXCIXQ-ZROSDST-YVRAJWM-EZOPS54-N6373LB-DHHR5QT";
       };
     };
   };
