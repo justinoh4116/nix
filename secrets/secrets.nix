@@ -7,6 +7,8 @@ let
   iceberg = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKaNliWdKb+cCNLeAugK89ED1+O/lFicXvKsXt7xfh7a";
   systems = [framework iceberg];
 in {
+  "syncthing-cert.age".publicKeys = users ++ systems;
+  "syncthing-key.age".publicKeys = users ++ systems;
   "authelia-jwt-secret.age".publicKeys = users ++ systems;
   "nix-access-tokens-github.age".publicKeys = users ++ systems;
   "authelia-session-secret.age".publicKeys = users ++ systems;

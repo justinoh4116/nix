@@ -1,5 +1,6 @@
 {
   imports = [
+    ./syncthing.nix
     ./tailray.nix
     # ./power-monitor.nix
     # ./kdeconnect.nix

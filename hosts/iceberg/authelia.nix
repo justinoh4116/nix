@@ -23,6 +23,10 @@
     mode = "770";
   };
 
+  users.users.authelia.uid = 943;
+  users.users.authelia.group = "authelia";
+  users.groups.authelia.gid = 943;
+
   containers.authelia = {
     autoStart = true;
     privateNetwork = true;
@@ -34,6 +38,10 @@
       "${config.age.secrets.authelia-storage-encryption-key.path}".isReadOnly = true;
       "/var/lib/authelia" = {
         hostPath = "/persist/authelia";
+        isReadOnly = false;
+      };
+      "/var/lib/redis-redis-authelia" = {
+        hostPath = "/persist/authelia/redis";
         isReadOnly = false;
       };
     };
@@ -53,6 +61,8 @@
         services.authelia.instances = {
           main = {
             enable = true;
+            user = "authelia";
+            group = "authelia";
             secrets = {
               jwtSecretFile = "/run/agenix/authelia-jwt-secret";
               sessionSecretFile = "/run/agenix/authelia-session-secret";
@@ -63,18 +73,22 @@
               default_2fa_method = "totp";
               log.level = "debug";
               totp.issuer = "authelia.com";
+              storage.local.path = "/var/lib/authelia/db.sqlite3";
+              access_control = {
+                default_policy = "two_factor";
+              };
               server = {
                 disable_healthcheck = true;
                 endpoints.authz.forward-auth.implementation = "ForwardAuth";
               };
               session = {
+                domain = "justinoh.io";
                 cookies = {
-                  domain = "justinoh.io";
-                  authelia_url = "https://auth.justinoh.io";
-                  default_redirection_url = "https://justinoh.io";
+                  # authelia_url = "https://auth.justinoh.io";
+                  # default_redirection_url = "https://justinoh.io";
                 };
                 redis = {
-                  host = "localhost:6379";
+                  host = "127.0.0.1";
                 };
               };
               notifier = {
@@ -85,8 +99,14 @@
           };
         };
         services.redis.servers."redis-authelia" = {
-          settings.dir = "/var/lib/authelia/redis/";
+          openFirewall = true;
+          enable = true;
+          port = 6379;
         };
+
+        users.users.authelia.uid = hostConfig.users.users.authelia.uid;
+        users.users.authelia.group = "authelia";
+        users.groups.authelia.gid = hostConfig.users.groups.authelia.gid;
       };
   };
 }

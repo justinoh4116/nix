@@ -9,6 +9,7 @@
     ./xdg.nix
     ./gammastep.nix
     ./dconf.nix
+    ./age.nix
   ];
 
   config = {

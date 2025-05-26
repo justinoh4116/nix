@@ -3,6 +3,7 @@
   pkgs,
   args,
   lib,
+  inputs,
   ...
 }: {
   # TODO please change the username & home direcotry to your own
@@ -15,6 +16,7 @@
     ./wayland
     ./hypr
     ./misc
+    inputs.agenix.homeManagerModules.default
   ];
 
   # link the configuration file in current directory to the specified location in home directory
