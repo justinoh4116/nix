@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./syncthing.nix
     ./authelia.nix
     ./crowdsec.nix
     # ./watchtower.nix
