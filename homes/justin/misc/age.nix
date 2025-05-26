@@ -1,3 +1,3 @@
 {
-  age.identityPaths = ["/home/justin/.ssh/id_ed25519"];
+  age.identityPaths = ["/home/justin/.ssh/id_ed25519_age"];
 }
