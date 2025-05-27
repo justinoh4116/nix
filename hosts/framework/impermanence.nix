@@ -39,6 +39,7 @@
         "safe"
         ".local/state/syncthing"
         ".config/fish"
+        ".config/obsidian"
         ".config/Nextcloud"
         ".zotero"
 
