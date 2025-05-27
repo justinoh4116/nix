@@ -37,6 +37,7 @@
         ".local/state/wireplumber"
         ".local/share/nvim"
         "safe"
+        ".local/state/syncthing"
         ".config/fish"
         ".zotero"
 
