@@ -41,6 +41,8 @@
         ".config/fish"
         ".config/obsidian"
         ".config/Nextcloud"
+        ".config/inkscape"
+        ".config/PrusaSlicer"
         ".zotero"
 
         {
