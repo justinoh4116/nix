@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./glance.nix
     ./syncthing.nix
     ./authelia.nix
     ./crowdsec.nix

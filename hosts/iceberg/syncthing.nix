@@ -19,6 +19,12 @@
     mode = "770";
   };
 
+  networking.firewall.allowedTCPPorts = [22000];
+  networking.firewall.allowedUDPPorts = [
+    22000
+    21027
+  ];
+
   services.syncthing = {
     enable = true;
     key = config.age.secrets.iceberg-syncthing-key.path;

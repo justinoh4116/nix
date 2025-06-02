@@ -1,31 +1,13 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }: {
-  age.secrets.authelia-jwt-secret = {
-    file = ../../secrets/authelia-jwt-secret.age;
-    owner = "authelia";
-    group = "authelia";
-    mode = "770";
-  };
-  age.secrets.authelia-session-secret = {
-    file = ../../secrets/authelia-session-secret.age;
-    owner = "authelia";
-    group = "authelia";
-    mode = "770";
-  };
-  age.secrets.authelia-storage-encryption-key = {
-    file = ../../secrets/authelia-storage-encryption-key.age;
-    owner = "authelia";
-    group = "authelia";
-    mode = "770";
-  };
-
-  users.users.authelia.uid = 943;
-  users.users.authelia.group = "authelia";
-  users.groups.authelia.gid = 943;
+  users.users.authelia-main.uid = 943;
+  users.users.authelia-main.group = "authelia-main";
+  users.groups.authelia-main.gid = 943;
 
   containers.authelia = {
     autoStart = true;
@@ -33,10 +15,11 @@
     hostAddress = "192.168.100.15";
     localAddress = "192.168.100.16";
     bindMounts = {
-      "${config.age.secrets.authelia-jwt-secret.path}".isReadOnly = true;
-      "${config.age.secrets.authelia-session-secret.path}".isReadOnly = true;
-      "${config.age.secrets.authelia-storage-encryption-key.path}".isReadOnly = true;
-      "/var/lib/authelia" = {
+      # "${config.age.secrets.authelia-jwt-secret.path}".isReadOnly = true;
+      # "${config.age.secrets.authelia-session-secret.path}".isReadOnly = true;
+      # "${config.age.secrets.authelia-storage-encryption-key.path}".isReadOnly = true;
+      "/etc/ssh/ssh_host_ed25519_key".isReadOnly = true;
+      "/var/lib/authelia-main" = {
         hostPath = "/persist/authelia";
         isReadOnly = false;
       };
@@ -53,27 +36,56 @@
         pkgs,
         ...
       }: {
+        imports = [inputs.agenix.nixosModules.default];
+
         networking.useHostResolvConf = lib.mkForce false;
+        networking.enableIPv6 = false;
+        services.resolved.enable = true;
         system.stateVersion = "24.11";
 
+        age.identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+
         networking.firewall.allowedTCPPorts = [9091];
+
+        age.secrets.authelia-jwt-secret = {
+          file = ../../secrets/authelia-jwt-secret.age;
+          owner = "authelia-main";
+          group = "authelia-main";
+          mode = "770";
+        };
+        age.secrets.authelia-session-secret = {
+          file = ../../secrets/authelia-session-secret.age;
+          owner = "authelia-main";
+          group = "authelia-main";
+          mode = "770";
+        };
+        age.secrets.authelia-storage-encryption-key = {
+          file = ../../secrets/authelia-storage-encryption-key.age;
+          owner = "authelia-main";
+          group = "authelia-main";
+          mode = "770";
+        };
+
+        environment.etc."authelia-main/config.yml".source = ./authelia.yml;
 
         services.authelia.instances = {
           main = {
             enable = true;
-            user = "authelia";
-            group = "authelia";
+            # user = "authelia";
+            # group = "authelia";
             secrets = {
               jwtSecretFile = "/run/agenix/authelia-jwt-secret";
               sessionSecretFile = "/run/agenix/authelia-session-secret";
               storageEncryptionKeyFile = "/run/agenix/authelia-storage-encryption-key";
             };
+            settingsFiles = ["/etc/authelia-main/config.yml"];
             settings = {
               theme = "auto";
               default_2fa_method = "totp";
               log.level = "debug";
+              log.file_path = "/var/lib/authelia-main/authelia.log";
               totp.issuer = "authelia.com";
-              storage.local.path = "/var/lib/authelia/db.sqlite3";
+              storage.local.path = "/var/lib/authelia-main/db.sqlite3";
               access_control = {
                 default_policy = "two_factor";
               };
@@ -82,19 +94,14 @@
                 endpoints.authz.forward-auth.implementation = "ForwardAuth";
               };
               session = {
-                domain = "justinoh.io";
-                cookies = {
-                  # authelia_url = "https://auth.justinoh.io";
-                  # default_redirection_url = "https://justinoh.io";
-                };
                 redis = {
                   host = "127.0.0.1";
                 };
               };
               notifier = {
-                filesystem.filename = "/var/lib/authelia/notification.txt";
+                filesystem.filename = "/var/lib/authelia-main/notification.txt";
               };
-              authentication_backend.file.path = "/var/lib/authelia/users_database.yml";
+              authentication_backend.file.path = "/var/lib/authelia-main/users_database.yml";
             };
           };
         };
@@ -104,9 +111,9 @@
           port = 6379;
         };
 
-        users.users.authelia.uid = hostConfig.users.users.authelia.uid;
-        users.users.authelia.group = "authelia";
-        users.groups.authelia.gid = hostConfig.users.groups.authelia.gid;
+        users.users.authelia-main.uid = hostConfig.users.users.authelia-main.uid;
+        users.users.authelia-main.group = "authelia-main";
+        users.groups.authelia-main.gid = hostConfig.users.groups.authelia-main.gid;
       };
   };
 }
