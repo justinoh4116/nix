@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./wg-easy.nix
     ./glance.nix
     ./syncthing.nix
     ./authelia.nix
