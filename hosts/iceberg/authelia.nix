@@ -102,61 +102,61 @@
                 filesystem.filename = "/var/lib/authelia-main/notification.txt";
               };
               authentication_backend.file.path = "/var/lib/authelia-main/users_database.yml";
-              identity_providers = {
-                oidc = {
-                  clients = [
-                    {
-                      client_id = "qkvY.4qcwT1MtlufSxxzASp8T-Mt_lZz_AASmvrBShkrxsYgAhYXJXk3Xs4nO8u0z2oLzB1g";
-                      client_name = "Paperless";
-                      client_secret = "$pbkdf2-sha512$310000$buYoXiaaYlLCjHqwr5sJUg$l36cG1Secz1VL2RkdblSqpBscb2tucqTCfJfqV8T.f4I0REmXINhA5dD0AoLovvrGCrJUwvlcnCjP7D3NiaaeA";
-                      public = false;
-                      authorization_policy = "two_factor";
-                      require_pkce = true;
-                      pkce_challenge_method = "S256";
-                      redirect_uris = [
-                        "https://paperless.justinoh.io/accounts/oidc/authelia/login/callback/"
-                      ];
-                      scopes = [
-                        "openid"
-                        "profile"
-                        "email"
-                        "groups"
-                      ];
-                      user_info_signed_response_alg = "none";
-                      token_endpoint_auth_method = "client_secret_basic";
-                    }
-                  ];
-                  hmac_secret = "{{- fileContent \"./test_resources/example_filter_rsa_private_key\"}}";
-                  jwks = [
-                    {
-                      key_id = "authelia";
-                      algorithm = "RS256";
-                      use = "sig";
-                      certificate_chain = "-----BEGIN CERTIFICATE-----\n<PASTE-HERE-YOUR-PUBLIC-KEY-DATA>\n-----END CERTIFICATE-----\n";
-                      key = "-----BEGIN PRIVATE KEY-----\n<PASTE-HERE-YOUR-PRIVATE-KEY-DATA>\n-----END PRIVATE KEY-----\n";
-                    }
-                  ];
-                  enable_client_debug_messages = false;
-                  minimum_parameter_entropy = 8;
-                  enforce_pkce = "public_clients_only";
-                  enable_pkce_plain_challenge = false;
-                  enable_jwt_access_token_stateless_introspection = false;
-                  discovery_signed_response_alg = "none";
-                  discovery_signed_response_key_id = "";
-                  require_pushed_authorization_requests = false;
-                  lifespans = {
-                    access_token = "1h";
-                    authorize_code = "1m";
-                    id_token = "1h";
-                    refresh_token = "90m";
-                  };
-                  cors = {
-                    endpoints = ["authorization" "token" "revocation" "introspection"];
-                    allowed_origins = ["https://immich.example.com"];
-                    allowed_origins_from_client_redirect_uris = false;
-                  };
-                };
-              };
+              # identity_providers = {
+              #   oidc = {
+              #     clients = [
+              #       {
+              #         client_id = "qkvY.4qcwT1MtlufSxxzASp8T-Mt_lZz_AASmvrBShkrxsYgAhYXJXk3Xs4nO8u0z2oLzB1g";
+              #         client_name = "Paperless";
+              #         client_secret = "$pbkdf2-sha512$310000$buYoXiaaYlLCjHqwr5sJUg$l36cG1Secz1VL2RkdblSqpBscb2tucqTCfJfqV8T.f4I0REmXINhA5dD0AoLovvrGCrJUwvlcnCjP7D3NiaaeA";
+              #         public = false;
+              #         authorization_policy = "two_factor";
+              #         require_pkce = true;
+              #         pkce_challenge_method = "S256";
+              #         redirect_uris = [
+              #           "https://paperless.justinoh.io/accounts/oidc/authelia/login/callback/"
+              #         ];
+              #         scopes = [
+              #           "openid"
+              #           "profile"
+              #           "email"
+              #           "groups"
+              #         ];
+              #         user_info_signed_response_alg = "none";
+              #         token_endpoint_auth_method = "client_secret_basic";
+              #       }
+              #     ];
+              #     hmac_secret = "{{- fileContent \"./test_resources/example_filter_rsa_private_key\"}}";
+              #     jwks = [
+              #       {
+              #         key_id = "authelia";
+              #         algorithm = "RS256";
+              #         use = "sig";
+              #         certificate_chain = "-----BEGIN CERTIFICATE-----\n<PASTE-HERE-YOUR-PUBLIC-KEY-DATA>\n-----END CERTIFICATE-----\n";
+              #         key = "-----BEGIN PRIVATE KEY-----\n<PASTE-HERE-YOUR-PRIVATE-KEY-DATA>\n-----END PRIVATE KEY-----\n";
+              #       }
+              #     ];
+              #     enable_client_debug_messages = false;
+              #     minimum_parameter_entropy = 8;
+              #     enforce_pkce = "public_clients_only";
+              #     enable_pkce_plain_challenge = false;
+              #     enable_jwt_access_token_stateless_introspection = false;
+              #     discovery_signed_response_alg = "none";
+              #     discovery_signed_response_key_id = "";
+              #     require_pushed_authorization_requests = false;
+              #     lifespans = {
+              #       access_token = "1h";
+              #       authorize_code = "1m";
+              #       id_token = "1h";
+              #       refresh_token = "90m";
+              #     };
+              #     cors = {
+              #       endpoints = ["authorization" "token" "revocation" "introspection"];
+              #       allowed_origins = ["https://immich.example.com"];
+              #       allowed_origins_from_client_redirect_uris = false;
+              #     };
+              #   };
+              # };
             };
           };
         };

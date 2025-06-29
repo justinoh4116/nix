@@ -16,6 +16,7 @@
 
   home.packages = with pkgs;
     [
+      google-chrome
       spacedrive
       gamescope
       # kiwitalk

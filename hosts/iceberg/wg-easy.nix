@@ -12,7 +12,7 @@
         "51821:51821/tcp"
       ];
       volumes = [
-        "/persist/factorio/space:/factorio"
+        "/persist/wireguard/etc_wireguard:/etc/wireguard"
       ];
       capabilities = {
         NET_ADMIN = true;
@@ -20,8 +20,8 @@
         NET_RAW = true;
       };
       environment = {
-        GENERATE_NEW_SAVE = "false";
-        LOAD_LATEST_SAVE = "true";
+        # GENERATE_NEW_SAVE = "false";
+        # LOAD_LATEST_SAVE = "true";
         #SAVE_NAME = "nutty-factory";
       };
       # networks = [
@@ -43,7 +43,7 @@
     dockerBin = "${pkgs.${docker}}/bin/${docker}";
   in ''
     ${dockerBin} network inspect wg-easy >/dev/null 2>&1 || ${dockerBin} network create wg-easy --ipv6 --subnet 10.42.42.0/24 --subnet fdcc:ad94:bacf:61a3::/64
-    '';
+  '';
 
   networking = {
     firewall = {
