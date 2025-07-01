@@ -16,6 +16,7 @@
 
   home.packages = with pkgs;
     [
+      anki
       google-chrome
       spacedrive
       gamescope
