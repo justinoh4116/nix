@@ -16,6 +16,11 @@
     pkgs.open-sans
     pkgs.lmodern
 
+    pkgs.baekmuk-ttf
+    pkgs.unfonts-core
+    pkgs.source-han-sans
+    pkgs.noto-fonts-cjk-sans
+
     # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
     pkgs.nerd-fonts.fira-code
 
