@@ -39,6 +39,7 @@
         "safe"
         ".local/state/syncthing"
         ".config/fish"
+        ".config/google-chrome"
         ".config/obsidian"
         ".config/Nextcloud"
         ".config/inkscape"
