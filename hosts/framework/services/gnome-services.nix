@@ -6,6 +6,8 @@
       gnome-settings-daemon
     ];
 
+    gnome.gcr-ssh-agent.enable = false;
+
     gnome.gnome-keyring.enable = true;
 
     gvfs.enable = true;

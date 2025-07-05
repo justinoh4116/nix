@@ -47,13 +47,13 @@
       # url = "https://github.com/hyprwm/hyprland";
       # submodules = true;
       # rev = "04ac46c54357278fc68f0a95d26347ea0db99496";
-      inputs.aquamarine.follows = "aquamarine";
+      # inputs.aquamarine.follows = "aquamarine";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-    aquamarine = {
-      url = "github:Hyprwm/aquamarine";
-      # inputs.nixpkgs.follows = "nixpkgs-2405";
-    };
+    # aquamarine = {
+    #   url = "github:Hyprwm/aquamarine";
+    #   # inputs.nixpkgs.follows = "nixpkgs-2405";
+    # };
     hyprland-plugins = {
       # url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
       url = "github:hyprwm/hyprland-plugins";
@@ -93,7 +93,7 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
+    zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser?ref=v2.9";
 
     # anyrun launcher
     anyrun = {

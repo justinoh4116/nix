@@ -20,8 +20,8 @@ build:
   nix fmt ./
   @echo "Rebuilding system..."
   sudo nixos-rebuild switch --flake ./
-  #current := $(nixos-rebuild list-generations | grep current)
-  git commit -am "`nixos-rebuild list-generations | grep current`"
+  #current := $(nixos-rebuild list-generations | grep True)
+  git commit -am "`nixos-rebuild list-generations | grep True`"
   @notify-send -e "NixOS rebuild OK!" --icon=software-update-available
 
 buildhome:
@@ -37,25 +37,25 @@ iceberg:
   nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@192.168.0.20  switch
-  #current := $(nixos-rebuild list-generations | grep current)
-  git commit -am "`nixos-rebuild list-generations | grep current`"
+  #current := $(nixos-rebuild list-generations | grep True)
+  git commit -am "`nixos-rebuild list-generations | grep True`"
   @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 iceberg-remote:
   nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@192.168.100.3 --build-host root@192.168.0.13  switch
-  #current := $(nixos-rebuild list-generations | grep current)
-  git commit -am "`nixos-rebuild list-generations | grep current`"
+  #current := $(nixos-rebuild list-generations | grep True)
+  git commit -am "`nixos-rebuild list-generations | grep True`"
   @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 iceberg-remote-tailscale:
   nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@iceberg --build-host root@iceberg  switch
-  #current := $(nixos-rebuild list-generations | grep current)
-  git commit -am "`nixos-rebuild list-generations | grep current`"
+  #current := $(nixos-rebuild list-generations | grep True)
+  git commit -am "`nixos-rebuild list-generations | grep True`"
   @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 test:
-  echo "`nixos-rebuild list-generations | grep current`"
+  echo "`nixos-rebuild list-generations | grep True`"

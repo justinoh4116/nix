@@ -14,7 +14,11 @@ in {
 
   environment.etc."flake-source".source = inputs.self;
 
-  age.secrets."nix-access-tokens-github".file = ../../secrets/nix-access-tokens-github.age;
+  age.secrets."nix-access-tokens-github" = {
+    file = ../../secrets/nix-access-tokens-github.age;
+    group = config.users.groups.keys.name;
+    mode = "0440";
+  };
 
   # programs.ydotool.enable = true;
 

@@ -29,6 +29,9 @@
     ];
     users.justin = {
       directories = [
+        ".steam"
+        ".local/share/Steam"
+
         ".zen"
         ".vim"
         ".local/share/fish"
@@ -45,6 +48,7 @@
         ".config/inkscape"
         ".config/PrusaSlicer"
         ".zotero"
+        ".cache/nvim"
 
         {
           directory = ".gnupg";
