@@ -37,7 +37,7 @@ jobs:
       - name: Check
         run: nix flake check
       - name: Build
-        run: nix build --print-build-logs .#cachix-deploy-spec
+        run: nix build --print-build-logs .#cachix-deploy-spec-iceberg
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         env:
