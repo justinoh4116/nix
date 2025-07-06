@@ -1,0 +1,48 @@
+# yamllint disable rule:line-length
+---
+name: "Build and Deploy framework"
+on:  # yamllint disable-line rule:truthy
+  workflow_dispatch:  # allows manual triggering
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_run:
+    workflows: ["update-flake-lock"]
+    types: [completed]
+jobs:
+  build:
+    runs-on: self-hosted
+    #environment:
+      #name: justinoh4116
+      #url: "https://app.cachix.org/deploy/workspace/lab.thewagner.home/"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # - uses: docker/setup-qemu-action@v3 # v3.4.0
+      # - uses: cachix/install-nix-action@v30  # v30
+      #   with:
+      #     nix_path: nixpkgs=channel:nixos-unstable
+      #     extra_nix_config: "extra-platforms = aarch64-linux"
+      # - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      # - uses: cachix/cachix-action@ad2ddac53f961de1989924296a1f236fcfbaa4fc  # v15
+      #   with:
+      #     name: justinoh4116
+      #     authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      
+      # - name: Check
+      #   run: nix flake check
+      - name: Build
+        run: nix build --print-build-logs .#cachix-deploy-spec-framework
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        env:
+          CACHIX_ACTIVATE_TOKEN: "${{ secrets.CACHIX_ACTIVATE_TOKEN }}"
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+        run: |
+          cachix push justinoh4116 ./result
+          cachix deploy activate --async ./result
