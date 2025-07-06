@@ -33,6 +33,7 @@
         ".local/share/Steam"
 
         ".zen"
+        ".config/discordcanary"
         ".vim"
         ".local/share/fish"
         ".local/share/z"

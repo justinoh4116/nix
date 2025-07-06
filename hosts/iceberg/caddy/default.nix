@@ -12,7 +12,7 @@
       #   # plugins = ["github.com/caddy-dns/porkbun@v0.3.0"];
       plugins = ["github.com/hslatman/caddy-crowdsec-bouncer@v0.8.1"];
       #   # hash = pkgs.lib.fakeHash;
-      hash = "sha256-Ko6duuSk0Ug3+UxzoZByJfNb+z8uOjrPy9EMVOMZaTc=";
+      hash = "sha256-UN3UrELiyTDZ4SLre88RFWyYQTfXIEiKn0tCoYH/4Tw=";
     };
     configFile = ./Caddyfile;
     # virtualHosts."photos.justinoh.io".extraConfig = ''

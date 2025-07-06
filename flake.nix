@@ -212,10 +212,15 @@
     };
 
     packages.${system} = with pkgs; {
-      cachix-deploy-spec = cachix-deploy-lib.spec {
+      cachix-deploy-spec-iceberg = cachix-deploy-lib.spec {
         agents = {
           # framework = self.nixosConfigurations.framework.config.system.build.toplevel;
           iceberg = self.nixosConfigurations.iceberg.config.system.build.toplevel;
+        };
+      };
+      cachix-deploy-spec-framework = cachix-deploy-lib.spec {
+        agents = {
+          framework = self.nixosConfigurations.framework.config.system.build.toplevel;
         };
       };
     };
