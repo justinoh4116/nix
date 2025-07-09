@@ -23,6 +23,7 @@
         # GENERATE_NEW_SAVE = "false";
         # LOAD_LATEST_SAVE = "true";
         #SAVE_NAME = "nutty-factory";
+        WG_HOST = "vpn.justinoh.io";
       };
       # networks = [
       #   "wg-easy"
