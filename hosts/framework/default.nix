@@ -22,7 +22,7 @@
     ./fonts.nix
     ./misc.nix
     ./cli.nix
-    # ./secureboot.nix
+    ./secureboot.nix
     ./cachix.nix
   ];
 }
