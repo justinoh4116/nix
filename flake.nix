@@ -187,7 +187,7 @@
             };
           }
 
-          # lanzaboote.nixosModules.lanzaboote
+          lanzaboote.nixosModules.lanzaboote
           # nur.modules.nixos.default
           # nur.legacyPackages."${system}".repos.clefru.minionpro
           nixos-hardware.nixosModules.framework-13-7040-amd
