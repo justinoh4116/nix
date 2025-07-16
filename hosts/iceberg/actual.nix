@@ -16,7 +16,7 @@
         isReadOnly = false;
       };
       "/var/lib/private/actual" = {
-        hostPath = "/persist/actual/actualpriv";
+        hostPath = "/persist/actualprivate";
       };
     };
     config = let
