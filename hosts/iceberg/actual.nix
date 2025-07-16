@@ -33,6 +33,7 @@
           enable = true;
           settings = {
             # hostname = "localhost";
+            dataDir = "/var/lib/actual/actualdata";
           };
           openFirewall = true;
         };
