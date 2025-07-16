@@ -36,6 +36,12 @@
           };
           openFirewall = true;
         };
+        users.users.actual.uid = hostConfig.users.users.actual.uid;
+        users.groups.actual.gid = hostConfig.users.groups.actual.gid;
+        users.users.actual.group = "actual";
       };
   };
+  users.users.actual.uid = 986;
+  users.users.actual.group = "actual";
+  users.groups.actual.gid = 986;
 }
