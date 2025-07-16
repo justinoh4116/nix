@@ -26,8 +26,8 @@ actual.justinoh.io {
   log {
     output file /var/log/caddy/access.log
   }
-  reverse_proxy https://192.168.100.18:3000
-  }
+  reverse_proxy http://192.168.100.18:3000
+}
 
 vpn.justinoh.io {
   log {
