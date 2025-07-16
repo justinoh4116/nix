@@ -11,13 +11,13 @@
     hostAddress = "192.168.100.17";
     localAddress = "192.168.100.18";
     bindMounts = {
-      "/var/lib/actual" = {
-        hostPath = "/persist/actual";
-        isReadOnly = false;
-      };
-      "/var/lib/private/actual" = {
-        hostPath = "/persist/actualprivate";
-      };
+      # "/var/lib/actual" = {
+      #   hostPath = "/persist/actual";
+      #   isReadOnly = false;
+      # };
+      # "/var/lib/private/actual" = {
+      #   hostPath = "/persist/actualprivate";
+      # };
     };
     config = let
       hostConfig = config;
