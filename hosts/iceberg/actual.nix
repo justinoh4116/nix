@@ -15,9 +15,9 @@
       #   hostPath = "/persist/actual";
       #   isReadOnly = false;
       # };
-      "/var/lib/private" = {
-        hostPath = "/persist/actual";
-      };
+      # "/var/lib/private" = {
+      #   hostPath = "/persist/actual";
+      # };
     };
     config = let
       hostConfig = config;
