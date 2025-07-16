@@ -15,7 +15,7 @@
       #   hostPath = "/persist/actual";
       #   isReadOnly = false;
       # };
-      "/var/lib/private/actual" = {
+      "/var/lib/private" = {
         hostPath = "/persist/actual";
       };
     };
