@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./actual.nix
     ./wg-easy.nix
     ./glance.nix
     ./syncthing.nix

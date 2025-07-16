@@ -22,6 +22,13 @@
   # }
 }
 
+actual.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  reverse_proxy https://localhost:3000
+  }
+
 vpn.justinoh.io {
   log {
     output file /var/log/caddy/access.log
