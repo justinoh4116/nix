@@ -15,10 +15,8 @@
         hostPath = "/persist/actual";
         isReadOnly = false;
       };
-
-      "/var/lib/smbphotolib" = {
-        hostPath = "/persist/shares/private/photos";
-        isReadOnly = false;
+      "/var/lib/private/actual" = {
+        hostPath = "/persist/actual/actualpriv";
       };
     };
     config = let
@@ -31,11 +29,10 @@
       }: {
         networking.useHostResolvConf = lib.mkForce false;
         system.stateVersion = "24.11";
-
         services.actual = {
           enable = true;
           settings = {
-            hostname = "localhost";
+            # hostname = "localhost";
           };
           openFirewall = true;
         };
