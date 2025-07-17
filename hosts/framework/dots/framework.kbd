@@ -15,15 +15,26 @@
   ;; rebind caps lock to esc or upper layer
   rcp (tap-hold-next-release 200 esc (layer-toggle raise))
 
+  ;; home row mods
+  met_a (tap-hold-next-release 200 a lmet)
+  alt_s (tap-hold-next-release 200 s lalt)
+  ctl_d (tap-hold-next-release 200 d lctl)
+  sft_f (tap-hold-next-release 200 f lsft)
+
+  sft_j (tap-hold-next-release 200 j rsft)
+  ctl_k (tap-hold-next-release 200 k rctl)
+  alt_l (tap-hold-next-release 200 l lalt)
+  met_; (tap-hold-next-release 200 ; rmet)
+
 )
 
 
 (deflayer qwerty
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @rcp a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           @lwrspc        ralt rctl
+  grv    1      2      3      4      5      6      7      8      9      0      -    =    bspc  
+  tab    q      w      e      r      t      y      u      i      o      p      [    ]    \
+  @rcp   @met_a @alt_s @ctl_d @sft_f g      h      @sft_j @ctl_k @alt_l @met_; '    ret  
+  lsft   z      x      c      v      b      n      m      ,    .    /    rsft  
+  lctl   lmet   lalt                 @lwrspc              ralt   rctl  
 )
 
 (deflayer raise
