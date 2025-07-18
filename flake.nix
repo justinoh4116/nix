@@ -93,7 +93,7 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser?ref=v2.9";
+    zen-nebula.url = "github:justinoh4116/Zen-Nebula?ref=aaa";
 
     # anyrun launcher
     anyrun = {

@@ -3373,17 +3373,17 @@
         "systems": "systems_19"
       },
       "locked": {
-        "lastModified": 1748682307,
-        "narHash": "sha256-QgqvHUKxwXcMUtg00Xi5AymDzRjtO0Ipp4ornOxcpQo=",
-        "owner": "JustAdumbPrsn",
-        "repo": "Nebula-A-Minimal-Theme-for-Zen-Browser",
-        "rev": "f369c5cd54d2ed5582bac185f5005ac0fb3520d7",
+        "lastModified": 1752818765,
+        "narHash": "sha256-BjX2n5h+Kr8oBCVlA993Rud+SpVe9evuwxga9HbA6fM=",
+        "owner": "justinoh4116",
+        "repo": "Zen-Nebula",
+        "rev": "ca7dd6b0437cc94f0d716827d475d1597999d221",
         "type": "github"
       },
       "original": {
-        "owner": "JustAdumbPrsn",
-        "ref": "v2.9",
-        "repo": "Nebula-A-Minimal-Theme-for-Zen-Browser",
+        "owner": "justinoh4116",
+        "ref": "aaa",
+        "repo": "Zen-Nebula",
         "type": "github"
       }
     }
