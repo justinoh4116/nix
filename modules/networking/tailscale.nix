@@ -10,7 +10,7 @@
 in {
   options.modules.networking.tailscale = {
     enable = lib.mkEnableOption "tailscale";
-    openFirewall = lib.mkEnableOption "opening firewall ports for tailscale";
+    # openFirewall = lib.mkEnableOption "opening firewall ports for tailscale";
     authKeyFile = lib.mkOption {
       type = lib.types.path;
     };
@@ -25,7 +25,8 @@ in {
   config = lib.mkIf cfg.enable {
     services.tailscale = {
       enable = true;
-      openFirewall = cfg.openFirewall;
+      # openFirewall = cfg.openFirewall;
+      openFirewall = true;
       authKeyFile = cfg.authKeyFile;
       extraUpFlags = [
         # "--advertise-exit-node"
