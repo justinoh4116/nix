@@ -7,7 +7,7 @@ let
   framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPxpWExHrdaG5QSBFPKqD0DBeyBqFJJ/lZDEwHSVKf60";
   iceberg = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKaNliWdKb+cCNLeAugK89ED1+O/lFicXvKsXt7xfh7a";
   titanic = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8fK3X5ba9r0WtkdVaoMKXxZuQCd3oJk0lj2dOWW5oY";
-  systems = [framework iceberg];
+  systems = [framework iceberg titanic];
 in {
   "framework-syncthing-cert.age".publicKeys = users ++ systems;
   "framework-syncthing-key.age".publicKeys = users ++ systems;
