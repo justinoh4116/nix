@@ -209,6 +209,20 @@
           agenix.nixosModules.default
         ];
       };
+
+      "titanic" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
+
+        modules = [
+          ./hosts/titanic
+          agenix.nixosModules.default
+        ];
+      };
     };
 
     packages.${system} = with pkgs; {
