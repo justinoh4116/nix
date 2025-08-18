@@ -21,12 +21,12 @@
     pkgs.apple-cursor
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-
-    xwayland.enable = true;
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #
+  #   xwayland.enable = true;
+  # };
 
   home.file."${config.xdg.configHome}/hypr/scripts/" = {
     recursive = true;
