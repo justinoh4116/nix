@@ -42,7 +42,7 @@
     schizofox.url = "github:schizofox/schizofox";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.0";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.1";
       # type = "git";
       # url = "https://github.com/hyprwm/hyprland";
       # submodules = true;
