@@ -8,12 +8,12 @@
   services.caddy = {
     enable = true;
     # package = inputs.caddy-patched.packages.${pkgs.system}.caddy;
-    package = pkgs.caddy.withPlugins {
-      #   # plugins = ["github.com/caddy-dns/porkbun@v0.3.0"];
-      plugins = ["github.com/hslatman/caddy-crowdsec-bouncer@v0.8.1"];
-      #   # hash = pkgs.lib.fakeHash;
-      hash = "sha256-UN3UrELiyTDZ4SLre88RFWyYQTfXIEiKn0tCoYH/4Tw=";
-    };
+    # package = pkgs.caddy.withPlugins {
+    #   #   # plugins = ["github.com/caddy-dns/porkbun@v0.3.0"];
+    #   plugins = ["github.com/hslatman/caddy-crowdsec-bouncer@v0.8.1"];
+    #   #   # hash = pkgs.lib.fakeHash;
+    #   hash = "sha256-3kB4w5/J0Jrt4Cw17GcsVZJueBMmJSEgLrBAw5qmS64=";
+    # };
     configFile = ./Caddyfile;
     # virtualHosts."photos.justinoh.io".extraConfig = ''
     #   reverse_proxy http://192.168.100.6:2283

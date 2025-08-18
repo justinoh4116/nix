@@ -22,7 +22,7 @@
     ./cachix.nix
     ./misc.nix
     ./factorio-server.nix
-    ./github-runner.nix
+    # ./github-runner.nix
     ./vaultwarden.nix
     ./caddy
     ./network.nix

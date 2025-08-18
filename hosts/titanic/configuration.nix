@@ -36,7 +36,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   networking.hostName = "titanic"; # Define your hostname.
   networking.hostId = "f622d242";
   # Pick only one of the below networking options.

@@ -28,11 +28,11 @@ in {
     enableNotifications = lib.mkEnableOption "zfs pool health notifications";
     pushoverTokenPath = lib.mkOption {
       type = lib.types.path;
-      };
+    };
     pushoverUserKeyPath = lib.mkOption {
       type = lib.types.path;
-      };
     };
+  };
 
   config = lib.mkIf cfg.enable {
     services.zfs.autoScrub.enable = true;
@@ -72,4 +72,3 @@ in {
     };
   };
 }
-
