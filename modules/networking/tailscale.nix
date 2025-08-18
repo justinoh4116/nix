@@ -14,25 +14,38 @@ in {
     authKeyFile = lib.mkOption {
       type = lib.types.path;
     };
-    extraUpFlags = lib.mkOption {
-      type = lib.types.lines;
-      example = ''
-        --advertise-exit-node
-      '';
-    };
   };
 
   config = lib.mkIf cfg.enable {
+    systemd.services.tailscale-autoconnect = {
+      description = "Automatic connection to Tailscale";
+
+      # make sure tailscale is running before trying to connect to tailscale
+      after = ["network-pre.target" "tailscale.service"];
+      wants = ["network-pre.target" "tailscale.service"];
+      wantedBy = ["multi-user.target"];
+
+      # set this service as a oneshot job
+      serviceConfig.Type = "oneshot";
+
+      # have the job run this shell script
+      script = with pkgs; ''
+        # wait for tailscaled to settle
+        sleep 2
+
+        # check if we are already authenticated to tailscale
+        status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
+        if [ $status = "Running" ]; then # if so, then do nothing
+          exit 0
+        fi
+
+        # otherwise authenticate with tailscale
+        ${tailscale}/bin/tailscale up -authkey $(cat ${cfg.authKeyFile})
+      '';
+    };
+
     services.tailscale = {
       enable = true;
-      # openFirewall = cfg.openFirewall;
-      openFirewall = true;
-      authKeyFile = cfg.authKeyFile;
-      extraUpFlags = [
-        # "--advertise-exit-node"
-        #   "--login-server=https://your-instance" # if you use a non-default tailscale coordinator
-        #   "--accept-dns=false" # if its' a server you prolly dont need magicdns
-      ];
     };
   };
 }
