@@ -11,7 +11,7 @@
   ];
 
   services.kanata = {
-    enable = true;
+    enable = false;
     keyboards = {
       laptop = {
         configFile = ./kanata.cfg;
