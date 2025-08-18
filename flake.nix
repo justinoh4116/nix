@@ -52,7 +52,7 @@
     };
     # aquamarine = {
     #   url = "github:Hyprwm/aquamarine";
-    #   # inputs.nixpkgs.follows = "nixpkgs-2405";
+    #   #   # inputs.nixpkgs.follows = "nixpkgs-2405";
     # };
     hyprland-plugins = {
       # url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";

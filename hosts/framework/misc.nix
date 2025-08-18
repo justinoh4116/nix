@@ -38,7 +38,7 @@ in {
 
     # opengl.enable = true;
     graphics = {
-      enable = true;
+      # enable = true;
       # package = pkgs-hyprland.mesa.drivers;
 
       # 32 bit support
