@@ -36,15 +36,15 @@ in {
       };
     };
 
-    opengl.enable = true;
-    # graphics = {
-    #   enable = true;
-    #   package = pkgs-hyprland.mesa.drivers;
-    #
-    #   # 32 bit support
-    #   driSupport32Bit = true;
-    #   package32 = pkgs.hyprland.pkgsi686Linux.mesa.drivers;
-    # };
+    # opengl.enable = true;
+    graphics = {
+      enable = true;
+      # package = pkgs-hyprland.mesa.drivers;
+
+      # 32 bit support
+      # driSupport32Bit = true;
+      # package32 = pkgs.hyprland.pkgsi686Linux.mesa.drivers;
+    };
   };
 
   security.pam.services.hyprlock = {};
