@@ -24,5 +24,8 @@
     ./cli.nix
     ./secureboot.nix
     ./cachix.nix
+    # ../../modules/programs/river.nix
+    # ../../homes/modules/river.nix
   ];
+  # config.modules.programs.river.enable = true;
 }

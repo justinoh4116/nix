@@ -1,23 +1,10 @@
 {
-  description = "i may have fallen too deep into the hole";
-
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      # attributes of perSystem will be built for all systems in this list
-      systems = import inputs.systems;
-
-      imports = [
-        ./parts
-        ./hosts
-      ];
-    };
+  description = "flakey";
 
   inputs = {
     # stable?!? hardly even
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-2405.url = "github:NixOS/nixpkgs/nixos-24.05";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -147,5 +134,129 @@
       url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+
+  outputs = inputs @ {
+    systems,
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    hyprland,
+    hy3,
+    nur,
+    nixpkgs-2405,
+    lanzaboote,
+    agenix,
+    cachix-deploy-flake,
+    ...
+  }: let
+    overlays = [
+      # inputs.neovim-nightly-overlay.overlay.default
+    ];
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    pkgs-stable = import nixpkgs-2405 {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    nixosConfigurations = {
+      "framework" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          inputs.impermanence.nixosModules.impermanence
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.justin = import ./homes/justin/profile.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit pkgs-stable;
+            };
+          }
+
+          lanzaboote.nixosModules.lanzaboote
+          # nur.modules.nixos.default
+          # nur.legacyPackages."${system}".repos.clefru.minionpro
+          nixos-hardware.nixosModules.framework-13-7040-amd
+          ./hosts/framework
+          agenix.nixosModules.default
+        ];
+      };
+
+      "iceberg" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
+
+        modules = [
+          ./hosts/iceberg
+          agenix.nixosModules.default
+        ];
+      };
+
+      "titanic" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
+
+        modules = [
+          ./hosts/titanic
+          agenix.nixosModules.default
+        ];
+      };
+    };
+
+    packages.${system} = with pkgs; {
+      cachix-deploy-spec-iceberg = cachix-deploy-lib.spec {
+        agents = {
+          # framework = self.nixosConfigurations.framework.config.system.build.toplevel;
+          iceberg = self.nixosConfigurations.iceberg.config.system.build.toplevel;
+        };
+      };
+      cachix-deploy-spec-framework = cachix-deploy-lib.spec {
+        agents = {
+          framework = self.nixosConfigurations.framework.config.system.build.toplevel;
+        };
+      };
+    };
+
+    # homeConfigurations = {
+    #   justin = home-manager.lib.homeManagerConfiguration {
+    #     inherit pkgs;
+    #     # This is also not the recommended way of passing `nixpkgs`,
+    #     # for reasons (similar to `system` above) that are out-of-scope of this example.
+    #     # home-manager.useGlobalPkgs = true;
+    #     #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    #     modules = [
+    #       ./homes/justin/profile.nix
+    #       #nur.modules.nixos.default
+    #     ];
+    #     # Just like `specialArgs` above...
+    #     extraSpecialArgs = {
+    #       inherit inputs;
+    #       inherit pkgs-stable;
+    #     };
+    #   };
+    #   # ...
+    # };
   };
 }

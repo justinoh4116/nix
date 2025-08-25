@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-stable,
   inputs,
   ...
 }: let
@@ -17,7 +16,7 @@ in {
   # services.power-profiles-daemon.enable = false;
   services.power-profiles-daemon = {
     enable = true;
-    package = pkgs-stable.power-profiles-daemon;
+    package = pkgs.power-profiles-daemon;
   };
 
   systemd.services."unload-mediatek-before-hibernate" = {

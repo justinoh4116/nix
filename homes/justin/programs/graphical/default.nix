@@ -3,7 +3,6 @@
   pkgs,
   self,
   lib,
-  pkgs-stable,
   ...
 }: {
   imports = [
