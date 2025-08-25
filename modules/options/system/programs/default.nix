@@ -7,6 +7,7 @@ in {
     cli.enable = mkEnableOption "cli program suite" // {default = true;};
     dev.enable = mkEnableOption "dev enviroment program suite";
 
+    fish.enable = mkEnableOption "fish shell system-wide";
     discord.enable = mkEnableOption "discord";
     webcord.enable = mkEnableOption "webcord discord client";
     spotify.enable = mkEnableOption "spotify";

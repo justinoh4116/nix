@@ -40,6 +40,8 @@
       modules = callLibs ./modules.nix;
 
       builders = callLibs ./builders.nix;
+
+      secrets = callLibs ./secrets.nix
     };
 
     # Get individual functions from the parent attributes
@@ -56,7 +58,7 @@
     # inherit (self.extendedLib.namespacing) makeSocketNsPhysical makeServiceNsPhysical unRestrictNamespaces;
     # inherit (self.extendedLib.networking) isValidIPv4;
     # inherit (self.extendedLib.ssh) mkPubkeyFor;
-    # inherit (self.extendedLib.secrets) mkAgenixSecret;
+    inherit (self.extendedLib.secrets) mkAgenixSecret;
     # inherit (self.extendedLib.systemd) hardenService mkGraphicalService mkHyprlandService;
     # inherit (self.extendedLib.themes) serializeTheme compileSCSS;
     # inherit (self.extendedLib.validators) ifTheyExist ifGroupsExist isAcceptedDevice isWayland ifOneEnabled;

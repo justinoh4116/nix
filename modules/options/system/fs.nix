@@ -8,6 +8,7 @@
 in {
   options.modules.system.fs = {
     zfs = {
+      enable = mkEnableOption "zfs fs stuff";
       autoScrub = mkEnableOption "auto scrub of zfs pools";
       poolsToImport = mkOption {
         type = listOf str;
