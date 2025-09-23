@@ -29,6 +29,10 @@ in {
       (flakes: flakes // {nixpkgs.flake = inputs.nixpkgs;})
     ];
   in {
+    extraOptions = ''
+      !include ${config.age.secrets.nix-access-tokens-github.path}
+    '';
+
     # Lix, the higher performance Nix fork.
     package = pkgs.lix;
 

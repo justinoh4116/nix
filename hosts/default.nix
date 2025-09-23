@@ -17,16 +17,38 @@
 
     homesPath = ../homes;
 
+    coreModules = modulePath + /core;
+    options = modulePath + /options;
+
+    common = coreModules + /common;
+
+    # roles
+    laptop = coreModules + /roles/laptop;
+
     # import home-manager and home-manager configs together
     homes = [hm homesPath];
 
-    mkModulesFor = hostname: {extraModules ? []} @ args:
+    # mkModulesFor generates a list of modules to be imported by any host with
+    # a given hostname. Do note that this needs to be called *in* the nixosSystem
+    # set, since it generates a *module list*, which is also expected by system
+    # builders.
+    mkModulesFor = hostname: {
+      moduleTrees ? [options common],
+      roles ? [],
+      extraModules ? [],
+    } @ args:
       flatten (
         concatLists [
           # Derive host specific module path from the first argument of the
           # function. Should be a string, obviously.
-          (singleton ./${hostname}/default.nix)
+          (singleton ./${hostname}/host.nix)
 
+          # Recursively import all module trees (i.e. directories with a `module.nix`)
+          # for given moduleTree directories, and in addition, roles.
+          (map (path: mkModuleTree' {inherit path;}) (concatLists [moduleTrees roles]))
+
+          # And append any additional lists that don't don't conform to the moduleTree
+          # API, but still need to be imported somewhat commonly.
           args.extraModules
         ]
       );
@@ -40,7 +62,6 @@
         extraModules = [
           homes
           agenix
-          inputs.lanzaboote.nixosModules.lanzaboote
           hw.framework-13-7040-amd
         ];
       };

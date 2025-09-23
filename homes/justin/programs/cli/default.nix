@@ -10,6 +10,7 @@
     ./yazi.nix
   ];
   home.packages = with pkgs; [
+    just
     spotify-player
     maestral
     maestral-gui

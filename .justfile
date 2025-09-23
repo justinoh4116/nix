@@ -17,7 +17,7 @@ upp:
   nix flake lock --update-input $1
 
 build:
-  nix fmt ./
+  # nix fmt ./
   @echo "Rebuilding system..."
   sudo nixos-rebuild switch --flake ./
   #current := $(nixos-rebuild list-generations | grep True)
@@ -25,7 +25,7 @@ build:
   @notify-send -e "NixOS rebuild OK!" --icon=software-update-available
 
 buildhome:
-  nix fmt ./homes
+  # nix fmt ./homes
   @echo "Rebuilding home..."
   home-manager switch --flake ".#justin"
   git add -u ./homes/*
@@ -34,7 +34,7 @@ buildhome:
   @notify-send -e "Home rebuild OK!" --icon=software-update-available
 
 iceberg:
-  nix fmt ./
+  # nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@192.168.0.64  switch
   #current := $(nixos-rebuild list-generations | grep True)
@@ -42,7 +42,7 @@ iceberg:
   @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 iceberg-remote:
-  nix fmt ./
+  # nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@192.168.100.3 --build-host root@192.168.0.13  switch
   #current := $(nixos-rebuild list-generations | grep True)
@@ -50,7 +50,7 @@ iceberg-remote:
   @notify-send -e "iceberg build OK!" --icon=software-update-available
 
 iceberg-remote-tailscale:
-  nix fmt ./
+  # nix fmt ./
   @echo "Rebuilding iceberg..."
   nixos-rebuild --flake .#iceberg --target-host root@iceberg --build-host root@iceberg  switch
   #current := $(nixos-rebuild list-generations | grep True)

@@ -18,7 +18,7 @@ in {
     authKey = mkOption {
       description = "Path to the tailscale authentication key file";
       type = str;
-      default = config.age.secrets.tailscale-client.path;
+      default = config.age.secrets.tailscale-auth.path;
     };
 
     operator = mkOption {
@@ -51,7 +51,7 @@ in {
         readOnly = true;
         default = concatLists [
           cfg.flags.default
-          (optionals (cfg.authkey != null) ["--authkey file:${config.age.secrets.tailscale-client.path}"])
+          (optionals (cfg.authKey != null) ["--authkey file:${config.age.secrets.tailscale-auth.path}"])
           # (optionals (cfg.endpoint != null) ["--login-server" "${cfg.endpoint}"])
           (optionals (cfg.operator != null) ["--operator ${cfg.operator}"])
           (optionals (cfg.tags != []) ["--advertise-tags" (concatStringsSep "," cfg.tags)])

@@ -147,5 +147,9 @@
       url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nyx = {
+      url = "github:NotAShelf/nyx";
+    };
   };
 }

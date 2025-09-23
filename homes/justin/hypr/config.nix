@@ -50,6 +50,7 @@ in {
         "eDP-1, preferred, 0x0, 1.175, bitdepth, 10"
         # "DP-10, preferred, 1928x0, 1"
         # "DP-9, preferred, 3848x0, 2"
+        "desc:LG Electronics LG ULTRAGEAR 0x00024757, preferred, auto-left, 1"
         ",preferred,auto,auto"
         "LG Electronics LG Ultra HD 0x00041E81, preferred, auto, 2"
       ];

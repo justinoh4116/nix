@@ -14,7 +14,9 @@ in {
     ./programs
     ./networking
 
+    ./boot.nix
     ./fs.nix
+    ./security.nix
     ./impermanence.nix
   ];
   options.modules.system = {
@@ -33,6 +35,7 @@ in {
     sound.enable = mkEnableOption "sound-related programs";
     bluetooth.enable = mkEnableOption "bluetooth";
     video.enable = mkEnableOption "graphics related programs / drivers";
+
     printing = {
       enable = mkEnableOption "printing";
       extraDrivers = mkOption {

@@ -37,8 +37,8 @@ in {
     };
 
     loader = mkOption {
-      type = ["none" "grub" "systemd-boot"];
-      default = "none";
+      type = enum ["none" "grub" "systemd-boot"];
+      default = "systemd-boot";
       description = "The bootloader that should be used for the device.";
     };
 

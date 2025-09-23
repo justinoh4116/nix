@@ -1,20 +1,11 @@
 {
-  self,
-  inputs,
-  lib,
-  pkgs,
   config,
+  pkgs,
+  lib,
   ...
 }: let
-  cfg = config.modules.misc.cachix;
+  cfg = config.modules.system.services.cachix-agent;
 in {
-  options.misc.cachix = {
-    enable = lib.mkEnableOption "cachix";
-    credentialsFile = lib.mkOption {
-      type = lib.types.path;
-    };
-  };
-
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       cachix

@@ -4,9 +4,12 @@
   pkgs,
   ...
 }: let
+  sys = config.modules.system;
+  cfg = sys.fs.zfs;
+
   check-pool-health = pkgs.writeShellScript "check-pool-health" ''
-    PO_TOKEN=$(cat "${config.age.pushover-zfs-token.path}")
-    PO_UK=$(cat "${config.age.pushover-zfs-user.path}")
+    PO_TOKEN=$(cat "${config.age.secrets.zfs-pushover-token.path}")
+    PO_UK=$(cat "${config.age.secrets.pushover-user-key.path}")
 
     SUDO=""
     if [[ $(id -u) -ne 0 ]]; then
@@ -36,15 +39,14 @@
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
-
-  cfg = config.modules.system.fs.zfs;
-  sys = config.modules.system;
 in {
   config = lib.mkIf cfg.enable {
-    services.zfs.autoScrub.enable = cfg.autoScrub;
+    modules = {
+      # makes sure the kernel is compatible with zfs if zfs is enabled
+      system.boot.kernel = lib.mkForce latestZfsKernelPackage;
+    };
 
-    # makes sure the kernel is compatible with zfs if zfs is enabled
-    sys.boot.kernel = latestZfsKernelPackage;
+    services.zfs.autoScrub.enable = cfg.autoScrub;
 
     systemd.timers = {
       checkpoolhealth = {

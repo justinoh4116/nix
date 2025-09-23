@@ -23,13 +23,13 @@
       pkgs.gradience
     ];
 
-    pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      package = pkgs.apple-cursor;
-      name = "macOS-White";
-      size = 24;
-    };
+    # pointerCursor = {
+    #   gtk.enable = true;
+    #   x11.enable = true;
+    #   package = pkgs.apple-cursor;
+    #   name = "macOS-White";
+    #   size = 24;
+    # };
   };
 
   gtk = {
