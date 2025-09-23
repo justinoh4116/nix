@@ -63,7 +63,7 @@ in {
             "${super} K" = "focus-view up";
             "${super} L" = "focus-view right";
 
-            "Super SPACE" = "spawn fuzzel";
+            "Super SPACE" = "spawn anyrun";
             #screenShots Not Done yet
             # "${ssm} S" = ''spawn "${screenactive}"'';
             # "${main}  S" = ''spawn "${screenarea}"'';
@@ -192,7 +192,7 @@ in {
                 focus_tag_map normal Super $i $tagmask
             done
 
-                            ${layout} -view-padding 2 -outer-padding 2 &
+                            # ${layout} -view-padding 2 -outer-padding 2 &
 
       '';
     };
