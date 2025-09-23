@@ -24,6 +24,7 @@
 
     # roles
     laptop = coreModules + /roles/laptop;
+    workstation = coreModules + /roles/workstation;
 
     # import home-manager and home-manager configs together
     homes = [hm homesPath];
@@ -52,13 +53,13 @@
           args.extraModules
         ]
       );
-
   in {
     framework = mkNixosSystem {
       inherit withSystem;
       hostname = "framework";
       system = "x86_64-linux";
       modules = mkModulesFor "framework" {
+        roles = [laptop workstation];
         extraModules = [
           homes
           agenix
