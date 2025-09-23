@@ -106,8 +106,8 @@ in {
             # "${ssm} L" = ''send-layout-cmd ${layout} "main-count -1"'';
           };
         };
-        # spawn = [
-        #   ''${layout}''
+        spawn = [
+          ''${layout}''
         #   "${pkgs.foot}/bin/foot --server"
         #   "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store #Stores only text data"
         #   "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store #Stores only image data"
@@ -117,7 +117,7 @@ in {
         #   "fcitx5"
         #   "${pkgs.bash} startup.sh"
         #   "waybar"
-        # ];
+        ];
 
         rule-add = {
           "-app-id" = {
