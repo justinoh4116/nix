@@ -81,11 +81,10 @@
       inherit withSystem;
       hostname = "titanic";
       system = "x86_64-linux";
-      modules = mkModulesFor "titanic" {
-        extraModules = [
-          agenix
-        ];
-      };
+      modules = [
+        ./titanic
+        agenix
+      ];
     };
   };
 }

@@ -12,10 +12,18 @@ in {
   ];
   options.modules.system.services = {
     bolt.enable = mkEnableOption "thunderbolt";
-    # actual
-    # authelia
-    # changedetection-io
-    # factorio-server
+    actual.enable = mkEnableOption "actual finance manager";
+    authelia.enable = mkEnableOption "authelia login manager";
+    caddy.enable = mkEnableOption "caddy proxy service";
+    changedetection-io.enable = mkEnableOption "website changedetection service";
+    crowdsec.enable = mkEnableOption "crowdsec security";
+    ddclient.enable = mkEnableOption "ddclient ddns";
+    immich.enable = mkEnableOption "immich photo/video server";
+    nextcloud.enable = mkEnableOption "nextcloud cloud file storage";
+    paperless.enable = mkEnableOption "paperless files";
+    samba.enable = mkEnableOption "samba file sharing";
+    vaultwarden.enable = mkEnableOption "vaultwarden password manager";
+    wg-easy.enable = mkEnableOption "wireguard vpn and wg-easy web ui";
     # glance
     # immich
     # oink

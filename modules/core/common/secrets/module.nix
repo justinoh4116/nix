@@ -27,12 +27,53 @@ in {
       file = "framework-cachix-agent-token.age";
     };
 
+    iceberg-cachix-agent-token = mkAgenixSecret true {
+      file = "iceberg-cachix-agent-token.age";
+    };
+
     zfs-pushover-token = mkAgenixSecret true {
       file = "zfs-pushover-token.age";
     };
 
     pushover-user-key = mkAgenixSecret true {
       file = "pushover-user-key.age";
+    };
+
+    crowdsec-enroll-key = mkAgenixSecret cfg.crowdsec.enable {
+      file = "crowdsec-enroll-key.age";
+      user = "crowdsec";
+      group = "crowdsec";
+      mode = "770";
+    };
+
+    crowdsec-firewall-bouncer-key = mkAgenixSecret cfg.crowdsec.enable {
+      file = "crowdsec-firewall-bouncer-key.age";
+      user = "crowdsec";
+      group = "crowdsec";
+      mode = "770";
+    };
+
+    crowdsec-caddy-bouncer-key = mkAgenixSecret cfg.crowdsec.enable {
+      file = "crowdsec-caddy-bouncer-key.age";
+      user = "crowdsec";
+      group = "crowdsec";
+      mode = "770";
+    };
+
+    nextcloud-admin-password = mkAgenixSecret cfg.nextcloud.enable {
+      file = "nextcloud-admin-password.age";
+    };
+
+    paperless-admin-password = mkAgenixSecret cfg.paperless.enable {
+      file = "paperless-admin-password.age";
+    };
+
+    porkbun-api-key = mkAgenixSecret cfg.ddclient.enable {
+      file = "porkbun-api-key.age";
+    };
+
+    porkbun-secret-key = mkAgenixSecret cfg.ddclient.enable {
+      file = "porkbun-secret-key.age";
     };
   };
 }

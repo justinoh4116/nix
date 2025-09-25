@@ -19,7 +19,7 @@ upp:
 build:
   # nix fmt ./
   @echo "Rebuilding system..."
-  sudo nixos-rebuild switch --flake ./
+  sudo nixos-rebuild switch --flake ./ |& nom
   #current := $(nixos-rebuild list-generations | grep True)
   git commit -am "`nixos-rebuild list-generations | grep True`"
   @notify-send -e "NixOS rebuild OK!" --icon=software-update-available

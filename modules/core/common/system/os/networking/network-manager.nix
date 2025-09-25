@@ -13,6 +13,9 @@ in {
   networking = {
     networkmanager = {
       enable = true;
+      plugins = [
+        pkgs.networkmanager-l2tp
+      ];
     };
   };
 }

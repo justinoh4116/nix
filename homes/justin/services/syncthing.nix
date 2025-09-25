@@ -22,7 +22,7 @@
       folders = {
         "/home/justin/safe/obsidian" = {
           id = "obsidian";
-          devices = ["iceberg" "iphone"];
+          devices = ["iceberg" "iphone" "ipad"];
         };
       };
       devices = {

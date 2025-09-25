@@ -75,6 +75,8 @@ in {
           "sd_mod"
           "dm_mod"
           "tpm"
+          "wireguard"
+          "nft_masq"
         ];
 
         # the set of kernel modules in the initial ramdisk used during the boot process

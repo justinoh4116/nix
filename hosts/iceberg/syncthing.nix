@@ -33,7 +33,7 @@
     settings = {
       folders = {
         "/persist/syncthing/obsidian" = {
-          devices = ["framework" "iphone"];
+          devices = ["framework" "iphone" "ipad"];
           id = "obsidian";
         };
       };
