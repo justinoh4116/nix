@@ -41,21 +41,21 @@ in {
 
     crowdsec-enroll-key = mkAgenixSecret cfg.crowdsec.enable {
       file = "crowdsec-enroll-key.age";
-      user = "crowdsec";
+      owner = "crowdsec";
       group = "crowdsec";
       mode = "770";
     };
 
     crowdsec-firewall-bouncer-key = mkAgenixSecret cfg.crowdsec.enable {
       file = "crowdsec-firewall-bouncer-key.age";
-      user = "crowdsec";
+      owner = "crowdsec";
       group = "crowdsec";
       mode = "770";
     };
 
     crowdsec-caddy-bouncer-key = mkAgenixSecret cfg.crowdsec.enable {
       file = "crowdsec-caddy-bouncer-key.age";
-      user = "crowdsec";
+      owner = "crowdsec";
       group = "crowdsec";
       mode = "770";
     };
