@@ -62,6 +62,7 @@ in {
           ".config/Nextcloud"
           ".config/inkscape"
           ".config/PrusaSlicer"
+          ".config/cachix"
           ".zotero"
           ".cache/nvim"
 
