@@ -1,4 +1,8 @@
-args @ {pkgs, ...}: {
+args @ {
+  pkgs,
+  config,
+  ...
+}: {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -28,6 +32,7 @@ args @ {pkgs, ...}: {
     };
     shellInit = ''
       set -gx EDITOR nvim
+      set -gx CACHIX_ACTIVATE_TOKEN "$(cat ${config.age.secrets.cachix-activate-token.path})"
       set -gx fzf_directors_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
       set -gx PF_INFO "ascii title os host kernel uptime memory wm palette"
 

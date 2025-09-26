@@ -41,7 +41,7 @@
     wl-clipboard
     grim
     slurp
-  ];
+  ] ++ [inputs.agenix.packages.${pkgs.system}.default];
 
   programs = {
     git = {
