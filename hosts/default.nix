@@ -25,6 +25,7 @@
     # roles
     laptop = coreModules + /roles/laptop;
     workstation = coreModules + /roles/workstation;
+    server = coreModules + /roles/server;
 
     # import home-manager and home-manager configs together
     homes = [hm homesPath];
@@ -72,6 +73,7 @@
       hostname = "iceberg";
       system = "x86_64-linux";
       modules = mkModulesFor "iceberg" {
+        roles = [server];
         extraModules = [
           agenix
         ];

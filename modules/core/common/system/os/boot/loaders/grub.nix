@@ -9,17 +9,17 @@
 in {
   config = mkIf (sys.boot.loader == "grub") {
     boot.loader.grub = {
-    enable = true;
-    zfsSupport = sys.fs.zfs.enable;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    #device = "nodev";
-    mirroredBoots = [
-      {
-        devices = ["nodev"];
-        path = "/boot";
-      }
-    ];
-  };
+      enable = true;
+      zfsSupport = sys.fs.zfs.enable;
+      efiSupport = true;
+      # efiInstallAsRemovable = true;
+      #device = "nodev";
+      mirroredBoots = [
+        {
+          devices = ["nodev"];
+          path = "/boot";
+        }
+      ];
+    };
   };
 }

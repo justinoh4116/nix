@@ -75,5 +75,19 @@ in {
     porkbun-secret-key = mkAgenixSecret cfg.ddclient.enable {
       file = "porkbun-secret-key.age";
     };
+
+    iceberg-syncthing-key = mkAgenixSecret cfg.syncthing.enable {
+      file = "iceberg-syncthing-key.age";
+      owner = "syncthing";
+      group = "syncthing";
+      mode = "770";
+    };
+
+    iceberg-syncthing-cert = mkAgenixSecret cfg.syncthing.enable {
+      file = "iceberg-syncthing-cert.age";
+      owner = "syncthing";
+      group = "syncthing";
+      mode = "770";
+    };
   };
 }
