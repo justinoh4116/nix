@@ -9,7 +9,7 @@ let
   titanic = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ8fK3X5ba9r0WtkdVaoMKXxZuQCd3oJk0lj2dOWW5oY";
   systems = [framework iceberg titanic];
 in {
-  # "cachix-activate-token.age".publicKeys = users ++ systems;
+  "cachix-activate-token.age".publicKeys = users ++ systems;
   "framework-syncthing-cert.age".publicKeys = users ++ systems;
   "framework-syncthing-key.age".publicKeys = users ++ systems;
   "iceberg-syncthing-cert.age".publicKeys = users ++ systems;
