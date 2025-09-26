@@ -93,7 +93,7 @@ in {
     cachix-activate-token = mkAgenixSecret true {
       file = "cachix-activate-token.age";
       owner = "justin";
-      group = "justin";
+      group = "users";
     };
   };
 }
