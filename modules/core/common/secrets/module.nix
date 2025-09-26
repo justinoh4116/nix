@@ -89,5 +89,9 @@ in {
       group = "syncthing";
       mode = "770";
     };
+
+    cachix-activate-token = mkAgenixSecret true {
+      file = "cachix-activate-token.age";
+    };
   };
 }
