@@ -1,6 +1,10 @@
-{lib, ...}: let
+{
+  lib,
+  keys,
+  ...
+}: let
   inherit (lib) mkOption mkEnableOption;
-  inherit (lib.types) enum;
+  inherit (lib.types) enum str;
 in {
   options.modules.system.programs = {
     gui.enable = mkEnableOption "graphical program suite" // {default = true;};
@@ -31,6 +35,13 @@ in {
       kitty.enable = mkEnableOption "kitty terminal";
       wezterm.enable = mkEnableOption "wezterm terminal";
       alacritty.enable = mkEnableOption "alacritty terminal";
+    };
+
+    git = {
+      signingKey = mkOption {
+        type = str;
+        default = keys.justin;
+      };
     };
 
     # default programs
