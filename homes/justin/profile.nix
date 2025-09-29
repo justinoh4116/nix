@@ -107,13 +107,6 @@
     bat
   ];
 
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    userName = "Justin Oh";
-    userEmail = "justinoh4116@gmail.com";
-  };
-
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;

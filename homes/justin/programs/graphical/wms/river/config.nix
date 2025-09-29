@@ -108,15 +108,15 @@ in {
         };
         spawn = [
           ''${layout}''
-        #   "${pkgs.foot}/bin/foot --server"
-        #   "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store #Stores only text data"
-        #   "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store #Stores only image data"
-        #   "${pkgs.wluma}/bin/wluma"
-        #   "fnott"
-        #   # "i3bar-river"
-        #   "fcitx5"
-        #   "${pkgs.bash} startup.sh"
-        #   "waybar"
+          #   "${pkgs.foot}/bin/foot --server"
+          #   "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store #Stores only text data"
+          #   "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store #Stores only image data"
+          #   "${pkgs.wluma}/bin/wluma"
+          #   "fnott"
+          #   # "i3bar-river"
+          #   "fcitx5"
+          #   "${pkgs.bash} startup.sh"
+          #   "waybar"
         ];
 
         rule-add = {

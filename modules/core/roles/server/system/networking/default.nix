@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   networking = {
     nftables.enable = false;
     firewall = {

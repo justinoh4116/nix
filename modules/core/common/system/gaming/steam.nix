@@ -6,7 +6,7 @@
   prg = config.modules.system.programs;
 in {
   # config = lib.mkIf prg.gaming.steam.enable {
-    config = {
+  config = {
     nixpkgs.config.packageOverrides = pkgs: {
       steam = pkgs.steam.override {
         extraPkgs = pkgs:

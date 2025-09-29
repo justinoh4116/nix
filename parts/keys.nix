@@ -33,7 +33,6 @@ let
     users.justin
     users.justin_backup
   ];
-
 in {
   inherit (users) justin;
   inherit (machines) framework iceberg titanic;

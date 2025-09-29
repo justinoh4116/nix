@@ -27,19 +27,18 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { silent = true })
 -- clear search highlights
 vim.keymap.set("n", "<leader>sc", "<cmd>nohl<CR>")
 
-vim.keymap.set("n", "x", "\"_x")
+vim.keymap.set("n", "x", '"_x')
 
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- <leader>y goes to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- shift D does not cut
-vim.keymap.set("n", "D", "\"_d")
-vim.keymap.set("v", "D", "\"_d")
-
+vim.keymap.set("n", "D", '"_d')
+vim.keymap.set("v", "D", '"_d')
 
 -- ctrl + backspace
 vim.keymap.set("i", "<C-BS>", "<Esc>cvb", { silent = true })
@@ -55,7 +54,7 @@ vim.keymap.set("n", "<C-S-j>", "<C-w>j", { silent = true })
 vim.keymap.set("n", "<C-S-k>", "<C-w>k", { silent = true })
 vim.keymap.set("n", "<C-S-l>", "<C-w>l", { silent = true })
 
-vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })

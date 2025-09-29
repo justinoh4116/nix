@@ -1,10 +1,15 @@
 [pyprland]
-plugins = ["scratchpads", "wallpapers", "layout_center", "workspaces_follow_focus"]
+plugins = [
+  "scratchpads",
+  "wallpapers",
+  "layout_center",
+  "workspaces_follow_focus",
+]
 
 [wallpapers]
-unique = true # set a different wallpaper for each screen
+unique = true                               # set a different wallpaper for each screen
 path = "~/safe/pictures/wallpapers/"
-interval = 30 # change every half hour
+interval = 30                               # change every half hour
 extensions = ["jpg", "jpeg", "png", "webp"]
 recurse = true
 # hyprpaper

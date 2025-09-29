@@ -33,24 +33,24 @@ in {
       alacritty.enable = mkEnableOption "alacritty terminal";
     };
 
-# default programs
-    default = { 
+    # default programs
+    default = {
       browser = mkOption {
-        type = enum [ "chromium" "zen" "nyxt" "firefox" ];
+        type = enum ["chromium" "zen" "nyxt" "firefox"];
         default = "zen";
-        };
-      terminal = mkOption {
-        type = enum [ "kitty" "wezterm" "alacritty" ];
-        default = "kitty";
-        };
-      launcher = mkOption {
-        type = enum [ "anyrun" "wofi" "rofi" ];
-        default = "anyrun";
-        };
-      editor = mkOption {
-        type = enum [ "neovim" "vscode" "helix" ];
-        default = "neovim";
-        };
       };
+      terminal = mkOption {
+        type = enum ["kitty" "wezterm" "alacritty"];
+        default = "kitty";
+      };
+      launcher = mkOption {
+        type = enum ["anyrun" "wofi" "rofi"];
+        default = "anyrun";
+      };
+      editor = mkOption {
+        type = enum ["neovim" "vscode" "helix"];
+        default = "neovim";
+      };
+    };
   };
 }

@@ -35,6 +35,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";

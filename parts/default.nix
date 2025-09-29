@@ -4,5 +4,6 @@
     ./pkgs
 
     ./args.nix
+    ./fmt.nix
   ];
 }

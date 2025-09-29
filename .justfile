@@ -17,7 +17,7 @@ upp:
   nix flake lock --update-input $1
 
 build:
-  # nix fmt ./
+  nix fmt ./
   @echo "Rebuilding system..."
   sudo nixos-rebuild switch --flake ./ |& nom
   #current := $(nixos-rebuild list-generations | grep True)
@@ -36,7 +36,9 @@ buildhome:
 iceberg:
   # nix fmt ./
   @echo "Rebuilding iceberg..."
-  nixos-rebuild --flake .#iceberg --target-host root@192.168.0.64  switch
+  nix build .#cachix-deploy-iceberg |& nom
+  cachix push justinoh4116 ./result
+  cachix deploy activate ./result
   #current := $(nixos-rebuild list-generations | grep True)
   git commit -am "iceberg"
   @notify-send -e "iceberg build OK!" --icon=software-update-available

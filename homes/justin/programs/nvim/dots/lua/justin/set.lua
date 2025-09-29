@@ -1,4 +1,4 @@
-vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
@@ -37,7 +37,7 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 vim.opt.cmdheight = 1
 vim.opt.showcmd = true
@@ -53,4 +53,4 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"

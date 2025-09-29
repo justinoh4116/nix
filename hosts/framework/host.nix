@@ -4,7 +4,6 @@
     ./fs
   ];
   config = {
-
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     # This option defines the first version of NixOS you have installed on this particular machine,

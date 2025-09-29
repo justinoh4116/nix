@@ -163,8 +163,8 @@ in {
       #   # disable displaying of the built-in Linux logo
       #   "logo.nologo"
       # ])
-      # ++ 
-      (optionals sys.boot.silentBoot [
+      # ++
+      optionals sys.boot.silentBoot [
         # tell the kernel to not be verbose
         "quiet"
 
@@ -181,6 +181,6 @@ in {
         # rd prefix means systemd-udev will be used instead of initrd
         "systemd.show_status=auto"
         "rd.systemd.show_status=auto"
-      ]);
+      ];
   };
 }
