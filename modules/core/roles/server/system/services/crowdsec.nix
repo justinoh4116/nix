@@ -12,6 +12,8 @@ in {
     inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer
   ];
 
+  disabledModules = ["services/security/crowdsec.nix"];
+
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [inputs.crowdsec.overlays.default];
 
@@ -26,7 +28,7 @@ in {
           labels.type = "syslog";
         };
       in {
-        enable = true;
+        enable = lib.mkForce true;
         allowLocalJournalAccess = true;
         settings = {
           crowdsec_service.acquisition_path = acquisitions_file;

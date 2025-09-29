@@ -4,6 +4,11 @@
   pkgs,
   ...
 }: {
+  # for some reason podman is stupid
+  # virtualisation.containers.containersConf.settings.network.network_backend = lib.mkDefault "netavark";
+  # virtualisation.containers.containersConf.settings.network.firewall_driver = lib.mkDefault "nftables";
+  # virtualisation.podman.extraPackages = [ pkgs.nftables ];
+
   virtualisation.oci-containers.containers = {
     wg-easy = {
       image = "ghcr.io/wg-easy/wg-easy:15";
@@ -29,6 +34,7 @@
       #   "wg-easy"
       # ];
       extraOptions = [
+        "--opt mode=unmanaged"
         "--network=wg-easy:ip=10.42.42.42"
         "--network=wg-easy:ip6=fdcc:ad94:bacf:61a3::2a"
         "--sysctl=net.ipv4.ip_forward=1"

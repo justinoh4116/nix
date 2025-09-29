@@ -1,7 +1,8 @@
 # inspired by notashelf/nyx
 let
   users = {
-    justin = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgdHCdGZodbvK9TY80cidEaV5dQAsKTrovljnH1RE8y";
+    justin = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILgx9v+lydEnbl6EznPlrZk/2Gr0a9n18GHU/7xdz3NLAAAABHNzaDo=";
+    justin_backup = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJndMoIyT69gdEdAGeFDnR7zOIHwUA6lzMdT+JQsC6MeAAAABHNzaDo=";
   };
 
   machines = {
@@ -25,9 +26,16 @@ let
     machines.titanic
 
     users.justin
+    users.justin_backup
   ];
+
+  justins = [
+    users.justin
+    users.justin_backup
+  ];
+
 in {
   inherit (users) justin;
   inherit (machines) framework iceberg titanic;
-  inherit servers workstations all;
+  inherit servers workstations all justins;
 }
