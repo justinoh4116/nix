@@ -12,10 +12,10 @@
     enable = true;
     config = {
       plugins = [
-        inputs.anyrun.packages.${pkgs.system}.stdin
-        inputs.anyrun.packages.${pkgs.system}.applications
-        inputs.anyrun.packages.${pkgs.system}.rink
-        inputs.anyrun.packages.${pkgs.system}.symbols
+        "${pkgs.anyrun}/lib/libstdin.so"
+        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/librink.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
         #inputs.anyrun.packages.${pkgs.system}.randr
       ];
       width = {fraction = 0.3;};

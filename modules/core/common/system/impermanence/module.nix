@@ -16,10 +16,10 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    boot.initrd.postResumeCommands = mkIf sys.fs.zfs.enable ''
+    boot.initrd.postResumeCommands = mkIf sys.fs.zfs.enable (lib.mkAfter ''
       zfs rollback -r zpool/local/root@blank
       zfs rollback -r zpool/safe/home@blank
-    '';
+    '');
 
     environment.persistence."/persist" = {
       enable = cfg.root.enable;

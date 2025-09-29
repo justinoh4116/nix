@@ -6,7 +6,6 @@
   inputs,
   ...
 }: {
-  # TODO please change the username & home direcotry to your own
   home.username = "justin";
   home.homeDirectory = "/home/justin";
 

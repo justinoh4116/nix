@@ -3,7 +3,7 @@
   osConfig,
   ...
 }: let
-  cfg = osConfig.modules.system.programs.git.signingKey;
+  cfg = osConfig.modules.system.programs.git;
 in {
   programs.git = {
     enable = true;

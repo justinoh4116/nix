@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) mkOption mkEnableOption;
-  inherit (lib.types) enum str;
+  inherit (lib.types) enum str listOf;
 in {
   options.modules.system.programs = {
     gui.enable = mkEnableOption "graphical program suite" // {default = true;};
@@ -39,8 +39,8 @@ in {
 
     git = {
       signingKey = mkOption {
+        default = "/home/justin/.ssh/id_ed25519_sk.pub";
         type = str;
-        default = keys.justin;
       };
     };
 

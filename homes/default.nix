@@ -27,7 +27,7 @@ in {
 
     # Enable the usage user packages through
     # the users.users.<name>.packages option
-    useUserPackages = true;
+    # useUserPackages = true;
 
     # Move existing files to the .hm.old suffix rather than failing
     # with a very long error message about it
@@ -47,7 +47,7 @@ in {
     # directory, or will exit with directory not found errors
     # users = genAttrs config.modules.system.users (name: ./${name} + /home.nix);
 
-    users.justin = ./justin/profile.nix;
+    users.justin = import ./justin/profile.nix;
 
     # Additional configuration that should be set for any existing and future users
     # declared in this module. Any "shared" configuration between users may be passed
