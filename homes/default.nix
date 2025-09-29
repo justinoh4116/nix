@@ -27,7 +27,7 @@ in {
 
     # Enable the usage user packages through
     # the users.users.<name>.packages option
-    # useUserPackages = true;
+    useUserPackages = true;
 
     # Move existing files to the .hm.old suffix rather than failing
     # with a very long error message about it

@@ -1,45 +1,72 @@
 * {
-  all: unset;
-  font-size: 1.2rem;
+  font-family: "SFProDisplay Nerd Font";
 }
 
-#window,
-#match,
-#entry,
-#plugin,
-box.main {
+window {
   background: transparent;
+}
+
+box.main {
+  padding: 0.8rem;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 30px 30px 15px rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  padding: 12px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
 }
 
-/* #match.activatable { */
-/*   border-radius: 8px; */
-/*   margin: 4px 0; */
-/*   padding: 4px; */
-/*   transition: 100ms ease-out; */
-/* } */
-/* #match.activatable:first-child { */
-/*   margin-top: 12px; */
-/* } */
-/* #match.activatable:last-child { */
-/*   margin-bottom: 0; */
-/* } */
-
-.match:hover {
-  background: rgba(255, 255, 255, 0.05);
+text {
+  min-height: 30px;
+  font-size: 1.6rem;
+  padding: 5px;
+  border-radius: 5px;
 }
+
+.matches {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+box.plugin:first-child {
+  margin-top: 5px;
+}
+
+box.plugin.info {
+  min-width: 200px;
+}
+
+list.plugin {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+label.match.description {
+  font-size: 10px;
+}
+
+label.plugin.info {
+  font-size: 14px;
+}
+
+.match {
+  background: transparent;
+  padding-left: 0.3rem;
+}
+
 .match:selected {
-  background: rgba(255, 255, 255, 0.1);
+  /* border-left: 4px solid @theme_selected_bg_color; */
+  background: #0b0f10;
+  border: 1px solid #0b0f10;
+  padding: 0.3rem 0rem;
+  border-radius: 8px;
+  animation: fade 0.1s linear;
 }
 
-#entry {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 4px 8px;
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
+

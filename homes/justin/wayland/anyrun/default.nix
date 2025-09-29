@@ -3,19 +3,27 @@
   pkgs,
   inputs,
   lib,
+  modulesPath,
   config,
   ...
 }: {
-  # imports = [inputs.anyrun.homeManagerModules.default];
+  imports = [inputs.anyrun.homeManagerModules.default];
+  disabledModules = ["${modulesPath}/programs/anyrun.nix"];
 
   programs.anyrun = {
     enable = true;
+    package = inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins;
     config = {
       plugins = [
-        "${pkgs.anyrun}/lib/libstdin.so"
-        "${pkgs.anyrun}/lib/libapplications.so"
-        "${pkgs.anyrun}/lib/librink.so"
-        "${pkgs.anyrun}/lib/libsymbols.so"
+        "stdin"
+        "applications"
+        "rink"
+        "symbols"
+        "nix-run"
+        # "${pkgs.anyrun}/lib/libstdin.so"
+        # "${pkgs.anyrun}/lib/libapplications.so"
+        # "${pkgs.anyrun}/lib/librink.so"
+        # "${pkgs.anyrun}/lib/libsymbols.so"
         #inputs.anyrun.packages.${pkgs.system}.randr
       ];
       width = {fraction = 0.3;};
@@ -23,6 +31,7 @@
       x = {fraction = 0.5;};
       y = {fraction = 0.3;};
       layer = "overlay";
+      hidePluginInfo = true;
     };
 
     extraCss = builtins.readFile (./. + "/style-dark.css");
