@@ -33,6 +33,7 @@ args @ {
     shellAliases = {
       "ll" = "exa --long --git --header --icons";
       "lla" = "exa --long --git --header --icons -a";
+      "textbooks" = "cd ~/safe/nextcloud/textbooks && zathura $(ls | anyrun --plugins libstdin.so)";
     };
     shellInit = ''
       set -gx EDITOR nvim

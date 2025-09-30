@@ -113,6 +113,7 @@ in {
         "$MOD, B, exec, chromium"
         "$MOD, N, exec, kitty yazi ~"
         "$MOD, SPACE, exec, anyrun"
+        "SHIFT$MOD, T, exec, textbooks"
         # "SHIFT$MOD, SPACE, exec, anyrun"
 
         # toggle passthrough to vm
