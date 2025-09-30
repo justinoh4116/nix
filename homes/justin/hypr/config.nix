@@ -113,7 +113,7 @@ in {
         "$MOD, B, exec, chromium"
         "$MOD, N, exec, kitty yazi ~"
         "$MOD, SPACE, exec, anyrun"
-        "SHIFT$MOD, T, exec, textbooks"
+        "SHIFT$MOD, T, exec, zathura /home/justin/safe/nextcloud/textbooks/$(ls /home/justin/safe/nextcloud/textbooks | anyrun --plugins libstdin.so)"
         # "SHIFT$MOD, SPACE, exec, anyrun"
 
         # toggle passthrough to vm
