@@ -23,10 +23,5 @@
     #
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "24.11"; # Did you read the comment?
-
-    users.users.root.openssh.authorizedKeys.keys = [
-      # TODO Replace with your own SSH public key.
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgdHCdGZodbvK9TY80cidEaV5dQAsKTrovljnH1RE8y"
-    ];
   };
 }

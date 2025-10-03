@@ -54,7 +54,7 @@
     # inherit (self.extendedLib.deploy) mkNode;
     # inherit (self.extendedLib.firewall) mkTable mkRuleset mkIngressChain mkPrerouteChain mkInputChain mkForwardChain mkOutputChain mkPostrouteChain;
     # inherit (self.extendedLib.fs) mkBtrfs;
-    inherit (self.extendedLib.hardware) isx86Linux primaryMonitor;
+    inherit (self.extendedLib.hardware) isx86Linux isWSL primaryMonitor;
     # inherit (self.extendedLib.misc) filterNixFiles importNixFiles boolToNum fetchKeys containsStrings indexOf intListToStringList;
     inherit (self.extendedLib.modules) mkService mkModuleTree mkModuleTree';
     # inherit (self.extendedLib.namespacing) makeSocketNsPhysical makeServiceNsPhysical unRestrictNamespaces;

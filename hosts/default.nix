@@ -11,6 +11,7 @@
 
     hm = inputs.home-manager.nixosModules.home-manager; # home manager
     hw = inputs.nixos-hardware.nixosModules; # hardware config for laptop and other weird devices
+    nixos-wsl = inputs.nixos-wsl.nixosModules.default; # solidworks why
     agenix = inputs.agenix.nixosModules.default; # secret management
 
     modulePath = ../modules;
@@ -26,6 +27,7 @@
     laptop = coreModules + /roles/laptop;
     workstation = coreModules + /roles/workstation;
     server = coreModules + /roles/server;
+    wsl = coreModules + /roles/wsl;
 
     # import home-manager and home-manager configs together
     homes = [hm homesPath];
@@ -76,6 +78,19 @@
         roles = [server];
         extraModules = [
           agenix
+        ];
+      };
+    };
+    bear = mkNixosSystem {
+      inherit withSystem;
+      hostname = "bear";
+      system = "x86_64-linux";
+      modules = mkModulesFor "bear" {
+        roles = [wsl];
+        extraModules = [
+          homes
+          agenix
+          nixos-wsl
         ];
       };
     };

@@ -8,7 +8,7 @@
   inherit (lib.types) str nullOr enum mkOptionType attrsOf coercedTo;
   inherit (lib.strings) removePrefix hasPrefix isString;
 
-  cfg = config.modules.options.style;
+  cfg = config.modules.style;
 
   hexColorType = mkOptionType {
     name = "hex-color";
@@ -37,6 +37,7 @@ in {
       # "name-of-the-scheme"
       slug = mkOption {
         type = str;
+        default = "catppuccin-mocha";
         description = ''
           the slug for the theme name should-be-in-this-format
         '';

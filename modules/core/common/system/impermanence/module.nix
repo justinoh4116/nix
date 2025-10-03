@@ -9,13 +9,13 @@
   sys = config.modules.system;
   cfg = sys.impermanence;
 
-  inherit (lib) mkIf;
+  inherit (lib) mkIf isWSL;
 in {
   imports = [
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && !isWSL config) {
     boot.initrd.postResumeCommands = mkIf sys.fs.zfs.enable (lib.mkAfter ''
       zfs rollback -r zpool/local/root@blank
       zfs rollback -r zpool/safe/home@blank

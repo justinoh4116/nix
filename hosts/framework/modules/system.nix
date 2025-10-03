@@ -54,6 +54,8 @@
         launcher = "anyrun";
         editor = "neovim";
       };
+
+      steam.enable = true;
     };
 
     services = {

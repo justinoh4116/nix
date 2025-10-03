@@ -6,7 +6,7 @@
 }: let
   sys = config.modules.system.bluetooth;
 in {
-  config = lib.mkIf sys.enable {
+  config = lib.mkIf (sys.enable && !lib.isWSL config) {
     modules.system.boot.extraKernelParams = ["btusb"];
 
     hardware.bluetooth = {

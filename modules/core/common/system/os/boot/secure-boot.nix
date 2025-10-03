@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf isWSL;
 
   sys = config.modules.system.boot;
 in {
@@ -13,7 +13,7 @@ in {
     inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
-  config = mkIf sys.secureBoot {
+  config = mkIf (sys.secureBoot && !isWSL config) {
     environment.systemPackages = [
       # For debugging and troubleshooting Secure Boot.
       pkgs.sbctl

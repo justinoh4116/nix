@@ -5,5 +5,6 @@
     ./nvim
     ./cli
     ./graphical
+    ./terminal
   ];
 }

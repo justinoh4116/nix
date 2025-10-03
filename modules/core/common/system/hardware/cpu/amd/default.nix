@@ -6,7 +6,7 @@
 }: let
   dev = config.modules.device;
 in {
-  config = lib.mkIf (builtins.elem dev.cpu.type ["amd" "vm-amd"]) {
+  config = lib.mkIf ((builtins.elem dev.cpu.type ["amd" "vm-amd"]) && !lib.isWSL config) {
     environment.systemPackages = [pkgs.amdctl];
 
     hardware.cpu.amd.updateMicrocode = true;

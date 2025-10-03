@@ -17,6 +17,7 @@ in {
     spotify.enable = mkEnableOption "spotify";
     zathura.enable = mkEnableOption "zathura pdf viewer";
     nextcloud.enable = mkEnableOption "nextcloud sync client";
+    steam.enable = mkEnableOption "steam";
 
     editors = {
       neovim.enable = mkEnableOption "neovim editor";

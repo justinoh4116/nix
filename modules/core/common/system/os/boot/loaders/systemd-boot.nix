@@ -4,11 +4,11 @@
   lib,
   ...
 }: let
-  inherit (lib) mkDefault mkIf optionalAttrs;
+  inherit (lib) mkDefault mkIf optionalAttrs isWSL;
 
   cfg = config.modules.system;
 in {
-  config = mkIf (cfg.boot.loader == "systemd-boot") {
+  config = mkIf ((cfg.boot.loader == "systemd-boot") && !isWSL config) {
     boot.loader = {
       systemd-boot = {
         enable = mkDefault true;

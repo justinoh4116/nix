@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  imports = [
+  imports = lib.mkIf (!lib.isWSL config) [
     ./loaders
 
     ./secure-boot.nix

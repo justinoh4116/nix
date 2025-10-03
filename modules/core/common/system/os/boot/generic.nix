@@ -5,12 +5,12 @@
   lib,
   ...
 }: let
-  inherit (lib) mkDefault mkForce mkOverride mkMerge mkIf optionals;
+  inherit (lib) mkDefault mkForce mkOverride mkMerge mkIf optionals isWSL;
 
   sys = config.modules.system;
   cfg = sys.boot;
 in {
-  config.boot = {
+  config.boot = mkIf (!isWSL config) {
     # kernel console loglevel
     consoleLogLevel = 3;
 

@@ -8,11 +8,11 @@
   ...
 }: let
   inherit (pkgs) plymouth;
-  inherit (lib) mkIf;
+  inherit (lib) mkIf isWSL;
 
   cfg = config.modules.system.boot.plymouth;
 in {
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && !isWSL config)  {
     # configure plymouth theme
     # <https://github.com/adi1090x/plymouth-themes>
     boot.plymouth = let

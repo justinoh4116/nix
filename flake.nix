@@ -19,6 +19,8 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
     impermanence.url = "github:nix-community/impermanence";
 
     cachix-deploy-flake.url = "github:cachix/cachix-deploy-flake";
