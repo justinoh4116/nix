@@ -7,6 +7,7 @@
     ./changedetection-io.nix
     ./crowdsec.nix
     ./ddclient.nix
+    ./firefox-syncserver.nix
     ./immich.nix
     ./nextcloud.nix
     ./paperless.nix
