@@ -29,6 +29,7 @@ in {
       nyxt.enable = mkEnableOption "nyxt browser";
       zen.enable = mkEnableOption "zen browser";
       firefox.enable = mkEnableOption "firefox";
+      floorp.enable = mkEnableOption "floorp";
       chromium.enable = mkEnableOption "chromium";
     };
 

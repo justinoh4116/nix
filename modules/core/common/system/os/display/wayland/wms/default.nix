@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = lib.mkIf (!lib.isWSL config) [
+  imports = [
     ./river
     ./hyprland
   ];

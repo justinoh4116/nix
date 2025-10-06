@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./wms
+    ./floorp.nix
     ./zathura.nix
     ./discord.nix
     ./nextcloud.nix
