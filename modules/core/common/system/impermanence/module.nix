@@ -52,6 +52,8 @@ in {
             ".config/spotify"
             ".zen"
             ".mozilla"
+            ".floorp"
+            ".cache/floorp"
             ".config/discordcanary"
             ".vim"
             ".local/share/fish"
