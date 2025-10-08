@@ -15,6 +15,10 @@ in {
   ];
 
   age.secrets = {
+    # firefox-syncserver-secrets = mkAgenixSecret cfg.firefox-syncserver.enable {
+    #   file = "firefox-syncserver-secrets.age";
+    # };
+
     nix-access-tokens-github = mkAgenixSecret true {
       file = "nix-access-tokens-github.age";
     };

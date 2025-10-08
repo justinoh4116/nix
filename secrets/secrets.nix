@@ -33,4 +33,5 @@ in {
   "zfs-pushover-token.age".publicKeys = users ++ systems;
   "pushover-user-key.age".publicKeys = users ++ systems;
   #"secret2.age".publicKeys = users ++ systems;
+  "firefox-syncserver-secrets.age".publicKeys = users ++ systems;
 }

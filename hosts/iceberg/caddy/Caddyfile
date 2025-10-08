@@ -22,6 +22,13 @@
   # }
 }
 
+ffsync.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+    }
+  reverse_proxy http://192.168.100.20
+}
+
 actual.justinoh.io {
   log {
     output file /var/log/caddy/access.log

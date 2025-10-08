@@ -41,6 +41,7 @@
       changedetection-io.enable = true;
       crowdsec.enable = true;
       ddclient.enable = true;
+      firefox-syncserver.enable = true;
       immich.enable = true;
       nextcloud.enable = true;
       paperless.enable = true;

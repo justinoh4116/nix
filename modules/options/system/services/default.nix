@@ -18,6 +18,7 @@ in {
     changedetection-io.enable = mkEnableOption "website changedetection service";
     crowdsec.enable = mkEnableOption "crowdsec security";
     ddclient.enable = mkEnableOption "ddclient ddns";
+    firefox-syncserver.enable = mkEnableOption "firefox-syncserver";
     immich.enable = mkEnableOption "immich photo/video server";
     nextcloud.enable = mkEnableOption "nextcloud cloud file storage";
     paperless.enable = mkEnableOption "paperless files";
