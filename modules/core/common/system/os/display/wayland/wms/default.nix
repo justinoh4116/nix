@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./niri
     ./river
     ./hyprland
   ];

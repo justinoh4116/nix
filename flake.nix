@@ -58,6 +58,8 @@
 
     schizofox.url = "github:schizofox/schizofox";
 
+    niri-flake.url = "github:sodiboo/niri-flake";
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.1";
       # type = "git";

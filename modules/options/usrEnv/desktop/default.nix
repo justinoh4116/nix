@@ -11,7 +11,7 @@
 in {
   options.modules.usrEnv.desktop = {
     wm = mkOption {
-      type = enum ["Hyprland" "river" "none"];
+      type = enum ["Hyprland" "river" "none" "niri"];
       default = "Hyprland";
     };
     wms = {
@@ -24,6 +24,11 @@ in {
         type = bool;
         default = cfg.wm == "river";
       };
+
+      niri.enable = mkOption {
+        type = bool;
+        default = cfg.wm == "niri";
+      };
     };
 
     bars = {
@@ -32,6 +37,9 @@ in {
       };
       ags = {
         enable = mkEnableOption "ags bar";
+      };
+      waybar = {
+        enable = mkEnableOption "waybar";
       };
     };
     cursor = {
