@@ -7,7 +7,7 @@
 }: let
   pkgs-niri = inputs.niri-flake.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 
-  sys = config.modues.system;
+  sys = config.modules.system;
   env = config.modules.usrEnv;
   cfg = env.desktop.wms.niri;
 in {
