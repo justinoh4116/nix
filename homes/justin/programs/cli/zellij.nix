@@ -49,8 +49,8 @@ in {
             default_shell "${config.programs.fish.package}/bin/fish"
             mouse_mode false
             pane_frames false
-            scrollback_editor "${config.programs.helix.package}/bin/hx"
-            theme "gruvbox-dark"
+            scrollback_editor "${config.programs.neovim.package}/bin/nvim"
+            theme "catppuccin-mocha"
             show_startup_tips false
             ui {
             	pane_frames {
@@ -60,7 +60,7 @@ in {
 
       keybinds clear-defaults=true {
           locked {
-              bind "F11" { SwitchToMode "normal"; }
+              bind "Ctrl+g" { SwitchToMode "normal"; }
           }
           pane {
               bind "left" { MoveFocus "left"; }
