@@ -60,7 +60,7 @@ in {
 
       keybinds clear-defaults=true {
           locked {
-              bind "Ctrl+g" { SwitchToMode "normal"; }
+              bind "Ctrl g" { SwitchToMode "normal"; }
           }
           pane {
               bind "left" { MoveFocus "left"; }
