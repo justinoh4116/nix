@@ -9,9 +9,9 @@
     "checkJs": true,
     "strict": true,
     "noImplicitAny": false,
-    "baseUrl": "../hypr",
+    "baseUrl": ".",
     "typeRoots": [
-      "../hypr/types"
+      "./types"
     ],
     "skipLibCheck": true
   }

@@ -156,5 +156,7 @@
     nyx = {
       url = "github:NotAShelf/nyx";
     };
+
+    zjstatus.url = "github:dj95/zjstatus";
   };
 }

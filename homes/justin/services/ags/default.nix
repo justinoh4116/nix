@@ -36,7 +36,7 @@ in {
   programs.ags.enable = true;
 
   home.file."${config.xdg.configHome}/ags" = {
-    source = ./dots;
+    source = ./dots/hypr;
     recursive = true;
   };
 
