@@ -20,6 +20,7 @@
         "rink"
         "symbols"
         "nix-run"
+        "niri-focus"
         # "${pkgs.anyrun}/lib/libstdin.so"
         # "${pkgs.anyrun}/lib/libapplications.so"
         # "${pkgs.anyrun}/lib/librink.so"
