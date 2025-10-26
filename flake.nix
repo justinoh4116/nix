@@ -158,5 +158,7 @@
     };
 
     zjstatus.url = "github:dj95/zjstatus";
+
+    copyparty.url = "github:9001/copyparty";
   };
 }

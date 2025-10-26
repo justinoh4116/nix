@@ -39,6 +39,7 @@
       authelia.enable = true;
       caddy.enable = true;
       changedetection-io.enable = true;
+      copyparty.enable = true;
       crowdsec.enable = true;
       ddclient.enable = true;
       firefox-syncserver.enable = true;

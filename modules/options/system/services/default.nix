@@ -16,6 +16,7 @@ in {
     authelia.enable = mkEnableOption "authelia login manager";
     caddy.enable = mkEnableOption "caddy proxy service";
     changedetection-io.enable = mkEnableOption "website changedetection service";
+    copyparty.enable = mkEnableOption "copyparty";
     crowdsec.enable = mkEnableOption "crowdsec security";
     ddclient.enable = mkEnableOption "ddclient ddns";
     firefox-syncserver.enable = mkEnableOption "firefox-syncserver";
