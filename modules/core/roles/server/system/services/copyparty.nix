@@ -14,6 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     services.copyparty = {
       enable = true;
+      package = inputs.copyparty.packages."${pkgs.system}".default;
       # the user to run the service as
       user = "copyparty";
       # the group to run the service as

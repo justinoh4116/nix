@@ -5,6 +5,7 @@
 
     ./actual.nix
     ./changedetection-io.nix
+    ./copyparty.nix
     ./crowdsec.nix
     ./ddclient.nix
     ./firefox-syncserver.nix

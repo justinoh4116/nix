@@ -99,5 +99,11 @@ in {
       owner = "justin";
       group = "users";
     };
+
+    copyparty-password = mkAgenixSecret cfg.copyparty.enable {
+      file = "copyparty-password.age";
+      owner = "copyparty";
+      group = "copyparty";
+    };
   };
 }
