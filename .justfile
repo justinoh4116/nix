@@ -34,7 +34,7 @@ buildhome:
   @notify-send -e "Home rebuild OK!" --icon=software-update-available
 
 iceberg:
-  # nix fmt ./
+  nix fmt ./
   @echo "Rebuilding iceberg..."
   nix build .#cachix-deploy-iceberg |& nom
   cachix push justinoh4116 ./result

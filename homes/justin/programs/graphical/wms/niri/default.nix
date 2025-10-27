@@ -2,6 +2,7 @@
   osConfig,
   pkgs,
   lib,
+  config,
   ...
 }: let
   env = osConfig.modules.usrEnv;

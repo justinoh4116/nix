@@ -72,11 +72,11 @@ in {
       file = "paperless-admin-password.age";
     };
 
-    porkbun-api-key = mkAgenixSecret cfg.ddclient.enable {
+    porkbun-api-key = mkAgenixSecret true {
       file = "porkbun-api-key.age";
     };
 
-    porkbun-secret-key = mkAgenixSecret cfg.ddclient.enable {
+    porkbun-secret-key = mkAgenixSecret true {
       file = "porkbun-secret-key.age";
     };
 
