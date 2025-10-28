@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  browser = ["firefox.desktop"];
+  browser = ["floorp.desktop"];
   mailer = ["thunderbird.desktop"];
   zathura = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];
