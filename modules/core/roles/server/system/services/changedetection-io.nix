@@ -35,7 +35,7 @@ in {
             listenAddress = "192.168.100.12";
             behindProxy = true;
             # baseURL = "https://changedetection.spicanet.duckdns.org";
-	    playwrightSupport = true;
+            playwrightSupport = true;
           };
 
           networking.firewall.allowedTCPPorts = [

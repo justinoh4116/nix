@@ -7,7 +7,7 @@
   inherit (osConfig) modules;
   inherit (modules.style.colorScheme) colors;
 in {
-  config = {
+  config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     programs.wezterm = {
       enable = true;
       colorSchemes = import ./colorSchemes.nix {inherit colors;};

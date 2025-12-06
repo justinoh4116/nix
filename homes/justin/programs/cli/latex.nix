@@ -3,8 +3,10 @@
   pkgs,
   self,
   config,
+  osConfig,
   ...
 }: let
+  env = osConfig.modules.usrEnv;
   #minionpro.pkgs = [pkgs.nur.repos.clefru.minionpro];
   texlive =
     pkgs.lib.overrideDerivation (pkgs.texlive.combine {
@@ -75,8 +77,10 @@
       # '';
     });
 in {
-  home.packages = [
-    texlive
-    #pkgs.nur.repos.clefru.minionpro
-  ];
+  config = lib.mkIf env.programs.latex.enable {
+    home.packages = [
+      texlive
+      #pkgs.nur.repos.clefru.minionpro
+    ];
+  };
 }

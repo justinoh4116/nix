@@ -2,9 +2,10 @@
   config,
   pkgs,
   lib,
+  osConfig,
   ...
 }: let
-  browser = ["floorp.desktop"];
+  browser = ["${osConfig.modules.system.programs.default.browser}.desktop"];
   mailer = ["thunderbird.desktop"];
   zathura = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];

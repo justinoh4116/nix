@@ -105,5 +105,13 @@ in {
       owner = "copyparty";
       group = "copyparty";
     };
+
+    framework-syncthing-key = true {
+      file = "syncthing-key.age";
+    };
+
+    framework-syncthing-cert = true {
+      file = "syncthing-cert.age";
+    };
   };
 }

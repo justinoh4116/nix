@@ -6,5 +6,8 @@
         river.enable = true;
       };
     };
+    programs = {
+      latex.enable = true;
+    };
   };
 }

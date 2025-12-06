@@ -1,8 +1,10 @@
 {
+  lib,
   inputs,
   self,
   pkgs,
   config,
+  osConfig,
   ...
 }: let
   discord-wrapped =
@@ -21,8 +23,10 @@
       '';
     });
 in {
-  nixpkgs.config.allowUnfreePredicate = _: true;
-  home.packages = [
-    discord-wrapped
-  ];
+  config = lib.mkIf osConfig.modules.system.programs.discord.enable {
+    nixpkgs.config.allowUnfreePredicate = _: true;
+    home.packages = [
+      discord-wrapped
+    ];
+  };
 }

@@ -1,3 +1,6 @@
 {
-  imports = [./wezterm];
+  imports = [
+    ./wezterm
+    ./kitty.nix
+  ];
 }

@@ -1,10 +1,10 @@
 {
   imports = [
+    ./nextcloud.nix
     ./syncthing.nix
     ./tailray.nix
     # ./power-monitor.nix
-    # ./kdeconnect.nix
-    ./ags
+    # ./ags
     # ./spotifyd.nix
     ./udiskie.nix
   ];

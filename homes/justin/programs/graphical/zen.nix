@@ -3,22 +3,28 @@
   self,
   pkgs,
   config,
+  lib,
+  osConfig,
   ...
 }: {
   imports = [
     inputs.zen-nebula.homeModules.default
   ];
 
-  zen-nebula = {
-    enable = true;
-    profile = "2diywa1i.Default Profile";
-  };
+  config =
+    lib.mkIf osConfig.modules.system.programs.default.browser
+    == "zen" {
+      zen-nebula = {
+        enable = true;
+        profile = "2diywa1i.Default Profile";
+      };
 
-  home.packages = [
-    inputs.zen-browser.packages."${pkgs.system}".default
-  ];
+      home.packages = [
+        inputs.zen-browser.packages."${pkgs.system}".default
+      ];
 
-  # home.file.".zen/2diywa1i.Default Profile/userChrome.css" = {
-  #   source = ./userChrome.css;
-  # };
+      # home.file.".zen/2diywa1i.Default Profile/userChrome.css" = {
+      #   source = ./userChrome.css;
+      # };
+    };
 }

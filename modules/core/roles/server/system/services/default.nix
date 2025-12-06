@@ -10,6 +10,7 @@
     ./ddclient.nix
     ./firefox-syncserver.nix
     ./immich.nix
+    ./minecraft.nix
     ./nextcloud.nix
     ./paperless.nix
     ./samba.nix
