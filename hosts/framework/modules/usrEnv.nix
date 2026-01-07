@@ -13,6 +13,8 @@
       wm = "niri";
     };
     services = {
+      nextcloud-client.enable = true;
+
       syncthing = {
         enable = true;
         key = config.age.secrets.framework-syncthing-key.path;
