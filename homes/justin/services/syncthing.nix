@@ -17,7 +17,7 @@ in {
       key = cfg.key;
       cert = cfg.cert;
 
-      openDefaultPorts = true;
+      # openDefaultPorts = true;
       overrideDevices = true;
       overrideFolders = true;
 

@@ -21,6 +21,7 @@
     networking = {
       tailscale = {
         enable = true;
+        isServer = true;
       };
     };
 
@@ -44,6 +45,7 @@
       ddclient.enable = true;
       firefox-syncserver.enable = true;
       immich.enable = true;
+      minecraft.enable = true;
       nextcloud.enable = true;
       paperless.enable = true;
       samba.enable = true;

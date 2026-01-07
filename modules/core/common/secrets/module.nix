@@ -106,11 +106,11 @@ in {
       group = "copyparty";
     };
 
-    framework-syncthing-key = true {
+    framework-syncthing-key = mkAgenixSecret true {
       file = "syncthing-key.age";
     };
 
-    framework-syncthing-cert = true {
+    framework-syncthing-cert = mkAgenixSecret true {
       file = "syncthing-cert.age";
     };
   };
