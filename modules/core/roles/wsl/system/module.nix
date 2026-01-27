@@ -11,4 +11,5 @@
 
   wsl.enable = true;
   wsl.defaultUser = "justin";
+  programs.dconf.enable = true;
 }

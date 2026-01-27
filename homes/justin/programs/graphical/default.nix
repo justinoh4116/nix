@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./wms
+    ./desktop
     ./floorp.nix
     ./zathura.nix
     ./discord.nix
@@ -18,20 +18,14 @@
   config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     home.packages = with pkgs;
       [
-        anki
-        google-chrome
-        spacedrive
         gamescope
         # kiwitalk
         # blender
         remmina
         vscode
         tailscale
-        thunderbird
-        p3x-onenote
         webcord
         graphviz
-        anydesk
         netflix
         parsec-bin
         networkmanagerapplet

@@ -49,8 +49,12 @@
 
       fish.enable = true;
 
+      discord.enable = true;
+
+      browsers.floorp.enable = true;
+
       default = {
-        browser = "firefox";
+        browser = "floorp";
         launcher = "anyrun";
         editor = "neovim";
       };

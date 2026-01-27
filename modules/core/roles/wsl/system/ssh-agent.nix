@@ -29,6 +29,7 @@
 
         # Check common npiperelay locations
         NPIPE_PATHS=(
+          "/mnt/c/Users/$WIN_USER/npiperelay.exe"
           "/mnt/c/Users/$WIN_USER/AppData/Local/Microsoft/WinGet/Links/npiperelay.exe"
           "/mnt/c/ProgramData/chocolatey/bin/npiperelay.exe"
           "/mnt/c/Users/$WIN_USER/scoop/shims/npiperelay.exe"

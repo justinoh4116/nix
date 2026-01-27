@@ -2,8 +2,8 @@
   config.modules.usrEnv = {
     desktop = {
       wms = {
-        hyprland.enable = true;
-        river.enable = true;
+        hyprland.enable = false;
+        river.enable = false;
       };
     };
     programs = {

@@ -12,8 +12,8 @@
   imports = [
     ./services
     ./programs
-    ./wayland
-    ./hypr
+    # ./wayland
+    # ./hypr
     ./misc
     inputs.agenix.homeManagerModules.default
   ];

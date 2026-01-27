@@ -1,8 +1,8 @@
 {
   imports = [
     ./fish.nix
-    ./nvim
     ./cli
+    ./nvim
     ./graphical
     ./terminal
   ];

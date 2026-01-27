@@ -13,10 +13,10 @@
     ];
   };
 in {
-  config = lib.mkIf (osConfig.modules.system.programs.default.browser == "floorp") {
+  config = lib.mkIf (osConfig.modules.system.programs.browsers.floorp.enable) {
     programs.floorp = {
       enable = true;
-      package = floorp;
+      package = pkgs.floorp-bin;
     };
   };
   # home.packages = with pkgs; [

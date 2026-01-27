@@ -1,10 +1,13 @@
 {
   config,
+  osConfig,
   pkgs,
   lib,
   ...
-}: {
-  config = {
+}: let
+  desktop = osConfig.modules.usrEnv.desktop;
+in {
+  config = lib.mkIf desktop.enable {
     xdg.portal = {
       enable = true;
 

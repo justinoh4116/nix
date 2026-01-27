@@ -11,8 +11,9 @@
 
   screenactive = "grimblast save active - | satty --filename - ";
   screenarea = "grimblast save area - | satty --filename - ";
+  desktop = osConfig.modules.usrEnv.desktop;
 in {
-  config = lib.mkIf env.desktop.wms.river.enable {
+  config = lib.mkIf (desktop.enable && env.desktop.wms.river.enable) {
     # programs.i3status-rust = {
     #   enable = true;
     #   bars = {

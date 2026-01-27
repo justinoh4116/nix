@@ -10,9 +10,11 @@
   cfg = config.modules.usrEnv.desktop;
 in {
   options.modules.usrEnv.desktop = {
+    enable = mkEnableOption "desktop environment";
+
     wm = mkOption {
       type = enum ["Hyprland" "river" "none" "niri"];
-      default = "Hyprland";
+      default = "niri";
     };
     wms = {
       hyprland.enable = mkOption {

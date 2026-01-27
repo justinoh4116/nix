@@ -49,8 +49,8 @@ in {
     # default programs
     default = {
       browser = mkOption {
-        type = enum ["chromium" "zen" "nyxt" "firefox"];
-        default = "zen";
+        type = enum ["chromium" "zen" "nyxt" "firefox" "floorp"];
+        default = "floorp";
       };
       terminal = mkOption {
         type = enum ["kitty" "wezterm" "alacritty"];
