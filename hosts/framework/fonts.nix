@@ -10,7 +10,7 @@
     pkgs.work-sans
     pkgs.dejavu_fonts
     pkgs.noto-fonts
-    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-color-emoji
     pkgs.fira-code
     pkgs.fira-code-symbols
     pkgs.open-sans

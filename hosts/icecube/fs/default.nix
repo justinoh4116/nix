@@ -17,12 +17,14 @@
     device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
     fsType = "btrfs";
     options = ["subvol=local/root" "noatime"];
+    neededForBoot = true;
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
     fsType = "btrfs";
     options = ["subvol=safe/home" "noatime"];
+    neededForBoot = true;
   };
 
   fileSystems."/persist" = {
@@ -43,6 +45,7 @@
     device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
     fsType = "btrfs";
     options = ["subvol=local/nix" "noatime"];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
