@@ -27,7 +27,6 @@ in {
       directories =
         [
           "/etc/cups"
-          "/var/log"
           "/var/lib/bluetooth"
           "/var/lib/sbctl"
           "/var/lib/nixos"

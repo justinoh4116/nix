@@ -57,6 +57,19 @@
         ]
       );
   in {
+    icecube = mkNixosSystem {
+      inherit withSystem;
+      hostname = "icecube";
+      system = "x86_64-linux";
+      modules = mkModulesFor "icecube" {
+        roles = [laptop workstation];
+        extraModules = [
+          homes
+          agenix
+          hw.framework-13-7040-amd
+        ];
+      };
+    };
     framework = mkNixosSystem {
       inherit withSystem;
       hostname = "framework";
