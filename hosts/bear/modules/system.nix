@@ -12,8 +12,6 @@
 
     video.enable = false;
 
-
-
     programs = {
       cli.enable = true;
       gui.enable = false;

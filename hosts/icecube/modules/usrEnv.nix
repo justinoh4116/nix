@@ -5,12 +5,15 @@
 }: {
   config.modules.usrEnv = {
     desktop = {
+      enable = true;
       wms = {
-        hyprland.enable = true;
-        river.enable = true;
+        # hyprland.enable = true;
+        # river.enable = true;
         niri.enable = true;
       };
       wm = "niri";
+
+      launchers.anyrun.enable = true;
     };
     services = {
       nextcloud-client.enable = true;

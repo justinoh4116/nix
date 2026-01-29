@@ -14,7 +14,6 @@ in {
   imports = [inputs.anyrun.homeManagerModules.default];
   disabledModules = ["${modulesPath}/programs/anyrun.nix"];
 
-
   config = lib.mkIf (desktop.enable && cfg.enable) {
     programs.anyrun = {
       enable = true;
@@ -91,7 +90,5 @@ in {
       # '';
       # extraConfigFiles."style.css".source = dots/style.css;
     };
-
-    };
-
+  };
 }

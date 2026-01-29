@@ -13,45 +13,45 @@
     };
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
-      fsType = "btrfs";
-      options = [ "subvol=local/root" "noatime"];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
+    fsType = "btrfs";
+    options = ["subvol=local/root" "noatime"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
-      fsType = "btrfs";
-      options = [ "subvol=safe/home" "noatime" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
+    fsType = "btrfs";
+    options = ["subvol=safe/home" "noatime"];
+  };
 
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
-      fsType = "btrfs";
-      options = [ "subvol=safe/persist" "noatime" ];
-      neededForBoot = true;
-    };
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
+    fsType = "btrfs";
+    options = ["subvol=safe/persist" "noatime"];
+    neededForBoot = true;
+  };
 
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
-      fsType = "btrfs";
-      options = [ "subvol=local/log" "noatime" ];
-      neededForBoot = true;
-    };
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
+    fsType = "btrfs";
+    options = ["subvol=local/log" "noatime"];
+    neededForBoot = true;
+  };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
-      fsType = "btrfs";
-      options = [ "subvol=local/nix" "noatime" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/4bdf20db-7b0b-4d99-bf7e-ca62589d717d";
+    fsType = "btrfs";
+    options = ["subvol=local/nix" "noatime"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B718-9704";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/B718-9704";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/499b1e06-802e-47e0-a1fa-995bd139b649"; }
-    ];
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/499b1e06-802e-47e0-a1fa-995bd139b649";}
+  ];
 }
