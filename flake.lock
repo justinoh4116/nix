@@ -4524,6 +4524,26 @@
         "type": "sourcehut"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769743095,
+        "narHash": "sha256-yZ1bR3ducegfyauYnZ6JRbLQnIwxMWM7P2PioyEtsMk=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "4dea7d37801d705cf977ce69fd3ee87a3c995fe5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_6",
@@ -6529,6 +6549,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_21",
         "nixpkgs-2405": "nixpkgs-2405",
+        "noctalia": "noctalia",
         "nur": "nur",
         "nyx": "nyx",
         "pyprland": "pyprland",

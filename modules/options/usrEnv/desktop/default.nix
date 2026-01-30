@@ -33,6 +33,10 @@ in {
       };
     };
 
+    shells = {
+      noctalia.enable = mkEnableOption "noctalia shell";
+    };
+
     bars = {
       ags-old = {
         enable = mkEnableOption "ags-old bar";
