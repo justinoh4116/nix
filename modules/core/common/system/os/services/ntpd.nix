@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   time = {
     timeZone = "US/Pacific";
-    hardwareClockInLocalTime = false; # broken by impermanence apparently
+    hardwareClockInLocalTime = true; # broken by impermanence apparently
   };
 
   networking.timeServers = [
