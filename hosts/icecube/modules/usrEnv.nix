@@ -13,6 +13,8 @@
       };
       wm = "niri";
 
+      shells.noctalia.enable = true;
+
       launchers.anyrun.enable = true;
     };
     services = {
