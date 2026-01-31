@@ -54,6 +54,15 @@ args @ {
       fish_greeting = {
         body = "cd ~ && pfetch";
       };
+
+      template = {
+        # argumentNames = "";
+        body = ''
+          nix flake init --template ~/safe/templates#$argv
+          direnv allow
+        '';
+      };
+
       # yy = {
       #   body = ''
       #     set tmp (mktemp -t "yazi-cwd.XXXXXX")
