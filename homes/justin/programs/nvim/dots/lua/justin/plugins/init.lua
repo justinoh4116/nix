@@ -60,7 +60,7 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			-- "nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		config = function()
 			require("nvim-surround").setup({

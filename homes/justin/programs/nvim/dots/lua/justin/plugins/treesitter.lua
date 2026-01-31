@@ -2,16 +2,16 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
+		-- "nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	event = {
 		"BufReadPost",
 		"BufNewFile",
 	},
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter").setup({
 			-- A list of parser names, or "all" (the four listed parsers should always be installed)
-			ensure_installed = { "c", "lua", "vim", "rust", "python" },
+			ensure_installed = { "c", "c++", "lua", "vim", "rust", "python" },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,

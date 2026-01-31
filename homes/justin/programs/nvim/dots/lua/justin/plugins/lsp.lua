@@ -35,17 +35,6 @@ return {
 				"hrsh7th/cmp-nvim-lsp",
 				config = true,
 				dependencies = {
-					{
-						"VonHeikemen/lsp-zero.nvim",
-						branch = "v3.x",
-						lazy = true,
-						config = false,
-						init = function()
-							-- Disable automatic setup, we are doing it manually
-							vim.g.lsp_zero_extend_cmp = 0
-							vim.g.lsp_zero_extend_lspconfig = 0
-						end,
-					},
 					-- 'williamboman/mason-lspconfig.nvim',
 					-- config = true,
 					-- dependencies = {
@@ -57,35 +46,33 @@ return {
 		},
 		config = function()
 			-- This is where all the LSP shenanigans will live
-			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_lspconfig({
-				sign_text = true,
-				capabilities = capabilities,
-			})
-
-			lsp_zero.on_attach(function(client, bufnr)
-				-- see :help lsp-zero-keybindings
-				-- to learn the available actions
-				lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "<F3>" } })
-				vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
-				vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr })
-				vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", { buffer = bufnr })
-				vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
-				vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { buffer = bufnr })
-				vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
-			end)
+			-- lsp_zero.on_attach(function(client, bufnr)
+			-- 	-- see :help lsp-zero-keybindings
+			-- 	-- to learn the available actions
+			-- 	lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "<F3>" } })
+			-- 	vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
+			-- 	vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr })
+			-- 	vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", { buffer = bufnr })
+			-- 	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
+			-- 	vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { buffer = bufnr })
+			-- 	vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
+			-- end)
 
 			-- PUT THE LSPs HERE
-			require("lspconfig").arduino_language_server.setup({})
-			require("lspconfig").nil_ls.setup({})
-			require("lspconfig").ts_ls.setup({})
-			-- require('lspconfig').texlab.setup{}
-			require("lspconfig").clangd.setup({})
-			require("lspconfig").pyright.setup({})
+			vim.lsp.enable("arduino_language_server")
+			vim.lsp.enable("nil_ls")
+			vim.lsp.enable("ts_ls")
+			-- vim.lsp.enable('texlab')
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("verible")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("")
 
 			-- (Optional) Configure lua language server for neovim
-			local lua_opts = lsp_zero.nvim_lua_ls()
-			require("lspconfig").lua_ls.setup(lua_opts)
+			-- local lua_opts = lsp_zero.nvim_lua_ls()
+			-- require("lspconfig").lua_ls.setup(lua_opts)
 		end,
 		-- config = function()
 		--     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()

@@ -24,6 +24,8 @@
     typescript
     typescript-language-server
 
+    tree-sitter
+
     isort
     black
     ruff
