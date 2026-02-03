@@ -33,6 +33,8 @@ in {
       };
     };
 
+    kanshi.enable = mkEnableOption "kanshi";
+
     shells = {
       noctalia.enable = mkEnableOption "noctalia shell";
     };
