@@ -1,4 +1,4 @@
-capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 return {
 	{
@@ -31,18 +31,19 @@ return {
 				"folke/neodev.nvim",
 				config = true,
 			},
-			{
-				"hrsh7th/cmp-nvim-lsp",
-				config = true,
-				dependencies = {
-					-- 'williamboman/mason-lspconfig.nvim',
-					-- config = true,
-					-- dependencies = {
-					--     'williamboman/mason.nvim',
-					--     config = true,
-					-- },
-				},
-			},
+			"saghen/blink.cmp",
+			-- {
+			-- 	"hrsh7th/cmp-nvim-lsp",
+			-- 	config = true,
+			-- 	dependencies = {
+			-- 		-- 'williamboman/mason-lspconfig.nvim',
+			-- 		-- config = true,
+			-- 		-- dependencies = {
+			-- 		--     'williamboman/mason.nvim',
+			-- 		--     config = true,
+			-- 		-- },
+			-- 	},
+			-- },
 		},
 		config = function()
 			-- This is where all the LSP shenanigans will live
