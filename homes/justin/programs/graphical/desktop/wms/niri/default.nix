@@ -10,6 +10,9 @@
   desktop = osConfig.modules.usrEnv.desktop;
 in {
   config = lib.mkIf (desktop.enable && cfg.enable) {
+    home.packages = [
+      pkgs.libnotify
+    ];
     home.file."${config.xdg.configHome}/niri" = {
       source = ./dots;
       recursive = true;
