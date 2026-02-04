@@ -47,6 +47,8 @@
       gui.enable = true;
       dev.enable = true;
 
+      distrobox.enable = true;
+
       fish.enable = true;
 
       discord.enable = true;

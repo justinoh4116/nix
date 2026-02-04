@@ -18,6 +18,7 @@ in {
     zathura.enable = mkEnableOption "zathura pdf viewer";
     nextcloud.enable = mkEnableOption "nextcloud sync client";
     steam.enable = mkEnableOption "steam";
+    distrobox.enable = mkEnableOption "distrobox";
 
     editors = {
       neovim.enable = mkEnableOption "neovim editor";
