@@ -1,6 +1,7 @@
 {
   imports = [
     ./anyrun
+    ./stasis
     ./wms
 
     ./cursor.nix

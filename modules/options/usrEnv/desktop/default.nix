@@ -35,6 +35,8 @@ in {
 
     kanshi.enable = mkEnableOption "kanshi";
 
+    stasis.enable = mkEnableOption "stasis idle manager";
+
     shells = {
       noctalia.enable = mkEnableOption "noctalia shell";
     };
