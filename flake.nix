@@ -65,6 +65,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stasis.url = "github:saltnpepper97/stasis";
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.1";
       # type = "git";

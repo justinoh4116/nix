@@ -4,7 +4,7 @@
 # Global variable
 default_timeout 300  # 5 minutes
 
-stasis:
+default:
   pre_suspend_command "noctalia-shell ipc call lockScreen lock"
   monitor_media true
   ignore_remote_media true
@@ -49,7 +49,7 @@ stasis:
   end
   
   # Laptop-only AC actions
-  on_ac:
+  ac:
     # Instant brightness adjustment
     custom-brightness-instant:
       timeout 0
@@ -78,7 +78,7 @@ stasis:
   end
   
   # Laptop-only battery actions
-  on_battery:
+  battery:
     custom-brightness-instant:
       timeout 0
       command "brightnessctl set 40%"
