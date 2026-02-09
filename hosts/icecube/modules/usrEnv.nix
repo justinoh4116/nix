@@ -6,6 +6,7 @@
   config.modules.usrEnv = {
     desktop = {
       enable = true;
+      stasis.enable = true;
       wms = {
         # hyprland.enable = true;
         # river.enable = true;
