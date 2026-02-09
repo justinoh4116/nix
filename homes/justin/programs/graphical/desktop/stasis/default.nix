@@ -71,11 +71,6 @@ in {
               command "brightnessctl set 100%"
             end
 
-            brightness:
-              timeout 120  # 2 minutes
-              command "brightnessctl set 30%"
-            end
-
             dpms:
               timeout 60  # 1 minute
               command "niri msg action power-off-monitors"
@@ -100,12 +95,13 @@ in {
             end
 
             brightness:
-              timeout 60  # 1 minute
-              command "brightnessctl set 20%"
+              timeout 30  # 1 minute
+              command "brightnessctl -s set 20"
+              resume-command "brightnessctl -r"
             end
 
             dpms:
-              timeout 30  # 30 seconds
+              timeout 60  # 30 seconds
               command "niri msg action power-off-monitors"
               resume-command "niri msg action power-on-monitors"
             end
