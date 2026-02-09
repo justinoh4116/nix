@@ -60,7 +60,7 @@ in {
           suspend:
             timeout 300  # 5 min
             command "systemctl suspend"
-            resume-command None
+            # resume-command None
           end
 
           # Laptop-only AC actions
