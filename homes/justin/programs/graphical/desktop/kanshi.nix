@@ -14,20 +14,26 @@ in {
           outputs = [
             {
               criteria = "eDP-1";
-              scale = "1.5";
+              scale = 1.5;
             }
+          ];
+          exec = [
+            "noctalia-shell ipc call bar setDisplayMode always_visible"
           ];
         };
         docked = {
           outputs = [
             {
               criteria = "eDP-1";
-              scale = "1.5";
+              scale = 1.5;
             }
             {
               criteria = "LG Electronics LG ULTRAGEAR+ 511RMNECW663";
               position = "-2560,0";
             }
+          ];
+          exec = [
+            "noctalia-shell ipc call bar setDisplayMode auto_hide"
           ];
         };
       };

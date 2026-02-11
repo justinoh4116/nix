@@ -7,6 +7,7 @@
     desktop = {
       enable = true;
       stasis.enable = true;
+      kanshi.enable = true;
       wms = {
         # hyprland.enable = true;
         # river.enable = true;
