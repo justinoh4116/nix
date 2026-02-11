@@ -49,7 +49,7 @@ in {
 
          -- font config
          font_size = 13.0,
-         font = wezterm.font('FiraCode Nerd Font'),
+         font = wezterm.font('Iosevka Nerd Font'),
 
          -- perf
          front_end = "WebGpu",

@@ -10,7 +10,7 @@
       shellIntegration.enableFishIntegration = true;
 
       font = {
-        name = "FiraCode Nerd Font";
+        name = "Iosevka Nerd Font";
         size = 13;
       };
 

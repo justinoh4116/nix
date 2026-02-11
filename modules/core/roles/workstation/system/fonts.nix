@@ -33,6 +33,7 @@
 
       # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
       nerd-fonts.fira-code
+      nerd-fonts.iosevka
 
       inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
     ];

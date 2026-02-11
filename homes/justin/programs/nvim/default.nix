@@ -14,6 +14,11 @@
     recursive = true;
   };
 
+  home.activation.nvimDapBin = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ${pkgs.gnused}/bin/sed -i "s#@porkbun-api-key@#$apiKey#" "$configFile"
+    ${pkgs.gnused}/bin/sed -i "s#@porkbun-secret-key@#$secretKey#" "$configFile"
+  '';
+
   home.packages = with pkgs; [
     libclang
     texlab
