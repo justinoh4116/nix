@@ -50,6 +50,7 @@ in {
          -- font config
          font_size = 13.0,
          font = wezterm.font('Iosevka Nerd Font'),
+         harfbuzz_features = { 'calt=0', 'vrlg=1' },
 
          -- perf
          front_end = "WebGpu",
