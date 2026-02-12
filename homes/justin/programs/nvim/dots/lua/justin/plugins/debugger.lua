@@ -122,7 +122,7 @@ return {
 		},
 		config = function()
 			local dap = require("dap")
-			local ui = require("dap-ui")
+			local ui = require("dapui")
 
 			dap.adapters.cppdbg = {
 				id = "cppdbg",
@@ -145,7 +145,7 @@ return {
 					name = "Attach to gdbserver :1234",
 					type = "cppdbg",
 					request = "launch",
-					MIMode = "gdb",
+					MIMode = "lldb",
 					miDebuggerServerAddress = "localhost:1234",
 					miDebuggerPath = "@@cpp-debugger-executable@@",
 					cwd = "${workspaceFolder}",

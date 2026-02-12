@@ -123,7 +123,16 @@ return {
 	--     event = { 'BufReadPre', 'BufNewFile' },
 	-- },
 	{
+		"L3MON4D3/LuaSnip",
+		opts = {
+			enable_autosnippets = true,
+		},
+	},
+	{
 		"iurimateus/luasnip-latex-snippets.nvim",
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+		},
 		config = function()
 			--require'luasnip-latex-snippets'.setup()
 			require("luasnip-latex-snippets").setup({}) --use_treesitter = true })

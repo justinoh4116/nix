@@ -14,11 +14,11 @@
     recursive = true;
   };
 
-  home.activation.nvimDapBin = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    configFile=${config.xdg.configHome}/nvim/dots/lua/justin/plugins/debugger.lua
-    ${pkgs.gnused}/bin/sed -i "s#@@opendebug-ad7-executable@@#${pkgs.vscode-extensions.ms-vscode.cpptools}/debugAdapters/bin/OpenDebugAD7#" "$configFile"
-    ${pkgs.gnused}/bin/sed -i "s#@@cpp-debugger-executable@@#${pkgs.lldb}/bin/lldb#" "$configFile"
-  '';
+  # home.activation.nvimDapBin = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #   configFile=${config.xdg.configHome}/nvim/lua/justin/plugins/debugger.lua
+  #   ${pkgs.gnused}/bin/sed -i "s#@@opendebug-ad7-executable@@#${pkgs.vscode-extensions.ms-vscode.cpptools}/debugAdapters/bin/OpenDebugAD7#" "$configFile"
+  #   ${pkgs.gnused}/bin/sed -i "s#@@cpp-debugger-executable@@#${pkgs.lldb}/bin/lldb#" "$configFile"
+  # '';
 
   home.packages = with pkgs; [
     verible
