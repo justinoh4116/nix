@@ -123,6 +123,9 @@ return {
 	--     event = { 'BufReadPre', 'BufNewFile' },
 	-- },
 	{
+		"folke/which-key.nvim",
+	},
+	{
 		"L3MON4D3/LuaSnip",
 		opts = {
 			enable_autosnippets = true,
