@@ -114,7 +114,10 @@ output "LG Electronics LG ULTRAGEAR 0x00024757" {
 
 output "LG Electronics LG ULTRAGEAR+ 511RMNECW663" {
   position x=-2560 y=0
-  mode "2560x1440@143.991"
+}
+
+output "DP-9" {
+  position x=-2560 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
