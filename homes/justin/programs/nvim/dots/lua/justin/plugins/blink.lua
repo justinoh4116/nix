@@ -63,7 +63,10 @@ return {
 					local ls = require("luasnip")
 					if cmp.is_visible() then
 						if ls.expandable() then
-							ls.expand()
+							cmp.cancel() -- or cmp.hide()
+							vim.schedule(function()
+								ls.expand()
+							end)
 							return true
 						else
 							return cmp.accept()
