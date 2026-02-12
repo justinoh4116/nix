@@ -33,7 +33,7 @@ return {
 			["<Tab>"] = {
 				function(cmp)
 					local ls = require("luasnip")
-					if cmp.visible() then
+					if cmp.is_visible() then
 						return cmp.select_next()
 					elseif ls.locally_jumpable(1) then
 						ls.jump(1)
@@ -46,7 +46,7 @@ return {
 			["<S-Tab>"] = {
 				function(cmp)
 					local ls = require("luasnip")
-					if cmp.visible() then
+					if cmp.is_visible() then
 						return cmp.select_prev()
 					elseif ls.locally_jumpable(-1) then
 						ls.jump(-1)
@@ -59,7 +59,7 @@ return {
 			["<CR>"] = {
 				function(cmp)
 					local ls = require("luasnip")
-					if cmp.visible() then
+					if cmp.is_visible() then
 						if ls.expandable() then
 							ls.expand()
 							return true
