@@ -39,9 +39,10 @@ return {
 						ls.jump(1)
 						return true
 					else
-						return cmp.fallback()
+						return
 					end
 				end,
+				"fallback",
 			},
 			["<S-Tab>"] = {
 				function(cmp)
@@ -52,9 +53,10 @@ return {
 						ls.jump(-1)
 						return true
 					else
-						return cmp.fallback()
+						return
 					end
 				end,
+				"fallback",
 			},
 			["<CR>"] = {
 				function(cmp)
@@ -67,9 +69,10 @@ return {
 							return cmp.accept()
 						end
 					else
-						return cmp.fallback()
+						return
 					end
 				end,
+				"fallback",
 			},
 		},
 
