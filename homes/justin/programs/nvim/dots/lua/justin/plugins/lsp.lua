@@ -71,6 +71,17 @@ return {
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("")
 
+			vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+			vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>")
+			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
+			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>")
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+			vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>")
+			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>")
+			vim.keymap.set("n", "K", vim.lsp.buf.hover)
+			vim.keymap.set("n", "gK", vim.lsp.buf.signature_help)
+			vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help)
+
 			-- (Optional) Configure lua language server for neovim
 			-- local lua_opts = lsp_zero.nvim_lua_ls()
 			-- require("lspconfig").lua_ls.setup(lua_opts)

@@ -30,6 +30,7 @@ in {
             {
               criteria = "LG Electronics LG ULTRAGEAR+ 511RMNECW663";
               position = "-2560,0";
+              mode = "2560x1440@143.991";
             }
           ];
           exec = [

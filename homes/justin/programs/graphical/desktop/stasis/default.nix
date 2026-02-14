@@ -10,6 +10,7 @@
 in {
   imports = [inputs.stasis.homeModules.default];
   config = lib.mkIf cfg.enable {
+    home.packages = [pkgs.pulseaudio]; # required for idle inhibition based on media
     services.stasis = {
       enable = true;
       extraConfig = ''

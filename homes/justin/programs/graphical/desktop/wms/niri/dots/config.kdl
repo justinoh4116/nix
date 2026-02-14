@@ -391,6 +391,8 @@ binds {
     Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+X { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+
+    Mod+E { spawn "dolphin"; }
     // Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
 

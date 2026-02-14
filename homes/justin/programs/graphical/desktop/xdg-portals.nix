@@ -13,6 +13,7 @@ in {
 
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
+        pkgs.kdePackages.xdg-desktop-portal-kde
       ];
 
       config = {
@@ -20,7 +21,7 @@ in {
         common = let
           portal = "hyprland";
         in {
-          default = ["gtk"];
+          default = ["kde" "gtk"];
 
           # for flameshot to work
           # https://github.com/flameshot-org/flameshot/issues/3363#issuecomment-1753771427
