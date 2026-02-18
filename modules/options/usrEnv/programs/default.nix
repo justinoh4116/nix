@@ -11,5 +11,6 @@
 in {
   options.modules.usrEnv.programs = {
     latex.enable = mkEnableOption "latex";
+    nvim.neovide.enable = mkEnableOption "neovide";
   };
 }

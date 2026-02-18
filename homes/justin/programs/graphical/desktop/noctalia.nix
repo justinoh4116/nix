@@ -15,8 +15,8 @@ in {
     programs.noctalia-shell = {
       enable = true;
       settings = ''
-                        {
-          "settingsVersion": 46,
+                                {
+          "settingsVersion": 52,
           "bar": {
             "barType": "simple",
             "position": "top",
@@ -25,6 +25,7 @@ in {
             "showOutline": false,
             "showCapsule": false,
             "capsuleOpacity": 1,
+            "capsuleColorKey": "none",
             "backgroundOpacity": 0.93,
             "useSeparateOpacity": false,
             "floating": false,
@@ -33,8 +34,10 @@ in {
             "frameThickness": 8,
             "frameRadius": 12,
             "outerCorners": true,
-            "exclusive": true,
             "hideOnOverview": true,
+            "displayMode": "always_visible",
+            "autoHideDelay": 500,
+            "autoShowDelay": 150,
             "widgets": {
               "left": [
                 {
@@ -50,6 +53,7 @@ in {
                   "id": "Workspace",
                   "labelMode": "none",
                   "occupiedColor": "secondary",
+                  "pillSize": 0.6,
                   "reverseScroll": false,
                   "showApplications": false,
                   "showBadge": true,
@@ -65,12 +69,14 @@ in {
                   "maxWidth": 200,
                   "scrollingMode": "hover",
                   "showIcon": false,
+                  "textColor": "none",
                   "useFixedWidth": false
                 }
               ],
               "right": [
                 {
                   "blacklist": [],
+                  "chevronColor": "none",
                   "colorizeIcons": false,
                   "drawerEnabled": true,
                   "hidePassive": false,
@@ -79,42 +85,48 @@ in {
                 },
                 {
                   "displayMode": "onhover",
-                  "id": "Network"
+                  "iconColor": "none",
+                  "id": "Network",
+                  "textColor": "none"
                 },
                 {
                   "displayMode": "onhover",
-                  "id": "Bluetooth"
+                  "iconColor": "none",
+                  "id": "Bluetooth",
+                  "textColor": "none"
                 },
                 {
                   "displayMode": "onhover",
+                  "iconColor": "none",
                   "id": "Volume",
-                  "middleClickCommand": "pwvucontrol || pavucontrol"
+                  "middleClickCommand": "pwvucontrol || pavucontrol",
+                  "textColor": "none"
                 },
                 {
                   "hideWhenZero": false,
                   "hideWhenZeroUnread": false,
+                  "iconColor": "none",
                   "id": "NotificationHistory",
                   "showUnreadBadge": true,
                   "unreadBadgeColor": "primary"
                 },
                 {
                   "deviceNativePath": "__default__",
-                  "displayMode": "alwaysShow",
+                  "displayMode": "graphic",
                   "hideIfIdle": false,
                   "hideIfNotDetected": true,
                   "id": "Battery",
                   "showNoctaliaPerformance": true,
-                  "showPowerProfiles": false,
-                  "warningThreshold": 30
+                  "showPowerProfiles": false
                 },
                 {
+                  "clockColor": "none",
                   "customFont": "",
                   "formatHorizontal": "ddd MMM d  HH:mm",
                   "formatVertical": "HH mm",
                   "id": "Clock",
                   "tooltipFormat": "HH:mm ddd, MMM dd",
-                  "useCustomFont": false,
-                  "usePrimaryColor": false
+                  "useCustomFont": false
                 }
               ]
             },
@@ -133,6 +145,7 @@ in {
             "animationSpeed": 1,
             "animationDisabled": true,
             "compactLockScreen": false,
+            "lockScreenAnimations": false,
             "lockOnSuspend": true,
             "showSessionButtonsOnLockScreen": true,
             "showHibernateOnLockScreen": true,
@@ -147,7 +160,32 @@ in {
             "enableLockScreenCountdown": true,
             "lockScreenCountdownDuration": 10000,
             "autoStartAuth": false,
-            "allowPasswordWithFprintd": false
+            "allowPasswordWithFprintd": false,
+            "clockStyle": "custom",
+            "clockFormat": "hh\\nmm",
+            "lockScreenMonitors": [],
+            "lockScreenBlur": 0,
+            "lockScreenTint": 0,
+            "keybinds": {
+              "keyUp": [
+                "Up"
+              ],
+              "keyDown": [
+                "Down"
+              ],
+              "keyLeft": [
+                "Left"
+              ],
+              "keyRight": [
+                "Right"
+              ],
+              "keyEnter": [
+                "Return"
+              ],
+              "keyEscape": [
+                "Esc"
+              ]
+            }
           },
           "ui": {
             "fontDefault": "SFProText Nerd Font Medium",
@@ -215,6 +253,8 @@ in {
             "transitionEdgeSmoothness": 0.05,
             "panelPosition": "follow_bar",
             "hideWallpaperFilenames": false,
+            "overviewBlur": 0.4,
+            "overviewTint": 0.6,
             "useWallhaven": false,
             "wallhavenQuery": "",
             "wallhavenSorting": "relevance",
@@ -225,7 +265,8 @@ in {
             "wallhavenApiKey": "",
             "wallhavenResolutionMode": "atleast",
             "wallhavenResolutionWidth": "",
-            "wallhavenResolutionHeight": ""
+            "wallhavenResolutionHeight": "",
+            "sortOrder": "name"
           },
           "appLauncher": {
             "enableClipboardHistory": true,
@@ -246,8 +287,12 @@ in {
             "iconMode": "tabler",
             "showIconBackground": false,
             "enableSettingsSearch": true,
+            "enableWindowsSearch": true,
+            "enableSessionSearch": true,
             "ignoreMouseInput": false,
-            "screenshotAnnotationTool": ""
+            "screenshotAnnotationTool": "",
+            "overviewLayer": false,
+            "density": "default"
           },
           "controlCenter": {
             "position": "close_to_bar_button",
@@ -322,13 +367,16 @@ in {
             "swapCriticalThreshold": 90,
             "diskWarningThreshold": 80,
             "diskCriticalThreshold": 90,
-            "cpuPollingInterval": 3000,
-            "tempPollingInterval": 3000,
+            "diskAvailWarningThreshold": 20,
+            "diskAvailCriticalThreshold": 10,
+            "batteryWarningThreshold": 20,
+            "batteryCriticalThreshold": 5,
+            "cpuPollingInterval": 1000,
             "gpuPollingInterval": 3000,
             "enableDgpuMonitoring": false,
-            "memPollingInterval": 3000,
+            "memPollingInterval": 1000,
             "diskPollingInterval": 30000,
-            "networkPollingInterval": 3000,
+            "networkPollingInterval": 1000,
             "loadAvgPollingInterval": 3000,
             "useCustomColors": false,
             "warningColor": "",
@@ -416,7 +464,6 @@ in {
             "lowUrgencyDuration": 3,
             "normalUrgencyDuration": 8,
             "criticalUrgencyDuration": 15,
-            "enableKeyboardLayoutToast": true,
             "saveToHistory": {
               "low": true,
               "normal": true,
@@ -431,7 +478,9 @@ in {
               "lowSoundFile": "",
               "excludedApps": "discord,firefox,chrome,chromium,edge"
             },
-            "enableMediaToast": false
+            "enableMediaToast": false,
+            "enableKeyboardLayoutToast": true,
+            "enableBatteryToast": true
           },
           "osd": {
             "enabled": true,
@@ -493,6 +542,9 @@ in {
             "performanceModeDisabled": "",
             "startup": "",
             "session": ""
+          },
+          "plugins": {
+            "autoUpdate": false
           },
           "desktopWidgets": {
             "enabled": false,

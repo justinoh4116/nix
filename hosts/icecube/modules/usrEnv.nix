@@ -19,6 +19,12 @@
 
       launchers.anyrun.enable = true;
     };
+
+    programs = {
+      latex.enable = true;
+      nvim.neovide.enable = true;
+    };
+
     services = {
       nextcloud-client.enable = true;
 

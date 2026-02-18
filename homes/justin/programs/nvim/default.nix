@@ -4,14 +4,30 @@
   lib,
   inputs,
   pkgs,
+  osConfig,
   ...
-}: {
+}: let
+  cfg = osConfig.modules.usrEnv.programs.nvim;
+in {
   imports = [
   ];
 
   home.file."${config.xdg.configHome}/nvim" = {
     source = ./dots;
     recursive = true;
+  };
+
+  programs.neovide = {
+    enable = cfg.neovide.enable;
+    settings = {
+      font = {
+        normal = ["Iosevka Nerd Font"];
+        features = [
+          "-calt"
+          "VRLG"
+        ];
+      };
+    };
   };
 
   # home.activation.nvimDapBin = lib.hm.dag.entryAfter ["writeBoundary"] ''

@@ -45,7 +45,7 @@ in {
   config = lib.mkIf cli.enable {
     home.packages = [pkgs.zellij];
     home.file.".config/zellij/config.kdl".text = ''
-      theme "tokyo-night"
+      theme "catppuccin-mocha"
     '';
     #         default_layout "default"
     #         default_shell "${config.programs.fish.package}/bin/fish"
