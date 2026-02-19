@@ -30,7 +30,7 @@ in {
            -- most Linux shells use Alt + backspace instead for word backspace
            { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'w', mods = 'CTRL'} }
            -- most Linux shells use Ctrl + w instead for word delete
-         }
+         },
 
          -- anims
            animation_fps = 1,
