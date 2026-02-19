@@ -22,7 +22,7 @@ in {
          audible_bell = "Disabled", -- annoying
            warn_about_missing_glyphs =  false,
 
-         key_bindings = {
+         keys = {
 
            -- bashrc has the kill-backward commands now which covers us in most terminals. Should not be made specific to wezterm. The shortcuts are here incase needed in future.
            -- Use one of these
