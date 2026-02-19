@@ -7,6 +7,10 @@
   cfg = config.modules.system.services.wg-easy;
 in {
   config = lib.mkIf cfg.enable {
+    boot.initrd.kernelModules = [
+      "wireguard"
+      "nft_masq"
+    ];
     virtualisation.oci-containers.containers = {
       wg-easy = {
         image = "ghcr.io/wg-easy/wg-easy:15";
@@ -32,8 +36,8 @@ in {
         #   "wg-easy"
         # ];
         extraOptions = [
-          "--network=wg-easy:ip=10.42.42.42"
-          "--network=wg-easy:ip6=fdcc:ad94:bacf:61a3::2a"
+          # "--network=wg-easy:ip=10.42.42.42"
+          # "--network=wg-easy:ip6=fdcc:ad94:bacf:61a3::2a"
           "--sysctl=net.ipv4.ip_forward=1"
           "--sysctl=net.ipv4.conf.all.src_valid_mark=1"
           "--sysctl=net.ipv6.conf.all.disable_ipv6=0"

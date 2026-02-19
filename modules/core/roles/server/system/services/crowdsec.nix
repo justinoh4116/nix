@@ -12,7 +12,10 @@ in {
     inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer
   ];
 
-  disabledModules = ["services/security/crowdsec.nix"];
+  disabledModules = [
+    "services/security/crowdsec.nix"
+    "services/security/crowdsec-firewall-bouncer.nix"
+  ];
 
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [inputs.crowdsec.overlays.default];
