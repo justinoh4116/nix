@@ -10,7 +10,8 @@
     ./git
     ./latex.nix
     ./yazi.nix
-    ./zellij.nix
+
+    ./zellij
   ];
   home.packages = with pkgs;
     [

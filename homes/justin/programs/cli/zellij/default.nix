@@ -46,6 +46,10 @@ in {
     home.packages = [pkgs.zellij];
     home.file.".config/zellij/config.kdl".text = ''
       theme "catppuccin-mocha"
+      simplified_ui true
+      default_layout "compact"
+      // Fix for nixvim wrapped neovim
+      post_command_discovery_hook "echo \"$RESURRECT_COMMAND\" | sed 's| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/nix/store/.*/bin/||g'"
     '';
     #         default_layout "default"
     #         default_shell "${config.programs.fish.package}/bin/fish"
