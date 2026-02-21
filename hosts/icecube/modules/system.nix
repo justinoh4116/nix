@@ -6,6 +6,10 @@
   config.modules.system = {
     mainUser = "justin";
 
+    fs.btrfs = {
+      enable = true;
+    };
+
     fs.zfs = {
       enable = false;
       autoScrub = true;

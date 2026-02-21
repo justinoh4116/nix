@@ -36,7 +36,7 @@ in {
             enable = true;
             settings = {
               # hostname = "localhost";
-              dataDir = "/var/lib/actual/actualdata";
+              dataDir = "/var/lib/actual";
             };
             openFirewall = true;
           };

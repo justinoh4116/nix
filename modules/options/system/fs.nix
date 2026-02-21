@@ -7,6 +7,9 @@
   inherit (lib.types) listOf str;
 in {
   options.modules.system.fs = {
+    btrfs = {
+      enable = mkEnableOption "btrfs filesystem";
+    };
     zfs = {
       enable = mkEnableOption "zfs fs stuff";
       autoScrub = mkEnableOption "auto scrub of zfs pools";

@@ -5,6 +5,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		dependencies = { "rcarriga/nvim-dap-ui", { "theHamsta/nvim-dap-virtual-text", opts = {} } },
 		keys = {
 			{
 				"<leader>dB",
@@ -127,7 +128,7 @@ return {
 			dap.adapters.cppdbg = {
 				id = "cppdbg",
 				type = "executable",
-				command = "@@opendebug-ad7-executable@@",
+				command = vim.env.OPENDEBUGAD7_PATH,
 			}
 
 			dap.configurations.cpp = {
@@ -147,7 +148,7 @@ return {
 					request = "launch",
 					MIMode = "lldb",
 					miDebuggerServerAddress = "localhost:1234",
-					miDebuggerPath = "@@cpp-debugger-executable@@",
+					miDebuggerPath = "gdb",
 					cwd = "${workspaceFolder}",
 					program = function()
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
@@ -158,16 +159,16 @@ return {
 			ui.setup()
 
 			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
+				ui.open()
 			end
 			dap.listeners.before.launch.dapui_config = function()
-				dapui.open()
+				ui.open()
 			end
 			dap.listeners.before.event_terminated.dapui_config = function()
-				dapui.close()
+				ui.close()
 			end
 			dap.listeners.before.event_exited.dapui_config = function()
-				dapui.close()
+				ui.close()
 			end
 		end,
 	},
