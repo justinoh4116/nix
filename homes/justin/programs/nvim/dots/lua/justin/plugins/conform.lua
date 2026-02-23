@@ -10,8 +10,8 @@ return {
 			-- Use a sub-list to run only the first available formatter
 			javascript = { "prettierd", "prettier" },
 			nix = { "alejandra" },
-			sv = { "verible" },
-			v = { "verible" },
+			verilog = { "verible" },
+			systemverilog = { "verible" },
 			cpp = { "clang-format" },
 			h = { "clang-format" },
 			c = { "clang-format" },

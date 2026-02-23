@@ -98,6 +98,7 @@ in {
             ".config/discordcanary"
             ".vim"
             ".local/share/fish"
+            ".local/share/containers"
             ".local/share/z"
             ".local/state/nvim"
             ".local/state/wireplumber"
@@ -132,6 +133,7 @@ in {
         files =
           [
             ".screenrc"
+            ".config/dolphinrc"
           ]
           ++ cfg.home.extraFiles;
       };
