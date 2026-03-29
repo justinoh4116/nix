@@ -37,6 +37,7 @@ in {
   # '';
 
   home.packages = with pkgs; [
+    nodejs # for copilot
     verible
     libclang
     texlab

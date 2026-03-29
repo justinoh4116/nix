@@ -28,14 +28,14 @@ in {
           mkdir -p /btrfs_tmp
           echo "[cleanup] Created /btrfs_tmp"
           mount /dev/mapper/cryptroot btrfs_tmp
-          mkdir -p /btrfs_tmp/persist/snapshots/root
+          mkdir -p /btrfs_tmp/local/snapshots/root
 
-          if [[ -e /btrfs_tmp/root ]]; then
-              timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%d_%H:%M:%S")
-              echo "[cleanup] Found /btrfs_tmp/root, moving to /btrfs_tmp/persist/snapshots/root/$timestamp"
-              mv /btrfs_tmp/root "/btrfs_tmp/persist/snapshots/root/$timestamp"
+          if [[ -e /btrfs_tmp/local/root ]]; then
+              timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/local/root)" "+%Y-%m-%d_%H:%M:%S")
+              echo "[cleanup] Found /btrfs_tmp/local/root, moving to /btrfs_tmp/local/snapshots/root/$timestamp"
+              mv /btrfs_tmp/local/root "/btrfs_tmp/local/snapshots/root/$timestamp"
           else
-              echo "[cleanup] /btrfs_tmp/root does not exist, skipping move"
+              echo "[cleanup] /btrfs_tmp/local/root does not exist, skipping move"
           fi
 
           delete_subvolume_recursively() {
@@ -49,13 +49,49 @@ in {
               btrfs subvolume delete "$subvol"
           }
 
-          find /btrfs_tmp/persist/snapshots/root -maxdepth 1 -mtime +30 -type d | while read snapshot; do
-              echo "[cleanup] Deleting old snapshot $snapshot"
-              delete_subvolume_recursively "$snapshot"
-          done
+          cleanup_snapshots() {
+              target_dir="$1"
 
-          echo "[cleanup] Creating new subvolume /btrfs_tmp/root"
-          btrfs subvolume create /btrfs_tmp/root
+              # Skip if directory doesn't exist
+              [[ -d "$target_dir" ]] || return
+
+              snapshot_count=$(find "$target_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+              find "$target_dir" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | \
+              sort -n | cut -d' ' -f2- | \
+              while IFS= read -r snapshot; do
+
+                  if (( snapshot_count <= 10 )); then
+                      break
+                  fi
+
+                  if [[ $(find "$snapshot" -maxdepth 0 -mtime +30) ]]; then
+                      delete_subvolume_recursively "$snapshot"
+                      snapshot_count=$((snapshot_count - 1))
+                  fi
+
+              done
+          }
+
+          cleanup_snapshots /btrfs_tmp/local/root
+
+          echo "[cleanup] Creating new subvolume /btrfs_tmp/local/root"
+          btrfs subvolume create /btrfs_tmp/local/root
+
+          mkdir -p /btrfs_tmp/local/snapshots/home
+
+          if [[ -e /btrfs_tmp/safe/home ]]; then
+              timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/safe/home)" "+%Y-%m-%d_%H:%M:%S")
+              echo "[cleanup] Found /btrfs_tmp/safe/home, moving to /btrfs_tmp/local/snapshots/home/$timestamp"
+              mv /btrfs_tmp/safe/home "/btrfs_tmp/local/snapshots/home/$timestamp"
+          else
+              echo "[cleanup] /btrfs_tmp/safe/home does not exist, skipping move"
+          fi
+
+          cleanup_snapshots /btrfs_tmp/safe/home
+
+          echo "[cleanup] Creating new subvolume /btrfs_tmp/safe/home"
+          btrfs subvolume create /btrfs_tmp/safe/home
 
           echo "[cleanup] Unmounted /btrfs_tmp"
           umount /btrfs_tmp
@@ -96,6 +132,7 @@ in {
             ".floorp"
             ".cache/floorp"
             ".config/discordcanary"
+            ".config/github-copilot"
             ".vim"
             ".local/share/fish"
             ".local/share/containers"
@@ -134,6 +171,7 @@ in {
           [
             ".screenrc"
             ".config/dolphinrc"
+            ".local/share/user-places.xbel"
           ]
           ++ cfg.home.extraFiles;
       };
