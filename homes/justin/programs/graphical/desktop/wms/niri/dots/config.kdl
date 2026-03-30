@@ -393,6 +393,9 @@ binds {
     Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
 
     Mod+E { spawn "dolphin"; }
+
+    Mod+Space+Enter { spawn "~/.config/niri/scratch-term.sh" }
+    Mod+C { spawn "~/.config/niri/scratch-term.sh" }
     // Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
 
@@ -609,7 +612,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    // Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }

@@ -15,6 +15,7 @@
   ];
   home.packages = with pkgs;
     [
+      rink
       tmux
       just
       spotify-player
