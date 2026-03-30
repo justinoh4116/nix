@@ -394,8 +394,8 @@ binds {
 
     Mod+E { spawn "dolphin"; }
 
-    Mod+Space+Enter { spawn "~/.config/niri/scratch-term.sh" }
-    Mod+C { spawn "~/.config/niri/scratch-term.sh" }
+    Mod+Shift+Return { spawn "~/.config/niri/scratch-term.sh"; }
+    Mod+C { spawn "~/.config/niri/scratch-term.sh"; }
     // Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
 
