@@ -353,6 +353,11 @@ animations {
 // }
 
 window-rule {
+  match app-id=r#"scratch.*"#
+  opacity 0.8
+}
+
+window-rule {
   match app-id="floorp"
   draw-border-with-background false
 }
@@ -394,8 +399,8 @@ binds {
 
     Mod+E { spawn "dolphin"; }
 
-    Mod+Shift+Return { spawn "~/.config/niri/scratch-term.sh"; }
-    Mod+C { spawn "~/.config/niri/scratch-term.sh"; }
+    Mod+Shift+Return { spawn-sh "bash ~/.config/niri/scratch-term.sh"; }
+    Mod+C { spawn-sh "bash ~/.config/niri/scratch-calc.sh"; }
     // Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
 
@@ -671,3 +676,6 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+include "noctalia.kdl"
+

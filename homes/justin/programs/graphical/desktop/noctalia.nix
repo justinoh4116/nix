@@ -15,7 +15,7 @@ in {
     programs.noctalia-shell = {
       enable = true;
       settings = ''
-                                {
+        {
           "settingsVersion": 52,
           "bar": {
             "barType": "simple",
@@ -520,7 +520,24 @@ in {
             "monitorForColors": "eDP-1"
           },
           "templates": {
-            "activeTemplates": [],
+            "activeTemplates": [
+              {
+                "enabled": true,
+                "id": "niri"
+              },
+              {
+                "enabled": true,
+                "id": "btop"
+              },
+              {
+                "enabled": true,
+                "id": "kcolorscheme"
+              },
+              {
+                "enabled": true,
+                "id": "qt"
+              }
+            ],
             "enableUserTheming": false
           },
           "nightLight": {
