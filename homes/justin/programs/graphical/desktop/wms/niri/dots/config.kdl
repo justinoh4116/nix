@@ -397,8 +397,9 @@ binds {
     Mod+X { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
 
-    Mod+E { spawn "dolphin"; }
+    // Mod+E { spawn "dolphin"; }
 
+    Mod+E { spawn-sh "bash ~/.config/niri/scratch-explorer.sh"; }
     Mod+Shift+Return { spawn-sh "bash ~/.config/niri/scratch-term.sh"; }
     Mod+C { spawn-sh "bash ~/.config/niri/scratch-calc.sh"; }
     // Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
@@ -509,6 +510,10 @@ binds {
     // And you can also move a whole workspace to another monitor:
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
+    Mod+Ctrl+Shift+Alt+H    { move-workspace-to-monitor-left; }
+    Mod+Ctrl+Shift+Alt+J    { move-workspace-to-monitor-down; }
+    Mod+Ctrl+Shift+Alt+K    { move-workspace-to-monitor-up; }
+    Mod+Ctrl+Shift+Alt+L    { move-workspace-to-monitor-right; }
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }

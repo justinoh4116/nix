@@ -60,6 +60,7 @@
         kdePackages.kdegraphics-thumbnailers
         kdePackages.breeze
         libsForQt5.qt5ct
+        kdePackages.qt6ct
 
         # Okular needs ghostscript to import PostScript files as PDFs
         # so we add ghostscript_headless as a dependency

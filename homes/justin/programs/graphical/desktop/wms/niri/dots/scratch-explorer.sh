@@ -1,7 +1,7 @@
 # ~/.config/niri/scratch-term.sh
 #!/bin/bash
-APP_ID="scratch-calc"
-TERMINAL_CMD="wezterm start --class $APP_ID rink"
+APP_ID="org.kde.dolphin"
+TERMINAL_CMD="dolphin"
 STASH_WS=98
 WIN_W=1300
 WIN_H=700

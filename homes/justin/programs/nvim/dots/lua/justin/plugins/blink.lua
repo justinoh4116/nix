@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
+	dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot", "L3MON4D3/LuaSnip" },
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -100,6 +100,18 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+		},
+
+		sources = {
+			default = { "copilot" },
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+					score_offset = 100,
+					async = true,
+				},
+			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

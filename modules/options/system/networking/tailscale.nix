@@ -67,12 +67,12 @@ in {
 
     tags = mkOption {
       type = listOf str;
-      default =
-        if cfg.isClient
-        then ["tag:client"]
-        else if cfg.isServer
-        then ["tag:server"]
-        else [];
+      default = [];
+      # if cfg.isClient
+      # then ["tag:client"]
+      # else if cfg.isServer
+      # then ["tag:server"]
+      # else [];
 
       defaultText = ''
         If host advertises itself as a client, the default value will be
