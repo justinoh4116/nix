@@ -133,6 +133,7 @@ in {
             ".cache/floorp"
             ".config/discordcanary"
             ".config/github-copilot"
+            ".config/pulse"
             ".vim"
             ".local/share/fish"
             ".local/share/containers"
@@ -151,6 +152,9 @@ in {
             ".config/cachix"
             ".zotero"
             ".cache/nvim"
+            ".config/easyeffects"
+            ".local/share/easyeffects"
+            ".cache/easyeffects"
 
             {
               directory = ".gnupg";
@@ -171,6 +175,7 @@ in {
           [
             ".screenrc"
             ".config/dolphinrc"
+            ".local/state/dolphinstaterc"
             ".local/share/user-places.xbel"
             ".config/niri/noctalia.kdl"
           ]
