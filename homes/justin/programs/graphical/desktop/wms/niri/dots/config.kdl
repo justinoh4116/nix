@@ -144,6 +144,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.85
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
