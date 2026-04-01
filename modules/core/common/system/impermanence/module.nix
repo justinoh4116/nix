@@ -172,6 +172,7 @@ in {
             ".screenrc"
             ".config/dolphinrc"
             ".local/share/user-places.xbel"
+            ".config/niri/noctalia.kdl"
           ]
           ++ cfg.home.extraFiles;
       };
