@@ -1,5 +1,6 @@
 * {
   font-family: "SFProDisplay Nerd Font";
+  color: white;
 }
 
 window {
@@ -8,6 +9,7 @@ window {
 
 box.main {
   padding: 0.8rem;
+  color: white;
   background: rgba(0, 0, 0, 0.5);
   margin: 10px;
   border-radius: 10px;
@@ -19,11 +21,13 @@ text {
   font-size: 1.6rem;
   padding: 5px;
   border-radius: 5px;
+  /* color: white; */
 }
 
 .matches {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
+  color: rgba(255, 255, 255, .8);
 }
 
 box.plugin:first-child {
@@ -71,6 +75,3 @@ label.plugin.info {
     opacity: 1;
   }
 }
-
-
-

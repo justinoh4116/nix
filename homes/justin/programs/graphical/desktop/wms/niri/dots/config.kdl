@@ -393,7 +393,8 @@ window-rule {
 
 binds {
     // noctalia binds
-    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Shift+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space hotkey-overlay-title="Run an Application: anyrun" { spawn "anyrun"; }
     Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+X { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
@@ -422,7 +423,6 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
-    Mod+Shift+Space hotkey-overlay-title="Run an Application: anyrun" { spawn "anyrun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

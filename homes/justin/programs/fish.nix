@@ -34,6 +34,7 @@ args @ {
       "ll" = "exa --long --git --header --icons";
       "lla" = "exa --long --git --header --icons -a";
       "textbooks" = "cd ~/safe/nextcloud/textbooks && zathura $(ls | anyrun --plugins libstdin.so)";
+      "tx" = "tectonic -X";
     };
     shellInit = ''
       set -gx EDITOR nvim

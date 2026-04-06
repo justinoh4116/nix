@@ -2,7 +2,7 @@
 #!/bin/bash
 APP_ID="org.kde.dolphin"
 TERMINAL_CMD="dolphin"
-STASH_WS=98
+STASH_WS=99
 WIN_W=1300
 WIN_H=700
 

@@ -144,7 +144,7 @@ return {
 	},
 	opts = {
 		-- A list of parser names, or "all" (the four listed parsers should always be installed)
-		ensure_installed = { "c", "c++", "lua", "vim", "rust", "python", "nix", "systemverilog" },
+		ensure_installed = { "c", "cpp", "lua", "vim", "rust", "python", "nix", "systemverilog", "latex", "markdown" },
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)
 		sync_install = false,

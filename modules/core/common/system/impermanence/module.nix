@@ -131,6 +131,7 @@ in {
             ".mozilla"
             ".floorp"
             ".cache/floorp"
+            ".cache/Tectonic"
             ".config/discordcanary"
             ".config/github-copilot"
             ".config/pulse"
@@ -155,6 +156,8 @@ in {
             ".config/easyeffects"
             ".local/share/easyeffects"
             ".cache/easyeffects"
+            ".config/Code"
+            ".vscode"
 
             {
               directory = ".gnupg";

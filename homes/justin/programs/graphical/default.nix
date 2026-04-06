@@ -12,6 +12,7 @@
     ./zathura.nix
     ./discord.nix
     # ./schizofox.nix
+    ./vscode.nix
     ./zen.nix
   ];
 
@@ -23,7 +24,6 @@
         # kiwitalk
         # blender
         remmina
-        vscode
         tailscale
         webcord
         graphviz

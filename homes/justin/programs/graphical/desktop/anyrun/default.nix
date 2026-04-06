@@ -39,7 +39,22 @@ in {
         layer = "overlay";
         hidePluginInfo = true;
       };
-
+      extraConfigFiles."keybinds.ron".text = ''
+        Config(
+          keybinds: [
+            Keybind(
+              ctrl: true,
+              key: "N",
+              action: Down,
+            ),
+            Keybind(
+              ctrl: true,
+              key: "P",
+              action: Up,
+            ),
+          ],
+        )
+      '';
       extraCss = builtins.readFile (./. + "/style-dark.css");
 
       # extraCss = ''
