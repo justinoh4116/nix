@@ -19,7 +19,7 @@ in {
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
-    # shellWrapperName = "y";
+    shellWrapperName = "y";
 
     settings = {
       manager = {
