@@ -54,23 +54,23 @@ return {
 			},
 		},
 	},
-	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			-- "nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-				keymaps = {
-					visual = "<C-s>",
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"kylechui/nvim-surround",
+	-- 	version = "*", -- Use for stability; omit to use `main` branch for the latest features
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		-- "nvim-treesitter/nvim-treesitter-textobjects",
+	-- 	},
+	-- 	config = function()
+	-- 		require("nvim-surround").setup({
+	-- 			-- Configuration here, or leave empty to use defaults
+	-- 			keymaps = {
+	-- 				visual = "<C-s>",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
@@ -83,14 +83,14 @@ return {
 			-- configurations go here
 		},
 	},
-	{
-		"altermo/ultimate-autopair.nvim",
-		event = { "InsertEnter", "CmdlineEnter" },
-		branch = "v0.6", --recommended as each new version will have breaking changes
-		opts = {
-			--Config goes here
-		},
-	},
+	-- {
+	-- 	"altermo/ultimate-autopair.nvim",
+	-- 	event = { "InsertEnter", "CmdlineEnter" },
+	-- 	branch = "v0.6", --recommended as each new version will have breaking changes
+	-- 	opts = {
+	-- 		--Config goes here
+	-- 	},
+	-- },
 	{ "tpope/vim-fugitive" },
 	-- {
 	--     'f-person/git-blame.nvim',
