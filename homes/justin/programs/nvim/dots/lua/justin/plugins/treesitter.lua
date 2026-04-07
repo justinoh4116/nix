@@ -195,33 +195,47 @@ return {
 		end
 
 		vim.api.nvim_create_autocmd("FileType", {
-			group = vim.api.nvim_create_augroup("lazyvim_treesitter", { clear = true }),
-			callback = function(ev)
-				local ft, lang = ev.match, vim.treesitter.language.get_lang(ev.match)
-				if not M.have(ft) then
-					return
-				end
-
-				---@param feat string
-				---@param query string
-				local function enabled(feat, query)
-					local f = opts[feat] or {} ---@type lazyvim.TSFeat
-					return f.enable ~= false
-						and not (type(f.disable) == "table" and vim.tbl_contains(f.disable, lang))
-						and M.have(ft, query)
-				end
-
-				-- highlighting
-				if enabled("highlight", "highlights") then
-					pcall(vim.treesitter.start, ev.buf)
-				end
-
-				-- indents
-				if enabled("indent", "indents") then
-					-- LazyVim.set_default("indentexpr", "v:lua.M.indentexpr()")
-					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			callback = function(args)
+				local treesitter = require("nvim-treesitter")
+				local lang = vim.treesitter.language.get_lang(args.match)
+				if vim.list_contains(treesitter.get_available(), lang) then
+					if not vim.list_contains(treesitter.get_installed(), lang) then
+						treesitter.install(lang):wait()
+					end
+					vim.treesitter.start(args.buf)
 				end
 			end,
+			desc = "Enable nvim-treesitter and install parser if not installed",
 		})
+
+		-- vim.api.nvim_create_autocmd("FileType", {
+		-- 	group = vim.api.nvim_create_augroup("lazyvim_treesitter", { clear = true }),
+		-- 	callback = function(ev)
+		-- 		local ft, lang = ev.match, vim.treesitter.language.get_lang(ev.match)
+		-- 		if not M.have(ft) then
+		-- 			return
+		-- 		end
+		--
+		-- 		---@param feat string
+		-- 		---@param query string
+		-- 		local function enabled(feat, query)
+		-- 			local f = opts[feat] or {} ---@type lazyvim.TSFeat
+		-- 			return f.enable ~= false
+		-- 				and not (type(f.disable) == "table" and vim.tbl_contains(f.disable, lang))
+		-- 				and M.have(ft, query)
+		-- 		end
+		--
+		-- 		-- highlighting
+		-- 		if enabled("highlight", "highlights") then
+		-- 			pcall(vim.treesitter.start, ev.buf)
+		-- 		end
+		--
+		-- 		-- indents
+		-- 		if enabled("indent", "indents") then
+		-- 			-- LazyVim.set_default("indentexpr", "v:lua.M.indentexpr()")
+		-- 			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		-- 		end
+		-- 	end,
+		-- })
 	end,
 }
