@@ -9,6 +9,7 @@
   imports = [
     ./git
     ./latex.nix
+    ./tmux.nix
     ./yazi.nix
 
     ./zellij
@@ -16,7 +17,6 @@
   home.packages = with pkgs;
     [
       rink
-      tmux
       just
       spotify-player
       maestral

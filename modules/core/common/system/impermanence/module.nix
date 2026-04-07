@@ -158,6 +158,7 @@ in {
             ".cache/easyeffects"
             ".config/Code"
             ".vscode"
+            ".tmux/resurrect"
 
             {
               directory = ".gnupg";
