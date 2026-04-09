@@ -2,6 +2,7 @@
   imports = [
     ./authelia
     ./caddy
+    ./media-server
 
     ./actual.nix
     ./changedetection-io.nix

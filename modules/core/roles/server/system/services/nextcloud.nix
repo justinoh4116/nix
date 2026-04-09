@@ -49,7 +49,7 @@ in {
             };
             config.adminpassFile = "/run/agenix/nextcloud-admin-password";
             config.dbtype = "sqlite";
-            package = pkgs.nextcloud31;
+            package = pkgs.nextcloud32;
             # Instead of using pkgs.nextcloud28Packages.apps,
             # we'll reference the package version specified above
             extraApps = {

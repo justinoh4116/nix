@@ -36,7 +36,7 @@ buildhome:
 iceberg:
   nix fmt ./
   @echo "Rebuilding iceberg..."
-  nix build .#cachix-deploy-iceberg |& nom
+  nix build .#cachix-deploy-iceberg --impure |& nom
   cachix push justinoh4116 ./result
   cachix deploy activate ./result
   #current := $(nixos-rebuild list-generations | grep True)
