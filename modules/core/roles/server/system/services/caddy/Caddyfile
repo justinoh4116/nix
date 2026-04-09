@@ -57,6 +57,107 @@ auth.justinoh.io {
 	reverse_proxy http://192.168.100.16:9091
 }
 
+bazarr.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+
+  reverse_proxy http://192.168.100.24:6767
+
+}
+media.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+
+  reverse_proxy http://192.168.100.24:8096
+
+}
+
+prowlarr.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+  reverse_proxy http://192.168.100.24:9696
+}
+
+radarr.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+  reverse_proxy http://192.168.100.24:7878
+}
+
+sabnzbd.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+  reverse_proxy http://192.168.100.24:8080
+}
+
+seerr.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+  reverse_proxy http://192.168.100.24:5055
+}
+
+sonarr.justinoh.io {
+  log {
+    output file /var/log/caddy/access.log
+  }
+  forward_auth 192.168.100.16:9091 {
+    uri /api/authz/forward-auth
+## The following commented line is for configuring the Authelia URL in the proxy. We strongly suggest
+## this is configured in the Session Cookies section of the Authelia configuration.
+# uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
+    copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+  }
+  reverse_proxy http://192.168.100.24:8989
+}
+
 justinoh.io {
   log {
     output file /var/log/caddy/access.log
