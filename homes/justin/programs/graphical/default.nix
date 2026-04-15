@@ -37,6 +37,7 @@
         mpv
         pcmanfm
         arduino
+        arduino-ide
         # kicad
         zoom-us
         #printrun
