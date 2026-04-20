@@ -9,7 +9,8 @@
       internalInterfaces = ["ve-+" "vb-+" "br0"];
       externalInterface = "enp7s0";
       # Lazy IPv6 connectivity for the container
-      enableIPv6 = true;
+      # turned off bc of issues w/ streamyfin
+      enableIPv6 = false;
     };
     bridges = {
       br0 = {

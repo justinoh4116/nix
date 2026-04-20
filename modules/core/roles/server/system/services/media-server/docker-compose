@@ -1,4 +1,4 @@
-version: "3.2"
+name: media-services
 services:
   radarr:
     container_name: radarr
@@ -17,6 +17,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /config/radarr:/config
       - /data:/data
+    networks:
+      - media-stack
+
   sonarr:
     container_name: sonarr
     hostname: sonarr.internal
@@ -34,10 +37,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /config/sonarr:/config
       - /data:/data
+    networks:
+      - media-stack
+
   bazarr:
     container_name: bazarr
     hostname: bazarr.internal
-    image: ghcr.io/hotio/bazarr:latest
+    image: ghcr.io/hotio/bazarr:lates
     restart: unless-stopped
     logging:
       driver: json-file
@@ -51,6 +57,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /config/bazarr:/config
       - /data/media:/data/media
+    networks:
+      - media-stack
+
   sabnzbd:
     container_name: sabnzbd
     hostname: sabnzbd.internal
@@ -69,3 +78,83 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /config/sabnzbd:/config
       - /data/usenet:/data/usenet:rw
+    networks:
+      - media-stack
+
+  prowlarr:
+    container_name: prowlarr
+    hostname: prowlarr.internal
+    image: ghcr.io/hotio/prowlarr
+    user: 1000:1000
+    ports:
+      - "9696:9696"
+    environment
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=US/Pacific
+      - WEBUI_PORTS=9696/tcp
+    volumes:
+      - /config/prowlarr:/config
+    networks:
+      - media-stack
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    user: 1000:1000
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - /config/jellyfin:/config
+      - /config/jellycache:/cache
+      - type: bind
+        source: /data/media
+        target: /media
+    restart: 'unless-stopped'
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.default.disable_ipv6=1
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    networks:
+      - media-stack
+
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=US/Pacific
+      - PORT=5055
+    ports:
+      - 5055:5055
+    volumes:
+      - /config/seerr:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/settings/public || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - media-stack
+
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr:8
+    container_name: recyclarr
+    user: 1000:1000
+    restart: unless-stopped
+    environment:
+      - TZ=US/Pacific
+    volumes:
+      - /config/recyclarr:/config
+    networks:
+      - media-stack
+
+networks:
+  media-stack:
+    driver: bridge
