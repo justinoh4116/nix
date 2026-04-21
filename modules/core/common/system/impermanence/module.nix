@@ -127,6 +127,7 @@ in {
             ".local/share/Steam"
 
             ".config/spotify"
+            ".config/tms"
             ".zen"
             ".mozilla"
             ".floorp"

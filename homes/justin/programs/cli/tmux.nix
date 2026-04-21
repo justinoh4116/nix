@@ -54,6 +54,10 @@
             bind -n M-8 select-window -t 8
             bind -n M-9 select-window -t 9
 
+            # tms
+            bind C-o display-popup -E "tms"
+            bind C-j display-popup -E "tms switch"
+
             # Vim-like copy/paste
             set-window-option -g mode-keys vi
             bind-key -T copy-mode-vi v send-keys -X begin-selection

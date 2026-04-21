@@ -53,7 +53,7 @@ args @ {
       };
 
       fish_greeting = {
-        body = "cd ~ && pfetch";
+        body = "pfetch";
       };
 
       template = {

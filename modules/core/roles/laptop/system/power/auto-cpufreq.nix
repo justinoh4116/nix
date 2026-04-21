@@ -29,7 +29,7 @@ in {
           energy_performance_preference = "power";
           # scaling_min_freq = mkDefault (MHz 1200);
           # scaling_max_freq = mkDefault (MHz 3800);
-          turbo = "never";
+          # turbo = "never";
 
           # Tresholds for battery, in percent. While those are useful to preserve battery life
           # e.g. to make your system battery live longer before you consider replacement, you
