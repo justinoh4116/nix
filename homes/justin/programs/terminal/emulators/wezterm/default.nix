@@ -10,7 +10,7 @@ in {
   config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     programs.wezterm = {
       enable = true;
-      colorSchemes = import ./colorSchemes.nix {inherit colors;};
+      # colorSchemes = import ./colorSchemes.nix {inherit colors;};
       extraConfig = ''
         local wez = require("wezterm")
         local act = wezterm.action
@@ -69,7 +69,7 @@ in {
          scrollback_lines = 10000,
 
          -- colors
-         color_scheme = "followSystem",
+         color_scheme = "Tokyo Night (Gogh)",
         }
 
         return baseConfig
