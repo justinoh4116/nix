@@ -8,21 +8,13 @@
   ...
 }: {
   imports = [
-    inputs.zen-nebula.homeModules.default
+    inputs.zen-browser.homeModules.twilight
   ];
 
-  config = lib.mkIf (osConfig.modules.system.programs.default.browser == "zen") {
-    zen-nebula = {
+  # config = lib.mkIf (osConfig.modules.system.programs.default.browser == "zen") {
+  config = {
+    programs.zen-browser = {
       enable = true;
-      profile = "2diywa1i.Default Profile";
     };
-
-    home.packages = [
-      inputs.zen-browser.packages."${pkgs.system}".default
-    ];
-
-    # home.file.".zen/2diywa1i.Default Profile/userChrome.css" = {
-    #   source = ./userChrome.css;
-    # };
   };
 }
