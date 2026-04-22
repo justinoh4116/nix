@@ -24,6 +24,9 @@
     hardware.acpilight.enable = false;
 
     services = {
+      # temperature management
+      thermald.enable = true;
+
       # DBus service that provides power management support to applications. In addition
       # to providing a standard interface for applications to query the power state and
       # request changes, it also provides a central place for applications to listen for
