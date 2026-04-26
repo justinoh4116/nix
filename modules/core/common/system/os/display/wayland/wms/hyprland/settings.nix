@@ -4,15 +4,14 @@
   lib,
   ...
 }: let
-  # pointer = config.home.pointerCursor;
-  cursorName = "Bibata-Modern-Classic-Hyprcursor";
+  env = config.modules.usrEnv;
 in {
   programs.hyprland.settings = {
     "$mod" = "SUPER";
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-      "HYPRCURSOR_THEME,${cursorName}"
-      "HYPRCURSOR_SIZE,${toString 16}"
+      "HYPRCURSOR_THEME,${env.desktop.cursor.name}"
+      "HYPRCURSOR_SIZE,${toString env.desktop.cursor.size}"
       # See https://github.com/hyprwm/contrib/issues/142
       "GRIMBLAST_NO_CURSOR,0"
     ];
@@ -21,7 +20,7 @@ in {
       # finalize startup
       "uwsm finalize"
       # set cursor for HL itself
-      # "hyprctl setcursor ${cursorName} ${toString 16}"
+      "hyprctl setcursor ${env.desktop.cursor.name} ${toString env.desktop.cursor.size}"
       "hyprlock"
     ];
 
@@ -87,8 +86,7 @@ in {
     };
 
     input = {
-      # focus change on cursor move
-      follow_mouse = 1;
+      follow_mouse = 0;
       focus_on_close = 1;
       accel_profile = "flat";
       tablet.output = "current";
@@ -103,8 +101,12 @@ in {
 
     dwindle = {
       # keep floating dimentions while tiling
-      pseudotile = true;
+      # pseudotile = true;
       preserve_split = true;
+    };
+
+    scrolling = {
+      column_width = 0.7;
     };
 
     misc = {

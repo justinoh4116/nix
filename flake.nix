@@ -83,6 +83,11 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprtasking = {
+      url = "github:raybbian/hyprtasking";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # aylur's gtk shell
     ags.url = "github:Aylur/ags/v1";
 

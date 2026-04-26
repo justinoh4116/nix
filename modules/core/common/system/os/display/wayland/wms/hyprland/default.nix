@@ -31,13 +31,14 @@ in {
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       # make sure to also set the portal package, so that they are in sync
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+      plugins = [
+        # inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+        inputs.hyprland-contrib.packages.${system}.grimblast
+      ];
     };
 
     environment.variables.NIXOS_OZONE_WL = "1";
-
-    environment.systemPackages = [
-      inputs.hyprland-contrib.packages.${system}.grimblast
-    ];
 
     environment.pathsToLink = ["/share/icons"];
 
