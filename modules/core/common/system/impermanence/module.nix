@@ -25,8 +25,8 @@ in {
     #     serviceConfig = {
     #       Type = "oneshot";
     #       # NOTE: to be able to see errors in your script do this
-    #       # StandardOutput = "journal+console";
-    #       # StandardError = "journal+console";
+    # StandardOutput = "journal+console";
+    # StandardError = "journal+console";
     #     };
     #     # This service is required for boot to succeed
     #     requiredBy = ["initrd.target"];
@@ -45,6 +45,7 @@ in {
     #
     #     # The body of the script. Make your changes to data here
     #     script = ''
+    #       #!${pkgs.bash}/bin/bash
     #       mkdir -p /btrfs_tmp
     #       echo "[cleanup] Created /btrfs_tmp"
     #       mount /dev/mapper/cryptroot /btrfs_tmp
@@ -108,7 +109,7 @@ in {
     #           echo "[cleanup] /btrfs_tmp/safe/home does not exist, skipping move"
     #       fi
     #
-    #       cleanup_snapshots /btrfs_tmp/safe/home
+    #       cleanup_snapshots /btrfs_tmp/local/snapshots/home
     #
     #       echo "[cleanup] Creating new subvolume /btrfs_tmp/safe/home"
     #       btrfs subvolume create /btrfs_tmp/safe/home
@@ -154,6 +155,8 @@ in {
     #     # "mkfs.ext4" = "${pkgs.e2fsprogs}/bin/mkfs.ext4";
     #     "mkdir" = "${pkgs.coreutils}/bin/mkdir";
     #     "wc" = "${pkgs.coreutils}/bin/wc";
+    #     "cut" = "${pkgs.coreutils}/bin/cut";
+    # "sort" = "${pkgs.coreutils}/bin/sort";
     #     "date" = "${pkgs.coreutils}/bin/date";
     #     "stat" = "${pkgs.coreutils}/bin/stat";
     #     "mv" = "${pkgs.coreutils}/bin/mv";

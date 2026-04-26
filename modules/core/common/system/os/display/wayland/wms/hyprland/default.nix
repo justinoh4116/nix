@@ -38,6 +38,10 @@ in {
       ];
     };
 
+    environment.systemPackages = [
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # or any other package
+    ];
+
     environment.variables.NIXOS_OZONE_WL = "1";
 
     environment.pathsToLink = ["/share/icons"];
