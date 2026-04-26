@@ -49,6 +49,7 @@ in {
 
     userDirs = {
       enable = pkgs.stdenv.isLinux;
+      setSessionVariables = true;
       # createDirectories = true;
 
       download = "${config.home.homeDirectory}/safe/downloads";
@@ -57,11 +58,11 @@ in {
 
       publicShare = null;
 
-      # pictures = "${config.home.homeDirectory}/Pictures";
+      pictures = "${config.home.homeDirectory}/safe/pictures";
 
       extraConfig = {
-        # XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-        XDG_MAIL_DIR = "${config.home.homeDirectory}/Mail";
+        SCREENSHOTS = "${config.xdg.userDirs.pictures}/screenshots";
+        MAIL = "${config.home.homeDirectory}/Mail";
       };
     };
 

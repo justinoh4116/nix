@@ -9,20 +9,22 @@ in {
     services.kanshi = {
       enable = true;
 
-      profiles = {
-        undocked = {
-          outputs = [
+      settings = [
+        {
+          profile.name = "undocked";
+          profile.outputs = [
             {
               criteria = "eDP-1";
               scale = 1.33;
             }
           ];
-          exec = [
+          profile.exec = [
             "noctalia-shell ipc call bar setDisplayMode always_visible"
           ];
-        };
-        docked = {
-          outputs = [
+        }
+        {
+          profile.name = "docked";
+          profile.outputs = [
             {
               criteria = "eDP-1";
               scale = 1.5;
@@ -33,11 +35,11 @@ in {
               mode = "2560x1440@143.991";
             }
           ];
-          exec = [
+          profile.exec = [
             "noctalia-shell ipc call bar setDisplayMode auto_hide"
           ];
-        };
-      };
+        }
+      ];
     };
   };
 }

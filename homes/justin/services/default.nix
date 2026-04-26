@@ -7,5 +7,6 @@
     # ./ags
     # ./spotifyd.nix
     ./udiskie.nix
+    ./wayland.nix
   ];
 }
