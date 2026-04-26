@@ -28,21 +28,27 @@ in {
           StandardOutput = "journal+console";
           StandardError = "journal+console";
         };
-        # This service is required for boot to succeed
-        requiredBy = ["initrd.target"];
-        # Should complete before any file systems are mounted
-        before = ["sysroot.mount"];
-
-        # Wait until the root device is available
-        # If you're altering a different device, specify its device unit explicitly.
-        # see: systemd-escape(1)
-        requires = ["cryptsetup.target"];
+        wantedBy = ["initrd.target"];
         after = [
-          # "initrd-root-device.target"
+          "initrd-root-device.target"
           "cryptsetup.target"
-          # Allow hibernation to resume before trying to alter any data
-          "local-fs-pre.target"
         ];
+        # # This service is required for boot to succeed
+        # requiredBy = ["initrd.target"];
+        # # Should complete before any file systems are mounted
+        # before = [""];
+        # wantedBy = ["local-fs-pre.target"];
+        #
+        # # Wait until the root device is available
+        # # If you're altering a different device, specify its device unit explicitly.
+        # # see: systemd-escape(1)
+        # requires = ["cryptsetup.target"];
+        # after = [
+        #   # "initrd-root-device.target"
+        #   "cryptsetup.target"
+        #   # Allow hibernation to resume before trying to alter any data
+        #   "local-fs-pre.target"
+        # ];
 
         # The body of the script. Make your changes to data here
         script = ''
