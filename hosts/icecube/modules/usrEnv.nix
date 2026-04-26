@@ -9,15 +9,19 @@
       stasis.enable = true;
       kanshi.enable = true;
       wms = {
-        # hyprland.enable = true;
+        hyprland.enable = true;
         # river.enable = true;
-        niri.enable = true;
+        # niri.enable = true;
       };
       wm = "niri";
 
-      shells.noctalia.enable = true;
+      # shells.noctalia.enable = true;
+      shells.fufexan.enable = true;
 
-      launchers.anyrun.enable = true;
+      launchers = {
+        anyrun.enable = true;
+        vicinae.enable = true;
+      };
     };
 
     programs = {

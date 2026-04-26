@@ -127,6 +127,11 @@ in {
             ".local/share/Steam"
 
             ".config/spotify"
+            ".config/vicinae"
+            ".local/share/vicinae"
+            ".local/state/vicinae"
+            ".cache/vicinae"
+
             ".config/tms"
             ".zen"
             ".mozilla"

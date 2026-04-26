@@ -58,7 +58,7 @@ in {
         default = "kitty";
       };
       launcher = mkOption {
-        type = enum ["anyrun" "wofi" "rofi"];
+        type = enum ["anyrun" "wofi" "rofi" "vicinae"];
         default = "anyrun";
       };
       editor = mkOption {

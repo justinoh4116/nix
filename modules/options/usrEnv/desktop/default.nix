@@ -39,6 +39,7 @@ in {
 
     shells = {
       noctalia.enable = mkEnableOption "noctalia shell";
+      fufexan.enable = mkEnableOption "fufexan quickshell";
     };
 
     bars = {
@@ -78,6 +79,7 @@ in {
 
     launchers = {
       anyrun.enable = mkEnableOption "anyrun launcher";
+      vicinae.enable = mkEnableOption "vicinae launcher";
     };
 
     screenlock = {

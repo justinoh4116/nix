@@ -25,6 +25,7 @@
       fira-code-symbols
       open-sans
       lmodern
+      material-symbols
 
       baekmuk-ttf
       unfonts-core

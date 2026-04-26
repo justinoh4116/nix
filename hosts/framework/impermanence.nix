@@ -49,6 +49,7 @@
         ".local/share/nvim"
         "safe"
         ".local/state/syncthing"
+        ".local/share/sioyek"
         ".config/fish"
         ".config/google-chrome"
         ".config/obsidian"

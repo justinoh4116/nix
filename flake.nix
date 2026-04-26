@@ -19,6 +19,9 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    vicinae.url = "github:vicinaehq/vicinae";
+    vicinae-extensions.url = "github:vicinaehq/extensions";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     impermanence.url = "github:nix-community/impermanence";
@@ -34,6 +37,9 @@
 
     # pin fixed freecad
     # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
+
+    # pin nixpkgs for m16 logisim version 4.1.0
+    nixpkgs-logisim-m16.url = "github:nixos/nixpkgs/4c79e748f16806804beaab7ce2b263d9893c3ca6";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -68,56 +74,33 @@
     stasis.url = "github:saltnpepper97/stasis";
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.1";
+      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.50.1";
       # type = "git";
-      # url = "https://github.com/hyprwm/hyprland";
+      url = "github:hyprwm/Hyprland";
       # submodules = true;
       # rev = "04ac46c54357278fc68f0a95d26347ea0db99496";
       # inputs.aquamarine.follows = "aquamarine";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-    # aquamarine = {
-    #   url = "github:Hyprwm/aquamarine";
-    #   #   # inputs.nixpkgs.follows = "nixpkgs-2405";
-    # };
-    hyprland-plugins = {
-      # url = "git+https://github.com/hyprwm/hyprland-plugins?rev=98cb18c6fcfe8196ef4150d09fbae305b7bb2954";
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-    };
-    # hyprcursor = {
-    #   url = "github:hyprwm/hyprcursor";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    xdg-portal-hyprland = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    };
-
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-    };
-
-    hypridle.url = "github:hyprwm/hypridle";
-
-    hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.50.0";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprfocus = {
-      url = "github:pyt0xic/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     # aylur's gtk shell
     ags.url = "github:Aylur/ags/v1";
 
+    # quickshell
+    quickshell = {
+      # add ?ref=<tag> to track a tag
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      # THIS IS IMPORTANT
+      # Mismatched system dependencies will lead to crashes and other issues.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    # zen-browser = {
+    #   url = "github:youwen5/zen-browser-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # anyrun launcher
     anyrun = {
