@@ -6,9 +6,9 @@
   config.modules.usrEnv = {
     desktop = {
       wms = {
-        hyprland.enable = true;
+        # hyprland.enable = true;
         river.enable = true;
-        # niri.enable = true;
+        niri.enable = true;
       };
       wm = "niri";
     };

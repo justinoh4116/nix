@@ -13,6 +13,7 @@
     ./discord.nix
     # ./schizofox.nix
     ./school.nix
+    ./sioyek.nix
     ./vscode.nix
     ./zen.nix
     ./qt.nix
@@ -22,7 +23,6 @@
   config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     home.packages = with pkgs;
       [
-        sioyek
         easyeffects
         gamescope
         # kiwitalk

@@ -229,6 +229,7 @@ in {
             ".local/state/syncthing"
             ".config/fish"
             ".config/google-chrome"
+            ".local/share/sioyek"
             ".config/obsidian"
             ".config/Nextcloud"
             ".config/inkscape"

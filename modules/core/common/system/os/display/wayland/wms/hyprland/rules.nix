@@ -35,7 +35,7 @@
       "${toRegex highopacity}, ignore_alpha 0.5"
 
       "match:namespace ^quickshell.*$, blur_popups true"
-      "${toRegex ["quickshell:bar"]}, ignore_alpha 0.1"
+      "${toRegex ["quickshell:bar"]}, ignore_alpha 1.1"
       "${toRegex no_anim}, no_anim true"
     ];
 

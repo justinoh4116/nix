@@ -10,6 +10,7 @@
   mailer = ["thunderbird.desktop"];
   zathura = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];
+  sioyek = ["sioyek.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -32,7 +33,7 @@
     "video/*" = ["mpv.desktop"];
     "image/*" = ["imv.desktop"];
     "application/json" = browser;
-    "application/pdf" = zathura;
+    "application/pdf" = sioyek;
 
     "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
     "x-scheme-handler/spotify" = ["spotify.desktop"];

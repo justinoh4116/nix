@@ -72,7 +72,7 @@ in {
       "windowsOut, 1, 7, default, popin 80%"
       "border, 1, 10, default"
       "fade, 1, 7, default"
-      "workspaces, 1, 6, default"
+      # "workspaces, 1, 6, default"
     ];
 
     group = {
@@ -87,7 +87,7 @@ in {
     };
 
     input = {
-      follow_mouse = 0;
+      follow_mouse = 2;
       focus_on_close = 1;
       accel_profile = "flat";
       tablet.output = "current";
