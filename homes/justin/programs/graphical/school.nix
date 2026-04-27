@@ -1,6 +1,5 @@
 {
   inputs,
-  system,
   pkgs,
   ...
 }: let
@@ -12,7 +11,7 @@
 in {
   config = {
     home.packages = [
-      pkgs-logisim-m16.logisim-m16
+      pkgs-logisim-m16.logisim-evolution
     ];
   };
 }

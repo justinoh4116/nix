@@ -21,6 +21,7 @@
       blurred = lib.concatLists [
         lowopacity
         highopacity
+        ["quickshell:bar"]
       ];
 
       no_anim = [

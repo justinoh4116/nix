@@ -12,7 +12,7 @@
     ./zathura.nix
     ./discord.nix
     # ./schizofox.nix
-    # ./school.nix
+    ./school.nix
     ./vscode.nix
     ./zen.nix
     ./qt.nix
