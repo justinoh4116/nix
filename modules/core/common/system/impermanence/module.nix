@@ -181,7 +181,7 @@ in {
       hideMounts = true;
       directories =
         [
-          "/etc/cups"
+          # "/etc/cups"
           "/var/lib/bluetooth"
           "/var/lib/sbctl"
           "/var/lib/nixos"

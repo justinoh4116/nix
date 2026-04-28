@@ -15,14 +15,16 @@ in {
   ];
 
   config = lib.mkIf (env.desktop.wm == "niri" && sys.video.enable) {
+    nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
+
     programs.niri = {
       enable = true;
       package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
     };
-    environment.systemPackages = [
-      pkgs.xwayland-satellite
-      pkgs.xdg-desktop-portal-gnome # for screencasting
-    ];
+    # environment.systemPackages = [
+    #   pkgs.xwayland-satellite
+    #   pkgs.xdg-desktop-portal-gnome # for screencasting
+    # ];
 
     # hardware.graphics.package = pkgs-niri.mesa.drivers;
   };

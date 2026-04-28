@@ -1,4 +1,8 @@
-let
+{
+  lib,
+  config,
+  ...
+}: let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (
     builtins.genList (
@@ -20,119 +24,125 @@ let
   in "pkill ${prog} || uwsm app -- ${program}";
 
   runOnce = program: "pgrep ${program} || uwsm app -- ${program}";
+
+  env = config.modules.usrEnv;
+  sys = config.modules.system;
+  cfg = env.desktop.wms.hyprland;
 in {
-  programs.hyprland.settings = {
-    # mouse movements
-    bindm = [
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
+  config = lib.mkIf (sys.video.enable && cfg.enable) {
+    programs.hyprland.settings = {
+      # mouse movements
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
 
-    # binds
-    bind =
-      [
-        # compositor commands
-        "$mod SHIFT, E, exec, pkill Hyprland"
-        "$mod, Q, killactive,"
-        "$mod, F, fullscreen,"
-        "$mod, G, togglegroup,"
-        "$mod SHIFT, N, changegroupactive, f"
-        "$mod SHIFT, P, changegroupactive, b"
-        "$mod, R, layoutmsg, togglesplit"
-        "$mod, T, togglefloating,"
-        "$mod, P, pseudo,"
-        "$mod ALT, ,resizeactive,"
+      # binds
+      bind =
+        [
+          # compositor commands
+          "$mod SHIFT, E, exec, pkill Hyprland"
+          "$mod, Q, killactive,"
+          "$mod, F, fullscreen,"
+          "$mod, G, togglegroup,"
+          "$mod SHIFT, N, changegroupactive, f"
+          "$mod SHIFT, P, changegroupactive, b"
+          "$mod, R, layoutmsg, togglesplit"
+          "$mod, T, togglefloating,"
+          "$mod, P, pseudo,"
+          "$mod ALT, ,resizeactive,"
 
-        # utility
-        # terminal
-        "$mod, Return, exec, uwsm app -- wezterm"
-        # logout menu
-        "$mod, Escape, exec, ${toggle "wlogout"} -p layer-shell"
-        # lock screen
-        "$mod, L, exec, loginctl lock-session"
-        # lock screen, to be used with the special key Fn+F10 on my keyboard
-        "$mod, I, exec, loginctl lock-session"
-        # select area to perform OCR on
-        "$mod, O, exec, ${runOnce "wl-ocr"}"
-        ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
-        # open calculator
-        ", XF86Calculator, exec, ${toggle "gnome-calculator"}"
-        # open settings
-        "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
+          # utility
+          # terminal
+          "$mod, Return, exec, uwsm app -- wezterm"
+          # logout menu
+          "$mod, Escape, exec, ${toggle "wlogout"} -p layer-shell"
+          # lock screen
+          "$mod, L, exec, loginctl lock-session"
+          # lock screen, to be used with the special key Fn+F10 on my keyboard
+          "$mod, I, exec, loginctl lock-session"
+          # select area to perform OCR on
+          "$mod, O, exec, ${runOnce "wl-ocr"}"
+          ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
+          # open calculator
+          ", XF86Calculator, exec, ${toggle "gnome-calculator"}"
+          # open settings
+          "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
 
-        # move focus
-        "$mod, left, layoutmsg, focus l"
-        "$mod, right, layoutmsg, focus r"
-        "$mod, up, layoutmsg, focus u"
-        "$mod, down, layoutmsg, focus d"
-        "$mod, h, layoutmsg, focus l"
-        "$mod, l, layoutmsg, focus r"
-        "$mod, k, layoutmsg, focus u"
-        "$mod, j, layoutmsg, focus d"
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, l, movewindow, r"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, j, movewindow, d"
+          # move focus
+          "$mod, left, layoutmsg, focus l"
+          "$mod, right, layoutmsg, focus r"
+          "$mod, up, layoutmsg, focus u"
+          "$mod, down, layoutmsg, focus d"
+          "$mod, h, layoutmsg, focus l"
+          "$mod, l, layoutmsg, focus r"
+          "$mod, k, layoutmsg, focus u"
+          "$mod, j, layoutmsg, focus d"
+          "$mod SHIFT, h, movewindow, l"
+          "$mod SHIFT, l, movewindow, r"
+          "$mod SHIFT, k, movewindow, u"
+          "$mod SHIFT, j, movewindow, d"
 
-        # toggle scroll layout
-        "$mod SHIFT, T, exec, hyprctl keyword workspace $(hyprctl activeworkspace -j|jq .id), layout:scrolling"
+          # toggle scroll layout
+          "$mod SHIFT, T, exec, hyprctl keyword workspace $(hyprctl activeworkspace -j|jq .id), layout:scrolling"
 
-        # screenshot
-        # area
-        ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
-        "$mod SHIFT, R, exec, ${runOnce "grimblast"} --notify copysave area"
+          # screenshot
+          # area
+          ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
+          "$mod SHIFT, R, exec, ${runOnce "grimblast"} --notify copysave area"
 
-        # current screen
-        "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
-        "$mod SHIFT CTRL, R, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+          # current screen
+          "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+          "$mod SHIFT CTRL, R, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
 
-        # all screens
-        "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
-        "$mod SHIFT ALT, R, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+          # all screens
+          "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+          "$mod SHIFT ALT, R, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
 
-        # special workspace
-        "$mod SHIFT, grave, movetoworkspace, special"
-        "$mod, grave, togglespecialworkspace, eDP-1"
+          # special workspace
+          "$mod SHIFT, grave, movetoworkspace, special"
+          "$mod, grave, togglespecialworkspace, eDP-1"
 
-        # cycle workspaces
-        "$mod, bracketleft, workspace, m-1"
-        "$mod, bracketright, workspace, m+1"
+          # cycle workspaces
+          "$mod, bracketleft, workspace, m-1"
+          "$mod, bracketright, workspace, m+1"
 
-        # cycle monitors
-        "$mod SHIFT, bracketleft, focusmonitor, l"
-        "$mod SHIFT, bracketright, focusmonitor, r"
+          # cycle monitors
+          "$mod SHIFT, bracketleft, focusmonitor, l"
+          "$mod SHIFT, bracketright, focusmonitor, r"
 
-        # send focused workspace to left/right monitors
-        "$mod SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
-        "$mod SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
-      ]
-      ++ workspaces;
+          # send focused workspace to left/right monitors
+          "$mod SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
+          "$mod SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
+        ]
+        ++ workspaces;
 
-    bindr = [
-      # launcher
-      "$mod, Space, exec, vicinae toggle"
-    ];
+      bindr = [
+        # launcher
+        "$mod, Space, exec, vicinae toggle"
+      ];
 
-    bindl = [
-      # media controls
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioNext, exec, playerctl next"
+      bindl = [
+        # media controls
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
 
-      # volume
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    ];
+        # volume
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ];
 
-    bindle = [
-      # volume
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+      bindle = [
+        # volume
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
 
-      # backlight
-      ", XF86MonBrightnessUp, exec, brightnessctl --class=backlight set +5%"
-      ", XF86MonBrightnessDown, exec, brightnessctl --class=backlight set 5%-"
-    ];
+        # backlight
+        ", XF86MonBrightnessUp, exec, brightnessctl --class=backlight set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl --class=backlight set 5%-"
+      ];
+    };
   };
 }

@@ -35,22 +35,27 @@
       '')}
       fi
     '';
+  env = config.modules.usrEnv;
+  sys = config.modules.system;
+  cfg = env.desktop.wms.hyprland;
 in {
-  # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
-  # "Smart gaps" / "No gaps when only"
-  programs.hyprland.settings = {
-    workspace = map (x: "${x}, gapsout:0, gapsin:0") workspaceSelectors;
+  config = lib.mkIf (sys.video.enable && cfg.enable) {
+    # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
+    # "Smart gaps" / "No gaps when only"
+    programs.hyprland.settings = {
+      workspace = map (x: "${x}, gapsout:0, gapsin:0") workspaceSelectors;
 
-    windowrule = flatten (
-      map (x: [
-        "border_size 0, match:float false, match:workspace ${x}"
-        "rounding 0, match:float false, match:workspace ${x}"
-      ])
-      workspaceSelectors
-    );
+      windowrule = flatten (
+        map (x: [
+          "border_size 0, match:float false, match:workspace ${x}"
+          "rounding 0, match:float false, match:workspace ${x}"
+        ])
+        workspaceSelectors
+      );
 
-    bind = [
-      "$mod, M, exec, ${toggleSmartGaps}"
-    ];
+      bind = [
+        "$mod, M, exec, ${toggleSmartGaps}"
+      ];
+    };
   };
 }
