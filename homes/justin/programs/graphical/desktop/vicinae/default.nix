@@ -40,7 +40,7 @@ in {
           };
           "applications" = {
             preferences = {
-              launchPrefix = "uwsm app -- ";
+              # launchPrefix = "uwsm app -- ";
             };
           };
         };

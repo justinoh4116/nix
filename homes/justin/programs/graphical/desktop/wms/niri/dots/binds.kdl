@@ -16,7 +16,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn-sh "uwsm app -- wezterm"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn-sh "wezterm"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
