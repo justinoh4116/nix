@@ -10,7 +10,10 @@
 in {
   imports = [inputs.stasis.homeModules.default];
   config = lib.mkIf cfg.enable {
-    home.packages = [pkgs.pulseaudio]; # required for idle inhibition based on media
+    home.packages = [
+      pkgs.pulseaudio # required for idle inhibition based on media
+      pkgs.daemonize
+    ];
     services.stasis = {
       enable = true;
       extraConfig = ''
@@ -21,15 +24,16 @@ in {
         default_timeout 300  # 5 minutes
 
         default:
-          pre_suspend_command "noctalia-shell ipc call lockScreen lock"
+          pre_suspend_command "${config.programs.hyprlock.package}/bin/hyprlock"
           monitor_media true
           ignore_remote_media true
+          enable_loginctl true
 
           respect_idle_inhibitors true
 
           # Laptop lid behavior
-          #lid_close_action "lock-screen"  # lock-screen | suspend | custom | ignore
-          #lid_open_action "wake"          # wake | custom | ignore
+          lid_close_action "lock-screen"  # lock-screen | suspend | custom | ignore
+          lid_open_action "wake"          # wake | custom | ignore
 
           # Debounce: default is 3s; can be customized if needed
           #debounce_seconds 4
@@ -44,43 +48,23 @@ in {
           #   r"firefox.*"
           # ]
 
-          # Desktop-only idle actions (applies to all devices)
-          # lock_screen:
-          #   timeout 300  # 5 minutes
-          #   command "loginctl lock-session"
-          #   resume-command "notify-send 'Welcome Back $env.USER!'"
-          #   lock-command "swaylock"
-          # end
-
-          dpms:
-            timeout 60  # 1 minute
-            command "niri msg action power-off-monitors"
-            resume-command "niri msg action power-on-monitors"
-          end
-
-          suspend:
-            timeout 300  # 5 min
-            command "systemctl suspend"
-            # resume-command None
-          end
-
           # Laptop-only AC actions
           ac:
             # Instant brightness adjustment
             custom-brightness-instant:
               timeout 0
-              command "brightnessctl set 100%"
+              command "${pkgs.brightnessctl}/bin/brightnessctl set 100%"
             end
 
             dpms:
               timeout 60  # 1 minute
-              command "niri msg action power-off-monitors"
+              command "${osConfig.programs.niri.package}/bin/niri msg action power-off-monitors"
             end
 
-            # lock_screen:
-            #   timeout 120  # 2 minutes
-            #   command "swaylock"
-            # end
+            lock_screen:
+              timeout 120  # 2 minutes
+              command "${config.programs.hyprlock.package}/bin/hyprlock"
+            end
 
             # suspend:
             #   timeout 300  # 5 minutes
@@ -92,26 +76,20 @@ in {
           battery:
             custom-brightness-instant:
               timeout 0
-              command "brightnessctl set 40%"
+              command "${pkgs.brightnessctl}/bin/brightnessctl set 40%"
             end
 
             brightness:
               timeout 30  # 1 minute
-              command "brightnessctl -s set 20"
-              resume-command "brightnessctl -r"
+              command "${pkgs.brightnessctl}/bin/brightnessctl -s set 20"
+              resume-command "${pkgs.brightnessctl}/bin/brightnessctl -r"
             end
 
             dpms:
               timeout 60  # 30 seconds
-              command "niri msg action power-off-monitors"
-              resume-command "niri msg action power-on-monitors"
+              command "${osConfig.programs.niri.package}/bin/niri msg action power-off-monitors"
+              resume-command "${osConfig.programs.niri.package}/bin/niri msg action power-on-monitors"
             end
-
-            # lock_screen:
-            #   timeout 120  # 2 minutes
-            #   command "swaylock"
-            #   resume-command "notify-send 'Welcome back $env.USER!'"
-            # end
 
             suspend:
               timeout 120  # 2 minutes
@@ -121,29 +99,5 @@ in {
         end
       '';
     };
-    # home = {
-    #   packages = [
-    #     pkgs.stasis
-    #   ];
-    #   file."${config.xdg.configHome}/stasis/stasis.rune" = {
-    #     source = ./stasis.rune;
-    #   };
-    # };
-    # systemd.user.services.stasis = {
-    #   Unit = {
-    #     Description = "stasis idle manager";
-    #     PartOf = [
-    #       "graphical-session.target"
-    #     ];
-    #     After = "graphical-session.target";
-    #     ConditionEnvironment = "WAYLAND_DISPLAY";
-    #   };
-    #   Service = {
-    #     Type = "simple";
-    #     ExecStart = "${pkgs.stasis}/bin/stasis";
-    #     Restart = "on-failure";
-    #   };
-    #   Install.WantedBy = ["graphical-session.target"];
-    # };
   };
 }

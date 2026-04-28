@@ -217,7 +217,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         // off
 
-        width 2
+        width 1
         active-color "#88888888"
         inactive-color "#00000088"
 
@@ -250,10 +250,10 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 15
+        softness 6
 
         // Spread expands the shadow.
-        spread 30 
+        spread 6 
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=15

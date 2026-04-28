@@ -1,6 +1,26 @@
 window-rule {
-  match app-id="zen"
+  match app-id="zen-beta"
   // popups {
   //   open-floating true
-  //   }
+  // }
+  open-on-workspace "browser"
+}
+
+window-rule {
+  match app-id="spotify"
+  open-on-workspace "misc"
+}
+
+window-rule {
+  match app-id="discord"
+  open-on-workspace "misc"
+}
+
+layer-rule {
+    match layer="top"
+    match layer="overlay"
+
+    background-effect {
+        xray false
+    }
 }

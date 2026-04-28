@@ -17,8 +17,5 @@ in {
       source = ./dots;
       recursive = true;
     };
-    programs.niri = {
-      config = null;
-    };
   };
 }

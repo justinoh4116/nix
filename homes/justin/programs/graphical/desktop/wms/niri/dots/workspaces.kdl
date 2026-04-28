@@ -3,12 +3,3 @@ workspace "browser"
 workspace "misc"
 workspace "scratch"
 
-window-rule {
-  match app-id="spotify"
-  open-on-workspace "misc"
-}
-
-window-rule {
-  match app-id="discord"
-  open-on-workspace "misc"
-}
