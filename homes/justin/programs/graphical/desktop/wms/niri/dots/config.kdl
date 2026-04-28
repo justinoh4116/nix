@@ -7,6 +7,13 @@ include "workspaces.kdl"
 include "binds.kdl"
 include "rules.kdl"
 
+environment {
+      QT_QPA_PLATFORM "wayland"
+      ELECTRON_OZONE_PLATFORM_HINT "wayland";
+      DISPLAY ":0";
+      _JAVA_AWT_WM_NONREPARENTING "1";
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
