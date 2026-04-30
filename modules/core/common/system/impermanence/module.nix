@@ -197,8 +197,11 @@ in {
             ".cache/easyeffects"
             ".config/Code"
             ".config/t3code"
+            ".codex"
             ".vscode"
             ".tmux/resurrect"
+            ".local/bin"
+            ".local/share/headroom-venv"
 
             {
               directory = ".gnupg";

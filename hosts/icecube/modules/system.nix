@@ -8,6 +8,7 @@
 
     fs.btrfs = {
       enable = true;
+      snapshots = true;
     };
 
     fs.zfs = {

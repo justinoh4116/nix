@@ -9,6 +9,7 @@ in {
   options.modules.system.fs = {
     btrfs = {
       enable = mkEnableOption "btrfs filesystem";
+      snapshots = mkEnableOption "btrbk snapshotting";
     };
     zfs = {
       enable = mkEnableOption "zfs fs stuff";

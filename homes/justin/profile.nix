@@ -8,6 +8,7 @@
 }: {
   home.username = "justin";
   home.homeDirectory = "/home/justin";
+  home.sessionPath = ["$HOME/.local/bin"];
 
   imports = [
     ./services
