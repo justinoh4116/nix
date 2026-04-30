@@ -7,12 +7,26 @@
 }: let
   cfg = osConfig.modules.usrEnv.desktop.launchers.vicinae;
   desktop = osConfig.modules.usrEnv.desktop;
+  soulverDataDir = "/home/justin/.local/share";
+  soulverLibDir = "/home/justin/.local/lib/soulver-cpp";
+  swiftRuntimeLibDir = "/home/justin/.local/lib/swift-6.1/lib/swift/linux";
+  wrappedVicinae = pkgs.symlinkJoin {
+    name = "vicinae-with-soulver-runtime";
+    paths = [inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default];
+    nativeBuildInputs = [pkgs.makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/vicinae \
+        --prefix LD_LIBRARY_PATH : ${lib.escapeShellArg "${soulverLibDir}:${swiftRuntimeLibDir}"} \
+        --prefix XDG_DATA_DIRS : ${lib.escapeShellArg soulverDataDir}
+    '';
+  };
 in {
   imports = [inputs.vicinae.homeManagerModules.default];
 
   config = lib.mkIf cfg.enable {
     services.vicinae = {
       enable = true;
+      package = wrappedVicinae;
       systemd.enable = true;
 
       settings = {

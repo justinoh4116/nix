@@ -57,12 +57,12 @@ in {
             end
 
             dpms:
-              timeout 60  # 1 minute
+              timeout 120  # 1 minute
               command "${osConfig.programs.niri.package}/bin/niri msg action power-off-monitors"
             end
 
             lock_screen:
-              timeout 120  # 2 minutes
+              timeout 240  # 2 minutes
               command "${config.programs.hyprlock.package}/bin/hyprlock"
             end
 
