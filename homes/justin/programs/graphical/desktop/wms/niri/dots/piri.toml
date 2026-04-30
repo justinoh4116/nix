@@ -1,0 +1,35 @@
+[piri.plugins]
+empty = true
+
+[empty.terminal]
+command = "wezterm"
+
+[empty.browser]
+command = "zen-beta"
+
+[empty.misc1]
+command = "wezterm"
+
+[empty.spotify]
+command = "spotify"
+
+[empty.discord]
+command = "discordcanary"
+
+[empty.explorer]
+command = "dolphin"
+
+[empty.t3code]
+command = "t3code"
+
+[empty.vscode]
+command = "code"
+
+[empty.sioyek]
+command = "sioyek"
+
+[empty.zotero]
+command = "zotero"
+
+[empty.scratch]
+command = "wezterm"

@@ -80,7 +80,6 @@
         })
       ]
       ++ [
-        inputs.t3code.packages.${pkgs.stdenv.hostPlatform.system}.default
         # pkgs-stable.spotify
       ];
 

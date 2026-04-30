@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ai
     ./fish.nix
     ./cli
     ./nvim

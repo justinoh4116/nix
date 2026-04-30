@@ -80,19 +80,19 @@ in {
             end
 
             brightness:
-              timeout 30  # 1 minute
+              timeout 60  # 1 minute
               command "${pkgs.brightnessctl}/bin/brightnessctl -s set 20"
               resume-command "${pkgs.brightnessctl}/bin/brightnessctl -r"
             end
 
             dpms:
-              timeout 60  # 30 seconds
+              timeout 120  # 30 seconds
               command "${osConfig.programs.niri.package}/bin/niri msg action power-off-monitors"
               resume-command "${osConfig.programs.niri.package}/bin/niri msg action power-on-monitors"
             end
 
             suspend:
-              timeout 120  # 2 minutes
+              timeout 180  # 2 minutes
               command "systemctl suspend"
             end
           end
