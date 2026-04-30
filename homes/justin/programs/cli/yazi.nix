@@ -25,6 +25,15 @@ in {
       manager = {
         show_hidden = true;
       };
+      opener = {
+        edit = [
+          {
+            run = "foot -e $EDITOR %s";
+            block = true;
+            for = "unix";
+          }
+        ];
+      };
       preview = {
         max_width = 1000;
         max_height = 1000;

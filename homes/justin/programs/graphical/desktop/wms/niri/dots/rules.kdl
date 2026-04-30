@@ -8,12 +8,33 @@ window-rule {
 
 window-rule {
   match app-id="spotify"
-  open-on-workspace "misc"
+  open-on-workspace "spotify"
 }
 
 window-rule {
-  match app-id="discord"
-  open-on-workspace "misc"
+  match app-id=r#"(?i)discord"#
+  match app-id="WebCord"
+  open-on-workspace "discord"
+}
+
+window-rule {
+  match app-id="sioyek"
+  open-on-workspace "sioyek"
+}
+
+window-rule {
+  match app-id="zotero"
+  open-on-workspace "zotero"
+}
+
+window-rule {
+  match app-id=r#"(?i)t3code"#
+  open-on-workspace "t3code"
+}
+
+window-rule {
+  match app-id="code"
+  open-on-workspace "vscode"
 }
 
 layer-rule {

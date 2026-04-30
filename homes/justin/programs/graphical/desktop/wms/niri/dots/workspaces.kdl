@@ -1,5 +1,11 @@
 workspace "terminal"
 workspace "browser"
-workspace "misc"
+workspace "misc1"
+workspace "spotify"
+workspace "discord"
+workspace "explorer"
+workspace "t3code"
+workspace "vscode"
+workspace "sioyek"
+workspace "zotero"
 workspace "scratch"
-

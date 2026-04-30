@@ -5,10 +5,11 @@
   lib,
   ...
 }: let
-  inherit (lib) mkDefault mkForce mkOverride mkMerge mkIf optionals isWSL;
+  inherit (lib) filter hasPrefix isWSL mkDefault mkForce mkIf mkMerge mkOverride optionals;
 
   sys = config.modules.system;
   cfg = sys.boot;
+  resumeSwapDevices = filter (sd: sd ? device && hasPrefix "/dev/" sd.device && !hasPrefix "/dev/zram" sd.device) config.swapDevices;
 in {
   config.boot = mkIf (!isWSL config) {
     # kernel console loglevel
@@ -22,6 +23,13 @@ in {
 
     # configuration to be appended to the generated modprobe.conf
     extraModprobeConfig = mkDefault sys.boot.extraModprobeConfig;
+
+    # The systemd initrd path only adds the resume= kernel parameter when
+    # boot.resumeDevice is set explicitly.
+    resumeDevice =
+      mkIf
+      (config.boot.initrd.systemd.enable && builtins.length resumeSwapDevices == 1)
+      (mkDefault (builtins.head resumeSwapDevices).device);
 
     # whether to enable support for Linux MD RAID arrays
     # I don't know why this defaults to true, how many people use RAID anyway?
