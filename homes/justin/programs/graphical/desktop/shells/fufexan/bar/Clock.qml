@@ -15,7 +15,8 @@ WrapperMouseArea {
 
         Text {
             text: Qt.formatDateTime(Utils.clock.date, "ddd MMM d  hh:mm")
-            font.pointSize: 10.3
+            // font.pointSize: 10.3
+            font.pointSize: 10
             font.family: "SF Pro"
             // font.weight: Font.
             font.styleName: "Medium"

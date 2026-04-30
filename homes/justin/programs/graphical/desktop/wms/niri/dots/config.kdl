@@ -311,7 +311,7 @@ debug {
 // See the binds section below for more spawn examples.
 
 // spawn-at-startup "waybar"
-spawn-at-startup "bash" "-c" "/path/to/piri daemon > /dev/null 2>&1 &"
+spawn-at-startup "bash" "-c" "piri daemon > /dev/null 2>&1 &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

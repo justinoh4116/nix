@@ -3,6 +3,7 @@
   pkgs,
   lib,
   config,
+  self,
   inputs,
   ...
 }: let
@@ -15,6 +16,7 @@ in {
   config = lib.mkIf (desktop.enable && cfg.enable) {
     home.packages = [
       pkgs.libnotify
+      self.packages.${pkgs.stdenv.hostPlatform.system}.piri
     ];
     home.file."${config.xdg.configHome}/niri" = {
       source = ./dots;
