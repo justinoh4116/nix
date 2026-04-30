@@ -17,7 +17,7 @@ PanelWindow {
         left: true
         right: true
     }
-    implicitHeight: 30
+    implicitHeight: 32
 
     // color: "#0CAFAFAF"
     color: "transparent"
