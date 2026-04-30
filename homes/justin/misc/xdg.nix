@@ -48,6 +48,8 @@ in {
     dataHome = "${config.home.homeDirectory}/.local/share";
     stateHome = "${config.home.homeDirectory}/.local/state";
 
+    localBinInPath = true;
+
     userDirs = {
       enable = pkgs.stdenv.isLinux;
       setSessionVariables = true;

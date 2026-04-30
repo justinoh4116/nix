@@ -197,6 +197,7 @@ in {
             ".cache/easyeffects"
             ".config/Code"
             ".config/t3code"
+            ".t3"
             ".codex"
             ".vscode"
             ".tmux/resurrect"
