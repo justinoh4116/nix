@@ -38,6 +38,7 @@
       nerd-fonts.iosevka-term
 
       inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
     ];
   };
 }

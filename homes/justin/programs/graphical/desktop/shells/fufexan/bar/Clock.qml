@@ -16,7 +16,7 @@ WrapperMouseArea {
         Text {
             text: Qt.formatDateTime(Utils.clock.date, "ddd MMM d  hh:mm")
             font.pointSize: Config.textSize + 1
-            font.family: "SFProDisplay Nerd Font"
+            font.family: "SFPro Nerd Font"
         }
 
         MaterialIcon {
