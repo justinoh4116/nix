@@ -89,3 +89,9 @@ window-rule {
       active-color "#FA847B"
     }
 }
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="awww-daemon"
+  place-within-backdrop true
+}

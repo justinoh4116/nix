@@ -7,8 +7,10 @@ import qs.bar.Tray
 
 PanelWindow {
     id: barWindow
+    property var barScreen: null
+
     WlrLayershell.namespace: "quickshell:bar"
-    screen: Config.preferredMonitor
+    screen: barScreen ?? Config.preferredMonitor
 
     anchors {
         top: true

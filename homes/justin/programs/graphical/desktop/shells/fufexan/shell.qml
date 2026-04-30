@@ -7,7 +7,15 @@ import qs.sidebar
 import Quickshell // for ShellRoot and PanelWindow
 
 ShellRoot {
-    Bar {}
+    Variants {
+        model: Quickshell.screens
+
+        Bar {
+            required property var modelData
+            barScreen: modelData
+        }
+    }
+
     NotificationOverlay {}
     OSD {}
     Sidebar {}
