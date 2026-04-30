@@ -33,6 +33,11 @@
 
     agenix.url = "github:ryantm/agenix";
 
+    t3code = {
+      url = "github:rodeyseijkens/t3code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     microvm.url = "github:astro/microvm.nix";
 
     # pin fixed freecad

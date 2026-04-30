@@ -216,5 +216,10 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    // choose dynamic cast target
+    Mod+S {spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)";}
+    Mod+Shift+S {set-dynamic-cast-monitor;} // cast current display
+    Mod+Alt+S {clear-dynamic-cast-target;} // stop casting
 }
 

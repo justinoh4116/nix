@@ -33,7 +33,7 @@ in {
 
           # Laptop lid behavior
           lid_close_action "lock-screen"  # lock-screen | suspend | custom | ignore
-          lid_open_action "wake"          # wake | custom | ignore
+          # lid_open_action "wake"          # wake | custom | ignore
 
           # Debounce: default is 3s; can be customized if needed
           #debounce_seconds 4

@@ -23,6 +23,7 @@ Singleton {
     }
 
     property bool darkMode: currentColorScheme !== Qt.ColorScheme.Light
+    // property bool darkMode: false
 
     readonly property color bgBar: darkMode ? Qt.rgba(0, 0, 0, 0.21) : Qt.hsla(0, 0, 0.95, 0.11)
     readonly property color bgBlur: darkMode ? Qt.rgba(0, 0, 0, 0.5) : Qt.hsla(0, 0, 0.95, 0.5)

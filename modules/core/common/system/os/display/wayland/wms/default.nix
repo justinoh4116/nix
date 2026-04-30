@@ -6,6 +6,6 @@
   imports = [
     ./niri
     ./river
-    ./hyprland
+    # ./hyprland
   ];
 }

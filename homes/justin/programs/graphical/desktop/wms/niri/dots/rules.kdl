@@ -24,3 +24,47 @@ layer-rule {
         xray false
     }
 }
+
+layer-rule {
+  match namespace="quickshell:bar"
+  // opacity 0.8
+  background-effect {
+    blur false
+  }
+  shadow {
+    on
+        // off
+        softness 36
+        // spread 3
+        offset x=0 y=-13
+        draw-behind-window true
+        color "#00000054"
+        // inactive-color "#00000064"
+  }
+  block-out-from "screencast" // don't show bar in notifications
+}
+
+layer-rule {
+  match namespace="quickshell:notifications:overlay"
+  match namespace="quickshell:popup"
+  block-out-from "screencast" // don't show notifications in screencast
+}
+
+// Block out password managers from screencasts.
+window-rule {
+    match app-id=r#"^Bitwarden$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+    
+    border {
+      width 2
+      inactive-color "#FA847B"
+      active-color "#FA847B"
+    }
+}

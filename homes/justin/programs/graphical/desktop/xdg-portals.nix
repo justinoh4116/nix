@@ -14,23 +14,46 @@ in {
       # wlr.enable = true;
       config = {
         common = {
+          "org.freedesktop.impl.portal.FileChooser" = [
+            "termfilechooser"
+            "gtk"
+          ];
           default = [
+            # "termfilechooser"
             "gtk"
             "gnome"
           ];
         };
         niri = {
           default = [
+            # "termfilechooser"
             "gtk"
             "gnome"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [
+            "termfilechooser"
+            "gtk"
           ];
         };
       };
     };
     xdg.portal.extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-termfilechooser
       pkgs.xdg-desktop-portal-gtk
     ];
+
+    # xdg.configFile."xdg-desktop-portal-termfilechooser/config".source =
+    #   (pkgs.formats.ini {}).generate "config"
+    #   {
+    #     filechooser = {
+    #       cmd = "${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh";
+    #       default_dir = "$HOME";
+    #       env = ''TERMCMD='wezterm start -e' '';
+    #       open_mode = "suggested";
+    #       save_mode = "last";
+    #     };
+    #   };
+
     # xdg.portal = {
     #   enable = true;
     #

@@ -38,11 +38,6 @@ in {
               connectionToggleable = true;
             };
           };
-          "applications" = {
-            preferences = {
-              # launchPrefix = "uwsm app -- ";
-            };
-          };
         };
       };
 

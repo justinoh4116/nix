@@ -15,8 +15,9 @@ PanelWindow {
         left: true
         right: true
     }
-    implicitHeight: 32
+    implicitHeight: 30
 
+    // color: "#0CAFAFAF"
     color: "transparent"
 
     Rectangle {

@@ -13,7 +13,7 @@ in {
     };
 
     security.pam.services = {
-      login.fprintAuth = true;
+      # login.fprintAuth = true;
       swaylock.fprintAuth = true;
     };
   };
