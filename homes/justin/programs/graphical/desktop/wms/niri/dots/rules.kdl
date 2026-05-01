@@ -57,9 +57,9 @@ layer-rule {
         // off
         softness 36
         // spread 3
-        offset x=0 y=-13
+        offset x=0 y=-9
         draw-behind-window true
-        color "#00000054"
+        color "#00000045"
         // inactive-color "#00000064"
   }
   block-out-from "screencast" // don't show bar in notifications
