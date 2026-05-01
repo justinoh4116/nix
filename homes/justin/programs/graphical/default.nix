@@ -81,6 +81,7 @@
       ]
       ++ [
         # pkgs-stable.spotify
+        inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
     services.easyeffects = {
