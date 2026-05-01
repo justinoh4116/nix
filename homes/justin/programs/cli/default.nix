@@ -36,6 +36,7 @@
       cmake
       rustup
       fzf
+      skim
       file
       unzip
       ripgrep

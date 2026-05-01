@@ -28,13 +28,16 @@
           "proxy"
           "--port"
           "8787"
+          "--mode"
+          "token"
           "--no-telemetry"
         ];
         Environment = [
           "HEADROOM_TELEMETRY=off"
           "HEADROOM_HOST=127.0.0.1"
           "HEADROOM_PORT=8787"
-          "HEADROOM_MODE=cost_savings"
+          # `cost_savings` is a legacy alias that maps to cache mode in headroom 0.5.20.
+          "HEADROOM_MODE=token"
           "ORT_LOG_LEVEL=3" # suppress onnxruntime provider bridge warnings (no CUDA on AMD GPU)
           # Chain: Claude → headroom (8787) → better-ccflare (8788) → api.anthropic.com.
           # headroom's click CLI reads this via os.environ.get("ANTHROPIC_TARGET_API_URL")

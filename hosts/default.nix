@@ -70,19 +70,19 @@
         ];
       };
     };
-    framework = mkNixosSystem {
-      inherit withSystem;
-      hostname = "framework";
-      system = "x86_64-linux";
-      modules = mkModulesFor "framework" {
-        roles = [laptop workstation];
-        extraModules = [
-          homes
-          agenix
-          hw.framework-13-7040-amd
-        ];
-      };
-    };
+    # framework = mkNixosSystem {
+    #   inherit withSystem;
+    #   hostname = "framework";
+    #   system = "x86_64-linux";
+    #   modules = mkModulesFor "framework" {
+    #     roles = [laptop workstation];
+    #     extraModules = [
+    #       homes
+    #       agenix
+    #       hw.framework-13-7040-amd
+    #     ];
+    #   };
+    # };
     iceberg = mkNixosSystem {
       inherit withSystem;
       hostname = "iceberg";

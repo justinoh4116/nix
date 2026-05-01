@@ -25,4 +25,17 @@ return {
 		--     lazy = true,
 		-- },
 	},
+	opts = {
+		defaults = {
+			sorting_strategy = "ascending",
+			layout_strategy = "horizontal",
+			layout_config = {
+				width = 0.95,
+				height = 0.9,
+				horizontal = {
+					prompt_position = "top",
+				},
+			},
+		},
+	},
 }

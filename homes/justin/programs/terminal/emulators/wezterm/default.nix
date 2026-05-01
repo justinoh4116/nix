@@ -69,7 +69,39 @@ in {
          scrollback_lines = 10000,
 
          -- colors
-         color_scheme = "Tokyo Night (Gogh)",
+         color_schemes = {
+           Vague = {
+             foreground = "#cdcdcd",
+             background = "#141415",
+             cursor_bg = "#cdcdcd",
+             cursor_fg = "#141415",
+             cursor_border = "#cdcdcd",
+             selection_fg = "#cdcdcd",
+             selection_bg = "#333738",
+             split = "#252530",
+             ansi = {
+               "#252530",
+               "#d8647e",
+               "#7fa563",
+               "#f3be7c",
+               "#6e94b2",
+               "#bb9dbd",
+               "#b4d4cf",
+               "#cdcdcd",
+             },
+             brights = {
+               "#606079",
+               "#d8647e",
+               "#7fa563",
+               "#f3be7c",
+               "#7e98e8",
+               "#aeaed1",
+               "#9bb4bc",
+               "#ffffff",
+             },
+           },
+         },
+         color_scheme = "Vague",
         }
 
         return baseConfig

@@ -80,7 +80,7 @@
       };
     };
     services.logind.settings.Login = {
-      HandlePowerKey = "ignore";
+      HandlePowerKey = "sleep";
       HandleLidSwitch = "ignore";
       HandleLidSwitchExternalPower = "ignore";
       HandleLidSwitchDocked = "ignore";

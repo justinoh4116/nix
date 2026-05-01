@@ -2,8 +2,18 @@
   config,
   inputs,
   pkgs,
+  lib,
   ...
-}: {
+}: let
+  currentWallpaper = "${config.home.homeDirectory}/.current_wallpaper";
+  lockBeforeSleep = pkgs.writeShellScript "hyprlock-before-sleep" ''
+    if ! ${pkgs.procps}/bin/pidof hyprlock >/dev/null; then
+      ${lib.getExe config.programs.hyprlock.package} >/dev/null 2>&1 &
+    fi
+
+    ${pkgs.coreutils}/bin/sleep 1
+  '';
+in {
   programs.hyprlock = {
     enable = true;
 
@@ -23,6 +33,7 @@
       background = [
         {
           monitor = "";
+          path = currentWallpaper;
         }
       ];
 
@@ -90,5 +101,20 @@
         }
       ];
     };
+  };
+
+  systemd.user.services.hyprlock-before-sleep = {
+    Unit = {
+      Description = "Start hyprlock before suspend";
+      PartOf = ["sleep.target"];
+      Before = ["sleep.target"];
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = lockBeforeSleep;
+    };
+
+    Install.WantedBy = ["sleep.target"];
   };
 }
