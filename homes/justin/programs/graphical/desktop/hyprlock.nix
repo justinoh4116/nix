@@ -33,6 +33,12 @@ in {
         no_fade_in = true;
       };
 
+      auth = {
+        fingerprint = {
+          enable = true;
+        };
+      };
+
       animation = [
         "inputFieldDots, 1, 2, linear"
         "fadeIn, 0"
