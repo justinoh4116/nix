@@ -63,7 +63,7 @@
         browsers.floorp.enable = true;
 
         default = {
-          browser = "floorp";
+          browser = "helium";
           launcher = "anyrun";
           editor = "neovim";
         };

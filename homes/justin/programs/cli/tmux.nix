@@ -197,81 +197,79 @@ in {
     ];
 
     extraConfig = ''
-      # change leader
-          set -g prefix C-Space
-          unbind C-b
+            # change leader
+                set -g prefix C-Space
+                unbind C-b
 
 
-                        # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-                        set -g default-terminal "xterm-256color"
-                        set -ga terminal-overrides ",*256col*:Tc"
-                        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-                        set-environment -g COLORTERM "truecolor"
+                              # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+                              set -g default-terminal "xterm-256color"
+                              set -ga terminal-overrides ",*256col*:Tc"
+                              set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+                              set-environment -g COLORTERM "truecolor"
 
-                        # easy-to-remember split pane commands
-                        bind | split-window -h -c "#{pane_current_path}"
-                        bind - split-window -v -c "#{pane_current_path}"
-                        bind C new-window -c "#{pane_current_path}"
+                              # easy-to-remember split pane commands
+                              bind | split-window -h -c "#{pane_current_path}"
+                              bind - split-window -v -c "#{pane_current_path}"
+                              bind c new-window -c "#{pane_current_path}"
 
-                        bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
-                        bind x kill-window
-                        set -g renumber-windows on
+                              bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
+                              bind x kill-window
+                              set -g renumber-windows on
 
-                        # vim navigation
-                        bind h select-pane -L
-                        bind j select-pane -D
-                        bind k select-pane -U
-                        bind l select-pane -R
+                              # vim navigation
+                              bind h select-pane -L
+                              bind j select-pane -D
+                              bind k select-pane -U
+                              bind l select-pane -R
 
-                        # Alt+hjkl to switch panes without prefix
-                        bind -n M-h select-pane -L
-                        bind -n M-j select-pane -D
-                        bind -n M-k select-pane -U
-                        bind -n M-l select-pane -R
+                              # Alt+hjkl to switch panes without prefix
+                              bind -n M-h select-pane -L
+                              bind -n M-j select-pane -D
+                              bind -n M-k select-pane -U
+                              bind -n M-l select-pane -R
 
-                        # Alt+number to select window
-                        bind -n M-1 select-window -t 1
-                        bind -n M-2 select-window -t 2
-                        bind -n M-3 select-window -t 3
-                        bind -n M-4 select-window -t 4
-                        bind -n M-5 select-window -t 5
-                        bind -n M-6 select-window -t 6
-                        bind -n M-7 select-window -t 7
-                        bind -n M-8 select-window -t 8
-                        bind -n M-9 select-window -t 9
+                              # Alt+number to select window
+                              bind -n M-1 select-window -t 1
+                              bind -n M-2 select-window -t 2
+                              bind -n M-3 select-window -t 3
+                              bind -n M-4 select-window -t 4
+                              bind -n M-5 select-window -t 5
+                              bind -n M-6 select-window -t 6
+                              bind -n M-7 select-window -t 7
+                              bind -n M-8 select-window -t 8
+                              bind -n M-9 select-window -t 9
 
-                  # session and project shortcuts
-                  bind c run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
-                  bind f display-popup -E "${lib.getExe sessionizer}"
-                  bind t display-popup -E "${lib.getExe sessionizer}"
-                  bind p display-popup -E "${lib.getExe pdfPicker}"
+                        # session and project shortcuts
+                        bind c run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
+                        bind f display-popup -E "${lib.getExe sessionizer}"
+                        bind t display-popup -E "${lib.getExe sessionizer}"
+                        bind p display-popup -E "${lib.getExe pdfPicker}"
 
-                  # Vim-like copy/paste
-                  set-window-option -g mode-keys vi
-                        bind-key -T copy-mode-vi v send-keys -X begin-selection
-                        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-                        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-                        unbind -T copy-mode-vi MouseDragEnd1Pane
-
-
-                        set -g status-position top
-            set -g status-justify absolute-centre
-            set -g status-style "bg=default"
-            set -g status-left-style "bg=default"
-            set -g status-right-style "bg=default"
-            set -g window-status-style "bg=default"
-            set -g window-status-current-style "fg=colour255,bg=default,bold"
-            set -g window-status-separator ""
-            set -g window-status-format "#[fg=colour240]#[default] #I:#W#{?window_flags,#{window_flags},} #[fg=colour240]#[default]"
-            set -g window-status-current-format "#[fg=colour252]#[default] #I:#W#{?window_flags,#{window_flags},} #[fg=colour252]#[default]"
-            set -g status-interval 5
-            set -g status-left "#S"
-            set -g status-right ""
+                        # Vim-like copy/paste
+                        set-window-option -g mode-keys vi
+                              bind-key -T copy-mode-vi v send-keys -X begin-selection
+                              bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+                              bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+                              unbind -T copy-mode-vi MouseDragEnd1Pane
 
 
-                  # Modes
-                        set -g clock-mode-colour "''${thm_blue}"
-                        set -g mode-style "fg=''${thm_blue} bg=''${thm_black4} bold"
+                              set -g status-position top
+      set -g status-justify absolute-centre
+      set -g status-style "bg=default"
+      set -g window-status-current-style "fg=black bg=white"
+      set -g window-status-current-style "fg=colour255,bg=default,bold"
+      set -g window-status-separator ""
+      set -g window-status-format "#[fg=colour240]#[default] #I:#W#{?window_flags,#{window_flags},} #[fg=colour240]#[default]"
+      set -g window-status-current-format "#[fg=colour252]#[default] #I:#W#{?window_flags,#{window_flags},} #[fg=colour252]#[default]"
+      set -g status-interval 5
+      set -g status-left "#S"
+      set -g status-right ""
+
+
+                        # Modes
+                              set -g clock-mode-colour "''${thm_blue}"
+                              set -g mode-style "fg=''${thm_blue} bg=''${thm_black4} bold"
 
 
     '';

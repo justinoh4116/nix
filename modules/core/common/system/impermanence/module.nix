@@ -164,7 +164,7 @@ in {
             ".local/state/vicinae"
             ".cache/vicinae"
 
-            ".config/tms"
+            ".config/net.imput.helium"
             ".zen"
             ".mozilla"
             ".floorp"

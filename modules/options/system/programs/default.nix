@@ -50,7 +50,7 @@ in {
     # default programs
     default = {
       browser = mkOption {
-        type = enum ["chromium" "zen" "nyxt" "firefox" "floorp"];
+        type = enum ["chromium" "zen" "nyxt" "firefox" "floorp" "helium"];
         default = "floorp";
       };
       terminal = mkOption {

@@ -368,7 +368,8 @@ window-rule {
 }
 
 window-rule {
-  match app-id="floorp"
+  match app-id="helium"
+  match app-id="net.imput.helium"
   draw-border-with-background false
 }
 

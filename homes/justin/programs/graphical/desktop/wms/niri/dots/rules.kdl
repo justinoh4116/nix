@@ -1,5 +1,6 @@
 window-rule {
-  match app-id="zen-beta"
+  match app-id="helium"
+  match app-id="net.imput.helium"
   // popups {
   //   open-floating true
   // }

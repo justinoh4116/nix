@@ -77,11 +77,12 @@ return {
 				"",
 			},
 			layout_config = {
-				width = 0.9,
-				height = 0.85,
+				width = 0.97,
+				height = 0.94,
 				preview_cutoff = 40,
 				horizontal = {
 					prompt_position = "top",
+					preview_width = 0.58,
 				},
 			},
 			prompt_title = false,

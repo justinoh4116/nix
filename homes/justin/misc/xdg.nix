@@ -5,8 +5,18 @@
   osConfig,
   ...
 }: let
-  # browser = ["${osConfig.modules.system.programs.default.browser}.desktop"];
-  browser = ["zen-beta.desktop"];
+  browserDesktopEntry =
+    {
+      chromium = "chromium-browser.desktop";
+      zen = "zen-beta.desktop";
+      nyxt = "nyxt.desktop";
+      firefox = "firefox.desktop";
+      floorp = "floorp.desktop";
+      helium = "helium.desktop";
+    }.${
+      osConfig.modules.system.programs.default.browser
+    };
+  browser = [browserDesktopEntry];
   mailer = ["thunderbird.desktop"];
   zathura = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];
