@@ -2,6 +2,7 @@ binds {
     Mod+Space hotkey-overlay-title="Vicinae launcher" { spawn-sh "vicinae toggle"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn-sh "wezterm"; }
+    Mod+X repeat=false hotkey-overlay-title="Power menu" { spawn "wlogout" "-p" "layer-shell"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

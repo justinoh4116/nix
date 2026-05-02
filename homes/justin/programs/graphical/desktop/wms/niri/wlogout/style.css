@@ -1,0 +1,32 @@
+* {
+  background-image: none;
+  box-shadow: none;
+}
+
+window {
+  background-color: rgba(12, 12, 14, 0.82);
+}
+
+button {
+  color: #f4f4f5;
+  background-color: rgba(28, 28, 32, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  margin: 12px;
+  padding: 22px 30px;
+  font-size: 18px;
+}
+
+button:hover,
+button:focus {
+  background-color: rgba(48, 48, 54, 0.98);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+button:first-child {
+  margin-left: 24px;
+}
+
+button:last-child {
+  margin-right: 24px;
+}
