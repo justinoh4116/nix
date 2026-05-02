@@ -5,10 +5,7 @@ empty = true
 command = "wezterm"
 
 [empty.browser]
-command = "helium"
-
-[empty.misc1]
-command = "wezterm"
+command = "zen-beta"
 
 [empty.spotify]
 command = "spotify"
