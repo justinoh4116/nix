@@ -13,8 +13,8 @@ in {
       options = ["subvol=/" "noatime"];
     };
 
-    # snapshots in safe are real snapshots
-    # snapshots in local are old roots
+    # snapshots in safe are recurring btrbk snapshots
+    # old reset archives live in local
 
     systemd.tmpfiles.rules = [
       "d /btrfs/safe/snapshots 0755 root root -"

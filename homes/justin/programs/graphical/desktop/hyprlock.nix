@@ -6,12 +6,20 @@
   ...
 }: let
   currentWallpaper = "${config.home.homeDirectory}/.current_wallpaper";
-  lockBeforeSleep = pkgs.writeShellScript "hyprlock-before-sleep" ''
-    if ! ${pkgs.procps}/bin/pidof hyprlock >/dev/null; then
-      ${lib.getExe config.programs.hyprlock.package} >/dev/null 2>&1 &
-    fi
+  sleepTargets = [
+    "suspend.target"
+    "hibernate.target"
+    "hybrid-sleep.target"
+    "suspend-then-hibernate.target"
+  ];
+  waitForLock = pkgs.writeShellScript "wait-for-hyprlock" ''
+    for _ in $(${pkgs.coreutils}/bin/seq 1 20); do
+      if ${pkgs.procps}/bin/pidof hyprlock >/dev/null; then
+        exit 0
+      fi
 
-    ${pkgs.coreutils}/bin/sleep 1
+      ${pkgs.coreutils}/bin/sleep 0.1
+    done
   '';
 in {
   programs.hyprlock = {
@@ -103,18 +111,33 @@ in {
     };
   };
 
+  systemd.user.services.hyprlock = {
+    Unit = {
+      Description = "Hyprlock";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
+    };
+
+    Service = {
+      ExecStart = lib.getExe config.programs.hyprlock.package;
+    };
+
+    Install.WantedBy = ["lock.target"];
+  };
+
   systemd.user.services.hyprlock-before-sleep = {
     Unit = {
-      Description = "Start hyprlock before suspend";
-      PartOf = ["sleep.target"];
-      Before = ["sleep.target"];
+      Description = "Start hyprlock before sleep";
+      PartOf = sleepTargets;
+      Before = sleepTargets;
     };
 
     Service = {
       Type = "oneshot";
-      ExecStart = lockBeforeSleep;
+      ExecStart = "${pkgs.systemd}/bin/systemctl --user --no-block start lock.target";
+      ExecStartPost = waitForLock;
     };
 
-    Install.WantedBy = ["sleep.target"];
+    Install.WantedBy = sleepTargets;
   };
 }

@@ -241,7 +241,7 @@ in {
                               bind -n M-9 select-window -t 9
 
                         # session and project shortcuts
-                        bind c run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
+                        bind n run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
                         bind f display-popup -E "${lib.getExe sessionizer}"
                         bind t display-popup -E "${lib.getExe sessionizer}"
                         bind p display-popup -E "${lib.getExe pdfPicker}"
@@ -265,13 +265,6 @@ in {
       set -g status-interval 5
       set -g status-left "#S"
       set -g status-right ""
-
-
-                        # Modes
-                              set -g clock-mode-colour "''${thm_blue}"
-                              set -g mode-style "fg=''${thm_blue} bg=''${thm_black4} bold"
-
-
     '';
   };
 }

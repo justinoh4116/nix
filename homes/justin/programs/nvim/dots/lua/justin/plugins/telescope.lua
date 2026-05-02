@@ -85,7 +85,7 @@ return {
 					preview_width = 0.58,
 				},
 			},
-			prompt_title = false,
+			prompt_title = true,
 			results_title = false,
 			preview_title = false,
 		},

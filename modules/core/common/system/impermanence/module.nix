@@ -16,120 +16,121 @@ in {
   ];
 
   config = mkIf (cfg.enable && !isWSL config) {
-    # boot.initrd.systemd = lib.mkIf sys.fs.btrfs.enable {
-    #   services.impermanence-btrfs = {
-    #     description = "Impermanence Btrfs cleanup service";
-    #     unitConfig.DefaultDependencies = false;
-    #     requiredBy = ["sysroot.mount"];
-    #     requires = ["initrd-root-device.target"];
-    #     before = ["sysroot.mount"];
-    #     after = [
-    #       "initrd-root-device.target"
-    #       "systemd-hibernate-resume.service"
-    #     ];
-    #     serviceConfig = {
-    #       Type = "oneshot";
-    #       StandardOutput = "journal+console";
-    #       StandardError = "journal+console";
-    #     };
-    #     script = ''
-    #       set -euo pipefail
-    #
-    #       mounted=0
-    #       cleanup() {
-    #         if (( mounted )); then
-    #           umount /btrfs_tmp
-    #         fi
-    #       }
-    #       trap cleanup EXIT
-    #
-    #       mkdir -p /btrfs_tmp
-    #       echo "[cleanup] Mounting ${config.fileSystems."/".device} at /btrfs_tmp"
-    #       mount -o subvol=/ ${config.fileSystems."/".device} /btrfs_tmp
-    #       mounted=1
-    #
-    #       mkdir -p /btrfs_tmp/local/snapshots/root
-    #
-    #       if [[ -e /btrfs_tmp/local/root ]]; then
-    #         timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/local/root)" "+%Y-%m-%d_%H:%M:%S")
-    #         echo "[cleanup] Found /btrfs_tmp/local/root, moving to /btrfs_tmp/local/snapshots/root/$timestamp"
-    #         mv /btrfs_tmp/local/root "/btrfs_tmp/local/snapshots/root/$timestamp"
-    #       else
-    #         echo "[cleanup] /btrfs_tmp/local/root does not exist, skipping move"
-    #       fi
-    #
-    #       delete_subvolume_recursively() {
-    #         local subvol="$1"
-    #
-    #         while IFS= read -r nested; do
-    #           echo "[cleanup] Recursively deleting subvolume /btrfs_tmp/$nested"
-    #           delete_subvolume_recursively "/btrfs_tmp/$nested"
-    #         done < <(btrfs subvolume list -o "$subvol" | cut -f 9- -d ' ')
-    #
-    #         echo "[cleanup] Deleting subvolume $subvol"
-    #         btrfs subvolume delete "$subvol"
-    #       }
-    #
-    #       cleanup_snapshots() {
-    #         local target_dir="$1"
-    #         local snapshot_count
-    #
-    #         [[ -d "$target_dir" ]] || return
-    #
-    #         snapshot_count=$(find "$target_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
-    #
-    #         while IFS= read -r snapshot; do
-    #           if (( snapshot_count <= 10 )); then
-    #             break
-    #           fi
-    #
-    #           if [[ $(find "$snapshot" -maxdepth 0 -mtime +30) ]]; then
-    #             delete_subvolume_recursively "$snapshot"
-    #             snapshot_count=$((snapshot_count - 1))
-    #           fi
-    #         done < <(
-    #           find "$target_dir" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
-    #             | sort -n \
-    #             | cut -d' ' -f2-
-    #         )
-    #       }
-    #
-    #       cleanup_snapshots /btrfs_tmp/local/snapshots/root
-    #
-    #       echo "[cleanup] Creating new subvolume /btrfs_tmp/local/root"
-    #       btrfs subvolume create /btrfs_tmp/local/root
-    #
-    #       mkdir -p /btrfs_tmp/local/snapshots/home
-    #
-    #       if [[ -e /btrfs_tmp/safe/home ]]; then
-    #         timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/safe/home)" "+%Y-%m-%d_%H:%M:%S")
-    #         echo "[cleanup] Found /btrfs_tmp/safe/home, moving to /btrfs_tmp/local/snapshots/home/$timestamp"
-    #         mv /btrfs_tmp/safe/home "/btrfs_tmp/local/snapshots/home/$timestamp"
-    #       else
-    #         echo "[cleanup] /btrfs_tmp/safe/home does not exist, skipping move"
-    #       fi
-    #
-    #       cleanup_snapshots /btrfs_tmp/local/snapshots/home
-    #
-    #       echo "[cleanup] Creating new subvolume /btrfs_tmp/safe/home"
-    #       btrfs subvolume create /btrfs_tmp/safe/home
-    #     '';
-    #   };
-    #
-    #   extraBin = {
-    #     bash = "${pkgs.bash}/bin/bash";
-    #     btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
-    #     cut = "${pkgs.coreutils}/bin/cut";
-    #     date = "${pkgs.coreutils}/bin/date";
-    #     echo = "${pkgs.coreutils}/bin/echo";
-    #     find = "${pkgs.findutils}/bin/find";
-    #     mkdir = "${pkgs.coreutils}/bin/mkdir";
-    #     mv = "${pkgs.coreutils}/bin/mv";
-    #     sort = "${pkgs.coreutils}/bin/sort";
-    #     stat = "${pkgs.coreutils}/bin/stat";
-    #     wc = "${pkgs.coreutils}/bin/wc";
-    #   };
-    # };
+    boot.initrd.systemd = lib.mkIf sys.fs.btrfs.enable {
+      services.impermanence-btrfs = {
+        description = "Impermanence Btrfs cleanup service";
+        unitConfig.DefaultDependencies = false;
+        requiredBy = ["sysroot.mount"];
+        requires = ["initrd-root-device.target"];
+        before = ["sysroot.mount"];
+        after = [
+          "initrd-root-device.target"
+          "systemd-hibernate-resume.service"
+        ];
+        serviceConfig = {
+          Type = "oneshot";
+          StandardOutput = "journal+console";
+          StandardError = "journal+console";
+        };
+        script = ''
+          set -euo pipefail
+
+          tmp_mount=/btrfs_tmp
+          root_subvol="$tmp_mount/local/root"
+          root_archives="$tmp_mount/local/old_roots"
+          home_subvol="$tmp_mount/safe/home"
+          home_archives="$tmp_mount/local/old_homes"
+
+          mounted=0
+          cleanup() {
+            if (( mounted )); then
+              umount "$tmp_mount"
+            fi
+          }
+          trap cleanup EXIT
+
+          mkdir -p "$tmp_mount"
+          echo "[cleanup] Mounting ${config.fileSystems."/".device} at $tmp_mount"
+          mount -o subvol=/ ${config.fileSystems."/".device} "$tmp_mount"
+          mounted=1
+
+          delete_subvolume_recursively() {
+            local subvol="$1"
+            local nested
+
+            while IFS= read -r nested; do
+              [[ -n "$nested" ]] || continue
+              echo "[cleanup] Recursively deleting subvolume $tmp_mount/$nested"
+              delete_subvolume_recursively "$tmp_mount/$nested"
+            done < <(btrfs subvolume list -o "$subvol" | cut -f 9- -d ' ')
+
+            echo "[cleanup] Deleting subvolume $subvol"
+            btrfs subvolume delete "$subvol"
+          }
+
+          cleanup_archives() {
+            local target_dir="$1"
+            local archive_count
+
+            [[ -d "$target_dir" ]] || return
+
+            archive_count=$(find "$target_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+            while IFS= read -r archive; do
+              if (( archive_count <= 10 )); then
+                break
+              fi
+
+              delete_subvolume_recursively "$archive"
+              archive_count=$((archive_count - 1))
+            done < <(
+              find "$target_dir" -mindepth 1 -maxdepth 1 -type d -mtime +30 -printf '%T@ %p\n' \
+                | sort -n \
+                | cut -d' ' -f2-
+            )
+          }
+
+          rotate_subvolume() {
+            local source="$1"
+            local archive_dir="$2"
+            local label="$3"
+            local timestamp
+
+            mkdir -p "$archive_dir"
+
+            if [[ -e "$source" ]]; then
+              timestamp=$(date --date="@$(stat -c %Y "$source")" "+%Y-%m-%d_%H-%M-%S")
+              echo "[cleanup] Found $source, moving to $archive_dir/$timestamp"
+              mv "$source" "$archive_dir/$timestamp"
+            else
+              echo "[cleanup] $source does not exist, skipping move"
+            fi
+
+            cleanup_archives "$archive_dir"
+
+            echo "[cleanup] Creating new subvolume $source for $label"
+            btrfs subvolume create "$source"
+          }
+
+          rotate_subvolume "$root_subvol" "$root_archives" root
+          rotate_subvolume "$home_subvol" "$home_archives" home
+        '';
+      };
+
+      extraBin = {
+        bash = "${pkgs.bash}/bin/bash";
+        btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+        cut = "${pkgs.coreutils}/bin/cut";
+        date = "${pkgs.coreutils}/bin/date";
+        echo = "${pkgs.coreutils}/bin/echo";
+        find = "${pkgs.findutils}/bin/find";
+        mkdir = "${pkgs.coreutils}/bin/mkdir";
+        mv = "${pkgs.coreutils}/bin/mv";
+        sort = "${pkgs.coreutils}/bin/sort";
+        stat = "${pkgs.coreutils}/bin/stat";
+        wc = "${pkgs.coreutils}/bin/wc";
+      };
+    };
 
     environment.persistence."/persist" = {
       enable = cfg.root.enable;
