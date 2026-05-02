@@ -23,6 +23,7 @@ in {
 
     settings = {
       manager = {
+        sort_by = "mtime";
         show_hidden = true;
       };
       opener = {

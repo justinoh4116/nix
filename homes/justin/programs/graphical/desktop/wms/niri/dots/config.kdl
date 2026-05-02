@@ -313,6 +313,9 @@ debug {
 // spawn-at-startup "waybar"
 spawn-at-startup "bash" "-c" "piri daemon > /dev/null 2>&1 &"
 spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/pixel hill cloud.png\"; ln -sfn \"$wallpaper\" \"$HOME/.current_wallpaper\"; until awww query >/dev/null 2>&1; do sleep 0.2; done; awww img \"$wallpaper\""
+spawn-at-startup "wezterm"
+spawn-at-startup "zen-beta"
+spawn-at-startup "sioyek"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
