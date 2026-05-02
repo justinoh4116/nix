@@ -191,7 +191,7 @@ layout {
         off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 3
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -229,7 +229,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         // off
 
-        width 1
+        width 2
         active-color "#88888888"
         inactive-color "#00000088"
 
@@ -262,7 +262,7 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 6
+        softness 36
 
         // Spread expands the shadow.
         spread 6 
@@ -319,7 +319,7 @@ spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/pixel hill cloud
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.

@@ -35,7 +35,7 @@
 
       video.enable = true;
       sound.enable = true;
-      bluetooth.enable = true;
+      bluetooth.enable = false;
       printing.enable = true;
 
       networking = {

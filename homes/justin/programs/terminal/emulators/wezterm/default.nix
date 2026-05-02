@@ -28,8 +28,12 @@ in {
            -- Use one of these
            -- { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'Backspace', mods = 'ALT'} },
            -- most Linux shells use Alt + backspace instead for word backspace
-           { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'w', mods = 'CTRL'} }
+           { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'w', mods = 'CTRL'} },
            -- most Linux shells use Ctrl + w instead for word delete
+
+           { key = 't', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 't'} } },
+           { key = 'p', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 'p'} } },
+           { key = 'c', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 'c'} } }
          },
 
          -- anims

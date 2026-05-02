@@ -84,7 +84,7 @@ window-rule {
     match is-window-cast-target=true
     
     border {
-      width 2
+      width 3
       inactive-color "#FA847B"
       active-color "#FA847B"
     }

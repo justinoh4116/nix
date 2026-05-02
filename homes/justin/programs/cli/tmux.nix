@@ -211,7 +211,11 @@ in {
                         # easy-to-remember split pane commands
                         bind | split-window -h -c "#{pane_current_path}"
                         bind - split-window -v -c "#{pane_current_path}"
-                        bind c new-window -c "#{pane_current_path}"
+                        bind C new-window -c "#{pane_current_path}"
+
+                        bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
+                        bind x kill-window
+                        set -g renumber-windows on
 
                         # vim navigation
                         bind h select-pane -L
@@ -236,7 +240,9 @@ in {
                         bind -n M-8 select-window -t 8
                         bind -n M-9 select-window -t 9
 
-                  # session picker
+                  # session and project shortcuts
+                  bind c run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
+                  bind f display-popup -E "${lib.getExe sessionizer}"
                   bind t display-popup -E "${lib.getExe sessionizer}"
                   bind p display-popup -E "${lib.getExe pdfPicker}"
 
@@ -251,7 +257,9 @@ in {
                         set -g status-position top
             set -g status-justify absolute-centre
             set -g status-style "bg=default"
-            set -g window-status-current-style "fg=black bg=white  "
+            set -g status-left-style "bg=default"
+            set -g status-right-style "bg=default"
+            set -g window-status-style "bg=default"
             set -g window-status-current-style "fg=colour255,bg=default,bold"
             set -g window-status-separator ""
             set -g window-status-format "#[fg=colour240]#[default] #I:#W#{?window_flags,#{window_flags},} #[fg=colour240]#[default]"
