@@ -6,36 +6,21 @@
   ...
 }: let
   currentWallpaper = "${config.home.homeDirectory}/.current_wallpaper";
-  sleepTargets = [
-    "suspend.target"
-    "hibernate.target"
-    "hybrid-sleep.target"
-    "suspend-then-hibernate.target"
-  ];
-  waitForLock = pkgs.writeShellScript "wait-for-hyprlock" ''
-    for _ in $(${pkgs.coreutils}/bin/seq 1 20); do
-      if ${pkgs.procps}/bin/pidof hyprlock >/dev/null; then
-        exit 0
-      fi
-
-      ${pkgs.coreutils}/bin/sleep 0.1
-    done
-  '';
 in {
   programs.hyprlock = {
     enable = true;
 
     settings = {
       general = {
-        disable_loading_bar = true;
+        # disable_loading_bar = true;
         immediate_render = true;
         hide_cursor = false;
-        no_fade_in = true;
+        # no_fade_in = true;
       };
 
       auth = {
         fingerprint = {
-          enable = true;
+          enabled = true;
         };
       };
 
@@ -72,7 +57,7 @@ in {
 
           dots_spacing = 0.2;
           dots_center = true;
-          dots_fade_time = 100;
+          # dots_fade_time = 100;
 
           shadow_color = "rgba(0, 0, 0, 0.1)";
           shadow_size = 7;
@@ -126,8 +111,8 @@ in {
   systemd.user.services.hyprlock = {
     Unit = {
       Description = "Hyprlock";
-      PartOf = ["graphical-session.target"];
-      After = ["graphical-session.target"];
+      # PartOf = ["graphical-session.target"];
+      # After = ["graphical-session.target"];
     };
 
     Service = {
@@ -135,21 +120,5 @@ in {
     };
 
     Install.WantedBy = ["lock.target"];
-  };
-
-  systemd.user.services.hyprlock-before-sleep = {
-    Unit = {
-      Description = "Start hyprlock before sleep";
-      PartOf = sleepTargets;
-      Before = sleepTargets;
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.systemd}/bin/systemctl --user --no-block start lock.target";
-      ExecStartPost = waitForLock;
-    };
-
-    Install.WantedBy = sleepTargets;
   };
 }
