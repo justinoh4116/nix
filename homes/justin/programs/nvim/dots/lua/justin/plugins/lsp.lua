@@ -60,6 +60,12 @@ return {
 			-- end)
 
 			-- PUT THE LSPs HERE
+			vim.lsp.config("tinymist", {
+				settings = {
+					formatterMode = "typstyle",
+				},
+			})
+
 			vim.lsp.enable("arduino_language_server")
 			vim.lsp.enable("nil_ls")
 			vim.lsp.enable("ts_ls")
@@ -69,6 +75,7 @@ return {
 			vim.lsp.enable("verible")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("tinymist")
 			vim.lsp.enable("")
 
 			vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)

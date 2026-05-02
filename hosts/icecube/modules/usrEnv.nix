@@ -27,6 +27,7 @@
     programs = {
       latex.enable = true;
       nvim.neovide.enable = true;
+      typst.enable = true;
     };
 
     services = {

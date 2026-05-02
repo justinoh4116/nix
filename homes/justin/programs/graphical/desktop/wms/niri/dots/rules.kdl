@@ -1,10 +1,16 @@
 window-rule {
   match app-id="helium"
   match app-id="net.imput.helium"
+  match app-id=r#"^zen(-beta)?$"#
   // popups {
   //   open-floating true
   // }
   open-on-workspace "browser"
+}
+
+window-rule {
+  match app-id=r#"^(org\.wezfurlong\.wezterm|wezterm)$"#
+  open-on-workspace "terminal"
 }
 
 window-rule {
