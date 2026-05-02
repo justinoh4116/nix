@@ -111,6 +111,12 @@ in {
     };
   };
 
+  systemd.user.targets.lock = {
+    Unit = {
+      Description = "Lock session target";
+    };
+  };
+
   systemd.user.services.hyprlock = {
     Unit = {
       Description = "Hyprlock";
