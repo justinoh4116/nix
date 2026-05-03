@@ -35,7 +35,7 @@
 
       video.enable = true;
       sound.enable = true;
-      bluetooth.enable = false;
+      bluetooth.enable = true;
       printing.enable = true;
 
       networking = {
@@ -84,6 +84,34 @@
       HandleLidSwitch = "ignore";
       HandleLidSwitchExternalPower = "ignore";
       HandleLidSwitchDocked = "ignore";
+    };
+    services.kanata = {
+      enable = true;
+      keyboards.internal = {
+        devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
+        extraDefCfg = ''
+          process-unmapped-keys yes
+        '';
+        config = ''
+          (defsrc
+            caps h j k l
+          )
+
+          (defalias
+            src use-defsrc
+            nav (layer-while-held nav)
+            capnav (tap-hold-press 200 200 esc @nav)
+          )
+
+          (deflayer base
+            @capnav @src @src @src @src
+          )
+
+          (deflayer nav
+            _ left down up rght
+          )
+        '';
+      };
     };
   };
 }

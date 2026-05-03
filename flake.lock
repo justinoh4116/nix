@@ -3186,17 +3186,17 @@
     },
     "nixpkgs-logisim-m16": {
       "locked": {
-        "lastModified": 1776891782,
-        "narHash": "sha256-VKvhSay5awn6LCHBp28SalZfqvIeTRNo3lmv3HudO74=",
+        "lastModified": 1761230821,
+        "narHash": "sha256-FG7xUHPI76R35IclzN7oeE6QolaFVPGJ3tJV1hCGOHE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c79e748f16806804beaab7ce2b263d9893c3ca6",
+        "rev": "50fccc29d7d8da11de205a3815b916642cbc9c57",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c79e748f16806804beaab7ce2b263d9893c3ca6",
+        "rev": "50fccc29d7d8da11de205a3815b916642cbc9c57",
         "type": "github"
       }
     },

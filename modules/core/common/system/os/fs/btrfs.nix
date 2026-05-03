@@ -79,6 +79,9 @@ in {
     (lib.mkIf rollbackEnabled {
       boot.initrd.systemd = {
         enable = true;
+        extraBin = {
+          btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+        };
         services.btrfs-wipe = {
           description = "Rollback Btrfs root and home subvolumes to pristine snapshots";
           wantedBy = ["initrd.target"];
@@ -107,12 +110,12 @@ in {
             mounted=0
             cleanup() {
               if [ "$mounted" -eq 1 ]; then
-                ${pkgs.util-linux}/bin/umount "$MOUNTDIR"
+                umount "$MOUNTDIR"
               fi
             }
             trap cleanup EXIT
 
-            ${pkgs.util-linux}/bin/mount -t btrfs -o subvolid=5,user_subvol_rm_allowed "$BTRFS_VOL" "$MOUNTDIR"
+            mount -t btrfs -o subvolid=5,user_subvol_rm_allowed "$BTRFS_VOL" "$MOUNTDIR"
             mounted=1
 
             for subvol in "$ROOT_BLANK" "$HOME_BLANK"; do
@@ -123,18 +126,18 @@ in {
             done
 
             if [ -e "$ROOT_SUBVOL" ]; then
-              ${pkgs.btrfs-progs}/bin/btrfs subvolume delete -R "$ROOT_SUBVOL"
+              btrfs subvolume delete -R "$ROOT_SUBVOL"
             fi
 
             if [ -e "$HOME_SUBVOL" ]; then
-              ${pkgs.btrfs-progs}/bin/btrfs subvolume delete -R "$HOME_SUBVOL"
+              btrfs subvolume delete -R "$HOME_SUBVOL"
             fi
 
             echo "Restoring blank / subvolume..."
-            ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot "$ROOT_BLANK" "$ROOT_SUBVOL"
+            btrfs subvolume snapshot "$ROOT_BLANK" "$ROOT_SUBVOL"
 
             echo "Restoring blank /home subvolume..."
-            ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot "$HOME_BLANK" "$HOME_SUBVOL"
+            btrfs subvolume snapshot "$HOME_BLANK" "$HOME_SUBVOL"
           '';
         };
       };
