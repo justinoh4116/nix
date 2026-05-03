@@ -1421,15 +1421,15 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1777607620,
-        "narHash": "sha256-GGMDVvqo1PwAB6/7yZg651VzexqECdliZCKXlM0UDwI=",
-        "owner": "schembriaiden",
+        "lastModified": 1777795937,
+        "narHash": "sha256-SuU1+RLJNda8vg6Bat8v604bhY6IUcFrKkFwH06gxr4=",
+        "owner": "justinoh4116",
         "repo": "helium-browser-nix-flake",
-        "rev": "10105224eea589de8f0b3292f4e4bca3d52f1ee2",
+        "rev": "3ee2b5df63faaacd47e650579c5e32cce778d8eb",
         "type": "github"
       },
       "original": {
-        "owner": "schembriaiden",
+        "owner": "justinoh4116",
         "repo": "helium-browser-nix-flake",
         "type": "github"
       }

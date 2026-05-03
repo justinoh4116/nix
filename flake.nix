@@ -106,7 +106,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helium.url = "github:schembriaiden/helium-browser-nix-flake";
+    helium.url = "github:justinoh4116/helium-browser-nix-flake";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # zen-browser = {

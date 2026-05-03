@@ -71,6 +71,14 @@ telescope.load_extension("ui-select")
 
 local builtin = require("telescope.builtin")
 
+require("typst-preview").setup({
+	debug = true,
+	dependencies_bin = {
+		tinymist = "/etc/profiles/per-user/justin/bin/tinymist",
+		websocat = "/etc/profiles/per-user/justin/bin/websocat",
+	},
+})
+
 -- colors
 require("vague").setup({ transparent = true })
 vim.cmd("colorscheme vague")
