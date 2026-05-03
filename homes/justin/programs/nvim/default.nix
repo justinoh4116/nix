@@ -17,6 +17,8 @@ in {
   #   recursive = true;
   # };
 
+  home.sessionVariables.MANPAGER = "nvim +Man!";
+
   programs.neovide = {
     enable = cfg.neovide.enable;
     settings = {

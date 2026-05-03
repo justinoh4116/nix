@@ -73,6 +73,7 @@ local builtin = require("telescope.builtin")
 
 require("typst-preview").setup({
 	debug = true,
+	open_cmd = "open helium://%s",
 	dependencies_bin = {
 		tinymist = "/etc/profiles/per-user/justin/bin/tinymist",
 		websocat = "/etc/profiles/per-user/justin/bin/websocat",
@@ -104,7 +105,16 @@ require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets
 
 local ls = require("luasnip")
 
-vim.lsp.enable({ "lua_ls", "svelte-language-server", "tinymist", "clangd", "verible", "pyright", "rust_analyzer" })
+vim.lsp.enable({
+	"lua_ls",
+	"svelte-language-server",
+	"tinymist",
+	"clangd",
+	"verible",
+	"pyright",
+	"rust_analyzer",
+	"nil_ls",
+})
 map("i", "<C-e>", function()
 	ls.expand()
 end, { silent = true })

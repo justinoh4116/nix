@@ -1,5 +1,6 @@
 {
   lib,
+  self,
   pkgs,
   inputs,
   ...
@@ -16,29 +17,33 @@
       decompressFonts = true;
     };
 
-    packages = with pkgs; [
-      work-sans
-      dejavu_fonts
-      noto-fonts
-      noto-fonts-color-emoji
-      fira-code
-      fira-code-symbols
-      open-sans
-      lmodern
-      material-symbols
+    packages = with pkgs;
+      [
+        work-sans
+        dejavu_fonts
+        noto-fonts
+        noto-fonts-color-emoji
+        fira-code
+        fira-code-symbols
+        open-sans
+        lmodern
+        material-symbols
 
-      baekmuk-ttf
-      unfonts-core
-      source-han-sans
-      noto-fonts-cjk-sans
+        baekmuk-ttf
+        unfonts-core
+        source-han-sans
+        noto-fonts-cjk-sans
 
-      # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
-      nerd-fonts.fira-code
-      nerd-fonts.iosevka
-      nerd-fonts.iosevka-term
+        # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
+        nerd-fonts.fira-code
+        nerd-fonts.iosevka
+        nerd-fonts.iosevka-term
 
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-    ];
+        inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+        inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+      ]
+      ++ [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.local-fonts
+      ];
   };
 }

@@ -243,8 +243,9 @@ in {
 
                         # session and project shortcuts
                         bind n run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
+                        unbind f
+                        unbind t
                         bind f display-popup -E "${lib.getExe sessionizer}"
-                        bind t display-popup -E "${lib.getExe sessionizer}"
                         bind p display-popup -E "${lib.getExe pdfPicker}"
 
                         # Vim-like copy/paste
