@@ -4,10 +4,14 @@
   unzip,
   p7zip,
   fontSource ? let
-    repoFonts = ../../../../fonts;
+    localFontsPath = /home/justin/safe/nix/fonts;
   in
-    if builtins.pathExists repoFonts
-    then repoFonts
+    if builtins.pathExists localFontsPath
+    then
+      builtins.path {
+        path = localFontsPath;
+        name = "local-fonts-src";
+      }
     else null,
 }: let
   placeholder = fontSource == null;
@@ -71,7 +75,7 @@ in
         cat > $out/share/doc/${finalAttrs.pname}/README <<'EOF'
         Placeholder package for local fonts.
 
-        No font files were found in the repo-local fonts directory:
+        No font files were found in the local fonts directory:
           /home/justin/safe/nix/fonts
 
         Add .otf, .otc, .ttf, or .ttc files there, or override `fontSource`
