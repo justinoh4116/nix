@@ -1,0 +1,149 @@
+-- capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+return {
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{
+				{
+					"SmiteshP/nvim-navbuddy",
+					keys = {
+						{ "<leader>nn", "<cmd>Navbuddy<CR>" },
+					},
+					dependencies = {
+						{
+							"SmiteshP/nvim-navic",
+							dependencies = {},
+							opts = {
+								lsp = {
+									auto_attach = true,
+								},
+							},
+						},
+						"MunifTanjim/nui.nvim",
+					},
+					opts = { lsp = { auto_attach = true } },
+				},
+			},
+			"simrat39/rust-tools.nvim",
+			{
+				"folke/neodev.nvim",
+				config = true,
+			},
+			"saghen/blink.cmp",
+			-- {
+			-- 	"hrsh7th/cmp-nvim-lsp",
+			-- 	config = true,
+			-- 	dependencies = {
+			-- 		-- 'williamboman/mason-lspconfig.nvim',
+			-- 		-- config = true,
+			-- 		-- dependencies = {
+			-- 		--     'williamboman/mason.nvim',
+			-- 		--     config = true,
+			-- 		-- },
+			-- 	},
+			-- },
+		},
+		config = function()
+			-- This is where all the LSP shenanigans will live
+			-- lsp_zero.on_attach(function(client, bufnr)
+			-- 	-- see :help lsp-zero-keybindings
+			-- 	-- to learn the available actions
+			-- 	lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "<F3>" } })
+			-- 	vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
+			-- 	vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr })
+			-- 	vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", { buffer = bufnr })
+			-- 	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
+			-- 	vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { buffer = bufnr })
+			-- 	vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", { buffer = bufnr })
+			-- end)
+
+			-- PUT THE LSPs HERE
+			vim.lsp.config("tinymist", {
+				settings = {
+					formatterMode = "typstyle",
+				},
+			})
+
+			vim.lsp.enable("arduino_language_server")
+			vim.lsp.enable("nil_ls")
+			vim.lsp.enable("ts_ls")
+			-- vim.lsp.enable('texlab')
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("verible")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("tinymist")
+			vim.lsp.enable("")
+
+			vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+			vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>")
+			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
+			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>")
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+			vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>")
+			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>")
+			vim.keymap.set("n", "cd", vim.lsp.buf.rename)
+			vim.keymap.set("n", "K", vim.lsp.buf.hover)
+			vim.keymap.set("n", "gK", vim.lsp.buf.signature_help)
+			vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help)
+
+			-- (Optional) Configure lua language server for neovim
+			-- local lua_opts = lsp_zero.nvim_lua_ls()
+			-- require("lspconfig").lua_ls.setup(lua_opts)
+		end,
+		-- config = function()
+		--     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+		--     local lsp_attach = function(_, bufnr)
+		--         vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { buffer = bufnr })
+		--         vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { buffer = bufnr })
+		--         vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { buffer = bufnr })
+		--         vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+		--         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr })
+		--         vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr })
+		--         vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', { buffer = bufnr })
+		--         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+		--         vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
+		--         vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, { buffer = bufnr })
+		--     end
+
+		--     vim.diagnostic.config({
+		--         -- virtual_text = false,
+		--     })
+
+		--     local lspconfig = require('lspconfig')
+		--     require('mason-lspconfig').setup_handlers({
+		--         function(server_name)
+		--             lspconfig[server_name].setup({
+		--                 on_attach = lsp_attach,
+		--                 capabilities = lsp_capabilities,
+		--             })
+		--         end,
+		--         ['rust_analyzer'] = function ()
+		--             require('rust-tools').setup({
+		--                 server = {
+		--                     capabilities = lsp_capabilities,
+		--                     on_attach = function(_, bufnr)
+		--                         vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { buffer = bufnr })
+		--                         vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'K', '<cmd>RustHoverActions<cr>', { buffer = bufnr })
+		--                         vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
+		--                         vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, { buffer = bufnr })
+		--                     end,
+		--                 },
+		--             lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+		--             })
+		--             -- require'rust-tools'.hover_actions.hover_actions()
+		--             -- require('rust-tools').runnables.runnables()
+		--         end
+		--     })
+		-- end,
+	},
+}

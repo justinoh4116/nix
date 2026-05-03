@@ -12,10 +12,10 @@ in {
   imports = [
   ];
 
-  home.file."${config.xdg.configHome}/nvim" = {
-    source = ./dots;
-    recursive = true;
-  };
+  # home.file."${config.xdg.configHome}/nvim" = {
+  #   source = ./dots;
+  #   recursive = true;
+  # };
 
   programs.neovide = {
     enable = cfg.neovide.enable;
