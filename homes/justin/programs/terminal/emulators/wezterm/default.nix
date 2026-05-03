@@ -35,6 +35,7 @@ in {
            { key = 'p', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 'p'} } },
            { key = 'c', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 'c'} } },
            { key = 't', mods = 'ALT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = 't'} } },
+           { key = 'g', mods = 'CTRL|SHIFT', action = act.Multiple { act.SendKey {key = 'Space', mods = 'CTRL'}, act.SendKey {key = '['} } },
          },
 
          -- anims
