@@ -12,6 +12,7 @@
     coreutils
     gawk
     lsof
+    osConfig.programs.niri.package
     ripgrep
     procps
     util-linux

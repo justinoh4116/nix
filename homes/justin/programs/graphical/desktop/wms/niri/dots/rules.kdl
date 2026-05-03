@@ -36,7 +36,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"(?i)t3code"#
-  open-on-workspace "t3code"
+  open-on-workspace "agents"
 }
 
 window-rule {

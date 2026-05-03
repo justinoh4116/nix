@@ -96,7 +96,7 @@ binds {
     Mod+5 { focus-workspace "zotero"; }
     Mod+D { focus-workspace "discord"; }
     Mod+E { focus-workspace "explorer"; }
-    Mod+T { focus-workspace "t3code"; }
+    Mod+T { focus-workspace "agents"; }
     Mod+V { focus-workspace "vscode"; }
     Mod+P { focus-workspace "sioyek"; }
     Mod+Shift+1 { move-column-to-workspace "terminal"; }
@@ -105,7 +105,7 @@ binds {
     Mod+Shift+4 { move-column-to-workspace "spotify"; }
     Mod+Shift+5 { move-column-to-workspace "zotero"; }
     Mod+Shift+D { move-column-to-workspace "discord"; }
-    Mod+Shift+T { move-column-to-workspace "t3code"; }
+    Mod+Shift+T { move-column-to-workspace "agents"; }
     Mod+Shift+V { move-column-to-workspace "vscode"; }
 
     Mod+R { switch-preset-column-width; }

@@ -11,6 +11,7 @@
     ./ddclient.nix
     ./firefox-syncserver.nix
     ./immich.nix
+    ./karakeep.nix
     ./minecraft.nix
     ./nextcloud.nix
     ./paperless.nix

@@ -36,6 +36,9 @@ WrapperMouseArea {
         Text {
             id: title
             text: MprisState.player?.trackTitle || ""
+            font.pointSize: 10
+            font.family: "SF Pro"
+            font.styleName: "Medium"
         }
     }
 }

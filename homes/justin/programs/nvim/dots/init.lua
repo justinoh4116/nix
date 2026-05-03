@@ -73,7 +73,8 @@ local builtin = require("telescope.builtin")
 
 require("typst-preview").setup({
 	debug = true,
-	open_cmd = "open helium://%s",
+	-- open_cmd = "open helium://%s",
+	port = 4567,
 	dependencies_bin = {
 		tinymist = "/etc/profiles/per-user/justin/bin/tinymist",
 		websocat = "/etc/profiles/per-user/justin/bin/websocat",

@@ -114,7 +114,7 @@ in {
             ".config/dolphinrc"
             ".local/state/dolphinstaterc"
             ".local/share/user-places.xbel"
-            ".config/niri/noctalia.kdl"
+            # ".config/niri/noctalia.kdl"
           ]
           ++ cfg.home.extraFiles;
       };

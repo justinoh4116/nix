@@ -17,7 +17,7 @@ command = "discordcanary"
 [empty.explorer]
 command = "dolphin"
 
-[empty.t3code]
+[empty.agents]
 command = "bash -lc 'pgrep -u \"$USER\" -x t3code >/dev/null || exec t3code'"
 
 [empty.vscode]

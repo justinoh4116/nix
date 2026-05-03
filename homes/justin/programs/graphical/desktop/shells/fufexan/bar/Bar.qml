@@ -41,7 +41,7 @@ PanelWindow {
             anchors.rightMargin: Config.spacing
             spacing: Config.spacing
 
-            Workspaces {}
+            WorkspaceName {}
         }
 
         // middle

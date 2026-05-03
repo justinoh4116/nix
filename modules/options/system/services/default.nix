@@ -21,6 +21,7 @@ in {
     ddclient.enable = mkEnableOption "ddclient ddns";
     firefox-syncserver.enable = mkEnableOption "firefox-syncserver";
     immich.enable = mkEnableOption "immich photo/video server";
+    karakeep.enable = mkEnableOption "karakeep bookmark manager";
     media-server.enable = mkEnableOption "*arr stack";
     minecraft.enable = mkEnableOption "minecraft server";
     nextcloud.enable = mkEnableOption "nextcloud cloud file storage";

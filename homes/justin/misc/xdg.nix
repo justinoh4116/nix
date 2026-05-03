@@ -67,7 +67,7 @@ in {
 
       download = "${config.home.homeDirectory}/safe/downloads";
       # desktop = "${config.home.homeDirectory}/Desktop";
-      # documents = "${config.home.homeDirectory}/Documents";
+      # documents = "${config.home.homeDirectory}/safe";
 
       publicShare = null;
 

@@ -45,6 +45,7 @@
       ddclient.enable = true;
       firefox-syncserver.enable = true;
       immich.enable = true;
+      karakeep.enable = true;
       media-server.enable = true;
       minecraft.enable = true;
       nextcloud.enable = true;
