@@ -20,6 +20,7 @@
         ${config.home.homeDirectory}/safe/repos 1
         ${config.home.homeDirectory}/safe/nix 0
         ${config.home.homeDirectory}/safe/nextcloud/school 2
+        ${config.home.homeDirectory}/safe/nextcloud/documents/notes 1
       )
 
       build_candidates() {

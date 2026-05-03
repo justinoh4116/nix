@@ -150,7 +150,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "on-overflow"
+    // center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -313,6 +313,7 @@ debug {
 // spawn-at-startup "waybar"
 spawn-at-startup "bash" "-c" "piri daemon > /dev/null 2>&1 &"
 spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/pixel hill cloud.png\"; ln -sfn \"$wallpaper\" \"$HOME/.current_wallpaper\"; until awww query >/dev/null 2>&1; do sleep 0.2; done; awww img \"$wallpaper\""
+spawn-sh-at-startup "python ~/.config/niri/tile_to_n.py"
 spawn-at-startup "wezterm"
 spawn-at-startup "zen-beta"
 spawn-at-startup "sioyek"

@@ -18,6 +18,7 @@ in {
       pkgs.libnotify
       pkgs.wlogout
       self.packages.${pkgs.stdenv.hostPlatform.system}.piri
+      pkgs.python3
     ];
     home.file."${config.xdg.configHome}/niri" = {
       source = ./dots;
