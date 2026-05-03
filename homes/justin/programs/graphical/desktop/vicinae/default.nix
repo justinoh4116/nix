@@ -44,6 +44,9 @@ in {
 
         launcher_window = {
           opacity = 0.5;
+          # Let Niri own the window shape so the global rounded-corner rule applies.
+          client_side_decorations.enabled = false;
+          layer_shell.enabled = false;
         };
 
         providers = {
