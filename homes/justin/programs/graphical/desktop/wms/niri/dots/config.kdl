@@ -317,6 +317,7 @@ spawn-sh-at-startup "python ~/.config/niri/tile_to_n.py"
 spawn-at-startup "ghostty"
 spawn-at-startup "zen-beta"
 spawn-at-startup "sioyek"
+spawn-at-startup "foot --server"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

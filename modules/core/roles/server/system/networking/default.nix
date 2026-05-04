@@ -1,12 +1,17 @@
 {pkgs, ...}: {
   networking = {
-    nftables.enable = false;
+    # nftables.enable = false;
     firewall = {
-      package = pkgs.iptables-legacy;
+      # package = pkgs.iptables-legacy;
     };
+    # boot.kernelModules = ["ip_tables"];
     nat = {
       enable = true;
-      internalInterfaces = ["ve-+" "vb-+" "br0"];
+      internalInterfaces = [
+        "ve-+"
+        "vb-+"
+        "br0"
+      ];
       externalInterface = "enp7s0";
       # Lazy IPv6 connectivity for the container
       # turned off bc of issues w/ streamyfin
@@ -30,5 +35,10 @@
     # defaultGateway = "192.168.100.1";
     # nameservers = ["192.168.100.1" "1.1.1.1"];
   };
-  networking.networkmanager.unmanaged = ["interface-name:ve-*" "interface-name:vb-*"];
+  networking.networkmanager.unmanaged = [
+    "interface-name:ve-*"
+    "interface-name:vb-*"
+    "interface-name:ve-+"
+    "interface-name:vb-+"
+  ];
 }

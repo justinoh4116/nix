@@ -18,6 +18,10 @@
       source = ./bin/ripdrag-sticky.nu;
       executable = true;
     };
+    home.file.".local/bin/timewarrior-selector" = {
+      source = ./bin/timewarrior-selector.nu;
+      executable = true;
+    };
 
     services = {
       mpris-proxy.enable = true;
