@@ -44,6 +44,15 @@ window-rule {
   open-on-workspace "vscode"
 }
 
+window-rule {
+  match app-id="vicinae"
+
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
 layer-rule {
     match layer="top"
     match layer="overlay"

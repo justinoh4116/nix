@@ -16,6 +16,9 @@ vim.o.ignorecase = true
 
 vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
+	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/chentoast/marks.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
@@ -165,3 +168,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 vim.cmd("set completeopt+=noselect")
+
+require("marks").setup({
+	builtin_marks = { ".", "<", ">", "^" },
+	-- whether movements cycle back to the beginning/end of buffer. default true
+	cyclic = true,
+})

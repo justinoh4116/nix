@@ -17,6 +17,7 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
     Mod+O repeat=false { toggle-overview; }
+    Mod+Shift+O { spawn "screen-area-ocr"; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -118,9 +119,9 @@ binds {
 
     Mod+Shift+Space { toggle-window-floating; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print { spawn "niri-screenshot" "area"; }
+    Ctrl+Print { spawn "niri-screenshot" "output"; }
+    Alt+Print { spawn "niri-screenshot" "window"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
