@@ -24,28 +24,28 @@
         };
 
         "colors-dark" = {
-          foreground = "cdcdcd";
-          background = "141415";
-          cursor = "141415 cdcdcd";
-          selection-foreground = "cdcdcd";
-          selection-background = "333738";
+          foreground = "e5e5ea";
+          background = "1e1e1e";
+          cursor = "1e1e1e f5f5f7";
+          selection-foreground = "f5f5f7";
+          selection-background = "0a84ff";
 
-          regular0 = "252530";
-          regular1 = "d8647e";
-          regular2 = "7fa563";
-          regular3 = "f3be7c";
-          regular4 = "6e94b2";
-          regular5 = "bb9dbd";
-          regular6 = "b4d4cf";
-          regular7 = "cdcdcd";
+          regular0 = "3a3a3c";
+          regular1 = "ff453a";
+          regular2 = "30d158";
+          regular3 = "ffd60a";
+          regular4 = "0a84ff";
+          regular5 = "bf5af2";
+          regular6 = "64d2ff";
+          regular7 = "e5e5ea";
 
-          bright0 = "606079";
-          bright1 = "d8647e";
-          bright2 = "7fa563";
-          bright3 = "f3be7c";
-          bright4 = "7e98e8";
-          bright5 = "aeaed1";
-          bright6 = "9bb4bc";
+          bright0 = "636366";
+          bright1 = "ff6961";
+          bright2 = "32d74b";
+          bright3 = "ffe066";
+          bright4 = "409cff";
+          bright5 = "da8fff";
+          bright6 = "70d7ff";
           bright7 = "ffffff";
 
           alpha = 1.0;
