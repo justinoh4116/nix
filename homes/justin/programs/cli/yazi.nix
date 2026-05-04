@@ -73,17 +73,22 @@ in {
 
     theme = {
       flavor = {
-        use = "catppuccin-frappe";
+        use = "modus-vivendi";
       };
     };
 
     flavors = {
       catppuccin-frappe = "${flavors-repo}/catppuccin-frappe.yazi";
+      modus-vivendi = pkgs.fetchFromGitHub {
+        owner = "azzamsa";
+        repo = "modus.yazi";
+        rev = "150e2c09a07d53bbfe3e89a722a88cdad46e7bc5";
+        hash = "sha256-bUq6DwKALExm5mH/sdUoq3APU5uT7PLjbF/f5/wKDSQ=";
+      };
     };
 
     plugins = {
       # chmod = "${plugins-repo}/chmod.yazi";
-      drag = pkgs.yaziPlugins.drag;
       full-border = "${plugins-repo}/full-border.yazi";
       max-preview = "${plugins-repo}/max-preview.yazi";
       starship = pkgs.fetchFromGitHub {
@@ -95,6 +100,14 @@ in {
     };
 
     initLua = ''
+      local function ripdrag(url)
+        ya.emit("shell", {
+          "ripdrag-sticky " .. ya.quote(tostring(url)),
+          confirm = true,
+          orphan = true,
+        })
+      end
+
       function Entity:click(event, up)
         if up or event.is_middle then
           return
@@ -102,7 +115,7 @@ in {
 
         ya.emit("reveal", { self._file.url })
         if event.is_right then
-          ya.emit("plugin", { "drag" })
+          ripdrag(self._file.url)
         end
       end
     '';
@@ -121,8 +134,8 @@ in {
         }
         {
           on = ["<C-d>"];
-          run = "plugin drag";
-          desc = "Drag selected or hovered files";
+          run = ''shell --confirm --orphan ripdrag-sticky "$0"'';
+          desc = "Drag the hovered file";
         }
       ];
     };

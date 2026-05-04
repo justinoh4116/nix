@@ -16,6 +16,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
+    Mod+H { show-hotkey-overlay; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Shift+O { spawn "screen-area-ocr"; }
 
@@ -96,10 +97,12 @@ binds {
     Mod+4 { focus-workspace "spotify"; }
     Mod+5 { focus-workspace "zotero"; }
     Mod+D { focus-workspace "discord"; }
-    Mod+E { focus-workspace "explorer"; }
+    // Mod+E { focus-workspace "explorer"; }
+    Mod+E { spawn-sh "footclient -T yazi yazi"; }
     Mod+T { focus-workspace "agents"; }
     Mod+V { focus-workspace "vscode"; }
     Mod+P { focus-workspace "sioyek"; }
+    Mod+C { focus-workspace "chat"; }
     Mod+Shift+1 { move-column-to-workspace "terminal"; }
     Mod+Shift+2 { move-column-to-workspace "browser"; }
     Mod+Shift+3 { move-column-to-workspace "misc1"; }
@@ -108,6 +111,7 @@ binds {
     Mod+Shift+D { move-column-to-workspace "discord"; }
     Mod+Shift+T { move-column-to-workspace "agents"; }
     Mod+Shift+V { move-column-to-workspace "vscode"; }
+    Mod+Shift+C { move-column-to-workspace "chat"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
@@ -132,7 +136,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // choose dynamic cast target
-    Mod+S {spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)";}
-    Mod+Shift+S {set-dynamic-cast-monitor;} // cast current display
-    Mod+Alt+S {clear-dynamic-cast-target;} // stop casting
+    Mod+S hotkey-overlay-title="Choose dynamic cast target" {spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)";}
+    Mod+Shift+S hotkey-overlay-title="Dynamic cast current monitor" {set-dynamic-cast-monitor;} // cast current display
+    Mod+Alt+S hotkey-overlay-title="Clear dynamic cast target" {clear-dynamic-cast-target;} // stop casting
 }

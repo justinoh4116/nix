@@ -14,6 +14,10 @@
 
   config = {
     home.file.".config/nixpkgs/config.nix".source = ./nixpkgsconfig.nix;
+    home.file.".local/bin/ripdrag-sticky" = {
+      source = ./bin/ripdrag-sticky.nu;
+      executable = true;
+    };
 
     services = {
       mpris-proxy.enable = true;

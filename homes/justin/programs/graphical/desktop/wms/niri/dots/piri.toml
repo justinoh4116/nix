@@ -1,5 +1,6 @@
 [piri.plugins]
 empty = true
+sticky = true
 workspace_rule = true
 
 [empty.terminal]
@@ -7,6 +8,9 @@ command = "wezterm"
 
 [empty.browser]
 command = "zen-beta"
+
+[empty.chat]
+command = "helium"
 
 [empty.spotify]
 command = "spotify"
