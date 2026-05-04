@@ -8,6 +8,19 @@
   desktop = osConfig.modules.usrEnv.desktop;
 in {
   config = lib.mkIf desktop.enable {
+    home.file."${config.xdg.configHome}/xdg-desktop-portal-termfilechooser/config".text = ''
+      [filechooser]
+      cmd=yazi-wrapper.sh
+      default_dir=$HOME
+      ; Uncomment to skip creating destination save files with instructions in them
+      ; create_help_file=0
+      ; Uncomment and edit the line below to change the terminal emulator command
+      env=TERMCMD='footclient -T yazi'
+
+      ; Mode must be one of 'suggested', 'default', or 'last'.
+      open_mode=suggested
+      save_mode=suggested
+    '';
     # xdg.portal = {
     #   enable = true;
     #   xdgOpenUsePortal = true;

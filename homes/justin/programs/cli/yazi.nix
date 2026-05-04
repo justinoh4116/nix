@@ -16,6 +16,33 @@
     sha256 = "sha256-566RFL1Wng7yr5OS3UtKEy+ZLrgwfCdX9FAtwRQK2oM";
   };
 in {
+  home.packages = [pkgs.ripdrag];
+
+  xdg.desktopEntries.yazi = {
+    name = "Yazi";
+    icon = "yazi";
+    comment = "Blazing fast terminal file manager written in Rust, based on async I/O";
+    exec = "footclient -T yazi yazi %u";
+    terminal = false;
+    type = "Application";
+    mimeType = ["inode/directory"];
+    categories = [
+      "Utility"
+      "Core"
+      "System"
+      "FileTools"
+      "FileManager"
+      "ConsoleOnly"
+    ];
+    # keywords = [
+    #   "File"
+    #   "Manager"
+    #   "Explorer"
+    #   "Browser"
+    #   "Launcher"
+    # ];
+  };
+
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -39,6 +66,9 @@ in {
         max_width = 1000;
         max_height = 1000;
       };
+      sort_by = "mtime";
+      sort_reverse = true;
+      sort_dir_first = true;
     };
 
     theme = {
@@ -53,6 +83,7 @@ in {
 
     plugins = {
       # chmod = "${plugins-repo}/chmod.yazi";
+      drag = pkgs.yaziPlugins.drag;
       full-border = "${plugins-repo}/full-border.yazi";
       max-preview = "${plugins-repo}/max-preview.yazi";
       starship = pkgs.fetchFromGitHub {
@@ -63,10 +94,18 @@ in {
       };
     };
 
-    #   initLua = ''
-    # #     require("full-border"):setup()
-    # # -- require("starship"):setup()
-    #   '';
+    initLua = ''
+      function Entity:click(event, up)
+        if up or event.is_middle then
+          return
+        end
+
+        ya.emit("reveal", { self._file.url })
+        if event.is_right then
+          ya.emit("plugin", { "drag" })
+        end
+      end
+    '';
 
     keymap = {
       manager.prepend_keymap = [
@@ -79,6 +118,11 @@ in {
           on = ["c" "m"];
           run = "plugin chmod";
           desc = "Chmod on selected files";
+        }
+        {
+          on = ["<C-d>"];
+          run = "plugin drag";
+          desc = "Drag selected or hovered files";
         }
       ];
     };

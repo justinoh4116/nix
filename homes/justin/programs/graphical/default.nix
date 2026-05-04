@@ -39,7 +39,6 @@
         imv
         inkscape
         mpv
-        foot
         pcmanfm
         arduino
         arduino-ide

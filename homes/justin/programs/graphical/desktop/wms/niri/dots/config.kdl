@@ -312,7 +312,7 @@ debug {
 
 // spawn-at-startup "waybar"
 spawn-at-startup "bash" "-c" "piri daemon > /dev/null 2>&1 &"
-spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/pixel hill cloud.png\"; ln -sfn \"$wallpaper\" \"$HOME/.current_wallpaper\"; until awww query >/dev/null 2>&1; do sleep 0.2; done; awww img \"$wallpaper\""
+spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/black.png\"; ln -sfn \"$wallpaper\" \"$HOME/.current_wallpaper\"; until awww query >/dev/null 2>&1; do sleep 0.2; done; awww img \"$wallpaper\""
 spawn-sh-at-startup "python ~/.config/niri/tile_to_n.py"
 spawn-at-startup "ghostty"
 spawn-at-startup "zen-beta"

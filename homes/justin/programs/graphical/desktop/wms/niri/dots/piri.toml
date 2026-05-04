@@ -31,8 +31,3 @@ command = "zotero"
 
 [empty.scratch]
 command = "wezterm"
-
-[workspace_rule.terminal]
-auto_width = ["100%", "50%"]
-auto_fill = true             # Enable automatic alignment
-auto_maximize = true         # Automatic maximization

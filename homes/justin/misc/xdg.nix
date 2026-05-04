@@ -19,7 +19,7 @@
   browser = [browserDesktopEntry];
   mailer = ["thunderbird.desktop"];
   zathura = ["org.pwmt.zathura.desktop"];
-  fileManager = ["org.kde.dolphin.desktop"];
+  fileManager = ["yazi.desktop"];
   sioyek = ["sioyek.desktop"];
 
   associations = {

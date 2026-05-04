@@ -36,7 +36,8 @@ in {
           enable = true;
           extraEnvironment = {
             HOSTNAME = "0.0.0.0";
-            NEXTAUTH_URL = "https://karakeep.justinoh.io";
+            NEXTAUTH_URL = "httpps://keep.justinoh.io";
+            OPENAI_API_KEY = "";
           };
         };
 
