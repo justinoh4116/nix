@@ -27,7 +27,7 @@
         cursor-style-blink = false;
 
         window-padding-x = 12;
-        window-padding-y = 12;
+        window-padding-y = 9;
         window-padding-color = "background";
         window-show-tab-bar = "auto";
         gtk-tabs-location = "top";
