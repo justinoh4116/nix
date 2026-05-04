@@ -33,6 +33,7 @@
         unfonts-core
         source-han-sans
         noto-fonts-cjk-sans
+        iosevka
 
         # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
         nerd-fonts.fira-code
