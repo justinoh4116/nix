@@ -13,12 +13,8 @@ in {
       hostAddress = "192.168.100.25";
       localAddress = "192.168.100.26";
       bindMounts = {
-        "/var/lib/karakeep" = {
-          hostPath = "/persist/karakeep/data";
-          isReadOnly = false;
-        };
-        "/var/lib/meilisearch" = {
-          hostPath = "/persist/karakeep/meilisearch";
+        "/data" = {
+          hostPath = "/persist/karakeep";
           isReadOnly = false;
         };
       };
@@ -30,7 +26,9 @@ in {
       }: {
         networking.useHostResolvConf = lib.mkForce false;
         services.resolved.enable = true;
-        system.stateVersion = "24.11";
+        system.stateVersion = "26.05";
+
+        networking.firewall.enable = false;
 
         services.karakeep = {
           enable = true;
