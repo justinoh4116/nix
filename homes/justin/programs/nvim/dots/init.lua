@@ -149,7 +149,7 @@ map({ "n" }, "<leader>sd", builtin.diagnostics)
 map({ "n" }, "<leader>sT", builtin.lsp_type_definitions)
 map({ "n" }, "<leader>ss", builtin.current_buffer_fuzzy_find)
 map({ "n" }, "<leader>st", builtin.builtin)
--- map({ "n" }, "<leader>sc", builtin.git_bcommits)
+map({ "n" }, "<leader>sc", builtin.git_bcommits)
 map({ "n" }, "<leader>sk", builtin.keymaps)
 
 vim.api.nvim_create_autocmd("LspAttach", {

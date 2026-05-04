@@ -11,7 +11,7 @@
     (pkgs.discord-canary.override {
       nss = pkgs.nss_latest;
       withOpenASAR = true;
-      # withVencord = true;
+      withVencord = true;
     })
     .overrideAttrs (old: {
       libPath = old.libPath + ":${pkgs.libglvnd}/lib";

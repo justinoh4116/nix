@@ -11,6 +11,6 @@ def main [...files: string] {
     let expanded_files = ($files | each {|file| $file | path expand })
 
     ^daemonize $ripdrag -Ax ...$expanded_files
-    sleep 200ms
+    sleep 250ms
     ^piri sticky add
 }

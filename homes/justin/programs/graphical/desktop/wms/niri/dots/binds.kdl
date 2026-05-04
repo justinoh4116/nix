@@ -1,8 +1,8 @@
 binds {
-    Mod+Space hotkey-overlay-title="Vicinae launcher" { spawn-sh "vicinae toggle"; }
+    Mod+Space  { spawn-sh "vicinae toggle"; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn-sh "ghostty"; }
-    Mod+X repeat=false hotkey-overlay-title="Power menu" { spawn "wlogout" "-p" "layer-shell"; }
+    Mod+Return  { spawn-sh "ghostty"; }
+    Mod+X repeat=false  { spawn "wlogout" "-p" "layer-shell"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -16,7 +16,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
-    Mod+H { show-hotkey-overlay; }
+    Mod+Slash { show-hotkey-overlay; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Shift+O { spawn "screen-area-ocr"; }
 
