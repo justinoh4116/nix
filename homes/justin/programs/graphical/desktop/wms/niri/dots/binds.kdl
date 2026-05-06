@@ -98,10 +98,10 @@ binds {
     Mod+5 { focus-workspace "zotero"; }
     Mod+D { focus-workspace "discord"; }
     // Mod+E { focus-workspace "explorer"; }
-    Mod+E { spawn-sh "footclient -T yazi yazi"; }
-    Mod+T { focus-workspace "agents"; }
+    Mod+E { spawn-sh "foot -T yazi yazi"; }
+    Mod+T { focus-workspace "sioyek"; }
     Mod+V { focus-workspace "vscode"; }
-    Mod+P { focus-workspace "sioyek"; }
+    Mod+A { focus-workspace "agents"; }
     Mod+C { focus-workspace "chat"; }
     Mod+Shift+1 { move-column-to-workspace "terminal"; }
     Mod+Shift+2 { move-column-to-workspace "browser"; }
@@ -109,7 +109,8 @@ binds {
     Mod+Shift+4 { move-column-to-workspace "spotify"; }
     Mod+Shift+5 { move-column-to-workspace "zotero"; }
     Mod+Shift+D { move-column-to-workspace "discord"; }
-    Mod+Shift+T { move-column-to-workspace "agents"; }
+    Mod+Shift+A { move-column-to-workspace "agents"; }
+    Mod+Shift+T { move-column-to-workspace "sioyek"; }
     Mod+Shift+V { move-column-to-workspace "vscode"; }
     Mod+Shift+C { move-column-to-workspace "chat"; }
 
@@ -137,6 +138,6 @@ binds {
 
     // choose dynamic cast target
     Mod+S hotkey-overlay-title="Choose dynamic cast target" {spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)";}
-    Mod+Shift+S hotkey-overlay-title="Dynamic cast current monitor" {set-dynamic-cast-monitor;} // cast current display
-    Mod+Alt+S hotkey-overlay-title="Clear dynamic cast target" {clear-dynamic-cast-target;} // stop casting
+    Mod+Alt+S hotkey-overlay-title="Dynamic cast current monitor" {set-dynamic-cast-monitor;} // cast current display
+    Mod+Shift+S hotkey-overlay-title="Clear dynamic cast target" {clear-dynamic-cast-target;} // stop casting
 }

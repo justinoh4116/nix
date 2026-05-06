@@ -71,6 +71,8 @@ in {
             ".config/fish"
             ".config/google-chrome"
             ".local/share/sioyek"
+            ".config/timewarrior"
+            ".local/share/timewarrior"
             ".config/obsidian"
             ".config/Nextcloud"
             ".config/inkscape"

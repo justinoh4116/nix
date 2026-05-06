@@ -10,6 +10,7 @@ let
   systems = [framework iceberg titanic];
 in {
   "cachix-activate-token.age".publicKeys = users ++ systems;
+  "gemini-karakeep-key.age".publicKeys = users ++ systems;
   "framework-syncthing-cert.age".publicKeys = users ++ systems;
   "framework-syncthing-key.age".publicKeys = users ++ systems;
   "iceberg-syncthing-cert.age".publicKeys = users ++ systems;

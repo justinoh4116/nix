@@ -43,19 +43,19 @@ in {
     shellWrapperName = "y";
 
     settings = {
-      manager = {
+      mgr = {
         sort_by = "mtime";
-        show_hidden = true;
+        # show_hidden = true;
       };
-      opener = {
-        edit = [
-          {
-            run = "foot -e $EDITOR %s";
-            block = true;
-            for = "unix";
-          }
-        ];
-      };
+      # opener = {
+      #   edit = [
+      #     {
+      #       run = "foot -e $EDITOR %s";
+      #       block = true;
+      #       for = "unix";
+      #     }
+      #   ];
+      # };
       preview = {
         max_width = 1000;
         max_height = 1000;

@@ -19,6 +19,12 @@ in {
     #   file = "firefox-syncserver-secrets.age";
     # };
 
+    gemini-karakeep-key = mkAgenixSecret cfg.karakeep.enable {
+      file = "gemini-karakeep-key.age";
+      owner = "karakeep";
+      group = "karakeep";
+    };
+
     nix-access-tokens-github = mkAgenixSecret true {
       file = "nix-access-tokens-github.age";
     };

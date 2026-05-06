@@ -5,12 +5,18 @@ import qs.components
 import qs.utils
 
 WrapperMouseArea {
+    id: root
+
+    Layout.fillHeight: true
+    Layout.alignment: Qt.AlignVCenter
+
     onClicked: () => {
         NotificationState.notifOverlayOpen = false;
         Config.showSidebar = !Config.showSidebar;
     }
 
     RowLayout {
+        anchors.centerIn: parent
         spacing: Config.padding * 2
 
         Text {

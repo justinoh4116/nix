@@ -214,7 +214,6 @@ in {
                               bind - split-window -v -c "#{pane_current_path}"
                               bind c new-window -c "#{pane_current_path}"
                               unbind t
-                              bind t new-window -c "#{pane_current_path}"
 
                               bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
                               bind x kill-window
@@ -248,6 +247,7 @@ in {
                         unbind f
                         unbind t
                         bind f display-popup -E "${lib.getExe sessionizer}"
+                        bind t display-popup -E "tt"
                         bind p display-popup -E "${lib.getExe pdfPicker}"
 
                         # Vim-like copy/paste

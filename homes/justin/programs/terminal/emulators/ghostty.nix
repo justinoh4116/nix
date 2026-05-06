@@ -13,8 +13,8 @@
         confirm-close-surface = false;
 
         font-family = "IosevkaTerm Nerd Font";
-        font-style = "Medium";
-        font-size = 15;
+        # font-style = "Medium";
+        font-size = 14;
         font-feature = [
           "-calt"
           "VRLG"

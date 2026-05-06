@@ -2,10 +2,12 @@
 
 const SCRIPT_DIR = (path self | path dirname)
 const CATEGORIES = [
-    "WORK"
-    "VIM"
-    "WASTE"
-    "STOP"
+    "class"
+    "working"
+    "workflow"
+    "wasting"
+    "stop"
+    "reading"
 ]
 const BLOCKED_HOSTS = [
     "studio.youtube.com"
@@ -18,6 +20,14 @@ const BLOCKED_HOSTS = [
 
 def --wrapped run-quiet [program: string, ...args: string] {
     run-external $program ...$args | complete | ignore
+}
+
+def status-file [] {
+    $env.HOME | path join ".time"
+}
+
+def write-status [status: string] {
+    $status | save --force (status-file)
 }
 
 def get-skim-theme-args [] {
@@ -47,19 +57,14 @@ def get-skim-theme-args [] {
 def pick-category [] {
     let skim_theme_args = (get-skim-theme-args)
     let result = (
-        do -i {
+        do {
             $CATEGORIES
             | str join (char newline)
             | ^sk ...$skim_theme_args --bind "q:abort"
+            # | ^sk  --bind "q:abort" #| complete
         }
-        | complete
     )
-
-    if $result.exit_code != 0 {
-        ""
-    } else {
-        $result.stdout | str trim
-    }
+  $result
 }
 
 def main [] {
@@ -69,18 +74,20 @@ def main [] {
         exit 0
     }
 
-    run-quiet tmux set -g status-interval 5
+    run-quiet tmux set -g status-interval 30
 
-    if $selected == "STOP" {
+    if $selected == "stop" {
         run-quiet timew stop
+        write-status "stopped"
         run-quiet tmux set -g status-right ""
     } else {
         run-quiet timew start $selected
+        write-status $selected
 
         let status_right = ($selected + ' #(timew | awk "/^ *Total/ {print \$NF}")')
         run-quiet tmux set -g status-right $status_right
 
-        if $selected == "WASTE" {
+        if $selected == "wasting" {
             for host in $BLOCKED_HOSTS {
                 run-quiet hostess rm $host
             }
@@ -91,3 +98,4 @@ def main [] {
         }
     }
 }
+

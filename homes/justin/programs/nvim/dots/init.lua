@@ -16,6 +16,7 @@ vim.o.ignorecase = true
 
 vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
+	{ src = "https://github.com/tamton-aquib/keys.nvim" },
 	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/chentoast/marks.nvim" },

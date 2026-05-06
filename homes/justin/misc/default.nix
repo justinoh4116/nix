@@ -1,5 +1,6 @@
 {
   self,
+  pkgs,
   inputs,
   config,
   opts,
@@ -14,14 +15,27 @@
 
   config = {
     home.file.".config/nixpkgs/config.nix".source = ./nixpkgsconfig.nix;
+    home.file."school".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/safe/nextcloud/school";
+    home.file."documents".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/safe/nextcloud/documents";
+    home.file.".local/bin/link-configs" = {
+      source = ./bin/link-configs.nu;
+      executable = true;
+    };
     home.file.".local/bin/ripdrag-sticky" = {
       source = ./bin/ripdrag-sticky.nu;
       executable = true;
     };
-    home.file.".local/bin/timewarrior-selector" = {
+    home.file.".local/bin/tt" = {
       source = ./bin/timewarrior-selector.nu;
       executable = true;
     };
+    home.packages = with pkgs; [
+      ripdrag
+      timewarrior
+      skim
+    ];
 
     services = {
       mpris-proxy.enable = true;

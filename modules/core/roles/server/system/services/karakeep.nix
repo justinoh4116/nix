@@ -13,10 +13,11 @@ in {
       hostAddress = "192.168.100.25";
       localAddress = "192.168.100.26";
       bindMounts = {
-        "/data" = {
+        "/var/lib/karakeep" = {
           hostPath = "/persist/karakeep";
           isReadOnly = false;
         };
+        "${config.age.secrets.gemini-karakeep-key.path}".isReadOnly = true;
       };
       config = {
         config,
@@ -35,9 +36,13 @@ in {
           enable = true;
           extraEnvironment = {
             HOSTNAME = "0.0.0.0";
-            NEXTAUTH_URL = "httpps://keep.justinoh.io";
-            OPENAI_API_KEY = "";
+            NEXTAUTH_URL = "https://keep.justinoh.io";
+            OPENAI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta";
+            INFERENCE_TEXT_MODEL = "gemini-2.5-flash-lite";
+            INFERENCE_IMAGE_MODEL = "gemini-2.5-flash-lite";
+            DISABLE_SIGNUPS = "true";
           };
+          environmentFile = "/run/agenix/gemini-karakeep-key";
         };
 
         networking.firewall.allowedTCPPorts = [3000];
