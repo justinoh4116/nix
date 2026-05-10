@@ -45,7 +45,7 @@ in {
     settings = {
       mgr = {
         sort_by = "mtime";
-        sort_reverse = "true";
+        sort_reverse = true;
         # show_hidden = true;
       };
       # opener = {

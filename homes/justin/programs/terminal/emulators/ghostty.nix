@@ -44,6 +44,9 @@
           "alt+f=text:\\x00"
           "chain=text:f"
 
+          "alt+n=text:\\x00"
+          "chain=text:n"
+
           "alt+p=text:\\x00"
           "chain=text:p"
 

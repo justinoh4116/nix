@@ -159,7 +159,9 @@ in {
                         bind n run-shell -b "${sessionizerPath} ${config.home.homeDirectory}/safe/nix"
                         unbind f
                         unbind t
+                        unbind n
                         bind f display-popup -E "${sessionizerPath}"
+                        bind n display-popup -E "${sessionizerPath} --category notes"
                         bind t display-popup -E "tt"
                         bind p display-popup -E "${lib.getExe pdfPicker}"
 
