@@ -112,6 +112,7 @@ require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets
 local ls = require("luasnip")
 
 vim.lsp.enable({
+	"svelte",
 	"lua_ls",
 	"svelte-language-server",
 	"tinymist",
