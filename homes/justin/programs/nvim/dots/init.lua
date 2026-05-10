@@ -78,7 +78,7 @@ local builtin = require("telescope.builtin")
 require("typst-preview").setup({
 	debug = true,
 	-- open_cmd = "open helium://%s",
-	port = 4567,
+	-- port = 4567, -- random if not set
 	dependencies_bin = {
 		tinymist = "/etc/profiles/per-user/justin/bin/tinymist",
 		websocat = "/etc/profiles/per-user/justin/bin/websocat",
@@ -97,6 +97,7 @@ map("n", "<leader>w", ":update<CR>")
 map("n", "<leader>q", ":quit<CR>")
 map("n", "<leader>Q", ":wqa<CR>")
 map("n", "<leader>v", ":e $MYVIMRC <CR>")
+map("n", "<leader>t", ":e ~/do <CR>")
 
 map({ "n", "v", "x" }, "<leader>y", '"+y')
 map({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
@@ -119,6 +120,8 @@ vim.lsp.enable({
 	"pyright",
 	"rust_analyzer",
 	"nil_ls",
+	"arduino_language_server",
+	"nushell",
 })
 map("i", "<C-e>", function()
 	ls.expand()

@@ -15,7 +15,7 @@ in {
       ; Uncomment to skip creating destination save files with instructions in them
       ; create_help_file=0
       ; Uncomment and edit the line below to change the terminal emulator command
-      env=TERMCMD='footclient -T yazi'
+      env=TERMCMD='foot -T yazi'
 
       ; Mode must be one of 'suggested', 'default', or 'last'.
       open_mode=suggested

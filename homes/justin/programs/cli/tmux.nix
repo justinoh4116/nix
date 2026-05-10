@@ -4,96 +4,7 @@
   config,
   ...
 }: let
-  sessionizer = pkgs.writeShellApplication {
-    name = "tmux-sessionizer";
-    runtimeInputs = with pkgs; [
-      coreutils
-      fd
-      skim
-      tmux
-    ];
-    text = ''
-      SEARCH_DIRS=(
-        # path depth
-        # depth 0 adds the directory itself to the picker
-        # depth N>0 includes descendants down to that depth
-        ${config.home.homeDirectory}/safe/repos 1
-        ${config.home.homeDirectory}/safe/nix 0
-        ${config.home.homeDirectory}/safe/nextcloud/school 2
-        ${config.home.homeDirectory}/safe/nextcloud/documents/notes 1
-      )
-
-      build_candidates() {
-        local index dir depth display
-
-        if (( ''${#SEARCH_DIRS[@]} % 2 != 0 )); then
-          printf 'tmux-sessionizer: SEARCH_DIRS must contain path/depth pairs\n' >&2
-          return 1
-        fi
-
-        for ((index = 0; index < ''${#SEARCH_DIRS[@]}; index += 2)); do
-          dir=''${SEARCH_DIRS[index]}
-          depth=''${SEARCH_DIRS[index + 1]}
-
-          if [[ -z $dir || ! $depth =~ ^[0-9]+$ ]]; then
-            printf 'tmux-sessionizer: invalid path/depth pair: %s %s\n' "$dir" "$depth" >&2
-            continue
-          fi
-
-          [[ -d $dir ]] || continue
-
-          if [[ $depth -eq 0 ]]; then
-            printf '%s\n' "$dir"
-          else
-            fd . "$dir" --type directory --min-depth 1 --max-depth "$depth" --full-path
-          fi
-        done
-      }
-
-      if [[ $# -eq 1 ]]; then
-        selected=$1
-      else
-        if [[ ''${#SEARCH_DIRS[@]} -eq 0 ]]; then
-          printf 'tmux-sessionizer: add path/depth pairs to SEARCH_DIRS in %s\n' "$0" >&2
-          exit 1
-        fi
-
-        selected=$(
-          build_candidates \
-            | sort -u \
-            | while IFS= read -r path; do
-                [[ -n $path ]] || continue
-
-                display=$path
-                if [[ $path == "$HOME" ]]; then
-                  display="~"
-                elif [[ $path == "$HOME"/* ]]; then
-                  display="''${path#"$HOME"/}"
-                fi
-
-                printf '%s\t%s\n' "$display" "$path"
-              done \
-            | sk --delimiter "$(printf '\t')" --with-nth 1 \
-            | cut -f2-
-        )
-      fi
-
-      [[ -z $selected ]] && exit 0
-
-      selected_name=$(basename "$selected" | tr '.: ' '___')
-
-      if ! tmux has-session -t "$selected_name" 2>/dev/null; then
-        tmux new-session -ds "$selected_name" -c "$selected"
-        tmux select-window -t "$selected_name:1"
-      fi
-
-      if [[ -n ''${TMUX:-} ]]; then
-        tmux switch-client -t "$selected_name"
-      else
-        tmux attach-session -t "$selected_name"
-      fi
-    '';
-  };
+  sessionizerPath = "${config.home.homeDirectory}/.local/bin/tmux-sessionizer";
   pdfPicker = pkgs.writeTextFile {
     name = "tmux-pdf-picker";
     destination = "/bin/tmux-pdf-picker";
@@ -177,7 +88,9 @@
     '';
   };
 in {
-  home.packages = [sessionizer pdfPicker];
+  home.packages = [
+    pdfPicker
+  ];
   programs.tmux = {
     enable = true;
     shell = "${pkgs.fish}/bin/fish";
@@ -243,10 +156,10 @@ in {
                               bind -n M-9 select-window -t 9
 
                         # session and project shortcuts
-                        bind n run-shell -b "${lib.getExe sessionizer} ${config.home.homeDirectory}/safe/nix"
+                        bind n run-shell -b "${sessionizerPath} ${config.home.homeDirectory}/safe/nix"
                         unbind f
                         unbind t
-                        bind f display-popup -E "${lib.getExe sessionizer}"
+                        bind f display-popup -E "${sessionizerPath}"
                         bind t display-popup -E "tt"
                         bind p display-popup -E "${lib.getExe pdfPicker}"
 

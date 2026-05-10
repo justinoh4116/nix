@@ -112,6 +112,7 @@ in {
           ++ cfg.home.extraDirectories;
         files =
           [
+            "do" # todos
             ".screenrc"
             ".config/dolphinrc"
             ".local/state/dolphinstaterc"

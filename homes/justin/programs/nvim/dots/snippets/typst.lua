@@ -7,7 +7,7 @@ return {
 	s({ trig = "i" }, fmt("==>", {})),
 	s(
 		{ trig = "([^%s]*)", regTrig = true },
-		fmta([[$<>$ <>]], {
+		fmta([[$<>$<>]], {
 			f(function(_, s)
 				return s.captures[1]
 			end),

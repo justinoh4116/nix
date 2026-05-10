@@ -45,6 +45,7 @@ in {
     settings = {
       mgr = {
         sort_by = "mtime";
+        sort_reverse = "true";
         # show_hidden = true;
       };
       # opener = {
@@ -344,10 +345,11 @@ in {
     initLua = ''
       local function ripdrag(url)
         ya.emit("shell", {
-          "ripdrag-sticky " .. ya.quote(tostring(url)),
+          "~/.local/bin/ripdrag-sticky " .. ya.quote(tostring(url)),
           confirm = true,
           orphan = true,
         })
+        ya.emit("quit")
       end
 
       function Entity:click(event, up)
@@ -376,7 +378,10 @@ in {
         }
         {
           on = ["<C-d>"];
-          run = ''shell --confirm --orphan ripdrag-sticky "$0"'';
+          run = [
+            ''shell --confirm --orphan ripdrag-sticky "$0"''
+            "quit"
+          ];
           desc = "Drag the hovered file";
         }
       ];

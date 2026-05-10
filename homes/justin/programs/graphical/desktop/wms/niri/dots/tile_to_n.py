@@ -539,7 +539,14 @@ try:
 
         # Handle max-on-close
         if closed_window_data is not None:
-            if MAXIMIZE_SOLOS_ON_CLOSE:
+            closed_window_wspace_id = closed_window_data["workspace_id"]
+            closed_window_is_floating = closed_window_data["is_floating"]
+            is_ignored_workspace = (
+                IGNORED_WORKSPACE_IDS
+                and closed_window_wspace_id is not None
+                and closed_window_wspace_id in IGNORED_WORKSPACE_IDS
+            )
+            if MAXIMIZE_SOLOS_ON_CLOSE and not closed_window_is_floating and not is_ignored_workspace:
                 curr_wspace_id = closed_window_data["workspace_id"]
                 curr_wins = get_windows_by_conditions(win_state, workspace_id=curr_wspace_id, is_floating=False)
                 if len(curr_wins) == 1:

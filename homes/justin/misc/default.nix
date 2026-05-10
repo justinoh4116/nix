@@ -31,6 +31,10 @@
       source = ./bin/timewarrior-selector.nu;
       executable = true;
     };
+    home.file.".local/bin/tmux-sessionizer" = {
+      source = ./bin/tmux-sessionizer.nu;
+      executable = true;
+    };
     home.packages = with pkgs; [
       ripdrag
       timewarrior
