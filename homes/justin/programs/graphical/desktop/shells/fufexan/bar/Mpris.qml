@@ -7,6 +7,7 @@ import qs.components
 WrapperMouseArea {
     id: root
 
+    visible: MprisState.player !== null
     Layout.fillHeight: true
 
     acceptedButtons: Qt.RightButton | Qt.LeftButton
@@ -14,7 +15,7 @@ WrapperMouseArea {
     onClicked: event => {
         event.accepted = true;
 
-        MprisState.player.togglePlaying();
+        MprisState.player?.togglePlaying();
     }
 
     RowLayout {

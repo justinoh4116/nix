@@ -13,10 +13,35 @@ Singleton {
     property MprisPlayer lastPlayer: null
     property var players: new Set()
 
+    function isSpotifyPlayer(player: MprisPlayer): bool {
+        if (!player)
+            return false;
+
+        const desktopEntry = (player.desktopEntry || "").toLowerCase();
+        const dbusName = (player.dbusName || "").toLowerCase();
+        const identity = (player.identity || "").toLowerCase();
+
+        return desktopEntry === "spotify"
+            || dbusName === "org.mpris.mediaplayer2.spotify"
+            || identity === "spotify";
+    }
+
+    function latestTrackedPlayer(): MprisPlayer {
+        let latest = null;
+
+        for (const trackedPlayer of players)
+            latest = trackedPlayer;
+
+        return latest;
+    }
+
     function updatePlayer() {
         let leader = null;
-        let backup = lastPlayer;
+        let backup = isSpotifyPlayer(lastPlayer) ? lastPlayer : latestTrackedPlayer();
         for (let player of Mpris.players.values) {
+            if (!isSpotifyPlayer(player))
+                continue;
+
             if (player.isPlaying) {
                 backup = player;
                 if (player.trackArtist !== "")
@@ -24,12 +49,24 @@ Singleton {
             }
         }
 
-        player = leader != null ? leader : backup;
+        player = isSpotifyPlayer(leader) ? leader : backup;
     }
 
     function handlePlayerChanged(player: MprisPlayer) {
-        if (!player.isPlaying)
+        if (!isSpotifyPlayer(player)) {
+            players.delete(player);
+
+            if (lastPlayer === player)
+                lastPlayer = latestTrackedPlayer();
+
+            updatePlayer();
             return;
+        }
+
+        if (!player.isPlaying) {
+            updatePlayer();
+            return;
+        }
 
         players.delete(player);
         players.add(player);
@@ -40,7 +77,7 @@ Singleton {
 
     function playerDestroyed(player: MprisPlayer) {
         players.delete(player);
-        lastPlayer = players[players.size] ?? null;
+        lastPlayer = latestTrackedPlayer();
 
         updatePlayer();
     }
@@ -66,7 +103,7 @@ Singleton {
 
         function pauseAll() {
             for (const player of Mpris.players.values) {
-                if (player.canPause)
+                if (root.isSpotifyPlayer(player) && player.canPause)
                     player.pause();
             }
         }

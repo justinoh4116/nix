@@ -1,5 +1,6 @@
 {
   imports = [
+    ./hypridle
     ./anyrun
     ./stasis
     ./shells

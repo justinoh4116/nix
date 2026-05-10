@@ -35,6 +35,8 @@ in {
 
     kanshi.enable = mkEnableOption "kanshi";
 
+    hypridle.enable = mkEnableOption "hypridle idle manager";
+
     stasis.enable = mkEnableOption "stasis idle manager";
 
     shells = {
