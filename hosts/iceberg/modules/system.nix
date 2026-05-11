@@ -51,6 +51,7 @@
       nextcloud.enable = true;
       paperless.enable = true;
       samba.enable = true;
+      site.enable = true;
       vaultwarden.enable = true;
       wg-easy.enable = true;
 

@@ -1,15 +1,16 @@
 {pkgs, ...}: {
   config = {
-    security.pam.services.justin.enableGnomeKeyring = true;
+    # security.pam.services.justin.enableGnomeKeyring = true;
+    programs.seahorse.enable = true;
     services = {
       dbus.packages = with pkgs; [
-        gcr
+        # gcr
         gnome-settings-daemon
       ];
       gnome = {
         gnome-keyring.enable = true;
 
-        gcr-ssh-agent.enable = true;
+        gcr-ssh-agent.enable = false;
       };
       gvfs.enable = true;
     };

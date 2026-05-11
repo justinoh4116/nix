@@ -27,6 +27,7 @@ in {
     nextcloud.enable = mkEnableOption "nextcloud cloud file storage";
     paperless.enable = mkEnableOption "paperless files";
     samba.enable = mkEnableOption "samba file sharing";
+    site.enable = mkEnableOption "justinoh.io bun web app";
     vaultwarden.enable = mkEnableOption "vaultwarden password manager";
     wg-easy.enable = mkEnableOption "wireguard vpn and wg-easy web ui";
     # glance

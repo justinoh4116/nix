@@ -21,7 +21,8 @@
   commonSettings = {
     general = {
       lock_cmd = lockCmd;
-      before_sleep_cmd = lockCmd;
+      # before_sleep_cmd = lockCmd;
+      before_sleep_cmd = "loginctl lock-sessions";
       after_sleep_cmd = monitorOnCmd;
       ignore_dbus_inhibit = false;
       ignore_systemd_inhibit = false;

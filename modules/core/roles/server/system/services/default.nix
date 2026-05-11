@@ -16,6 +16,7 @@
     ./nextcloud.nix
     ./paperless.nix
     ./samba.nix
+    ./site.nix
     ./vaultwarden.nix
     ./wg-easy.nix
   ];

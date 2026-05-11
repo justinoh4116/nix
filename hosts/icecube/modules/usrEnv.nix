@@ -6,8 +6,8 @@
   config.modules.usrEnv = {
     desktop = {
       enable = true;
-      # stasis.enable = true;
-      hypridle.enable = true;
+      stasis.enable = true;
+      # hypridle.enable = true;
       kanshi.enable = true;
       wms = {
         # hyprland.enable = true;

@@ -46,7 +46,7 @@ in {
 
           outline_thickness = 1;
 
-          font_family = "SF Pro Heavy";
+          font_family = "SF Pro Semibold";
           font_color = "rgb(ffffff)";
           outer_color = "rgba(180, 180, 180, 0.5)";
           inner_color = "rgba(200, 200, 200, 0.1)";
@@ -70,7 +70,7 @@ in {
         {
           monitor = "";
           text = "$TIME";
-          font_family = "SF Pro Heavy";
+          font_family = "SF Pro Semibold";
           font_size = 150;
           color = "rgb(ffffff)";
 
@@ -86,7 +86,7 @@ in {
         }
         {
           monitor = "";
-          font_family = "SF Pro Heavy";
+          font_family = "SF Pro Semibold";
           text = "cmd[update:3600000] date +'%a %b %d'";
           font_size = 20;
           color = "rgb(ffffff)";
