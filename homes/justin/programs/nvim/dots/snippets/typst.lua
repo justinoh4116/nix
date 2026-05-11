@@ -2,8 +2,8 @@
 
 return {
 	-- math modes
-	s({ trig = "mt", snippetType = "autosnippet" }, fmta("$<>$ ", { i(1) })),
-	s({ trig = "mmt", snippetType = "autosnippet" }, fmta("$ <> $ ", { i(1) })),
+	s({ trig = "mk", snippetType = "autosnippet" }, fmta("$<>$ <>", { i(1), i(2) })),
+	s({ trig = "dm", snippetType = "autosnippet" }, fmta("$ <> $ <>", { i(1), i(2) })),
 	s({ trig = "i" }, fmt("==>", {})),
 	s(
 		{ trig = "([^%s]*)", regTrig = true },

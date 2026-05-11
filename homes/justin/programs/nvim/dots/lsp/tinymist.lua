@@ -48,6 +48,10 @@ return {
 	root_markers = { ".git" },
 	settings = {
 		formatterMode = "typstyle",
+		completion = {
+			triggerOnSnippetPlaceholders = true,
+		},
+		triggerSuggest = true,
 	},
 	on_attach = function(client, bufnr)
 		for _, command in ipairs({

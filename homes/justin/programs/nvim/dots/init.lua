@@ -15,6 +15,8 @@ vim.o.incsearch = true
 vim.o.ignorecase = true
 
 vim.pack.add({
+	{ src = "https://github.com/saghen/blink.lib" },
+	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/vague2k/vague.nvim" },
 	{ src = "https://github.com/tamton-aquib/keys.nvim" },
 	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
@@ -157,21 +159,34 @@ map({ "n" }, "<leader>st", builtin.builtin)
 map({ "n" }, "<leader>sc", builtin.git_bcommits)
 map({ "n" }, "<leader>sk", builtin.keymaps)
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("my.lsp", {}),
-	callback = function(args)
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-		if client:supports_method("textDocument/completion") then
-			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-			local chars = {}
-			for i = 32, 126 do
-				table.insert(chars, string.char(i))
-			end
-			client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-		end
-	end,
+local cmp = require("blink.cmp")
+-- cmp.build():wait(60000)
+cmp.setup({
+	fuzzy = { implementation = "lua" },
+	completion = {
+		menu = {
+			border = "none",
+			draw = { columns = { { "label", "label_description", gap = 1 } } },
+		},
+	},
+	sources = { default = { "lsp", "path", "buffer" } },
 })
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   group = vim.api.nvim_create_augroup("my.lsp", {}),
+--   callback = function(args)
+--     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+--     if client:supports_method("textDocument/completion") then
+--       -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+--       local chars = {}
+--       for i = 32, 126 do
+--         table.insert(chars, string.char(i))
+--       end
+--       client.server_capabilities.completionProvider.triggerCharacters = chars
+--       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+--     end
+--   end,
+-- })
 vim.cmd("set completeopt+=noselect")
 
 require("marks").setup({

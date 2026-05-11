@@ -49,8 +49,7 @@ input {
         tap
         dwt
         // dwtp
-        drag true
-        drag-lock
+        drag false
         natural-scroll
         accel-speed 0.25
         accel-profile "flat"

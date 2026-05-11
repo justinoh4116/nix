@@ -349,7 +349,8 @@ in {
           confirm = true,
           orphan = true,
         })
-        ya.emit("quit")
+        ya.sleep(0.275)
+        ya.emit("quit", {})
       end
 
       function Entity:click(event, up)
@@ -365,7 +366,7 @@ in {
     '';
 
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           on = ["T"];
           run = "plugin --sync max-preview";
@@ -377,7 +378,7 @@ in {
           desc = "Chmod on selected files";
         }
         {
-          on = ["<C-d>"];
+          on = ["<C-f>"];
           run = [
             ''shell --confirm --orphan ripdrag-sticky "$0"''
             "quit"
