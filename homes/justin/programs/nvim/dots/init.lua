@@ -169,7 +169,8 @@ cmp.setup({
 			draw = { columns = { { "label", "label_description", gap = 1 } } },
 		},
 	},
-	sources = { default = { "lsp", "path", "buffer" } },
+	sources = { default = { "lsp", "path" } }, -- "buffer" } },
+	cmdline = { enabled = false },
 })
 
 -- vim.api.nvim_create_autocmd("LspAttach", {

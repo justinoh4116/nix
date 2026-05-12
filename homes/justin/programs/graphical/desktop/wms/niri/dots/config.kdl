@@ -49,7 +49,8 @@ input {
         tap
         dwt
         // dwtp
-        drag false
+        drag true
+        drag-lock
         natural-scroll
         accel-speed 0.25
         accel-profile "flat"
@@ -196,7 +197,7 @@ layout {
 
         width 1
         active-color "#ffffff"
-        inactive-color "#888888"
+        inactive-color "#ffffff"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
@@ -227,16 +228,16 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 36
+        softness 42
 
         // Spread expands the shadow.
-        spread 6 
+        spread 8 
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=15
 
         // You can also change the shadow color and opacity.
-        color "#00000055"
+        color "#000000d2"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.

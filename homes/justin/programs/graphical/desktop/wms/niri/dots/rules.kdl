@@ -1,7 +1,7 @@
 window-rule {
   // Slightly dim inactive windows while keeping the active one fully opaque.
   match is-active=false
-  opacity 0.9
+  // opacity 0.95
 }
 
 window-rule {

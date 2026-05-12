@@ -154,6 +154,8 @@ in {
                               bind -n M-7 select-window -t 7
                               bind -n M-8 select-window -t 8
                               bind -n M-9 select-window -t 9
+                              bind Space last-window
+                              bind C-Space last-window
 
                         # session and project shortcuts
                         bind n run-shell -b "${sessionizerPath} ${config.home.homeDirectory}/safe/nix"
