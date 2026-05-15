@@ -28,9 +28,25 @@ WrapperMouseArea {
             font.styleName: "Medium"
         }
 
-        MaterialIcon {
-            text: "notifications" + (NotificationState.allNotifs.length > 0 ? "_unread" : "")
-            font.pointSize: Config.iconSize
+        WrapperMouseArea {
+            acceptedButtons: Qt.RightButton
+            Layout.alignment: Qt.AlignVCenter
+            implicitWidth: notificationIcon.implicitWidth
+            implicitHeight: notificationIcon.implicitHeight
+
+            onClicked: event => {
+                event.accepted = true;
+                DndState.toggle();
+            }
+
+            MaterialIcon {
+                id: notificationIcon
+
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: -.5
+                text: DndState.enabled ? "notifications_off" : "notifications" + (NotificationState.allNotifs.length > 0 ? "_unread" : "")
+                font.pointSize: Config.iconSize
+            }
         }
     }
 }

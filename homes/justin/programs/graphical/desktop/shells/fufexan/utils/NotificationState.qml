@@ -1,8 +1,10 @@
 pragma Singleton
 pragma ComponentBehavior: Bound
 
+import QtQml
 import Quickshell
 import Quickshell.Services.Notifications
+import qs.utils
 
 Singleton {
     id: root
@@ -14,7 +16,7 @@ Singleton {
     function onNewNotif(notif) {
         allNotifs = [notif, ...allNotifs];
 
-        if (notif.lastGeneration)
+        if (notif.lastGeneration || DndState.enabled)
             return;
 
         popupNotifs = [notif, ...popupNotifs];
@@ -65,6 +67,15 @@ Singleton {
     function closeAll() {
         allNotifs = [];
         notifOverlayOpen = false;
+    }
+
+    Connections {
+        target: DndState
+
+        function onEnabledChanged() {
+            if (DndState.enabled)
+                root.dismissAll();
+        }
     }
 
     NotificationServer {

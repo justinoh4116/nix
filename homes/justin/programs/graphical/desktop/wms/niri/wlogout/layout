@@ -7,7 +7,7 @@
   {
     "label": "suspend",
     "text": "Suspend",
-    "action": "systemctl suspend",
+    "action": "sh -c 'systemctl --user start lock.target && sleep 1 && systemctl suspend'",
     "keybind": "s"
   },
   {

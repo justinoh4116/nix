@@ -9,9 +9,9 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86AudioPlay         allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
-    XF86AudioPrev         allow-when-locked=true { spawn-sh "noctalia-shell ipc call media prev"; }
-    XF86AudioNext         allow-when-locked=true { spawn-sh "noctalia-shell ipc call media next"; }
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
@@ -93,24 +93,24 @@ binds {
     // will all refer to the 3rd workspace.
     Mod+1 { focus-workspace "terminal"; }
     Mod+2 { focus-workspace "browser"; }
-    Mod+3 { focus-workspace "misc1"; }
+    Mod+3 { focus-workspace "sioyek"; }
     Mod+4 { focus-workspace "spotify"; }
     Mod+5 { focus-workspace "zotero"; }
     Mod+D { focus-workspace "discord"; }
     // Mod+E { focus-workspace "explorer"; }
     Mod+E { spawn-sh "foot -T yazi yazi"; }
-    Mod+T { focus-workspace "sioyek"; }
+    Mod+T { focus-workspace "misc1"; }
     Mod+V { focus-workspace "vscode"; }
     Mod+A { focus-workspace "agents"; }
     Mod+C { focus-workspace "chat"; }
     Mod+Shift+1 { move-column-to-workspace "terminal"; }
     Mod+Shift+2 { move-column-to-workspace "browser"; }
-    Mod+Shift+3 { move-column-to-workspace "misc1"; }
+    Mod+Shift+3 { move-column-to-workspace "sioyek"; }
     Mod+Shift+4 { move-column-to-workspace "spotify"; }
     Mod+Shift+5 { move-column-to-workspace "zotero"; }
     Mod+Shift+D { move-column-to-workspace "discord"; }
     Mod+Shift+A { move-column-to-workspace "agents"; }
-    Mod+Shift+T { move-column-to-workspace "sioyek"; }
+    Mod+Shift+T { move-column-to-workspace "misc1"; }
     Mod+Shift+V { move-column-to-workspace "vscode"; }
     Mod+Shift+C { move-column-to-workspace "chat"; }
 

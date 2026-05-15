@@ -233,3 +233,33 @@ vault.justinoh.io {
   # }
 	reverse_proxy http://localhost:8222
 }
+
+docs.justinoh.io {
+  @public {
+		path /docs/*
+		path /api/pdf/*
+		path /_app/*
+		path /favicon*
+	}
+
+	handle @public {
+		reverse_proxy 192.168.100.30:3000
+	}
+
+	@private {
+		path /
+		path /api/search
+	}
+
+	handle @private {
+		forward_auth 192.168.100.16:9091 {
+      uri /api/authz/forward-auth
+      copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+		}
+		reverse_proxy 192.168.100.30:3000
+	}
+
+	handle {
+		respond "Not found" 404
+	}
+}

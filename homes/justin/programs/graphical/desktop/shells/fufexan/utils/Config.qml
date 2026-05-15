@@ -9,7 +9,6 @@ PersistentProperties {
         return [...Quickshell.screens].find(e => e.name == "eDP-1");
     }
     property bool showSidebar: false
-    property bool doNotDisturb: false
 
     readonly property int notificationExpireTimeout: 5000
     readonly property int notificationIconSize: 48

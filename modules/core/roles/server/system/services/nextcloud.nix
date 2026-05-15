@@ -49,16 +49,23 @@ in {
             };
             config.adminpassFile = "/run/agenix/nextcloud-admin-password";
             config.dbtype = "sqlite";
-            package = pkgs.nextcloud32;
+            package = pkgs.nextcloud33;
             # Instead of using pkgs.nextcloud28Packages.apps,
             # we'll reference the package version specified above
-            extraApps = {
-              # inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
-            };
+            # extraApps = {
+            #   inherit (config.services.nextcloud.package.packages.apps) ext;
+            # };
             extraAppsEnable = true;
           };
           networking.firewall.allowedTCPPorts = [80];
+
+          users.users.nextcloud.uid = hostConfig.users.users.files.uid;
+          users.groups.nextcloud.gid = hostConfig.users.groups.files.gid;
         };
     };
+
+    users.users.files.uid = 967;
+    users.users.files.group = "files";
+    users.groups.files.gid = 967;
   };
 }

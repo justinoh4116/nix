@@ -30,6 +30,14 @@ def write-status [status: string] {
     $status | save --force (status-file)
 }
 
+def sync-dnd [status: string] {
+    if $status == "working" {
+        run-quiet quickshell-dnd on
+    } else {
+        run-quiet quickshell-dnd off
+    }
+}
+
 def get-skim-theme-args [] {
     let theme_script = ($SCRIPT_DIR | path join "skim-themes.sh")
 
@@ -79,10 +87,12 @@ def main [] {
     if $selected == "stop" {
         run-quiet timew stop
         write-status "stopped"
+        sync-dnd "stopped"
         run-quiet tmux set -g status-right ""
     } else {
         run-quiet timew start $selected
         write-status $selected
+        sync-dnd $selected
 
         let status_right = ($selected + ' #(timew | awk "/^ *Total/ {print \$NF}")')
         run-quiet tmux set -g status-right $status_right
@@ -98,4 +108,3 @@ def main [] {
         }
     }
 }
-

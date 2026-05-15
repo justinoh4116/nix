@@ -39,4 +39,8 @@ rtk pip list            rtk pnpm install        rtk npm run <script>
 - In command chains, prefix each segment: `rtk git add . && rtk git commit -m "msg"`
 - For debugging, use raw command without rtk prefix
 - `rtk proxy <cmd>` runs command without filtering but tracks usage
+
+## Nix
+- If a required CLI tool is not installed, agents may access it temporarily with `nix shell`, for example `nix shell nixpkgs#jq`.
+- If a project needs a reproducible development environment, agents may create a Nix flake (typically a `flake.nix` with a `devShell`) and use `nix develop`.
 <!-- /headroom:rtk-instructions -->

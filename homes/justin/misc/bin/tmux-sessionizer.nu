@@ -124,8 +124,14 @@ def pick-path [search_dirs: list] {
 }
 
 def session-name [target: string] {
-    $target
-    | path basename
+    let parent = ($target | path dirname | path basename)
+    let child = ($target | path basename)
+
+    if $parent == "" or $parent == $child {
+        $child
+    } else {
+        [$parent $child] | str join "_"
+    }
     | str replace --all "." "_"
     | str replace --all ":" "_"
     | str replace --all " " "_"

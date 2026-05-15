@@ -50,6 +50,7 @@
       minecraft.enable = true;
       nextcloud.enable = true;
       paperless.enable = true;
+      pdf-vending-machine.enable = true;
       samba.enable = true;
       site.enable = true;
       vaultwarden.enable = true;

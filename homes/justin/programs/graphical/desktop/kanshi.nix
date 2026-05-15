@@ -27,11 +27,14 @@ in {
           profile.outputs = [
             {
               criteria = "eDP-1";
-              scale = 1.5;
+              # scale = 1.5;
+              scale = 1.33;
+              position = "0,1440";
             }
             {
               criteria = "LG Electronics LG ULTRAGEAR+ 511RMNECW663";
-              position = "-2560,0";
+              # position = "-2560,0";
+              position = "0,0";
               mode = "2560x1440@143.991";
             }
           ];

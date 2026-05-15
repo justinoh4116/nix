@@ -52,9 +52,9 @@ ColumnLayout {
                     MaterialIconButton {
                         id: dndButton
 
-                        onPressed: Config.doNotDisturb = !Config.doNotDisturb
-                        icon: "do_not_disturb_" + (Config.doNotDisturb ? "on" : "off")
-                        text: "Do not disturb " + (Config.doNotDisturb ? "on" : "off")
+                        onPressed: DndState.toggle()
+                        icon: "do_not_disturb_" + (DndState.enabled ? "on" : "off")
+                        text: "Do not disturb " + (DndState.enabled ? "on" : "off")
                     }
 
                     IconButton {

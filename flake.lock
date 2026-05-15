@@ -4156,6 +4156,23 @@
         "type": "github"
       }
     },
+    "pdf-vending-machine": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778631614,
+        "narHash": "sha256-VIAEQMZ4Dg0HKqlGOSwHK2V1+m8wI9PFKvZtN4r4+ww=",
+        "path": "/home/justin/safe/repos/pdf-vending-machine",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/justin/safe/repos/pdf-vending-machine",
+        "type": "path"
+      }
+    },
     "plugin-alpha-nvim": {
       "flake": false,
       "locked": {
@@ -5933,6 +5950,7 @@
         "noctalia": "noctalia",
         "nur": "nur",
         "nyx": "nyx",
+        "pdf-vending-machine": "pdf-vending-machine",
         "pyprland": "pyprland",
         "quickshell": "quickshell",
         "schizofox": "schizofox_2",

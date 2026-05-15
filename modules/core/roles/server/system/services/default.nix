@@ -15,6 +15,7 @@
     ./minecraft.nix
     ./nextcloud.nix
     ./paperless.nix
+    ./pdf-vending-machine.nix
     ./samba.nix
     ./site.nix
     ./vaultwarden.nix

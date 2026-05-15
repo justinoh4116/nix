@@ -11,7 +11,7 @@ PanelWindow {
     id: root
 
     screen: Config.preferredMonitor
-    visible: NotificationState.notifOverlayOpen && !Config.showSidebar && !Config.doNotDisturb
+    visible: NotificationState.notifOverlayOpen && !Config.showSidebar && !DndState.enabled
 
     WlrLayershell.exclusionMode: ExclusionMode.Ignore
     WlrLayershell.namespace: "quickshell:notifications:overlay"
