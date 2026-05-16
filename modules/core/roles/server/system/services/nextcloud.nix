@@ -20,6 +20,11 @@ in {
           isReadOnly = false;
         };
 
+        "/files" = {
+          hostPath = "/persist/files";
+          isReadOnly = false;
+        };
+
         "/etc/resolv.conf" = {
           hostPath = "/etc/resolv.conf";
           isReadOnly = true;
@@ -44,7 +49,10 @@ in {
             home = "/var/lib/nextcloud";
             # domain = "files.spicanet.duckdns.org";
             settings = {
-              trusted_domains = ["files.spicanet.duckdns.org" "files.justinoh.io"];
+              trusted_domains = [
+                "files.spicanet.duckdns.org"
+                "files.justinoh.io"
+              ];
               overwriteprotocol = "https";
             };
             config.adminpassFile = "/run/agenix/nextcloud-admin-password";

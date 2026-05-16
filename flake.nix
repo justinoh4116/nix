@@ -166,5 +166,11 @@
       url = "path:/home/justin/safe/repos/pdf-vending-machine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    personal-site = {
+      # GitHub access returned 404 from this environment, so use the local flake.
+      url = "path:/home/justin/safe/repos/site";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
