@@ -29,6 +29,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "master" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+	{ src = "https://github.com/tpope/vim-fugitive" },
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -106,6 +107,8 @@ map({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
 
 map({ "n", "v" }, "<leader>n", ":norm ")
 map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
+
+map("n", "<leader>gs", vim.cmd.Git)
 
 -- snippets
 require("luasnip").setup({ enable_autosnippets = true })

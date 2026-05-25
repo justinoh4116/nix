@@ -1,8 +1,9 @@
 {
   description = "i may have fallen too deep into the hole";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       # attributes of perSystem will be built for all systems in this list
       systems = import inputs.systems;
 
@@ -32,6 +33,7 @@
     nur.url = "github:nix-community/NUR";
 
     agenix.url = "github:ryantm/agenix";
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
 
     t3code = {
       url = "github:rodeyseijkens/t3code-nix";
@@ -106,7 +108,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helium.url = "github:justinoh4116/helium-browser-nix-flake";
+    # helium.url = "github:justinoh4116/helium-browser-nix-flake";
+    helium.url = "github:schembriaiden/helium-browser-nix-flake";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # zen-browser = {

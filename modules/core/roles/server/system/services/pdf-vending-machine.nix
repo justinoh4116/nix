@@ -21,6 +21,7 @@ in {
           hostPath = "/persist/files";
           isReadOnly = true;
         };
+        "${config.age.secrets.pdf-vending-machine-content-id-secret.path}".isReadOnly = true;
       };
       config = let
         hostConfig = config;
@@ -48,6 +49,10 @@ in {
             inherit port;
             openFirewall = true;
           };
+
+          systemd.services.pdf-vending-machine.serviceConfig.EnvironmentFile =
+            hostConfig.age.secrets.pdf-vending-machine-content-id-secret.path;
+
           users.users.pdf-vending-machine.uid = hostConfig.users.users.files.uid;
           users.groups.pdf-vending-machine.gid = hostConfig.users.groups.files.gid;
         };

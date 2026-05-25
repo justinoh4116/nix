@@ -78,6 +78,10 @@ in {
       file = "paperless-admin-password.age";
     };
 
+    pdf-vending-machine-content-id-secret = mkAgenixSecret cfg.pdf-vending-machine.enable {
+      file = "pdf-vending-machine-content-id-secret.age";
+    };
+
     porkbun-api-key = mkAgenixSecret true {
       file = "porkbun-api-key.age";
     };

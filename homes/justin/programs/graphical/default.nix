@@ -54,6 +54,7 @@
         zotero
         ungoogled-chromium
         freecad
+        libreoffice
 
         bitwarden-desktop
 
