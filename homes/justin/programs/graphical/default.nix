@@ -23,7 +23,7 @@
   config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     home.packages = with pkgs;
       [
-        easyeffects
+        # easyeffects
         gamescope
         # kiwitalk
         # blender
@@ -84,9 +84,9 @@
         inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
-    services.easyeffects = {
-      enable = true;
-    };
+    # services.easyeffects = {
+    #   enable = true;
+    # };
 
     nixpkgs.config.permittedInsecurePackages = [
       "electron-25.9.0"

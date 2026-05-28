@@ -1,6 +1,9 @@
 {
   pkgs,
   lib,
+  fetchFromGitHub,
+  onnxruntime,
+  rustPlatform,
   ...
 }: let
   # python = pkgs.pure-unstable;
@@ -8,18 +11,43 @@
 in
   python.python3Packages.buildPythonPackage rec {
     pname = "headroom-ai";
-    version = "0.5.20";
+    version = "0.22.3";
     pyproject = true;
 
-    src = python.fetchPypi {
-      pname = "headroom_ai";
-      inherit version;
-      hash = "sha256-vJf8eSjeGynxDlwWNOJvDrnhAJQjT9nPrNXPPJMQ7Wg=";
+    src = fetchFromGitHub {
+      owner = "chopratejas";
+      repo = "headroom";
+      rev = "v${version}";
+      hash = "sha256-xTN4tO2wafk9zkQnSdXiWeKrCnefyFtNr2WM8s6/jTg=";
     };
 
-    nativeBuildInputs = with python.python3Packages; [
-      hatchling
+    cargoDeps = rustPlatform.fetchCargoVendor {
+      inherit pname version src;
+      hash = "sha256-WQBvil0bsS6/Z6b+uRauwOQq4VZ57VwAoghcyFdVgLE=";
+    };
+
+    pythonRelaxDeps = [
+      "litellm"
     ];
+
+    pythonRemoveDeps = [
+      "ast-grep-cli"
+    ];
+
+    nativeBuildInputs = with rustPlatform; [
+      cargoSetupHook
+      maturinBuildHook
+    ];
+
+    buildInputs = [
+      onnxruntime
+    ];
+
+    env = {
+      ORT_STRATEGY = "system";
+      ORT_LIB_LOCATION = "${lib.getLib onnxruntime}/lib";
+      ORT_PREFER_DYNAMIC_LINK = "true";
+    };
 
     propagatedBuildInputs = with python.python3Packages; [
       tiktoken
@@ -27,6 +55,7 @@ in
       litellm
       click
       rich
+      opentelemetry-api
 
       # proxy
       fastapi

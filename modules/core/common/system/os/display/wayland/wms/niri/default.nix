@@ -20,7 +20,7 @@ in {
     services.displayManager.gdm = {
       enable = true;
       autoSuspend = false;
-      wayland = true;
+      # wayland = true;
     };
 
     programs.niri = {

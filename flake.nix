@@ -1,9 +1,8 @@
 {
   description = "i may have fallen too deep into the hole";
 
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       # attributes of perSystem will be built for all systems in this list
       systems = import inputs.systems;
 

@@ -13,7 +13,7 @@
     hw = inputs.nixos-hardware.nixosModules; # hardware config for laptop and other weird devices
     nixos-wsl = inputs.nixos-wsl.nixosModules.default; # solidworks why
     agenix = inputs.agenix.nixosModules.default; # secret management
-    agenix-rekey = inputs.agenix-rekey.flakeModule;
+    # agenix-rekey = inputs.agenix-rekey.flakeModule;
 
     modulePath = ../modules;
 
@@ -67,7 +67,7 @@
         extraModules = [
           homes
           agenix
-          agenix-rekey
+          # agenix-rekey
           hw.framework-13-7040-amd
         ];
       };
@@ -93,7 +93,7 @@
         roles = [server];
         extraModules = [
           agenix
-          agenix-rekey
+          # agenix-rekey
         ];
       };
     };
@@ -106,7 +106,7 @@
         extraModules = [
           homes
           agenix
-          agenix-rekey
+          # agenix-rekey
           nixos-wsl
         ];
       };
@@ -118,7 +118,7 @@
       modules = [
         ./titanic
         agenix
-        agenix-rekey
+        # agenix-rekey
       ];
     };
   };
