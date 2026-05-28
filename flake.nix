@@ -34,6 +34,8 @@
     agenix.url = "github:ryantm/agenix";
     agenix-rekey.url = "github:oddlama/agenix-rekey";
 
+    codex-desktop.url = "github:ilysenko/codex-desktop-linux";
+
     t3code = {
       url = "github:rodeyseijkens/t3code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
