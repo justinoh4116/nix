@@ -2,7 +2,7 @@ binds {
     Mod+Space  { spawn-sh "vicinae toggle"; }
 
     Mod+Return  { spawn-sh "ghostty"; }
-    Mod+X repeat=false  { spawn "wlogout" "-p" "layer-shell"; }
+    Mod+X repeat=false allow-when-locked=true { spawn "wlogout" "-p" "layer-shell"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }

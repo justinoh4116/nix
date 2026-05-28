@@ -1,7 +1,6 @@
 #!/usr/bin/env nu
 
-const SCRIPT_DIR = (path self | path dirname)
-const REPO_ROOT = ($SCRIPT_DIR | path join ".." ".." ".." ".." | path expand)
+const REPO_ROOT = ("~/safe/nix" | path expand)
 
 def backup-suffix [] {
     date now | format date "%Y%m%d-%H%M%S"

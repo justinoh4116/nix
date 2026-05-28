@@ -17,10 +17,16 @@ in {
   config = lib.mkIf (env.desktop.wm == "niri" && sys.video.enable) {
     nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
-    services.displayManager.gdm = {
-      enable = true;
-      autoSuspend = false;
-      # wayland = true;
+    services.displayManager = {
+      defaultSession = "";
+      ly = {
+        enable = true;
+      };
+      # gdm = {
+      #   enable = true;
+      #   autoSuspend = false;
+      #   # wayland = true;
+      # };
     };
 
     programs.niri = {
