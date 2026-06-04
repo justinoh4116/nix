@@ -46,6 +46,7 @@ in {
       mgr = {
         sort_by = "mtime";
         sort_reverse = true;
+        sort_dir_first = true;
         # show_hidden = true;
       };
       # opener = {
@@ -61,9 +62,6 @@ in {
         max_width = 1000;
         max_height = 1000;
       };
-      sort_by = "mtime";
-      sort_reverse = true;
-      sort_dir_first = true;
     };
 
     theme = {

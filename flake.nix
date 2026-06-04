@@ -46,7 +46,7 @@
     # pin fixed freecad
     # nixpkgs-freecad.url = "github:squalus/nixpkgs/freecad";
 
-    # pin nixpkgs for m16 logisim version 4.1.0
+    # pin nixpkgs for m16 logisim version 4.0.0
     nixpkgs-logisim-m16.url = "github:nixos/nixpkgs/50fccc29d7d8da11de205a3815b916642cbc9c57";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

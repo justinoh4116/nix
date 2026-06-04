@@ -92,7 +92,15 @@ in {
             ".local/share/headroom-venv"
             ".headroom"
             ".config/t3code"
+
+            # Codex Desktop
             ".codex"
+            ".config/Codex"
+            ".config/codex-desktop"
+            ".cache/codex-desktop"
+            ".cache/codex-runtimes"
+            ".local/state/codex-desktop"
+            ".local/state/codex"
             ".t3"
 
             {
@@ -105,6 +113,11 @@ in {
             }
             {
               directory = ".local/share/keyrings";
+              mode = "0700";
+            }
+            {
+              # Shared NSS certificate store used by Electron.
+              directory = ".pki";
               mode = "0700";
             }
             ".local/share/direnv"

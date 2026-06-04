@@ -125,6 +125,17 @@
       notify-send "OCR copied to clipboard" "$preview"
     '';
   };
+  suspendIfLocked = pkgs.writeShellApplication {
+    name = "suspend-if-locked";
+    runtimeInputs = with pkgs; [
+      procps
+      systemd
+    ];
+    text = ''
+      pidof hyprlock >/dev/null || exit 0
+      systemctl suspend
+    '';
+  };
 in {
   imports = [
   ];
@@ -132,6 +143,7 @@ in {
     home.packages = [
       screenshotHelper
       ocrHelper
+      suspendIfLocked
       pkgs.libnotify
       pkgs.wlogout
       self.packages.${pkgs.stdenv.hostPlatform.system}.piri
