@@ -37,7 +37,7 @@
           --copy-command wl-copy \
           --actions-on-enter save-to-clipboard,save-to-file,exit \
           --actions-on-right-click save-to-clipboard,save-to-file,exit \
-          --actions-on-escape exit
+          --actions-on-escape save-to-clipboard,save-to-file,exit
       }
 
       case "$mode" in
@@ -147,6 +147,7 @@ in {
       pkgs.libnotify
       pkgs.wlogout
       self.packages.${pkgs.stdenv.hostPlatform.system}.piri
+      inputs.niri-float-sticky.packages.${pkgs.stdenv.hostPlatform.system}.niri-float-sticky
       pkgs.python3
     ];
     home.file."${config.xdg.configHome}/niri" = {

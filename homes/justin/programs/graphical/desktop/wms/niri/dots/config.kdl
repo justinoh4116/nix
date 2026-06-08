@@ -197,7 +197,7 @@ layout {
 
         width 1
         active-color "#ffffff"
-        inactive-color "#ffffff"
+        inactive-color "#dddddd"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
@@ -273,6 +273,7 @@ debug {
 
 // spawn-at-startup "waybar"
 spawn-at-startup "bash" "-c" "piri daemon > /dev/null 2>&1 &"
+spawn-at-startup "niri-float-sticky" "-disable-auto-stick"
 spawn-sh-at-startup "wallpaper=\"$HOME/safe/pictures/wallpapers/black.png\"; ln -sfn \"$wallpaper\" \"$HOME/.current_wallpaper\"; until awww query >/dev/null 2>&1; do sleep 0.2; done; awww img \"$wallpaper\""
 spawn-sh-at-startup "python ~/.config/niri/tile_to_n.py"
 spawn-at-startup "ghostty"

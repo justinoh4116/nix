@@ -59,7 +59,15 @@ window-rule {
 }
 
 window-rule {
-  match app-id="code"
+  match app-id=r#"(?i)codex-desktop"#
+  open-on-workspace "agents"
+  background-effect {
+    blur true
+  }
+}
+
+window-rule {
+  match app-id=r#"^code$"#
   open-on-workspace "vscode"
 }
 

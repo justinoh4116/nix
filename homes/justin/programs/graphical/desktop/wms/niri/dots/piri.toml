@@ -22,7 +22,8 @@ command = "discordcanary"
 command = "dolphin"
 
 [empty.agents]
-command = "bash -lc 'pgrep -u \"$USER\" -x t3code >/dev/null || exec t3code'"
+# command = "bash -lc 'pgrep -u \"$USER\" -x t3code >/dev/null || exec t3code'"
+command = "bash -lc 'pgrep -u \"$USER\" -x codex-desktop >/dev/null || exec codex-desktop'"
 
 [empty.vscode]
 command = "code"

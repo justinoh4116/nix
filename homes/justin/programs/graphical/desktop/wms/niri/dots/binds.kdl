@@ -124,6 +124,7 @@ binds {
     Mod+Ctrl+C { center-visible-columns; }
 
     Mod+Shift+Space { toggle-window-floating; }
+    Mod+G hotkey-overlay-title="Toggle pinned floating window" { spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
 
     Print { spawn "niri-screenshot" "area"; }
     Ctrl+Print { spawn "niri-screenshot" "output"; }
