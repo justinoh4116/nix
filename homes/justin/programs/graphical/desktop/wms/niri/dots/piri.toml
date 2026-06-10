@@ -15,15 +15,16 @@ command = "helium"
 [empty.spotify]
 command = "spotify"
 
-[empty.discord]
-command = "discordcanary"
-
+# [empty.discord]
+# command = "discordcanary"
+#
 [empty.explorer]
 command = "dolphin"
 
 [empty.agents]
 # command = "bash -lc 'pgrep -u \"$USER\" -x t3code >/dev/null || exec t3code'"
-command = "bash -lc 'pgrep -u \"$USER\" -x codex-desktop >/dev/null || exec codex-desktop'"
+# command = "bash -lc 'pgrep -u \"$USER\" -x codex-desktop >/dev/null || exec codex-desktop'"
+command = "codex-desktop"
 
 [empty.vscode]
 command = "code"
