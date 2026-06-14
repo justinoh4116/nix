@@ -24,7 +24,7 @@ in {
         systemd-boot.enable = lib.mkForce false;
         limine = {
           enable = true;
-          # secureBoot.enable = true;
+          secureBoot.enable = true;
         };
       };
       # bootspec.enable = true;
