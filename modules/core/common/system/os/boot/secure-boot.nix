@@ -10,7 +10,7 @@
   sys = config.modules.system.boot;
 in {
   imports = [
-    inputs.lanzaboote.nixosModules.lanzaboote
+    # inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
   config = mkIf (sys.secureBoot && !isWSL config) {
@@ -19,18 +19,19 @@ in {
       pkgs.sbctl
     ];
 
-    # Lanzaboote currently replaces the systemd-boot module.
-    # This setting is usually set to true in configuration.nix
-    # generated at installation time. So we force it to false
-    # for now.
-    boot.loader.systemd-boot.enable = lib.mkForce false;
-
     boot = {
-      bootspec.enable = true;
-      lanzaboote = {
-        enable = true;
-        pkiBundle = "/var/lib/sbctl/";
+      loader = {
+        systemd-boot.enable = lib.mkForce false;
+        limine = {
+          enable = true;
+          # secureBoot.enable = true;
+        };
       };
+      # bootspec.enable = true;
+      # lanzaboote = {
+      #   enable = true;
+      #   pkiBundle = "/var/lib/sbctl/";
+      # };
     };
   };
 }

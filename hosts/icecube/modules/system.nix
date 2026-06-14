@@ -20,8 +20,8 @@
       };
 
       boot = {
-        loader = "systemd-boot";
-        secureBoot = false;
+        # loader = "systemd-boot";
+        secureBoot = true;
         plymouth = {
           enable = false;
           # withThemes = true;
