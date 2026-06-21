@@ -19,5 +19,11 @@ in {
         # iceberg = self.nixosConfigurations.iceberg.config.system.build.toplevel;
       };
     };
+    cachix-deploy-titanic = cachix-deploy-lib.spec {
+      agents = {
+        titanic = self.nixosConfigurations.titanic.config.system.build.toplevel;
+        # iceberg = self.nixosConfigurations.iceberg.config.system.build.toplevel;
+      };
+    };
   };
 }

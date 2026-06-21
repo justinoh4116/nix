@@ -2,7 +2,8 @@ let
   justinf = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgdHCdGZodbvK9TY80cidEaV5dQAsKTrovljnH1RE8y";
   justini = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqwBsJTddM3gFPxkuuavq96qUqMewIrwrHtZqyJ3aw3";
   justinfh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGujIYOdyZVxJEYyPAg+0xSX6ANmSfG4as9nad9P8QUl";
-  users = [justinf justini justinfh];
+  justinicecube = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDLLHpo7r73dR3Hce9rbcMLCeuZxJxz9NtsFHtCpMzF6";
+  users = [justinf justini justinfh justinicecube];
 
   framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPxpWExHrdaG5QSBFPKqD0DBeyBqFJJ/lZDEwHSVKf60";
   iceberg = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKaNliWdKb+cCNLeAugK89ED1+O/lFicXvKsXt7xfh7a";
@@ -27,6 +28,7 @@ in {
   "porkbun-secret-key.age".publicKeys = users ++ systems;
   "duckdns.age".publicKeys = users ++ systems;
   "framework-cachix-agent-token.age".publicKeys = users ++ systems;
+  "titanic-cachix-agent-token.age".publicKeys = users ++ systems;
   "iceberg-cachix-agent-token.age".publicKeys = users ++ systems;
   "gh-nix-ci-token.age".publicKeys = users ++ systems;
   "paperless-admin-password.age".publicKeys = users ++ systems;

@@ -33,6 +33,10 @@ in {
       file = "tailscale-auth.age";
     };
 
+    titanic-cachix-agent-token = mkAgenixSecret true {
+      file = "titanic-cachix-agent-token.age";
+    };
+
     framework-cachix-agent-token = mkAgenixSecret true {
       file = "framework-cachix-agent-token.age";
     };

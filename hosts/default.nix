@@ -97,6 +97,18 @@
         ];
       };
     };
+    titanic = mkNixosSystem {
+      inherit withSystem;
+      hostname = "titanic";
+      system = "x86_64-linux";
+      modules = mkModulesFor "titanic" {
+        roles = [server];
+        extraModules = [
+          agenix
+          # agenix-rekey
+        ];
+      };
+    };
     bear = mkNixosSystem {
       inherit withSystem;
       hostname = "bear";
@@ -110,16 +122,6 @@
           nixos-wsl
         ];
       };
-    };
-    titanic = mkNixosSystem {
-      inherit withSystem;
-      hostname = "titanic";
-      system = "x86_64-linux";
-      modules = [
-        ./titanic
-        agenix
-        # agenix-rekey
-      ];
     };
   };
 }
