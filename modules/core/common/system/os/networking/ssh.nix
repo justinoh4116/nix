@@ -1,5 +1,6 @@
 {
   keys,
+  pkgs,
   config,
   lib,
   ...
@@ -112,5 +113,7 @@ in {
     extraConfig = ''
       ${hostConfig}
     '';
+    askPassword = "${pkgs.openssh-askpass}/bin/openssh-askpass";
+    enableAskPassword = true;
   };
 }

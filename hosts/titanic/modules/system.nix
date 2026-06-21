@@ -2,15 +2,14 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   config.modules.system = {
     mainUser = "justin";
 
     fs.zfs = {
       enable = true;
       autoScrub = true;
-      poolsToImport = [ "zpool" ];
+      poolsToImport = ["zboot" "zdata"];
       snapshots = true;
     };
 
