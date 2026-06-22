@@ -45,6 +45,7 @@ in
           networking.useHostResolvConf = lib.mkForce false;
           services.resolved.enable = true;
           system.stateVersion = "26.05";
+          networking.enableIPv6 = false;
 
           networking.firewall.enable = false;
 

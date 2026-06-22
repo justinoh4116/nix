@@ -83,5 +83,6 @@ in {
     };
 
     boot.zfs.extraPools = cfg.poolsToImport;
+    boot.zfs.forceImportRoot = false;
   };
 }
