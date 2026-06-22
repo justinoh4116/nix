@@ -3,19 +3,23 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.modules.system.services.media-server;
   composeFile = ./docker-compose;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
-    containers.media-servicea = {
+    networking.firewall.allowedTCPPorts = [ 5055 ];
+
+    containers.media-services = {
       autoStart = true;
       privateNetwork = true;
       hostAddress = "192.168.100.23";
       localAddress = "192.168.100.24";
       bindMounts = {
         "/data" = {
-          hostPath = "/persist/media";
+          hostPath = "/data/media";
           isReadOnly = false;
         };
         "/config" = {
@@ -28,45 +32,54 @@ in {
         "--system-call-filter=keyctl"
         "--system-call-filter=bpf"
       ];
-      config = {pkgs, ...}: {
-        networking.useHostResolvConf = lib.mkForce false;
-        services.resolved.enable = true;
-        system.stateVersion = "26.05";
+      forwardPorts = [
+        {
+          protocol = "tcp";
+          hostPort = 5055;
+          containerPort = 5055;
+        }
+      ];
+      config =
+        { pkgs, ... }:
+        {
+          networking.useHostResolvConf = lib.mkForce false;
+          services.resolved.enable = true;
+          system.stateVersion = "26.05";
 
-        networking.firewall.enable = false;
+          networking.firewall.enable = false;
 
-        virtualisation.docker.enable = true;
-        environment.systemPackages = with pkgs; [
-          docker
-          docker-compose
-        ];
-
-        systemd.services.media-server-compose = {
-          description = "Media server Docker Compose stack";
-          wantedBy = ["multi-user.target"];
-          requires = ["docker.service"];
-          wants = ["network-online.target"];
-          after = [
-            "docker.service"
-            "network-online.target"
+          virtualisation.docker.enable = true;
+          environment.systemPackages = with pkgs; [
+            docker
+            docker-compose
           ];
-          restartTriggers = [composeFile];
 
-          serviceConfig = {
-            Type = "oneshot";
-            RemainAfterExit = true;
-            ExecStart = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} up -d --remove-orphans";
-            ExecStop = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} down";
-            ExecReload = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} up -d --remove-orphans";
-            TimeoutStartSec = 0;
+          systemd.services.media-server-compose = {
+            description = "Media server Docker Compose stack";
+            wantedBy = [ "multi-user.target" ];
+            requires = [ "docker.service" ];
+            wants = [ "network-online.target" ];
+            after = [
+              "docker.service"
+              "network-online.target"
+            ];
+            restartTriggers = [ composeFile ];
+
+            serviceConfig = {
+              Type = "oneshot";
+              RemainAfterExit = true;
+              ExecStart = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} up -d --remove-orphans";
+              ExecStop = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} down";
+              ExecReload = "${pkgs.docker-compose}/bin/docker-compose -p media-services -f ${composeFile} up -d --remove-orphans";
+              TimeoutStartSec = 0;
+            };
           };
-        };
 
-        networking.firewall.allowedTCPPorts = [
-          # 5000
-          5055
-        ];
-      };
+          networking.firewall.allowedTCPPorts = [
+            # 5000
+            5055
+          ];
+        };
     };
   };
 }

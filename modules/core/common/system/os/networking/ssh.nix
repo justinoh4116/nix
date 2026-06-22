@@ -89,7 +89,7 @@ in {
   };
 
   # Add my SSH keys to initrd for remote unlocking. Backdoor?!
-  boot.initrd.network.ssh.authorizedKeys = keys.justins;
+  boot.initrd.network.ssh.authorizedKeys = keys.all;
   programs.ssh = let
     # a list of hosts that are connected over Tailscale
     # it would be better to construct this list dynamically
@@ -113,7 +113,7 @@ in {
     extraConfig = ''
       ${hostConfig}
     '';
-    askPassword = "${pkgs.openssh-askpass}/bin/openssh-askpass";
+    askPassword = "${pkgs.ssh-askpass-fullscreen}/bin/ssh-askpass-fullscreen";
     enableAskPassword = true;
   };
 }
