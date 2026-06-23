@@ -23,6 +23,26 @@ in {
           ];
         }
         {
+          profile.name = "dockedoffice";
+          profile.outputs = [
+            {
+              criteria = "eDP-1";
+              # scale = 1.5;
+              scale = 1.33;
+              position = "0,0";
+            }
+            {
+              criteria = "Samsung Electric Company U28E590 HTPK503208";
+              # position = "-2560,0";
+              # position = "0,0";
+              # mode = "2560x1440@143.991";
+            }
+          ];
+          profile.exec = [
+            "noctalia-shell ipc call bar setDisplayMode auto_hide"
+          ];
+        }
+        {
           profile.name = "docked";
           profile.outputs = [
             {
