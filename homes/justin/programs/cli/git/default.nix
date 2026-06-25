@@ -12,6 +12,7 @@ in {
         name = "Justin Oh";
         email = "justinoh4116@gmail.com";
       };
+      safe.directory = "*";
     };
 
     signing = {

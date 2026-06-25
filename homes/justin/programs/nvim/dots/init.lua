@@ -13,13 +13,35 @@ vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.o.incsearch = true
 vim.o.ignorecase = true
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+
+vim.api.nvim_create_user_command("DiffOrig", function()
+	local file = vim.fn.expand("%:p")
+	if file == "" then
+		vim.notify("DiffOrig: current buffer has no file", vim.log.levels.WARN)
+		return
+	end
+
+	vim.cmd("vert new")
+	vim.bo.buftype = "nofile"
+	vim.bo.bufhidden = "wipe"
+	vim.bo.swapfile = false
+	vim.cmd("read ++edit " .. vim.fn.fnameescape(file))
+	vim.cmd("0delete_")
+	vim.cmd("diffthis")
+	vim.cmd("wincmd p")
+	vim.cmd("diffthis")
+end, { desc = "Diff current buffer against the file on disk" })
 
 vim.pack.add({
 	{ src = "https://github.com/saghen/blink.lib" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/vague2k/vague.nvim" },
 	{ src = "https://github.com/tamton-aquib/keys.nvim" },
-	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
+	{ src = "https://github.com/OXY2DEV/markview.nvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/chentoast/marks.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -173,7 +195,7 @@ cmp.setup({
 			draw = { columns = { { "label", "label_description", gap = 1 } } },
 		},
 	},
-	sources = { default = { "lsp", "path" } }, -- "buffer" } },
+	sources = { default = { "lsp", "path", "buffer" } },
 	cmdline = { enabled = false },
 })
 

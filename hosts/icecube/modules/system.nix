@@ -85,6 +85,14 @@
       HandleLidSwitchExternalPower = "ignore";
       HandleLidSwitchDocked = "ignore";
     };
+
+    virtualisation.docker.enable = true;
+    virtualisation.podman.dockerCompat = false;
+    environment.systemPackages = [pkgs.docker-compose];
+    modules.system.impermanence.root.extraDirectories = [
+      "/var/lib/docker"
+    ];
+
     services.kanata = {
       enable = true;
       keyboards.internal = {

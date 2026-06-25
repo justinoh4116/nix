@@ -9,7 +9,7 @@ in {
   config = lib.mkIf cfg.enable {
     virtualisation.podman = {
       enable = true;
-      dockerCompat = true;
+      dockerCompat = lib.mkDefault true;
     };
 
     environment.systemPackages = [pkgs.distrobox];
