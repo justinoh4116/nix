@@ -92,6 +92,7 @@ in {
             ".local/share/headroom-venv"
             ".headroom"
             ".config/t3code"
+            ".config/seance"
 
             # Codex Desktop
             ".codex"
@@ -102,6 +103,12 @@ in {
             ".local/state/codex-desktop"
             ".local/state/codex"
             ".t3"
+
+            # Pi coding agent: sessions, settings, auth, installed extensions, and tool data.
+            {
+              directory = ".pi";
+              mode = "0700";
+            }
 
             {
               directory = ".gnupg";

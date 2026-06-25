@@ -36,6 +36,7 @@
       pfetch-rs
       acpi
       cmake
+      gnumake
       rustup
       fzf
       skim

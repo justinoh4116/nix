@@ -151,7 +151,8 @@ media.justinoh.io {
 # # uri /api/authz/forward-auth?authelia_url=https://auth.justinoh.io/
 #     copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
 #   }
-  reverse_proxy http://192.168.0.65:5055
+  # reverse_proxy http://192.168.0.65:5055
+  reverse_proxy http://192.168.100.24:5055
 }
 
 sonarr.justinoh.io {

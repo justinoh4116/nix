@@ -41,6 +41,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    seance = {
+      url = "git+https://github.com/no1msd/seance?submodules=1";
+    };
+
     microvm.url = "github:astro/microvm.nix";
 
     # pin fixed freecad

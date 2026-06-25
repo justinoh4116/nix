@@ -17,9 +17,13 @@ in {
       localAddress = "192.168.101.4";
       bindMounts = {
         "/data" = {
-          hostPath = "/data/media";
+          hostPath = "/persist/media";
           isReadOnly = false;
         };
+        # "/data" = {
+        #   hostPath = "/data/media";
+        #   isReadOnly = false;
+        # };
         "/config" = {
           hostPath = "/persist/media-server-config";
           isReadOnly = false;
