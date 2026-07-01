@@ -152,6 +152,7 @@ vim.lsp.enable({
 	"arduino_language_server",
 	"nushell",
 	"ccls",
+	"slangd",
 })
 map("i", "<C-e>", function()
 	ls.expand()

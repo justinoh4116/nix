@@ -39,6 +39,7 @@ in {
   # '';
 
   home.packages = with pkgs; [
+    sv-lang
     nodejs # for copilot
     verible
     libclang

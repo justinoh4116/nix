@@ -9,6 +9,7 @@
   imports = [
     ./git
     ./latex.nix
+    ./npm.nix
     ./tmux.nix
     ./yazi.nix
 
