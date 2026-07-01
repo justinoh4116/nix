@@ -4,6 +4,7 @@
   args,
   lib,
   inputs,
+  self,
   ...
 }: {
   home.username = "justin";

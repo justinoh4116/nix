@@ -44,3 +44,7 @@ rtk pip list            rtk pnpm install        rtk npm run <script>
 - If a required CLI tool is not installed, agents may access it temporarily with `nix shell`, for example `nix shell nixpkgs#jq`.
 - If a project needs a reproducible development environment, agents may create a Nix flake (typically a `flake.nix` with a `devShell`) and use `nix develop`.
 <!-- /headroom:rtk-instructions -->
+
+## Notes for future agents
+
+- `bradwilson331/cmux-linux` currently has a broken `ghostty` submodule pointer (`4845e82d0713c29071fb78170491682c8b4c8495` is not fetchable from `manaflow-ai/ghostty`). The local Nix package therefore repackages the upstream `0.1.0` `.deb` release instead of building from source.

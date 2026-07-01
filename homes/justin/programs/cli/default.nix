@@ -16,6 +16,7 @@
   ];
   home.packages = with pkgs;
     [
+      verilator
       sshfs
       nushell
       codex

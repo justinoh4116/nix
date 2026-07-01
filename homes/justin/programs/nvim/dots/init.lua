@@ -12,7 +12,7 @@ vim.o.winborder = "rounded"
 vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.o.incsearch = true
-vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
@@ -120,6 +120,7 @@ map("n", "<F3>", vim.lsp.buf.format)
 map("n", "-", ":Oil<CR>")
 map("n", "<leader>w", ":update<CR>")
 map("n", "<leader>q", ":quit<CR>")
+map("n", "<leader>e", ":edit<CR>")
 map("n", "<leader>Q", ":wqa<CR>")
 map("n", "<leader>v", ":e $MYVIMRC <CR>")
 map("n", "<leader>t", ":e ~/do <CR>")

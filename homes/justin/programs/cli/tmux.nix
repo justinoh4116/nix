@@ -121,6 +121,8 @@ in {
                               set -ga terminal-overrides ",*256col*:Tc"
                               set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
                               set-environment -g COLORTERM "truecolor"
+                              set -g extended-keys on
+                              set -g extended-keys-format csi-u
 
                               # easy-to-remember split pane commands
                               bind | split-window -h -c "#{pane_current_path}"

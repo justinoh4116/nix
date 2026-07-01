@@ -13,8 +13,8 @@ in {
     containers.media-services = {
       autoStart = true;
       privateNetwork = true;
-      hostAddress = "192.168.101.3";
-      localAddress = "192.168.101.4";
+      hostAddress = "192.168.100.23";
+      localAddress = "192.168.100.24";
       bindMounts = {
         "/data" = {
           hostPath = "/persist/media";
