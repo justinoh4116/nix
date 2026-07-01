@@ -17,5 +17,6 @@
         prefix = "\${HOME}/safe/npm";
       };
     };
+    home.sessionPath = ["$HOME/safe/npm/bin"];
   };
 }
