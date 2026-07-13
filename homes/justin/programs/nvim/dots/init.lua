@@ -9,14 +9,14 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.g.mapleader = " "
 vim.o.winborder = "rounded"
-vim.o.swapfile = false
+vim.o.swapfile = true
 vim.o.termguicolors = true
 vim.o.incsearch = true
-vim.o.smartcase = true
+vim.o.ignorecase = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
+-- vim.o.foldlevel = 99
+-- vim.o.foldlevelstart = 99
 
 vim.api.nvim_create_user_command("DiffOrig", function()
 	local file = vim.fn.expand("%:p")
@@ -115,8 +115,18 @@ require("vague").setup({ transparent = true })
 vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
 
+local function format_keep_folds()
+	local view = vim.fn.winsaveview()
+	local foldenable = vim.wo.foldenable
+
+	vim.lsp.buf.format({ async = false })
+
+	vim.wo.foldenable = foldenable
+	vim.fn.winrestview(view)
+end
+
 local map = vim.keymap.set
-map("n", "<F3>", vim.lsp.buf.format)
+map("n", "<F3>", format_keep_folds)
 map("n", "-", ":Oil<CR>")
 map("n", "<leader>w", ":update<CR>")
 map("n", "<leader>q", ":quit<CR>")
@@ -197,6 +207,12 @@ cmp.setup({
 			draw = { columns = { { "label", "label_description", gap = 1 } } },
 		},
 	},
+	keymap = {
+		preset = "default",
+		["<C-S-N>"] = { "select_next", "fallback" },
+		["<C-S-P>"] = { "select_prev", "fallback" },
+		["<C-S-Y>"] = { "select_and_accept", "fallback" },
+	},
 	sources = { default = { "lsp", "path", "buffer" } },
 	cmdline = { enabled = false },
 })
@@ -219,7 +235,7 @@ cmp.setup({
 vim.cmd("set completeopt+=noselect")
 
 require("marks").setup({
-	builtin_marks = { ".", "<", ">", "^" },
+	-- builtin_marks = { ".", "<", ">", "^" },
 	-- whether movements cycle back to the beginning/end of buffer. default true
 	cyclic = true,
 })

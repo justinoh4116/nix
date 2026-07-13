@@ -36,6 +36,9 @@
         theme = "Vague";
 
         keybind = [
+          "ctrl+shift+p=unbind"
+          "ctrl+shift+n=unbind"
+
           "ctrl+shift++=increase_font_size:1"
           "ctrl+shift+-=decrease_font_size:1"
 
