@@ -35,6 +35,11 @@
     agenix-rekey.url = "github:oddlama/agenix-rekey";
 
     codex-desktop.url = "github:ilysenko/codex-desktop-linux";
+    claude-desktop = {
+      url = "github:k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.flake-utils.follows = "flake-utils";
+    };
 
     t3code = {
       url = "github:rodeyseijkens/t3code-nix";

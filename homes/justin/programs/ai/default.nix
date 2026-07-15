@@ -29,6 +29,9 @@
       ]
       ++ [
         (pkgs.lib.lowPrio inputs.seance.packages.${pkgs.stdenv.hostPlatform.system}.seance)
+        (inputs.claude-desktop.packages.${system}.claude-desktop.override {
+          nodePackages = {inherit (pkgs) asar;};
+        })
         # self.packages.${pkgs.stdenv.hostPlatform.system}.cmux-linux
       ];
   };
