@@ -25,6 +25,7 @@
         pi-coding-agent
         wl-clipboard
         worktrunk
+        claude-code
       ]
       ++ [
         (pkgs.lib.lowPrio inputs.seance.packages.${pkgs.stdenv.hostPlatform.system}.seance)

@@ -11,7 +11,7 @@
 in
   python.python3Packages.buildPythonPackage rec {
     pname = "headroom-ai";
-    version = "0.22.3";
+    version = "0.31.0";
     pyproject = true;
 
     src = fetchFromGitHub {
@@ -47,6 +47,7 @@ in
       ORT_STRATEGY = "system";
       ORT_LIB_LOCATION = "${lib.getLib onnxruntime}/lib";
       ORT_PREFER_DYNAMIC_LINK = "true";
+      PYO3_USE_ABI3_FORWARD_COMPATIBILITY = "1";
     };
 
     propagatedBuildInputs = with python.python3Packages; [

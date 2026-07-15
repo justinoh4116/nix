@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: let
-  quickshell = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  quickshell = pkgs.quickshell;
   codexbarVersion = "0.37.2";
   codexbar = pkgs.stdenv.mkDerivation {
     pname = "codexbar-cli";

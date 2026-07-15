@@ -29,9 +29,10 @@ in {
       (flakes: flakes // {nixpkgs.flake = inputs.nixpkgs;})
     ];
   in {
-    extraOptions = ''
-      !include ${config.age.secrets.nix-access-tokens-github.path}
-    '';
+    # Do not load the GitHub access-token secret here. If that token expires or is
+    # revoked, Nix sends it to GitHub for public fetches and GitHub replies 401
+    # "Bad credentials" instead of falling back to anonymous downloads.
+    extraOptions = "";
 
     # Lix, the higher performance Nix fork.
     package = pkgs.lix;

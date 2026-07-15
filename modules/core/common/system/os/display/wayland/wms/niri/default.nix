@@ -18,7 +18,7 @@ in {
     nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
     services.displayManager = {
-      defaultSession = "";
+      defaultSession = "niri";
       ly = {
         enable = true;
       };

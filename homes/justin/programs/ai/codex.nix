@@ -10,7 +10,7 @@
   ];
   config = {
     programs.codexDesktopLinux = {
-      enable = true;
+      # enable = true;
       computerUseUi.enable = true;
       remoteMobileControl.enable = true;
       remoteControl.enable = true;

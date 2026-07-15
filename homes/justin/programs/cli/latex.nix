@@ -79,7 +79,7 @@
 in {
   config = lib.mkIf env.programs.latex.enable {
     home.packages = [
-      texlive
+      # texlive
       pkgs.tectonic
       #pkgs.nur.repos.clefru.minionpro
     ];

@@ -52,8 +52,8 @@
         spotifywm
         obsidian
         zotero
-        ungoogled-chromium
-        freecad
+        # ungoogled-chromium
+        # freecad
         libreoffice
 
         bitwarden-desktop
