@@ -94,6 +94,9 @@ in {
             ".config/t3code"
             ".config/seance"
 
+            ".claude"
+            ".config/Claude"
+
             # Codex Desktop
             ".codex"
             ".config/Codex"

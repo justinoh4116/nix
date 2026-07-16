@@ -33,6 +33,7 @@
         graphviz
         netflix
         parsec-bin
+        rustdesk
         networkmanagerapplet
         vlc
         qbittorrent

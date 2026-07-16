@@ -77,6 +77,7 @@
           credentialsFile = config.age.secrets.framework-cachix-agent-token.path;
         };
         bolt.enable = true;
+        rustdesk.enable = true;
       };
     };
     services.logind.settings.Login = {

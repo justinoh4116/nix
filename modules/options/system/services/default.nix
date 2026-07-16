@@ -27,6 +27,7 @@ in {
     nextcloud.enable = mkEnableOption "nextcloud cloud file storage";
     paperless.enable = mkEnableOption "paperless files";
     pdf-vending-machine.enable = mkEnableOption "pdf vending machine";
+    rustdesk.enable = mkEnableOption "rustdesk remote desktop service";
     samba.enable = mkEnableOption "samba file sharing";
     site.enable = mkEnableOption "justinoh.io bun web app";
     vaultwarden.enable = mkEnableOption "vaultwarden password manager";
