@@ -33,6 +33,7 @@
         graphviz
         netflix
         parsec-bin
+        wayvnc
         rustdesk
         networkmanagerapplet
         vlc

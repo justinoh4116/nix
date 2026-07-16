@@ -39,6 +39,8 @@
       printing.enable = true;
 
       networking = {
+        firewall.allowedTCPPorts = [5900];
+
         tailscale = {
           enable = true;
           # autoConnect = false;
