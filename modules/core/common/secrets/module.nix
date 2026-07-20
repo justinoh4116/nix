@@ -120,6 +120,13 @@ in {
       group = "copyparty";
     };
 
+    wayvnc-password = mkAgenixSecret true {
+      file = "wayvnc-password.age";
+      owner = "justin";
+      group = "users";
+      mode = "600";
+    };
+
     framework-syncthing-key = mkAgenixSecret true {
       file = "syncthing-key.age";
     };

@@ -38,4 +38,5 @@ in {
   #"secret2.age".publicKeys = users ++ systems;
   "firefox-syncserver-secrets.age".publicKeys = users ++ systems;
   "copyparty-password.age".publicKeys = users ++ systems;
+  "wayvnc-password.age".publicKeys = users ++ systems;
 }

@@ -8,5 +8,6 @@
     # ./spotifyd.nix
     ./udiskie.nix
     ./wayland.nix
+    ./wayvnc.nix
   ];
 }

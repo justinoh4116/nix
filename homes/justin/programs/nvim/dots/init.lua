@@ -18,6 +18,34 @@ vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- vim.o.foldlevel = 99
 -- vim.o.foldlevelstart = 99
 
+-- Preserve each regular file's open/closed folds across buffer switches and restarts.
+vim.opt.viewoptions:append("folds")
+
+local saved_views = vim.api.nvim_create_augroup("saved_views", { clear = true })
+local function has_persistable_view(buf)
+	return vim.bo[buf].buflisted and vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) ~= ""
+end
+
+vim.api.nvim_create_autocmd("BufWinLeave", {
+	group = saved_views,
+	callback = function(args)
+		if has_persistable_view(args.buf) then
+			vim.cmd("silent! mkview")
+		end
+	end,
+	desc = "Save fold state for normal files",
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	group = saved_views,
+	callback = function(args)
+		if has_persistable_view(args.buf) then
+			vim.cmd("silent! loadview")
+		end
+	end,
+	desc = "Restore fold state for normal files",
+})
+
 vim.api.nvim_create_user_command("DiffOrig", function()
 	local file = vim.fn.expand("%:p")
 	if file == "" then
