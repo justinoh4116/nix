@@ -23,6 +23,7 @@
   config = lib.mkIf osConfig.modules.system.programs.gui.enable {
     home.packages = with pkgs;
       [
+        slack
         easyeffects
         gamescope
         # kiwitalk
