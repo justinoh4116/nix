@@ -6,33 +6,6 @@
   ...
 }: let
   quickshell = pkgs.quickshell;
-  codexbarVersion = "0.37.2";
-  codexbar = pkgs.stdenv.mkDerivation {
-    pname = "codexbar-cli";
-    version = codexbarVersion;
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/steipete/CodexBar/releases/download/v${codexbarVersion}/CodexBarCLI-v${codexbarVersion}-linux-musl-x86_64.tar.gz";
-      hash = "sha256-giiZX1r3VMkRXgPJnlmakol33KWtqnLyTfNv1lSlmZs=";
-    };
-
-    unpackPhase = ''
-      runHook preUnpack
-
-      tar -xzf "$src"
-
-      runHook postUnpack
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      install -Dm755 CodexBarCLI "$out/bin/CodexBarCLI"
-      ln -s CodexBarCLI "$out/bin/codexbar"
-
-      runHook postInstall
-    '';
-  };
   quickshellDnd = pkgs.writeShellApplication {
     name = "quickshell-dnd";
     runtimeInputs = with pkgs; [coreutils];
@@ -108,8 +81,6 @@
 
   dependencies = with pkgs; [
     bash
-    codex
-    codexbar
     coreutils
     gawk
     lsof
@@ -130,7 +101,6 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = [
       quickshell
-      codexbar
       quickshellDnd
     ];
 

@@ -42,7 +42,6 @@ PanelWindow {
             spacing: Config.spacing
 
             WorkspaceName {}
-            CodexUsage {}
         }
 
         // middle

@@ -202,7 +202,7 @@ in {
         "https://nixpkgs-unfree.cachix.org" # unfree-package cache
         "https://anyrun.cachix.org" # anyrun program launcher
         "https://neovim-flake.cachix.org" # a cache for my neovim flake
-        "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
+        # "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
         "https://ags.cachix.org" # ags
         "https://lanzaboote.cachix.org" # secure boot
       ];
@@ -215,7 +215,7 @@ in {
         "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs="
         "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
         "neovim-flake.cachix.org-1:iyQ6lHFhnB5UkVpxhQqLJbneWBTzM8LBYOFPLNH4qZw="
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
         "lanzaboote.cachix.org-1:Nt9//zGmqkg1k5iu+B3bkj3OmHKjSw9pvf3faffLLNk="
       ];

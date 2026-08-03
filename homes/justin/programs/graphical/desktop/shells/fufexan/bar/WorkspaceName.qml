@@ -7,8 +7,10 @@ Item {
     id: root
 
     property string workspaceName: ""
+    property string focusedWindowName: ""
     property string timeStatus: "stopped"
     property string timeSpent: ""
+    readonly property int maxWindowNameLength: 60
 
     Layout.fillHeight: true
     Layout.alignment: Qt.AlignVCenter
@@ -36,6 +38,11 @@ Item {
     function refreshTimeStatus() {
         if (!timeStatusFileProcess.running)
             timeStatusFileProcess.running = true;
+    }
+
+    function refreshFocusedWindow() {
+        if (!focusedWindowProcess.running)
+            focusedWindowProcess.running = true;
     }
 
     function refreshElapsedTime() {
@@ -69,18 +76,29 @@ Item {
         return !status || status === "stop" || status === "stopped";
     }
 
+    function truncateWindowName(name) {
+        if (name.length <= root.maxWindowNameLength)
+            return name;
+
+        return name.slice(0, root.maxWindowNameLength - 1) + "…";
+    }
+
     function formattedLabel() {
         const workspace = (root.workspaceName || "").trim();
+        const windowName = (root.focusedWindowName || "").trim();
         const status = (root.timeStatus || "").trim();
         const timeSpent = (root.timeSpent || "").trim();
+        const location = workspace && windowName
+            ? workspace + ": " + windowName
+            : workspace || windowName;
 
-        if (workspace && status && timeSpent)
-            return workspace + " | " + status + ": " + timeSpent;
+        if (location && status && timeSpent)
+            return location + " | " + status + ": " + timeSpent;
 
-        if (workspace && status)
-            return workspace + " | " + status;
+        if (location && status)
+            return location + " | " + status;
 
-        return workspace || status;
+        return location || status;
     }
 
     Process {
@@ -122,6 +140,21 @@ Item {
     }
 
     Process {
+        id: focusedWindowProcess
+        command: ["sh", "-c", "niri msg -j focused-window 2>/dev/null || printf 'null'"]
+        stdout: StdioCollector {
+            onStreamFinished: () => {
+                try {
+                    const window = JSON.parse(text || "null");
+                    root.focusedWindowName = root.truncateWindowName(String(window?.title || ""));
+                } catch (error) {
+                    root.focusedWindowName = "";
+                }
+            }
+        }
+    }
+
+    Process {
         id: elapsedTimeProcess
         command: ["sh", "-c", "timew 2>/dev/null | awk '/^ *Total/ {print $NF}'"]
         stdout: StdioCollector {
@@ -148,6 +181,14 @@ Item {
     }
 
     Timer {
+        id: focusedWindowTimer
+        interval: 500
+        running: true
+        repeat: true
+        onTriggered: root.refreshFocusedWindow()
+    }
+
+    Timer {
         id: elapsedTimeTimer
         interval: 30000
         running: true
@@ -157,6 +198,7 @@ Item {
 
     Component.onCompleted: {
         root.refreshWorkspace();
+        root.refreshFocusedWindow();
         root.refreshTimeStatus();
         root.refreshElapsedTime();
     }

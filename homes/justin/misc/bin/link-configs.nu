@@ -8,7 +8,7 @@ def backup-suffix [] {
 
 def ensure-link [source: string, destination: string] {
     let source = ($source | path expand)
-    let destination = ($destination | path expand)
+    let destination = ($destination | path expand -n)
     let parent = ($destination | path dirname)
 
     if not ($source | path exists) {
