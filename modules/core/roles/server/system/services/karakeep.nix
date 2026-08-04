@@ -46,7 +46,13 @@ in {
         };
 
         networking.firewall.allowedTCPPorts = [3000];
+        users.users.karakeep.uid = 999;
+        users.users.karakeep.group = "karakeep";
+        users.groups.karakeep.gid = 999;
       };
     };
+    users.users.karakeep.uid = 999;
+    users.users.karakeep.group = "karakeep";
+    users.groups.karakeep.gid = 999;
   };
 }

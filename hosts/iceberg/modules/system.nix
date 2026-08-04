@@ -43,11 +43,11 @@
       copyparty.enable = true;
       crowdsec.enable = true;
       ddclient.enable = true;
-      firefox-syncserver.enable = true;
+      firefox-syncserver.enable = false;
       immich.enable = true;
       karakeep.enable = true;
       media-server.enable = true;
-      minecraft.enable = true;
+      minecraft.enable = false;
       nextcloud.enable = true;
       paperless.enable = true;
       pdf-vending-machine.enable = true;

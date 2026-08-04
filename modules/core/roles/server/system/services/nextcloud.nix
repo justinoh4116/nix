@@ -25,10 +25,10 @@ in {
           isReadOnly = false;
         };
 
-        "/etc/resolv.conf" = {
-          hostPath = "/etc/resolv.conf";
-          isReadOnly = true;
-        };
+        # "/etc/resolv.conf" = {
+        #   hostPath = "/etc/resolv.conf";
+        #   isReadOnly = true;
+        # };
       };
       config = let
         hostConfig = config;
@@ -38,9 +38,9 @@ in {
           pkgs,
           ...
         }: {
-          # networking.useHostResolvConf = lib.mkForce false;
-          networking.useHostResolvConf = true;
-          # services.resolved.enable = true;
+          networking.useHostResolvConf = lib.mkForce false;
+          # networking.useHostResolvConf = true;
+          services.resolved.enable = true;
           system.stateVersion = "24.11";
 
           services.nextcloud = {

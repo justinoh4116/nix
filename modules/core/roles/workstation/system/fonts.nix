@@ -19,6 +19,7 @@
 
     packages = with pkgs;
       [
+        aileron
         work-sans
         dejavu_fonts
         noto-fonts
