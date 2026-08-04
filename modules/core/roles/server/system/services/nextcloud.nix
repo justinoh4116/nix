@@ -9,6 +9,7 @@ in {
   config = lib.mkIf cfg.enable {
     containers.nextcloud = {
       autoStart = true;
+      timeoutStartSec = "10min";
       privateNetwork = true;
       hostAddress = "192.168.100.7";
       localAddress = "192.168.100.8";
