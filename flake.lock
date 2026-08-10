@@ -404,6 +404,25 @@
         "type": "github"
       }
     },
+    "chatgpt-desktop": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1786378179,
+        "narHash": "sha256-1Y8HsukaGyD3ySxQfZoeWhwbkc5gV9JNQHRS5rfEddM=",
+        "owner": "ilysenko",
+        "repo": "codex-desktop-linux",
+        "rev": "7f48416a1f8b2225db7997b81c7db85e546ac9ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ilysenko",
+        "repo": "codex-desktop-linux",
+        "type": "github"
+      }
+    },
     "ci": {
       "inputs": {
         "blueprint": "blueprint",
@@ -428,7 +447,7 @@
     },
     "claude-desktop": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -444,25 +463,6 @@
       "original": {
         "owner": "k3d3",
         "repo": "claude-desktop-linux-flake",
-        "type": "github"
-      }
-    },
-    "codex-desktop": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_7"
-      },
-      "locked": {
-        "lastModified": 1783964044,
-        "narHash": "sha256-WWlCxyAZYsMjOiyJ4lsZpT+7/RxDP2vZnh65xitoKz0=",
-        "owner": "ilysenko",
-        "repo": "codex-desktop-linux",
-        "rev": "bb6791d59f136dd382a8f1f031f8e225b58991e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ilysenko",
-        "repo": "codex-desktop-linux",
         "type": "github"
       }
     },
@@ -3801,11 +3801,11 @@
     },
     "nixpkgs_21": {
       "locked": {
-        "lastModified": 1783776592,
-        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
+        "lastModified": 1785828668,
+        "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
+        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
         "type": "github"
       },
       "original": {
@@ -6332,8 +6332,8 @@
         "apple-fonts": "apple-fonts",
         "auto-cpufreq": "auto-cpufreq",
         "cachix-deploy-flake": "cachix-deploy-flake",
+        "chatgpt-desktop": "chatgpt-desktop",
         "claude-desktop": "claude-desktop",
-        "codex-desktop": "codex-desktop",
         "copyparty": "copyparty",
         "crowdsec": "crowdsec",
         "flake-parts": "flake-parts_4",

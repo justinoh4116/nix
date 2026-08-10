@@ -136,6 +136,7 @@ in {
         files =
           [
             # "do" # todos
+            ".claude.json"
             ".screenrc"
             ".config/dolphinrc"
             ".local/state/dolphinstaterc"

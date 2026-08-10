@@ -37,6 +37,7 @@ in
     nativeBuildInputs = with rustPlatform; [
       cargoSetupHook
       maturinBuildHook
+      python.python3Packages.pyprojectVersionPatchHook
     ];
 
     buildInputs = [
