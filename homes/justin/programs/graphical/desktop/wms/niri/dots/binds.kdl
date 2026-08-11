@@ -100,10 +100,10 @@ binds {
     Mod+D { focus-workspace "discord"; }
     // Mod+E { focus-workspace "explorer"; }
     Mod+E { spawn-sh "foot -T yazi yazi"; }
-    Mod+T { focus-workspace "misc1"; }
+    Mod+T { spawn-sh "$HOME/.local/bin/tt --vicinae"; }
     Mod+V { focus-workspace "vscode"; }
     Mod+A { focus-workspace "agents"; }
-    Mod+C { focus-workspace "chat"; }
+    Mod+C { focus-workspace "ai"; }
     Mod+6 { focus-workspace "6"; }
     Mod+7 { focus-workspace "7"; }
     Mod+8 { focus-workspace "8"; }
@@ -118,7 +118,7 @@ binds {
     Mod+Shift+A { move-column-to-workspace "agents"; }
     Mod+Shift+T { move-column-to-workspace "misc1"; }
     Mod+Shift+V { move-column-to-workspace "vscode"; }
-    Mod+Shift+C { move-column-to-workspace "chat"; }
+    Mod+Shift+C { move-column-to-workspace "ai"; }
     Mod+Shift+6 { move-column-to-workspace "6"; }
     Mod+Shift+7 { move-column-to-workspace "7"; }
     Mod+Shift+8 { move-column-to-workspace "8"; }
@@ -138,7 +138,7 @@ binds {
 
     Print { spawn "niri-screenshot" "area"; }
     Ctrl+Print { spawn "niri-screenshot" "output"; }
-    Alt+Print { spawn "niri-screenshot" "window"; }
+    Alt+Print { spawn-sh "niri msg pick-color | wl-copy"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 

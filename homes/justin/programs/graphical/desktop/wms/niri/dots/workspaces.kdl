@@ -1,5 +1,5 @@
 workspace "terminal"
-workspace "chat"
+workspace "ai"
 workspace "browser"
 workspace "misc1"
 workspace "spotify"

@@ -55,12 +55,12 @@ window-rule {
 
 window-rule {
   match app-id=r#"(?i)t3code"#
-  open-on-workspace "chat"
+  open-on-workspace "ai"
 }
 
 window-rule {
   match app-id=r#"(?i)codex-desktop"#
-  open-on-workspace "chat"
+  open-on-workspace "ai"
   background-effect {
     blur true
   }
@@ -73,6 +73,10 @@ window-rule {
 
 window-rule {
   match app-id="vicinae"
+
+  border {
+    off
+  }
 
   background-effect {
     blur true

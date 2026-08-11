@@ -34,7 +34,7 @@ in {
       systemd.enable = true;
 
       settings = {
-        close_on_focus_loss = true;
+        close_on_focus_loss = false;
         theme = {
           light = {
             name = "vicinae-light";
@@ -48,12 +48,19 @@ in {
 
         launcher_window = {
           opacity = 0.5;
+          compact_mode.enabled = true;
           # Let Niri own the window shape so the global rounded-corner rule applies.
-          client_side_decorations.enabled = false;
+          # client_side_decorations.enabled = false;
           layer_shell.enabled = false;
         };
 
         providers = {
+          files = {
+            preferences = {
+              indexingPaths = ["/home/justin"];
+            };
+          };
+
           "@Gelei/bluetooth-0" = {
             preferences = {
               connectionToggleable = true;

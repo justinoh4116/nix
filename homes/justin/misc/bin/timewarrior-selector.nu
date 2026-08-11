@@ -62,7 +62,7 @@ def get-skim-theme-args [] {
     }
 }
 
-def pick-category [] {
+def pick-category-skim [] {
     let skim_theme_args = (get-skim-theme-args)
     let result = (
         do {
@@ -75,10 +75,37 @@ def pick-category [] {
   $result
 }
 
-def main [] {
-    let selected = (pick-category)
+def pick-category-vicinae [] {
+    let result = (
+        $CATEGORIES
+        | str join (char newline)
+        | ^vicinae dmenu
+            --navigation-title "Timewarrior"
+            --placeholder "Select a time status"
+            --no-quick-look
+            --no-metadata
+            --no-footer
+        | complete
+    )
 
-    if (($selected | str trim) == "") {
+    if $result.exit_code != 0 {
+        ""
+    } else {
+        $result.stdout
+    }
+}
+
+def main [--vicinae] {
+    let selected = (
+        if $vicinae {
+            pick-category-vicinae
+        } else {
+            pick-category-skim
+        }
+        | str trim
+    )
+
+    if $selected == "" {
         exit 0
     }
 

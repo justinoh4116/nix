@@ -9,7 +9,7 @@ command = "wezterm"
 [empty.browser]
 command = "zen-beta"
 
-[empty.chat]
+[empty.ai]
 command = "codex-desktop"
 
 [empty.agents]

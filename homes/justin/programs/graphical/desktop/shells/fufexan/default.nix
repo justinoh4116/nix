@@ -88,6 +88,7 @@
     ripgrep
     procps
     quickshellDnd
+    timewarrior
     util-linux
   ];
 
