@@ -58,11 +58,11 @@
         ]
       );
   in {
-    icecube = mkNixosSystem {
+    penguin = mkNixosSystem {
       inherit withSystem;
-      hostname = "icecube";
+      hostname = "penguin";
       system = "x86_64-linux";
-      modules = mkModulesFor "icecube" {
+      modules = mkModulesFor "penguin" {
         roles = [laptop workstation];
         extraModules = [
           homes

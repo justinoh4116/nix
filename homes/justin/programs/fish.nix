@@ -31,8 +31,10 @@ args @ {
       }
     ];
     shellAliases = {
-      "ll" = "exa --long --git --header --icons";
-      "lla" = "exa --long --git --header --icons -a";
+      # `--icons` accepts an optional value; use `=always` so Fish does not
+      # bind the first path passed to the alias as that value.
+      "ll" = "exa --long --git --header --icons=always";
+      "lla" = "exa --long --git --header --icons=always -a";
       "textbooks" = "cd ~/safe/nextcloud/textbooks && zathura $(ls | anyrun --plugins libstdin.so)";
       "tx" = "tectonic -X";
     };
